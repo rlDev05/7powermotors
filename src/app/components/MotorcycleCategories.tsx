@@ -3,6 +3,12 @@ import { motion } from 'motion/react';
 import { ChevronRight } from 'lucide-react';
 import { ImageWithFallback } from '@/app/components/figma/ImageWithFallback';
 
+// 1. Imports
+import advRedImg from '@/styles/images/advred.png';
+import ScootDragImg from '@/styles/images/scootdrag.png';
+import Naked from '@/styles/images/naked.png';
+import CruiserImg from '@/styles/images/cruiser.png'; // Add your cruiser image import here
+
 interface CategoryCardProps {
   title: string;
   description: string;
@@ -19,7 +25,6 @@ function CategoryCard({ title, description, imageUrl, index }: CategoryCardProps
       transition={{ duration: 0.6, delay: index * 0.1 }}
       className="group relative overflow-hidden bg-card border border-border/50 hover:border-accent/50 transition-all duration-500"
     >
-      {/* Image */}
       <div className="relative h-80 overflow-hidden">
         <ImageWithFallback
           src={imageUrl}
@@ -29,7 +34,6 @@ function CategoryCard({ title, description, imageUrl, index }: CategoryCardProps
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
       </div>
 
-      {/* Content */}
       <div className="p-8">
         <h3
           className="mb-3"
@@ -75,30 +79,39 @@ export function MotorcycleCategories() {
     {
       title: 'SPORT',
       description:
-        'Precision-engineered performance machines. Built for speed, agility, and pure adrenaline.',
-      imageUrl:
-        'https://images.unsplash.com/photo-1640237039271-46cc45fb3dbc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzcG9ydCUyMGJpa2UlMjByYWNpbmclMjBtb3RvcmN5Y2xlfGVufDF8fHx8MTc3MDAwMDM2MXww&ixlib=rb-4.1.0&q=80&w=1080',
+        'Precision-engineered performance machines. Built for speed, agility, and pure adrenaline on the track or street.',
+      imageUrl: 'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?q=80&w=1080&auto=format&fit=crop',
     },
     {
-      title: 'CRUISER',
+      title: 'NAKED',
       description:
-        'Classic comfort meets modern engineering. Long-distance freedom with timeless style.',
-      imageUrl:
-        'https://images.unsplash.com/photo-1675868934032-0607db7734dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcnVpc2VyJTIwbW90b3JjeWNsZSUyMGhpZ2h3YXl8ZW58MXx8fHwxNzcwMDAwMzYyfDA&ixlib=rb-4.1.0&q=80&w=1080',
+        'Stripped-down styling meets raw power. An upright riding position perfect for urban aggression and canyon carving.',
+      imageUrl: Naked,
     },
     {
-      title: 'ELECTRIC',
+      title: 'SCOOTER',
       description:
-        'The future of riding. Zero emissions, instant torque, and cutting-edge innovation.',
-      imageUrl:
-        'https://images.unsplash.com/photo-1701666469257-319f272914c6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlbGVjdHJpYyUyMG1vdG9yY3ljbGUlMjBtb2Rlcm58ZW58MXx8fHwxNzcwMDAwMzYyfDA&ixlib=rb-4.1.0&q=80&w=1080',
+        'The ultimate in urban mobility. Sophisticated style, convenient storage, and efficiency for the modern commuter.',
+      imageUrl: ScootDragImg,
     },
+    {
+      title: 'ADVENTURE',
+      description:
+        'Go anywhere, do anything. Robust engineering designed for long-distance touring and off-road exploration.',
+      imageUrl: advRedImg,
+    },
+    {
+      title: 'CRUISER', // 2. New Category Added
+      description:
+        'Low-slung style and effortless torque. Designed for those who appreciate the journey as much as the destination.',
+      imageUrl: CruiserImg,
+    },
+  
   ];
 
   return (
     <section id="motorcycles" className="py-32 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -135,14 +148,13 @@ export function MotorcycleCategories() {
               lineHeight: 1.7,
             }}
           >
-            From race-ready sport bikes to classic cruisers and cutting-edge
-            electric models. Every 7POWER motorcycle is imported from world-renowned
-            brands, representing the pinnacle of engineering excellence.
+            From track-ready sport bikes to versatile adventure tourers. 
+            Every 7POWER motorcycle represents the pinnacle of engineering excellence.
           </p>
         </motion.div>
 
-        {/* Category Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* 3. Updated Grid Layout: Changed from lg:grid-cols-4 to lg:grid-cols-3 and xl:grid-cols-5 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
           {categories.map((category, index) => (
             <CategoryCard key={category.title} {...category} index={index} />
           ))}
