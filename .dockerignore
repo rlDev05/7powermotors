@@ -1,0 +1,13 @@
+node_modules
+dist
+.git
+.codex
+.agents
+npm-debug.log*
+README.md
+DELIVERY_SUMMARY.md
+DESIGN_DECISIONS.md
+PROJECT_STRUCTURE.md
+SEO_GUIDE.md
+BRAND_GUIDELINES.md
+ATTRIBUTIONS.md

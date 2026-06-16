@@ -8,22 +8,22 @@ export function Footer() {
 
   const footerLinks = {
     motorcycles: [
-      { label: 'Sport Bikes', href: '#motorcycles' },
-      { label: 'Cruisers', href: '#motorcycles' },
-      { label: 'Electric', href: '#motorcycles' },
-      { label: 'All Models', href: '#models' },
+      { label: 'Sport Bikes', href: '/motorcycles?category=sport' },
+      { label: 'Cruisers', href: '/motorcycles?category=cruiser' },
+      { label: 'Small Bikes', href: '/motorcycles?category=small-bike' },
+      { label: 'All Models', href: '/motorcycles' },
     ],
     services: [
-      { label: 'Sales & Financing', href: '#services' },
-      { label: 'Maintenance', href: '#services' },
-      { label: 'Custom Mods', href: '#services' },
-      { label: 'Parts Store', href: '#services' },
+      { label: 'Sales & Financing', href: '/#services' },
+      { label: 'Maintenance', href: '/#services' },
+      { label: 'Custom Mods', href: '/#services' },
+      { label: 'Parts Store', href: '/#services' },
     ],
     company: [
-      { label: 'About Us', href: '#about' },
-      { label: 'Community', href: '#about' },
-      { label: 'Testimonials', href: '#' },
-      { label: 'Contact', href: '#contact' },
+      { label: 'About Us', href: '/#about' },
+      { label: 'Community', href: '/#about' },
+      { label: 'Testimonials', href: '/#testimonials' },
+      { label: 'Contact', href: '/#contact' },
     ],
   };
 
@@ -245,7 +245,7 @@ export function Footer() {
               fontSize: '0.875rem',
             }}
           >
-            © {currentYear} 7POWER MOTORS. All rights reserved.
+            Copyright {currentYear} 7POWER MOTORS. All rights reserved.
           </p>
 
           {/* Social Links */}

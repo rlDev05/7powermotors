@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'motion/react';
+import { motion } from 'motion/react'; 
 import { ChevronRight } from 'lucide-react';
 import { ImageWithFallback } from '@/app/components/figma/ImageWithFallback';
 
@@ -7,7 +7,7 @@ import { ImageWithFallback } from '@/app/components/figma/ImageWithFallback';
 import advRedImg from '@/styles/images/advred.png';
 import ScootDragImg from '@/styles/images/scootdrag.png';
 import Naked from '@/styles/images/naked.png';
-import CruiserImg from '@/styles/images/cruiser.png'; // Add your cruiser image import here
+import CruiserImg from '@/styles/images/cruiser.png'; 
 
 interface CategoryCardProps {
   title: string;
@@ -17,6 +17,8 @@ interface CategoryCardProps {
 }
 
 function CategoryCard({ title, description, imageUrl, index }: CategoryCardProps) {
+  const categorySlug = title.toLowerCase().replace(/\s+/g, '-');
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
@@ -56,13 +58,15 @@ function CategoryCard({ title, description, imageUrl, index }: CategoryCardProps
         >
           {description}
         </p>
+        
+     
         <motion.a
-          href="#models"
-          className="inline-flex items-center gap-2 text-accent group-hover:gap-3 transition-all"
+          href={`/motorcycles?category=${categorySlug}`} 
+          className="inline-flex items-center gap-2 text-accent cursor-pointer group-hover:gap-3 transition-all"
           style={{
-            fontFamily: 'Inter, sans-serif',
-            fontSize: '0.875rem',
-            fontWeight: 600,
+              fontFamily: 'Inter, sans-serif',
+              fontSize: '0.875rem',
+              fontWeight: 600,
           }}
           whileHover={{ x: 5 }}
         >
@@ -89,7 +93,7 @@ export function MotorcycleCategories() {
       imageUrl: Naked,
     },
     {
-      title: 'SCOOTER',
+      title: 'SMALL BIKE',
       description:
         'The ultimate in urban mobility. Sophisticated style, convenient storage, and efficiency for the modern commuter.',
       imageUrl: ScootDragImg,
@@ -101,7 +105,7 @@ export function MotorcycleCategories() {
       imageUrl: advRedImg,
     },
     {
-      title: 'CRUISER', // 2. New Category Added
+      title: 'CRUISER', 
       description:
         'Low-slung style and effortless torque. Designed for those who appreciate the journey as much as the destination.',
       imageUrl: CruiserImg,
@@ -153,7 +157,6 @@ export function MotorcycleCategories() {
           </p>
         </motion.div>
 
-        {/* 3. Updated Grid Layout: Changed from lg:grid-cols-4 to lg:grid-cols-3 and xl:grid-cols-5 */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
           {categories.map((category, index) => (
             <CategoryCard key={category.title} {...category} index={index} />

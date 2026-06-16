@@ -7,11 +7,11 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { label: 'MOTORCYCLES', href: '#motorcycles' },
-    { label: 'MODELS', href: '#models' },
-    { label: 'SERVICES', href: '#services' },
-    { label: 'ABOUT', href: '#about' },
-    { label: 'CONTACT', href: '#contact' },
+    { label: 'MOTORCYCLES', href: '/motorcycles' },
+    { label: 'MODELS', href: '/#models' },
+    { label: 'SERVICES', href: '/#services' },
+    { label: 'ABOUT', href: '/#about' },
+    { label: 'CONTACT', href: '/#contact' },
   ];
 
   return (
@@ -47,7 +47,8 @@ export function Navbar() {
                 <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-accent group-hover:w-full transition-all duration-300" />
               </motion.a>
             ))}
-            <motion.button
+            <motion.a
+              href="/#contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="px-6 py-2 bg-accent text-accent-foreground tracking-wider transition-all hover:bg-accent/90"
@@ -58,7 +59,7 @@ export function Navbar() {
               }}
             >
               TEST RIDE
-            </motion.button>
+            </motion.a>
           </div>
 
           {/* Mobile menu button */}
@@ -94,16 +95,18 @@ export function Navbar() {
                   {item.label}
                 </a>
               ))}
-              <button
+              <a
+                href="/#contact"
                 className="w-full px-6 py-3 bg-accent text-accent-foreground tracking-wider transition-all hover:bg-accent/90"
                 style={{
                   fontFamily: 'Inter, sans-serif',
                   fontSize: '0.875rem',
                   fontWeight: 600,
                 }}
+                onClick={() => setMobileMenuOpen(false)}
               >
                 TEST RIDE
-              </button>
+              </a>
             </div>
           </motion.div>
         )}

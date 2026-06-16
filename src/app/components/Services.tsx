@@ -61,7 +61,7 @@ function ServiceCard({ icon, title, description, features, index }: ServiceCardP
               fontSize: '0.875rem',
             }}
           >
-            <span className="text-accent mt-1">•</span>
+            <span className="text-accent mt-1">-</span>
             {feature}
           </li>
         ))}
@@ -162,7 +162,7 @@ export function Services() {
               lineHeight: 1.7,
             }}
           >
-            From purchase to maintenance, customization to parts—we're your
+            From purchase to maintenance, customization to parts, we're your
             complete motorcycle partner. Premium service at every touchpoint.
           </p>
         </motion.div>
