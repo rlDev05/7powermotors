@@ -1,5 +1,5 @@
 import React from 'react';
-import powerMotorLogo from '@/styles/images/powermotorlogo.png';
+import powerMotorLogo from '@/styles/images/powermotorlogo-cropped.png';
 
 interface LogoProps {
   variant?: 'default' | 'minimal';
@@ -8,19 +8,19 @@ interface LogoProps {
 
 export function Logo({ variant = 'default', className = '' }: LogoProps) {
   return (
-    <div className={`flex items-center ${className}`}>
+    <div className={`flex items-center gap-2.5 ${className}`}>
       
-      <div className="relative flex h-14 w-9 shrink-0 items-center justify-start overflow-visible sm:h-16 sm:w-10">
+      <div className="relative flex h-14 w-11 shrink-0 items-center justify-center sm:h-16 sm:w-12">
         <img 
           src={powerMotorLogo} 
           alt="7 POWER lightning hand logo"
-          className="h-full w-[6.25rem] max-w-none object-contain sm:w-[3.75rem]"
+          className="h-full w-full object-contain"
         />
       </div>
       
       {/* Text Part */}
       {variant === 'default' && (
-        <div className="-ml-1.5 flex translate-y-[1px] flex-col items-start justify-center sm:-ml-2">
+        <div className="flex translate-y-[1px] flex-col items-start justify-center">
           <span
             className="block text-accent"
             style={{
