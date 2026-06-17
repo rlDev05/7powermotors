@@ -8,13 +8,13 @@ interface LogoProps {
 
 export function Logo({ variant = 'default', className = '' }: LogoProps) {
   return (
-    <div className={`flex items-center gap-3 ${className}`}>
+    <div className={`flex items-center gap-4 ${className}`}>
       
-      <div className="relative w-10 h-10 flex items-center justify-center">
+      <div className="relative flex h-14 w-14 items-center justify-center sm:h-16 sm:w-16">
         <img 
           src={powerMotorLogo} 
-          alt="Power Motor Logo"
-          className="w-full h-full object-contain"
+          alt="7 POWER lightning hand logo"
+          className="h-full w-full object-contain"
         />
       </div>
       
@@ -25,21 +25,21 @@ export function Logo({ variant = 'default', className = '' }: LogoProps) {
             className="text-accent tracking-wider"
             style={{
               fontFamily: 'Rajdhani, sans-serif',
-              fontSize: '1.5rem',
+              fontSize: '2rem',
               fontWeight: 700,
               letterSpacing: '0.05em',
             }}
           >
-            7POWER
+            POWER
           </span>
           <span
             className="text-foreground/70 tracking-widest"
             style={{
               fontFamily: 'Inter, sans-serif',
-              fontSize: '0.5rem',
+              fontSize: '0.58rem',
               fontWeight: 500,
               letterSpacing: '0.15em',
-              marginTop: '-2px',
+              marginTop: '-4px',
             }}
           >
             MOTORS
