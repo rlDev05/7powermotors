@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, ShieldCheck } from 'lucide-react';
 import { ImageWithFallback } from '@/app/components/figma/ImageWithFallback';
 import coatingApplicationImg from '@/styles/images/coating/coating-application-web.jpg';
+import heroVideo from '@/styles/videos/motor7power.mp4';
 
 export function Hero() {
   return (
@@ -16,12 +17,24 @@ export function Hero() {
           // @ts-expect-error fetchPriority is supported by modern browsers.
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-black/70" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
+        <video
+          className="absolute inset-0 h-full w-full object-cover"
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster={coatingApplicationImg}
+          aria-label="Cinematic 7 POWER motorcycle lifestyle hero video"
+        >
+          <source src={heroVideo} type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-black/35" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/45 to-background/10" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent" />
       </div>
 
-      <div className="absolute -top-32 -left-24 h-96 w-[44rem] rotate-[-12deg] bg-accent" />
-      <div className="absolute -bottom-32 right-[-18rem] h-96 w-[48rem] rotate-[-42deg] bg-accent/90" />
+      <div className="absolute -top-48 -left-40 h-72 w-[42rem] rotate-[-12deg] bg-accent/80" />
+      <div className="absolute -bottom-44 right-[-24rem] h-72 w-[42rem] rotate-[-42deg] bg-accent/70" />
 
       <div className="relative z-10 flex min-h-screen items-center px-4 pt-24 sm:px-6 lg:px-8">
         <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
