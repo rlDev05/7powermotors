@@ -8,19 +8,19 @@ interface LogoProps {
 
 export function Logo({ variant = 'default', className = '' }: LogoProps) {
   return (
-    <div className={`flex items-center gap-4 ${className}`}>
+    <div className={`flex items-center ${className}`}>
       
-      <div className="relative flex h-14 w-14 items-center justify-center sm:h-16 sm:w-16">
+      <div className="relative flex h-14 w-9 shrink-0 items-center justify-start overflow-visible sm:h-16 sm:w-10">
         <img 
           src={powerMotorLogo} 
           alt="7 POWER lightning hand logo"
-          className="h-full w-full object-contain"
+          className="h-full w-14 max-w-none object-contain sm:w-16"
         />
       </div>
       
       {/* Text Part */}
       {variant === 'default' && (
-        <div className="flex flex-col leading-none">
+        <div className="-ml-1 flex flex-col leading-none sm:-ml-1.5">
           <span
             className="text-accent tracking-wider"
             style={{
