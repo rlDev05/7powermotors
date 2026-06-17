@@ -67,14 +67,14 @@ export function Hero() {
               className="mt-10 flex flex-col gap-4 sm:flex-row"
             >
               <a
-                href="#contact"
+                href="/contact"
                 className="inline-flex items-center justify-center gap-2 bg-accent px-8 py-4 text-sm font-bold uppercase tracking-[0.12em] text-white transition hover:bg-accent/90"
               >
                 Partner With 7 POWER
                 <ArrowRight className="h-4 w-4" />
               </a>
               <a
-                href="#protection"
+                href="/services"
                 className="inline-flex items-center justify-center gap-2 border border-white/20 bg-white/5 px-8 py-4 text-sm font-bold uppercase tracking-[0.12em] text-white transition hover:border-accent hover:text-accent"
               >
                 Explore Coating Services

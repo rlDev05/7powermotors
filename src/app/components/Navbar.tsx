@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Logo } from '@/app/components/Logo';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -7,12 +8,11 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { label: 'STRATEGY', href: '/#strategy' },
-    { label: 'PROTECTION', href: '/#protection' },
-    { label: 'OBJECTIVES', href: '/#objectives' },
-    { label: 'SERVICES', href: '/#services' },
-    { label: 'CONTENT', href: '/#content' },
-    { label: 'CONTACT', href: '/#contact' },
+    { label: 'HOME', href: '/' },
+    { label: 'PRODUCTS', href: '/products' },
+    { label: 'SERVICES', href: '/services' },
+    { label: 'PARTNERS', href: '/#strategy' },
+    { label: 'CONTACT', href: '/contact' },
   ];
 
   return (
@@ -25,31 +25,30 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <motion.a
-            href="/"
+          <motion.div
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.2 }}
           >
-            <Logo />
-          </motion.a>
+            <Link to="/" aria-label="7 POWER home">
+              <Logo />
+            </Link>
+          </motion.div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <motion.a
+              <motion.div
                 key={item.label}
-                href={item.href}
                 className="text-sm tracking-wider text-muted-foreground hover:text-foreground transition-colors relative group"
                 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
               >
-                {item.label}
+                <Link to={item.href}>{item.label}</Link>
                 <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-accent group-hover:w-full transition-all duration-300" />
-              </motion.a>
+              </motion.div>
             ))}
-            <motion.a
-              href="/#contact"
+            <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="px-6 py-2 bg-accent text-accent-foreground tracking-wider transition-all hover:bg-accent/90"
@@ -59,8 +58,8 @@ export function Navbar() {
                 fontWeight: 600,
               }}
             >
-              PARTNER WITH US
-            </motion.a>
+              <Link to="/contact">PARTNER WITH US</Link>
+            </motion.div>
           </div>
 
           {/* Mobile menu button */}
@@ -86,18 +85,18 @@ export function Navbar() {
           >
             <div className="px-4 py-6 space-y-4">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.label}
-                  href={item.href}
+                  to={item.href}
                   className="block text-sm tracking-wider text-muted-foreground hover:text-foreground transition-colors py-2"
                   style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
-              <a
-                href="/#contact"
+              <Link
+                to="/contact"
                 className="w-full px-6 py-3 bg-accent text-accent-foreground tracking-wider transition-all hover:bg-accent/90"
                 style={{
                   fontFamily: 'Inter, sans-serif',
@@ -107,7 +106,7 @@ export function Navbar() {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 PARTNER WITH US
-              </a>
+              </Link>
             </div>
           </motion.div>
         )}

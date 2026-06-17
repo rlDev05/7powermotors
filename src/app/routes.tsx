@@ -3,6 +3,8 @@ import { createBrowserRouter, useRouteError, isRouteErrorResponse } from 'react-
 
 // Import your pages
 import Home from '@/app/pages/Home';
+import ServicesPage from '@/app/pages/ServicesPage';
+import ContactPage from '@/app/pages/ContactPage';
 import MotorcyclesPage from '@/app/motorcycles/MotorcyclesPage';
 import BikeDetailsPage from '@/app/motorcycles/BikeDetailsPage';
 
@@ -38,8 +40,24 @@ export const router = createBrowserRouter([
     element: <MotorcyclesPage />,
   },
   {
+    path: '/products',
+    element: <MotorcyclesPage />,
+  },
+  {
     path: '/motorcycles/:id', // This matches the useParams in BikeDetailsPage
     element: <BikeDetailsPage />,
+  },
+  {
+    path: '/products/:id',
+    element: <BikeDetailsPage />,
+  },
+  {
+    path: '/services',
+    element: <ServicesPage />,
+  },
+  {
+    path: '/contact',
+    element: <ContactPage />,
   },
   // --- CATCH-ALL ROUTE (404) ---
   {

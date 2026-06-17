@@ -95,7 +95,7 @@ export function Contact() {
                 {
                   icon: <Mail size={24} />,
                   title: 'Email Us',
-                  content: 'partners@cr1philippines.com',
+                  content: 'partners@7powermotors.com',
                   subContent: 'We respond within 24 hours',
                 },
               ].map((item, index) => (

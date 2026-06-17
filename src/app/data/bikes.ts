@@ -477,35 +477,6 @@ function resolveBikeAssets(bike: Bike): Bike {
           src: 'https://sketchfab.com/models/5b1e4f6f959440dfbadb2da759de1e15/embed'
         },
       },
-      {
-        id: '10',
-        name: 'Harley Iron',
-        category: 'cruiser',
-        price: 12000,
-        image: '/harley.jpg'
-      },
-      {
-        id: '11',
-        name: 'Harley Iron',
-        category: 'cruiser',
-        price: 12000,
-        image: '/harley.jpg'
-      },
-      {
-        id: '12',
-        name: 'Harley Iron',
-        category: 'cruiser',
-        price: 12000,
-        image: '/harley.jpg'
-      },
-      {
-        id: '5',
-        name: 'Harley Iron',
-        category: 'cruiser',
-        price: 12000,
-        image: '/harley.jpg'
-      },
-
   ];
 
 export const bikes: Bike[] = rawBikes.map(resolveBikeAssets);

@@ -8,22 +8,22 @@ export function Footer() {
 
   const footerLinks = {
     motorcycles: [
-      { label: 'Strategy', href: '/#strategy' },
-      { label: 'Protection', href: '/#protection' },
-      { label: 'Growth Plan', href: '/#objectives' },
-      { label: 'Education Themes', href: '/#content' },
+      { label: 'All Products', href: '/products' },
+      { label: 'Small Bikes', href: '/products?category=small-bike' },
+      { label: 'Naked Bikes', href: '/products?category=naked' },
+      { label: 'Adventure Bikes', href: '/products?category=adventure' },
     ],
     services: [
-      { label: '7 POWER Coating Care', href: '/#services' },
-      { label: 'Installer Training', href: '/#services' },
-      { label: 'Dealer Partnerships', href: '/#services' },
-      { label: 'Rider Education', href: '/#services' },
+      { label: '7 POWER Coating Care', href: '/services' },
+      { label: 'Installer Training', href: '/services' },
+      { label: 'Dealer Partnerships', href: '/services' },
+      { label: 'Rider Education', href: '/services' },
     ],
     company: [
       { label: 'Rider Proof', href: '/#proof' },
-      { label: 'B2B Program', href: '/#services' },
-      { label: 'Coverage Map', href: '/#contact' },
-      { label: 'Contact', href: '/#contact' },
+      { label: 'B2B Program', href: '/services' },
+      { label: 'Coverage Map', href: '/contact' },
+      { label: 'Contact', href: '/contact' },
     ],
   };
 
@@ -68,7 +68,7 @@ export function Footer() {
                 +63 7POWER
               </a>
               <a
-                href="mailto:partners@cr1philippines.com"
+                href="mailto:partners@7powermotors.com"
                 className="flex items-center gap-3 text-muted-foreground hover:text-accent transition-colors group"
                 style={{
                   fontFamily: 'Inter, sans-serif',
@@ -76,7 +76,7 @@ export function Footer() {
                 }}
               >
                 <Mail size={16} className="text-accent" />
-                partners@cr1philippines.com
+                partners@7powermotors.com
               </a>
               <div
                 className="flex items-start gap-3 text-muted-foreground"
@@ -102,7 +102,7 @@ export function Footer() {
                 letterSpacing: '0.05em',
               }}
             >
-              WEBSITE
+              PRODUCTS
             </h4>
             <ul className="space-y-3">
               {footerLinks.motorcycles.map((link) => (
