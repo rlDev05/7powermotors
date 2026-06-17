@@ -42,11 +42,11 @@ export function Hero() {
               transition={{ duration: 0.75, delay: 0.12 }}
               className="font-[Rajdhani] text-[clamp(3rem,8vw,6.7rem)] font-black uppercase leading-[0.88] tracking-normal text-white"
             >
-              Premium Finish.
+              Japanese Precision.
               <br />
-              Daily Roads.
+              Philippine Roads.
               <br />
-              <span className="text-accent">Lasting Protection.</span>
+              <span className="text-accent">Absolute Protection.</span>
             </motion.h1>
 
             <motion.p
@@ -55,9 +55,9 @@ export function Hero() {
               transition={{ duration: 0.7, delay: 0.25 }}
               className="mt-8 max-w-2xl text-base leading-8 text-white/75 sm:text-lg"
             >
-              7 POWER helps riders preserve the look, gloss, and confidence of
-              their motorcycles through careful surface preparation and
-              professionally applied coating services.
+              7 POWER brings a premium surface-care standard to riders who want
+              their motorcycles prepared for heat, rain, road grime, and daily
+              Philippine riding conditions.
             </motion.p>
 
             <motion.div
@@ -89,11 +89,11 @@ export function Hero() {
             className="hidden border-l border-white/10 pl-10 lg:block"
           >
             <p className="mb-6 text-sm font-bold uppercase tracking-[0.24em] text-accent">
-              Main Promise
+              Key Message
             </p>
             <p className="max-w-md font-[Rajdhani] text-4xl font-black uppercase leading-none text-white">
-              Professional coating services for riders, dealerships, and
-              service centers that care about finish quality.
+              Precision surface care for Philippine roads, built around
+              professional application and lasting finish confidence.
             </p>
             <div className="mt-10 grid grid-cols-3 gap-4 border-t border-white/10 pt-8">
               {[
