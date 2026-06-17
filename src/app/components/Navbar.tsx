@@ -7,10 +7,11 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { label: 'MOTORCYCLES', href: '/motorcycles' },
-    { label: 'MODELS', href: '/#models' },
+    { label: 'STRATEGY', href: '/#strategy' },
+    { label: 'PROTECTION', href: '/#protection' },
+    { label: 'OBJECTIVES', href: '/#objectives' },
     { label: 'SERVICES', href: '/#services' },
-    { label: 'ABOUT', href: '/#about' },
+    { label: 'CONTENT', href: '/#content' },
     { label: 'CONTACT', href: '/#contact' },
   ];
 
@@ -58,7 +59,7 @@ export function Navbar() {
                 fontWeight: 600,
               }}
             >
-              TEST RIDE
+              PARTNER WITH US
             </motion.a>
           </div>
 
@@ -105,7 +106,7 @@ export function Navbar() {
                 }}
                 onClick={() => setMobileMenuOpen(false)}
               >
-                TEST RIDE
+                PARTNER WITH US
               </a>
             </div>
           </motion.div>

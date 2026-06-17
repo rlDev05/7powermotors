@@ -1,232 +1,130 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Wrench, ShoppingBag, Settings, Package } from 'lucide-react';
+import { GraduationCap, Handshake, Shield, Sparkles } from 'lucide-react';
 import { ImageWithFallback } from '@/app/components/figma/ImageWithFallback';
+import ScootDragImg from '@/styles/images/scootdrag.png';
 
-interface ServiceCardProps {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-  features: string[];
-  index: number;
-}
-
-function ServiceCard({ icon, title, description, features, index }: ServiceCardProps) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="group p-8 bg-card border border-border/50 hover:border-accent/50 transition-all duration-500"
-    >
-      {/* Icon */}
-      <motion.div
-        whileHover={{ scale: 1.1, rotate: 5 }}
-        className="w-16 h-16 mb-6 flex items-center justify-center bg-accent/10 border border-accent/30 text-accent"
-      >
-        {icon}
-      </motion.div>
-
-      {/* Title & Description */}
-      <h3
-        className="mb-3"
-        style={{
-          fontFamily: 'Rajdhani, sans-serif',
-          fontSize: '1.75rem',
-          fontWeight: 700,
-        }}
-      >
-        {title}
-      </h3>
-      <p
-        className="text-muted-foreground mb-6"
-        style={{
-          fontFamily: 'Inter, sans-serif',
-          fontSize: '0.875rem',
-          lineHeight: 1.7,
-        }}
-      >
-        {description}
-      </p>
-
-      {/* Features List */}
-      <ul className="space-y-2">
-        {features.map((feature, idx) => (
-          <li
-            key={idx}
-            className="flex items-start gap-2 text-muted-foreground"
-            style={{
-              fontFamily: 'Inter, sans-serif',
-              fontSize: '0.875rem',
-            }}
-          >
-            <span className="text-accent mt-1">-</span>
-            {feature}
-          </li>
-        ))}
-      </ul>
-    </motion.div>
-  );
-}
+const services = [
+  {
+    icon: <Shield className="h-7 w-7" />,
+    title: 'CR-1 Glass Coating',
+    description:
+      'Professional coating application for motorcycles that need long-lasting gloss, easier cleaning, and stronger surface protection.',
+    items: ['Paint and surface protection', 'Gloss preservation', 'Road grime resistance'],
+  },
+  {
+    icon: <GraduationCap className="h-7 w-7" />,
+    title: 'Authorized Installer Training',
+    description:
+      'A pathway for service centers and detailing shops to apply CR-1 with consistent technique and quality control.',
+    items: ['Application standards', 'Product handling', 'Service process alignment'],
+  },
+  {
+    icon: <Handshake className="h-7 w-7" />,
+    title: 'Dealer & Shop Partnerships',
+    description:
+      'A premium upsell for motorcycle dealerships, distributors, detailing shops, and autocare businesses.',
+    items: ['B2B support', 'Partner enablement', 'Customer trust building'],
+  },
+  {
+    icon: <Sparkles className="h-7 w-7" />,
+    title: 'Rider Education Content',
+    description:
+      'Useful motormaintenance content that positions CR-1 as the expert in motorcycle preservation.',
+    items: ['Care tips', 'Before/after stories', 'Rider and shop testimonials'],
+  },
+];
 
 export function Services() {
-  const services = [
-    {
-      icon: <ShoppingBag size={32} />,
-      title: 'Sales & Financing',
-      description:
-        'Premium imported motorcycles with flexible financing options. Your dream ride, made accessible.',
-      features: [
-        'Competitive pricing on all models',
-        'Flexible financing & leasing',
-        'Trade-in programs available',
-        'Expert consultation & guidance',
-      ],
-    },
-    {
-      icon: <Wrench size={32} />,
-      title: 'Maintenance & Repair',
-      description:
-        'Factory-trained technicians and genuine parts. Keep your motorcycle running at peak performance.',
-      features: [
-        'Certified mechanics & technicians',
-        'Genuine OEM parts only',
-        'Comprehensive service packages',
-        'Quick turnaround times',
-      ],
-    },
-    {
-      icon: <Settings size={32} />,
-      title: 'Custom Modifications',
-      description:
-        'Personalize your ride with professional customization services. Performance upgrades and aesthetic enhancements.',
-      features: [
-        'Performance tuning & upgrades',
-        'Custom paint & graphics',
-        'Exhaust & suspension mods',
-        'Accessory installation',
-      ],
-    },
-    {
-      icon: <Package size={32} />,
-      title: 'Parts & Accessories',
-      description:
-        'Comprehensive inventory of parts and accessories from premium brands. Everything you need in one place.',
-      features: [
-        'OEM & aftermarket parts',
-        'Riding gear & apparel',
-        'Safety equipment',
-        'Fast delivery & shipping',
-      ],
-    },
-  ];
-
   return (
-    <section id="services" className="py-32 bg-secondary/30 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+    <section id="services" className="relative overflow-hidden bg-secondary/30 py-28">
+      <div className="absolute -left-32 top-0 h-80 w-[36rem] rotate-[-36deg] bg-accent" />
+
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="max-w-3xl mb-16"
+          transition={{ duration: 0.55 }}
+          className="mb-14 max-w-3xl"
         >
-          <span
-            className="text-accent tracking-[0.2em] mb-4 block"
-            style={{
-              fontFamily: 'Inter, sans-serif',
-              fontSize: '0.75rem',
-              fontWeight: 600,
-            }}
-          >
-            SERVICES
+          <span className="mb-4 block text-xs font-bold uppercase tracking-[0.24em] text-accent">
+            Service Network
           </span>
-          <h2
-            className="mb-6"
-            style={{
-              fontFamily: 'Rajdhani, sans-serif',
-              fontSize: 'clamp(2rem, 5vw, 3rem)',
-              fontWeight: 700,
-              letterSpacing: '-0.01em',
-            }}
-          >
-            Complete Care, Unmatched Service
+          <h2 className="font-[Rajdhani] text-[clamp(2.4rem,5vw,4.5rem)] font-black uppercase leading-none text-foreground">
+            Product, training, and partner support in one system.
           </h2>
-          <p
-            className="text-muted-foreground"
-            style={{
-              fontFamily: 'Inter, sans-serif',
-              fontSize: '1.125rem',
-              lineHeight: 1.7,
-            }}
-          >
-            From purchase to maintenance, customization to parts, we're your
-            complete motorcycle partner. Premium service at every touchpoint.
+          <p className="mt-6 text-lg leading-8 text-muted-foreground">
+            CR-1 is not only a coating product. It is a partner-ready program
+            for riders, shops, and dealerships that want premium surface
+            protection with a stronger business story.
           </p>
         </motion.div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-4">
           {services.map((service, index) => (
-            <ServiceCard key={service.title} {...service} index={index} />
+            <motion.div
+              key={service.title}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: index * 0.08 }}
+              className="border border-border/50 bg-card p-7 transition hover:border-accent/70"
+            >
+              <div className="mb-6 flex h-14 w-14 items-center justify-center bg-accent text-white">
+                {service.icon}
+              </div>
+              <h3 className="font-[Rajdhani] text-2xl font-black uppercase text-foreground">
+                {service.title}
+              </h3>
+              <p className="mt-4 text-sm leading-7 text-muted-foreground">
+                {service.description}
+              </p>
+              <ul className="mt-6 space-y-2">
+                {service.items.map((item) => (
+                  <li key={item} className="flex gap-2 text-sm text-muted-foreground">
+                    <span className="text-accent">-</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
           ))}
         </div>
 
-        {/* Image Banner with CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 32 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="relative h-96 overflow-hidden border border-border/50"
+          transition={{ duration: 0.65 }}
+          className="mt-16 grid min-h-[430px] grid-cols-1 overflow-hidden border border-border/50 bg-card lg:grid-cols-[0.95fr_1.05fr]"
         >
-          <ImageWithFallback
-            src="https://images.unsplash.com/photo-1636761358783-209512dccd98?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb3RvcmN5Y2xlJTIwbWVjaGFuaWMlMjB3b3Jrc2hvcHxlbnwxfHx8fDE3NzAwMDA0MjB8MA&ixlib=rb-4.1.0&q=80&w=1080"
-            alt="7POWER MOTORS Service Center"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent" />
-          
-          <div className="absolute inset-0 flex items-center">
-            <div className="max-w-2xl px-8 md:px-16">
-              <h3
-                className="mb-4"
-                style={{
-                  fontFamily: 'Rajdhani, sans-serif',
-                  fontSize: '2.5rem',
-                  fontWeight: 700,
-                  letterSpacing: '-0.01em',
-                }}
-              >
-                Schedule Your Service
-              </h3>
-              <p
-                className="text-muted-foreground mb-8"
-                style={{
-                  fontFamily: 'Inter, sans-serif',
-                  fontSize: '1.125rem',
-                  lineHeight: 1.7,
-                }}
-              >
-                Our certified technicians are ready to keep your motorcycle in
-                perfect condition. Book online or call us today.
-              </p>
-              <motion.a
-                href="#contact"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-block px-8 py-4 bg-accent text-accent-foreground hover:bg-accent/90 transition-all"
-                style={{
-                  fontFamily: 'Inter, sans-serif',
-                  fontSize: '0.875rem',
-                  fontWeight: 600,
-                }}
-              >
-                BOOK APPOINTMENT
-              </motion.a>
-            </div>
+          <div className="p-8 md:p-12">
+            <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-accent">
+              B2B Lead Generation
+            </p>
+            <h3 className="font-[Rajdhani] text-4xl font-black uppercase leading-none text-foreground md:text-5xl">
+              Help shops elevate their brand status.
+            </h3>
+            <p className="mt-6 text-base leading-8 text-muted-foreground">
+              CR-1 gives partners a premium service story: official Japanese
+              certification, application support, and a durable result that
+              helps customers feel the difference after every wash-and-ride.
+            </p>
+            <a
+              href="#contact"
+              className="mt-8 inline-flex bg-accent px-8 py-4 text-sm font-bold uppercase tracking-[0.12em] text-white transition hover:bg-accent/90"
+            >
+              Apply as a Partner
+            </a>
+          </div>
+          <div className="relative min-h-[320px]">
+            <ImageWithFallback
+              src={ScootDragImg}
+              alt="Motorcycle service and detailing"
+              className="h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-card via-transparent to-transparent" />
           </div>
         </motion.div>
       </div>

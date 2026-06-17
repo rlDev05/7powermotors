@@ -1,297 +1,106 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { ArrowRight, Gauge, Zap, Weight } from 'lucide-react';
+import React from 'react';
+import { motion } from 'motion/react';
+import { CheckCircle2, ArrowRight } from 'lucide-react';
 import { ImageWithFallback } from '@/app/components/figma/ImageWithFallback';
+import NakedImg from '@/styles/images/naked.png';
 
-// IMPORT THE FIXED MODAL AND TYPES
-import { MotorcycleModal, MotorcycleData } from './MotorcycleModal'; 
-
-import mfImgGray from '@/styles/images/featured/variantmf1/gray.png';
-import mfImgBlack from '@/styles/images/featured/variantmf1/black.png';
-
-import mfVideo from '@/styles/videos/mf1.mp4'; 
-import vsdImg from '@/styles/images/featured/vsd.png';
-// --- CARD COMPONENT ---
-// This handles the grid item display only
-interface MotorcycleCardProps extends MotorcycleData {
-  index: number;
-  onViewDetails: (bike: MotorcycleData) => void; 
-}
-
-function MotorcycleCard({
-  brand,
-  model,
-  tagline,
-  price,
-  imageUrl,
-  videoUrl,
-  specs,
-  featured,
-  availability,
-  details, 
-  index,
-  onViewDetails, 
-}: MotorcycleCardProps) {
-  
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  // Autoplay video on card hover/load
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.defaultMuted = true;
-      videoRef.current.play().catch((error) => console.log("Autoplay prevented:", error));
-    }
-  }, [videoUrl]);
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      className={`group relative bg-card border transition-all duration-500 ${
-        featured ? 'border-accent/50 lg:col-span-2' : 'border-border/50 hover:border-accent/30'
-      }`}
-    >
-      {featured && (
-        <div className="absolute top-6 right-6 z-10">
-          <span className="px-4 py-1.5 bg-accent text-accent-foreground tracking-[0.15em] text-[0.625rem] font-bold">
-            FEATURED
-          </span>
-        </div>
-      )}
-
-      {availability && !featured && (
-        <div className="absolute top-6 right-6 z-10">
-          <span className="px-3 py-1.5 bg-background/80 backdrop-blur-md border border-accent/40 text-foreground text-xs font-semibold">
-            {availability}
-          </span>
-        </div>
-      )}
-
-      <div className={`relative overflow-hidden ${featured ? 'h-96' : 'h-72'}`}>
-        {videoUrl ? (
-          <video
-            ref={videoRef}
-            autoPlay loop muted playsInline
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-          >
-            <source src={videoUrl} type="video/mp4" />
-          </video>
-        ) : (
-          <ImageWithFallback
-            src={imageUrl || ''}
-            alt={`${brand} ${model}`}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-          />
-        )}
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-90" />
-      </div>
-
-      <div className="p-6 lg:p-8">
-        <div className="mb-4">
-          <span className="text-accent tracking-[0.15em] block mb-2 text-xs font-semibold font-[Inter]">
-            {brand}
-          </span>
-          <h3 className={`mb-2 font-[Rajdhani] font-bold ${featured ? 'text-4xl' : 'text-3xl'}`}>
-            {model}
-          </h3>
-          <p className="text-muted-foreground text-sm leading-relaxed font-[Inter]">
-            {tagline}
-          </p>
-        </div>
-
-        <div className={`grid gap-4 mb-6 ${featured ? 'grid-cols-3' : 'grid-cols-2'}`}>
-          {specs.map((spec, idx) => (
-            <div key={idx} className="flex items-center gap-3">
-              <div className="text-accent">{spec.icon}</div>
-              <div>
-                <div className="text-foreground font-[Rajdhani] text-lg font-bold">{spec.value}</div>
-                <div className="text-muted-foreground text-[0.625rem] font-medium font-[Inter]">{spec.label}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="flex items-center justify-between pt-6 border-t border-border/50">
-          <div>
-            <span className="text-muted-foreground block mb-1 text-xs font-medium font-[Inter]">Starting at</span>
-            <span className="text-foreground font-[Rajdhani] text-2xl font-bold">{price}</span>
-          </div>
-          <motion.button
-            whileHover={{ scale: 1.05, x: 5 }}
-            whileTap={{ scale: 0.95 }}
-            // Pass the full bike object to the handler
-            onClick={() => onViewDetails({ 
-              brand, model, tagline, price, imageUrl, videoUrl, specs, featured, availability, details 
-            })}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-accent-foreground hover:bg-accent/90 transition-all font-[Inter] text-sm font-semibold cursor-pointer"
-          >
-            VIEW DETAILS
-            <ArrowRight size={16} />
-          </motion.button>
-        </div>
-      </div>
-    </motion.div>
-  );
-}
-
-// --- PARENT SECTION ---
-export function FeaturedModels() {
-  const [selectedBike, setSelectedBike] = useState<MotorcycleData | null>(null);
-
-  const models: MotorcycleData[] = [
-    {
-      brand: 'HONDA',
-      model: 'NC750X DCT 2025',
-      tagline: 'Smart Power. Effortless Control.',
-      price: '$26,499',
-      videoUrl: mfVideo, 
-      availability: '2 Units Left', 
-      specs: [
-        { icon: <Gauge size={20} />, label: 'TOP SPEED', value: '170 km/h' },
-        { icon: <Zap size={20} />, label: 'HORSEPOWER', value: '57.8 hp' },
-        { icon: <Weight size={20} />, label: 'WEIGHT', value: '226 kg' },
-      ],
-      featured: false,
-      details: {
-        features: [
-          "5.0 Inch TFT Full color LCD Meter",
-          "Headlight for wider light Distribution",
-          "Honda Roadsync Enables linkage with Smartphone",
-          "Intuitive 4-way select switch",
-          "2-pot Nissin Axial Calipers front brake",
-          "Large Capacity 23L luggage box"
-        ],
-        techSpecs: {
-          "Engine Type": "Water-cooled 4-stroke OHC 4 valve",
-          "Displacement": "745 cc",
-          "Max Power": "43kW(58PS) @ 6,750rpm",
-          "Transmission": "Electronic 6 speed (DCT)",
-          "Seat Height": "802MM",
-        },
-        variants: [
-            {
-                name: "Matte Deep Mud Grey",
-                hex: "#4a4a4a",
-                stock: "1 unit",
-                image: mfImgGray
-            },
-            {
-                name: "Echo Black R",
-                hex: "#000000",
-                stock: "1 unit",
-                image: mfImgBlack 
-            }
-        ]
-      }
-    },
-    {
-      brand: 'VESPA',
-      model: 'Vespa 946 Dragon',
-      tagline: 'Crafted Like Art. Ridden Like a Legend.',
-      price: '$28,395',
-      imageUrl: vsdImg,
-      availability: '2 Units Left',
-      specs: [
-        { icon: <Gauge size={20} />, label: 'MILEAGE', value: '45 kmpl' },
-        { icon: <Zap size={20} />, label: 'POWER', value: '10.93 PS' },
-        { icon: <Weight size={20} />, label: 'FUEL CAP', value: '8 L' },
-      ],
-      featured: false,
-      details: {
-        features: [
-          "Single cylinder, 4 stroke, 3 valve engine",
-          "Dual Channel ABS Braking System",
-          "Full LED Lighting (Headlight, Tail, Turn)",
-          "Digital Instrument Console & Odometer",
-          "Single arm front suspension with coil spring",
-          "Preload adjustable rear hydraulic shock"
-        ],
-        techSpecs: { 
-          "Engine": "150 cc Electronic Injection", 
-          "Power": "10.93 PS @ 7100 rpm", 
-          "Torque": "11.26 Nm @ 5300 rpm",
-          "Brakes": "Dual Disc 220mm",
-          "Tyres": "Tubeless 120/70-12 (F) / 130/70-12 (R)"
-        },
-      }
+const points = [
+  {
+    title: 'Japanese Technology & Standards',
+    text: 'Position CR-1 as a premium glass coating system from Japan, backed by disciplined application standards.',
   },
-      {
-        brand: 'HARLEY-DAVIDSON',
-        model: 'Street Glide',
-        tagline: 'American icon with modern performance',
-        price: '$22,999',
-        imageUrl: 'https://images.unsplash.com/photo-1676246848792-2f8eb33975b6?auto=format&fit=crop&q=80&w=1080',
-        specs: [
-          { icon: <Gauge size={20} />, label: 'TOP SPEED', value: '110 mph' },
-          { icon: <Zap size={20} />, label: 'TORQUE', value: '111 ft-lb' },
-          { icon: <Weight size={20} />, label: 'WEIGHT', value: '375 kg' },
-        ],
-        featured: false,
-        details: {
-           features: ["Milwaukee-Eight 114 V-Twin", "Boom! Box GTS Infotainment"],
-           techSpecs: { "Engine": "V-Twin", "Torque": "118 ft-lb", "Fuel Capacity": "6 Gal" },
-        }
-      },
-  ];
+  {
+    title: 'Professionally Applied',
+    text: 'A controlled service experience that separates CR-1 from DIY coatings and generic ceramic alternatives.',
+  },
+  {
+    title: 'Perfect Fit for Philippine Climate',
+    text: 'Designed for heat, UV exposure, acidic rain, daily dust, and road grime across Philippine riding conditions.',
+  },
+  {
+    title: 'Longer-Lasting Durability',
+    text: "Built to help preserve gloss, reduce cleaning fatigue, and protect a motorcycle's premium appearance over time.",
+  },
+];
 
+export function FeaturedModels() {
   return (
-    <section id="models" className="py-32 bg-secondary/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header Text */}
+    <section id="protection" className="relative overflow-hidden bg-secondary/30 py-28">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1fr_0.95fr] lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="max-w-3xl mb-16"
+          transition={{ duration: 0.55 }}
         >
-          <span className="text-accent tracking-[0.2em] mb-4 block text-xs font-semibold font-[Inter]">FEATURED MODELS</span>
-          <h2 className="mb-6 font-[Rajdhani] text-[clamp(2rem,5vw,3rem)] font-bold tracking-tight">Engineered Perfection</h2>
-          <p className="text-muted-foreground text-lg leading-relaxed font-[Inter]">
-            Handpicked from the world's most prestigious manufacturers.
+          <span className="mb-4 block text-xs font-bold uppercase tracking-[0.24em] text-accent">
+            Key Differentiators
+          </span>
+          <h2 className="font-[Rajdhani] text-[clamp(2.5rem,6vw,5rem)] font-black uppercase leading-none text-foreground">
+            Unique Selling Points
+          </h2>
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-muted-foreground">
+            The website now leads with protection value, not motorcycle
+            inventory. That is the clearer promise for CR-1 and the better path
+            for B2C and B2B lead generation.
           </p>
+
+          <div className="mt-12 space-y-6">
+            {points.map((point, index) => (
+              <motion.div
+                key={point.title}
+                initial={{ opacity: 0, x: -24 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: index * 0.08 }}
+                className="flex gap-5"
+              >
+                <CheckCircle2 className="mt-1 h-8 w-8 shrink-0 fill-accent text-white" />
+                <div>
+                  <h3 className="font-[Rajdhani] text-2xl font-black uppercase text-foreground">
+                    {point.title}
+                  </h3>
+                  <p className="mt-1 text-base leading-7 text-muted-foreground">
+                    {point.text}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <a
+            href="#contact"
+            className="mt-12 inline-flex items-center gap-2 bg-accent px-8 py-4 text-sm font-bold uppercase tracking-[0.12em] text-white transition hover:bg-accent/90"
+          >
+            Ask About CR-1 Application
+            <ArrowRight className="h-4 w-4" />
+          </a>
         </motion.div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {models.map((model, index) => (
-            <MotorcycleCard 
-                key={model.model} 
-                {...model} 
-                index={index} 
-                onViewDetails={setSelectedBike} 
-            />
-          ))}
-        </div>
-
-        {/* View All Button */}
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, x: 35 }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16 text-center"
+          transition={{ duration: 0.65 }}
+          className="relative min-h-[560px] overflow-hidden border border-border/50"
         >
-          <motion.a
-            href="/motorcycles"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.98 }}
-            className="inline-flex items-center gap-2 px-8 py-4 border border-border hover:border-accent text-foreground hover:text-accent transition-all text-sm font-semibold font-[Inter]"
-          >
-            VIEW ALL MODELS
-            <ArrowRight size={18} />
-          </motion.a>
+          <ImageWithFallback
+            src={NakedImg}
+            alt="Motorcycle surface protected by CR-1"
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+          <div className="absolute -bottom-24 -right-24 h-72 w-96 rotate-[-38deg] bg-accent" />
+          <div className="absolute bottom-0 left-0 max-w-lg p-8">
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-accent">
+              Brand Role
+            </p>
+            <p className="font-[Rajdhani] text-4xl font-black uppercase leading-none text-white">
+              Invisible armor for motorcycles that need to stay showroom-sharp.
+            </p>
+          </div>
         </motion.div>
       </div>
-
-      {/* Render the standalone Modal */}
-      <MotorcycleModal 
-        isOpen={!!selectedBike}
-        bike={selectedBike} 
-        onClose={() => setSelectedBike(null)} 
-      />
     </section>
   );
 }

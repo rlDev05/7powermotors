@@ -22,7 +22,7 @@ export function Logo({ variant = 'default', className = '' }: LogoProps) {
       {variant === 'default' && (
         <div className="flex flex-col leading-none">
           <span
-            className="text-[#ff6f00] tracking-wider"
+            className="text-accent tracking-wider"
             style={{
               fontFamily: 'Rajdhani, sans-serif',
               fontSize: '1.5rem',
@@ -30,10 +30,10 @@ export function Logo({ variant = 'default', className = '' }: LogoProps) {
               letterSpacing: '0.05em',
             }}
           >
-            7POWER
+            CR-1
           </span>
           <span
-            className="text-[#eeff00] tracking-widest"
+            className="text-foreground/70 tracking-widest"
             style={{
               fontFamily: 'Inter, sans-serif',
               fontSize: '0.5rem',
@@ -42,7 +42,7 @@ export function Logo({ variant = 'default', className = '' }: LogoProps) {
               marginTop: '-2px',
             }}
           >
-            MOTORS
+            GLASS COATING
           </span>
         </div>
       )}

@@ -1,166 +1,116 @@
 import React from 'react';
-import { motion } from 'motion/react'; 
-import { ChevronRight } from 'lucide-react';
+import { motion } from 'motion/react';
+import { Building2, Users, Wrench, MapPinned } from 'lucide-react';
 import { ImageWithFallback } from '@/app/components/figma/ImageWithFallback';
+import CruiserImg from '@/styles/images/cruiser.png';
 
-// 1. Imports
-import advRedImg from '@/styles/images/advred.png';
-import ScootDragImg from '@/styles/images/scootdrag.png';
-import Naked from '@/styles/images/naked.png';
-import CruiserImg from '@/styles/images/cruiser.png'; 
-
-interface CategoryCardProps {
-  title: string;
-  description: string;
-  imageUrl: string;
-  index: number;
-}
-
-function CategoryCard({ title, description, imageUrl, index }: CategoryCardProps) {
-  const categorySlug = title.toLowerCase().replace(/\s+/g, '-');
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="group relative overflow-hidden bg-card border border-border/50 hover:border-accent/50 transition-all duration-500"
-    >
-      <div className="relative h-80 overflow-hidden">
-        <ImageWithFallback
-          src={imageUrl}
-          alt={title}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
-      </div>
-
-      <div className="p-8">
-        <h3
-          className="mb-3"
-          style={{
-            fontFamily: 'Rajdhani, sans-serif',
-            fontSize: '1.75rem',
-            fontWeight: 700,
-            letterSpacing: '0.02em',
-          }}
-        >
-          {title}
-        </h3>
-        <p
-          className="text-muted-foreground mb-6"
-          style={{
-            fontFamily: 'Inter, sans-serif',
-            fontSize: '0.875rem',
-            lineHeight: 1.7,
-          }}
-        >
-          {description}
-        </p>
-        
-     
-        <motion.a
-          href={`/motorcycles?category=${categorySlug}`} 
-          className="inline-flex items-center gap-2 text-accent cursor-pointer group-hover:gap-3 transition-all"
-          style={{
-              fontFamily: 'Inter, sans-serif',
-              fontSize: '0.875rem',
-              fontWeight: 600,
-          }}
-          whileHover={{ x: 5 }}
-        >
-          EXPLORE
-          <ChevronRight size={16} />
-        </motion.a>
-      </div>
-    </motion.div>
-  );
-}
+const audiences = [
+  {
+    icon: <Users className="h-7 w-7" />,
+    title: 'B2C Riders',
+    subtitle: 'Motorcycle owners, enthusiasts, collectors, and communities.',
+    details:
+      'For riders who see their motorcycle as an extension of identity and want showroom shine that lasts longer than ordinary detailing.',
+  },
+  {
+    icon: <Building2 className="h-7 w-7" />,
+    title: 'B2B Partners',
+    subtitle: 'Dealerships, distributors, detailing shops, and autocare businesses.',
+    details:
+      'For shops that need a premium upsell, official application training, and a protection system that strengthens customer trust.',
+  },
+  {
+    icon: <Wrench className="h-7 w-7" />,
+    title: 'Service Centers',
+    subtitle: 'Authorized CR-1 application centers across key motorcycle hubs.',
+    details:
+      'A professional network built around process control, product support, and consistent application quality.',
+  },
+  {
+    icon: <MapPinned className="h-7 w-7" />,
+    title: 'Growth Markets',
+    subtitle: 'Metro Manila, Cebu, Davao, Iloilo, Clark, and Pampanga.',
+    details:
+      'Focused expansion in regions where premium motorcycles, rider communities, and service businesses are already active.',
+  },
+];
 
 export function MotorcycleCategories() {
-  const categories = [
-    {
-      title: 'SPORT',
-      description:
-        'Precision-engineered performance machines. Built for speed, agility, and pure adrenaline on the track or street.',
-      imageUrl: 'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?q=80&w=1080&auto=format&fit=crop',
-    },
-    {
-      title: 'NAKED',
-      description:
-        'Stripped-down styling meets raw power. An upright riding position perfect for urban aggression and canyon carving.',
-      imageUrl: Naked,
-    },
-    {
-      title: 'SMALL BIKE',
-      description:
-        'The ultimate in urban mobility. Sophisticated style, convenient storage, and efficiency for the modern commuter.',
-      imageUrl: ScootDragImg,
-    },
-    {
-      title: 'ADVENTURE',
-      description:
-        'Go anywhere, do anything. Robust engineering designed for long-distance touring and off-road exploration.',
-      imageUrl: advRedImg,
-    },
-    {
-      title: 'CRUISER', 
-      description:
-        'Low-slung style and effortless torque. Designed for those who appreciate the journey as much as the destination.',
-      imageUrl: CruiserImg,
-    },
-  
-  ];
-
   return (
-    <section id="motorcycles" className="py-32 bg-background">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="strategy" className="relative overflow-hidden bg-background py-28">
+      <div className="absolute -right-32 top-10 h-72 w-[32rem] rotate-[-38deg] bg-accent/90" />
+      <div className="absolute -left-40 bottom-0 h-64 w-[36rem] rotate-[-30deg] bg-accent/20" />
+
+      <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 gap-14 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: -35 }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="max-w-3xl mb-16"
+          className="relative min-h-[520px] overflow-hidden border border-border/50"
         >
-          <span
-            className="text-accent tracking-[0.2em] mb-4 block"
-            style={{
-              fontFamily: 'Inter, sans-serif',
-              fontSize: '0.75rem',
-              fontWeight: 600,
-            }}
-          >
-            CATEGORIES
-          </span>
-          <h2
-            className="mb-6"
-            style={{
-              fontFamily: 'Rajdhani, sans-serif',
-              fontSize: 'clamp(2rem, 5vw, 3rem)',
-              fontWeight: 700,
-              letterSpacing: '-0.01em',
-            }}
-          >
-            Find Your Perfect Ride
-          </h2>
-          <p
-            className="text-muted-foreground"
-            style={{
-              fontFamily: 'Inter, sans-serif',
-              fontSize: '1.125rem',
-              lineHeight: 1.7,
-            }}
-          >
-            From track-ready sport bikes to versatile adventure tourers. 
-            Every 7POWER motorcycle represents the pinnacle of engineering excellence.
-          </p>
+          <ImageWithFallback
+            src={CruiserImg}
+            alt="Premium motorcycle protected with CR-1 coating"
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/45 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 p-8">
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-accent">
+              Strategic Vision
+            </p>
+            <h2 className="font-[Rajdhani] text-4xl font-black uppercase leading-none text-white sm:text-5xl">
+              Build the country&apos;s most trusted motorcycle glass coating network.
+            </h2>
+          </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-          {categories.map((category, index) => (
-            <CategoryCard key={category.title} {...category} index={index} />
-          ))}
+        <div>
+          <motion.div
+            initial={{ opacity: 0, y: 22 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.55 }}
+            className="mb-12 max-w-3xl"
+          >
+            <span className="mb-4 block text-xs font-bold uppercase tracking-[0.24em] text-accent">
+              Business Objectives
+            </span>
+            <h2 className="font-[Rajdhani] text-[clamp(2.4rem,5vw,4.5rem)] font-black uppercase leading-none text-foreground">
+              From awareness to authorized application centers.
+            </h2>
+            <p className="mt-6 text-lg leading-8 text-muted-foreground">
+              CR-1 aims to become the top-of-mind premium glass coating brand
+              for motorcycle owners and the preferred coating partner for shops
+              serving the riding community.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+            {audiences.map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: index * 0.08 }}
+                className="border border-border/50 bg-card p-6 transition hover:border-accent/70"
+              >
+                <div className="mb-5 flex h-14 w-14 items-center justify-center bg-accent text-white">
+                  {item.icon}
+                </div>
+                <h3 className="font-[Rajdhani] text-2xl font-black uppercase text-foreground">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-sm font-bold uppercase tracking-wide text-accent">
+                  {item.subtitle}
+                </p>
+                <p className="mt-4 text-sm leading-7 text-muted-foreground">
+                  {item.details}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

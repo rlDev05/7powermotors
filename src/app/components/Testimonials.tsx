@@ -1,208 +1,80 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { ChevronLeft, ChevronRight, Star, Quote } from 'lucide-react';
+import React from 'react';
+import { motion } from 'motion/react';
+import { Quote, Star } from 'lucide-react';
 
-interface Testimonial {
-  name: string;
-  role: string;
-  content: string;
-  rating: number;
-  motorcycle: string;
-}
+const testimonials = [
+  {
+    quote:
+      'The bike stays easier to clean after long rides. It still looks polished even after rain and road dust.',
+    name: 'Motorcycle Owner',
+    role: 'B2C Rider',
+  },
+  {
+    quote:
+      'CR-1 gives our shop a premium service with a stronger story than ordinary coating packages.',
+    name: 'Detailing Shop Partner',
+    role: 'B2B Service Center',
+  },
+  {
+    quote:
+      'Customers understand the value quickly when they see protection, gloss, and the Japanese-standard positioning.',
+    name: 'Motorcycle Dealer',
+    role: 'Dealer Partner',
+  },
+];
 
 export function Testimonials() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const testimonials: Testimonial[] = [
-    {
-      name: 'Marcus Chen',
-      role: 'Professional Rider',
-      content:
-        'The level of expertise at 7POWER is unmatched. They helped me find the perfect sport bike and the service has been exceptional. Every detail matters to them.',
-      rating: 5,
-      motorcycle: 'Yamaha YZF-R1M',
-    },
-    {
-      name: 'Sarah Williams',
-      role: 'Weekend Enthusiast',
-      content:
-        'I was nervous about buying my first motorcycle, but the team made the entire process smooth and educational. Two years later, I still get the best service.',
-      rating: 5,
-      motorcycle: 'Ducati Panigale V2',
-    },
-    {
-      name: 'David Rodriguez',
-      role: 'Long-Distance Cruiser',
-      content:
-        'Premium quality, premium service. The maintenance team keeps my bike running like new. These guys understand what it means to ride with passion.',
-      rating: 5,
-      motorcycle: 'Harley-Davidson Street Glide',
-    },
-  ];
-
-  const nextTestimonial = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const prevTestimonial = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
-
   return (
-    <section className="py-32 bg-background relative overflow-hidden">
-      {/* Accent Line */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
-
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+    <section id="proof" className="relative overflow-hidden bg-background py-28">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.55 }}
+          className="mx-auto mb-14 max-w-3xl text-center"
         >
-          <span
-            className="text-accent tracking-[0.2em] mb-4 block"
-            style={{
-              fontFamily: 'Inter, sans-serif',
-              fontSize: '0.75rem',
-              fontWeight: 600,
-            }}
-          >
-            TESTIMONIALS
+          <span className="mb-4 block text-xs font-bold uppercase tracking-[0.24em] text-accent">
+            Rider & Partner Proof
           </span>
-          <h2
-            className="mb-6"
-            style={{
-              fontFamily: 'Rajdhani, sans-serif',
-              fontSize: 'clamp(2rem, 5vw, 3rem)',
-              fontWeight: 700,
-              letterSpacing: '-0.01em',
-            }}
-          >
-            Trusted by Riders Worldwide
+          <h2 className="font-[Rajdhani] text-[clamp(2.4rem,5vw,4.5rem)] font-black uppercase leading-none text-foreground">
+            Let the riding community do the talking.
           </h2>
         </motion.div>
 
-        {/* Testimonial Carousel */}
-        <div className="relative">
-          <AnimatePresence mode="wait">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          {testimonials.map((item, index) => (
             <motion.div
-              key={currentIndex}
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -50 }}
-              transition={{ duration: 0.5 }}
-              className="max-w-4xl mx-auto"
+              key={item.role}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: index * 0.08 }}
+              className="border border-border/50 bg-card p-8"
             >
-              {/* Quote Icon */}
-              <div className="flex justify-center mb-8">
-                <div className="w-16 h-16 flex items-center justify-center border border-accent/30 bg-accent/10">
-                  <Quote className="text-accent" size={32} />
-                </div>
-              </div>
-
-              {/* Content */}
-              <blockquote
-                className="text-center mb-8"
-                style={{
-                  fontFamily: 'Inter, sans-serif',
-                  fontSize: '1.25rem',
-                  lineHeight: 1.8,
-                  color: 'var(--foreground)',
-                }}
-              >
-                "{testimonials[currentIndex].content}"
-              </blockquote>
-
-              {/* Rating */}
-              <div className="flex justify-center gap-1 mb-6">
-                {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                  <Star key={i} size={20} className="fill-accent text-accent" />
+              <Quote className="mb-6 h-10 w-10 text-accent" />
+              <p className="min-h-32 text-lg leading-8 text-foreground">
+                "{item.quote}"
+              </p>
+              <div className="mt-8 flex gap-1">
+                {[0, 1, 2, 3, 4].map((star) => (
+                  <Star key={star} className="h-4 w-4 fill-accent text-accent" />
                 ))}
               </div>
-
-              {/* Author Info */}
-              <div className="text-center">
-                <div
-                  className="mb-1"
-                  style={{
-                    fontFamily: 'Rajdhani, sans-serif',
-                    fontSize: '1.25rem',
-                    fontWeight: 700,
-                  }}
-                >
-                  {testimonials[currentIndex].name}
-                </div>
-                <div
-                  className="text-muted-foreground mb-1"
-                  style={{
-                    fontFamily: 'Inter, sans-serif',
-                    fontSize: '0.875rem',
-                    fontWeight: 500,
-                  }}
-                >
-                  {testimonials[currentIndex].role}
-                </div>
-                <div
-                  className="text-accent"
-                  style={{
-                    fontFamily: 'Inter, sans-serif',
-                    fontSize: '0.75rem',
-                    fontWeight: 600,
-                    letterSpacing: '0.05em',
-                  }}
-                >
-                  {testimonials[currentIndex].motorcycle}
-                </div>
+              <div className="mt-5 border-t border-border/50 pt-5">
+                <p className="font-[Rajdhani] text-xl font-black uppercase text-foreground">
+                  {item.name}
+                </p>
+                <p className="text-sm font-bold uppercase tracking-wider text-accent">
+                  {item.role}
+                </p>
               </div>
             </motion.div>
-          </AnimatePresence>
-
-          {/* Navigation Buttons */}
-          <div className="flex justify-center gap-4 mt-12">
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={prevTestimonial}
-              className="w-12 h-12 flex items-center justify-center border border-border hover:border-accent text-foreground hover:text-accent transition-all"
-              aria-label="Previous testimonial"
-            >
-              <ChevronLeft size={20} />
-            </motion.button>
-
-            {/* Dots Indicator */}
-            <div className="flex items-center gap-2">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentIndex(index)}
-                  className={`transition-all ${
-                    index === currentIndex
-                      ? 'w-8 h-2 bg-accent'
-                      : 'w-2 h-2 bg-border hover:bg-accent/50'
-                  }`}
-                  aria-label={`Go to testimonial ${index + 1}`}
-                />
-              ))}
-            </div>
-
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={nextTestimonial}
-              className="w-12 h-12 flex items-center justify-center border border-border hover:border-accent text-foreground hover:text-accent transition-all"
-              aria-label="Next testimonial"
-            >
-              <ChevronRight size={20} />
-            </motion.button>
-          </div>
+          ))}
         </div>
       </div>
-
-      {/* Bottom Accent Line */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
     </section>
   );
 }

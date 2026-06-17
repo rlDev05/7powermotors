@@ -53,7 +53,7 @@ export function Contact() {
               letterSpacing: '-0.01em',
             }}
           >
-            Visit Our Dealership
+            Start a CR-1 Conversation
           </h2>
           <p
             className="text-muted-foreground"
@@ -63,8 +63,8 @@ export function Contact() {
               lineHeight: 1.7,
             }}
           >
-            Schedule a test ride, explore our showroom, or speak with our expert
-            team. We're here to help you find your perfect motorcycle.
+            Talk to us about rider applications, dealership partnerships,
+            installer training, or CR-1 service center opportunities.
           </p>
         </motion.div>
 
@@ -83,19 +83,19 @@ export function Contact() {
                 {
                   icon: <MapPin size={24} />,
                   title: 'Visit Us',
-                  content: '7890 Power Drive, Motor City, MC 90210',
-                  subContent: 'Mon-Sat: 9AM-7PM | Sun: 10AM-5PM',
+                  content: 'Metro Manila, Philippines',
+                  subContent: 'Partner inquiries and application bookings',
                 },
                 {
                   icon: <Phone size={24} />,
                   title: 'Call Us',
-                  content: '+1 (555) 7POWER-7',
+                  content: '+63 CR1 PARTNER',
                   subContent: 'Available during business hours',
                 },
                 {
                   icon: <Mail size={24} />,
                   title: 'Email Us',
-                  content: 'info@7powermotors.com',
+                  content: 'partners@cr1philippines.com',
                   subContent: 'We respond within 24 hours',
                 },
               ].map((item, index) => (
@@ -158,7 +158,7 @@ export function Contact() {
                     fontSize: '0.875rem',
                   }}
                 >
-                  Interactive Map
+                  CR-1 Partner Coverage Map
                 </p>
               </div>
             </motion.div>
@@ -268,11 +268,11 @@ export function Contact() {
                   className="w-full px-4 py-3 bg-input-background border border-border text-foreground focus:border-accent focus:outline-none transition-colors"
                 >
                   <option value="">Select an option</option>
-                  <option value="purchase">Purchasing a Motorcycle</option>
-                  <option value="test-ride">Scheduling a Test Ride</option>
-                  <option value="service">Service & Maintenance</option>
-                  <option value="parts">Parts & Accessories</option>
-                  <option value="financing">Financing Options</option>
+                  <option value="rider-application">CR-1 Application for My Bike</option>
+                  <option value="dealer">Dealership Partnership</option>
+                  <option value="installer">Authorized Installer Training</option>
+                  <option value="service-center">Service Center Opportunity</option>
+                  <option value="distribution">Distribution Inquiry</option>
                   <option value="other">Other Inquiry</option>
                 </select>
               </div>

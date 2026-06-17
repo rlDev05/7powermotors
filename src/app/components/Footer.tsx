@@ -8,21 +8,21 @@ export function Footer() {
 
   const footerLinks = {
     motorcycles: [
-      { label: 'Sport Bikes', href: '/motorcycles?category=sport' },
-      { label: 'Cruisers', href: '/motorcycles?category=cruiser' },
-      { label: 'Small Bikes', href: '/motorcycles?category=small-bike' },
-      { label: 'All Models', href: '/motorcycles' },
+      { label: 'Strategy', href: '/#strategy' },
+      { label: 'Protection', href: '/#protection' },
+      { label: 'Objectives', href: '/#objectives' },
+      { label: 'Content Pillars', href: '/#content' },
     ],
     services: [
-      { label: 'Sales & Financing', href: '/#services' },
-      { label: 'Maintenance', href: '/#services' },
-      { label: 'Custom Mods', href: '/#services' },
-      { label: 'Parts Store', href: '/#services' },
+      { label: 'CR-1 Glass Coating', href: '/#services' },
+      { label: 'Installer Training', href: '/#services' },
+      { label: 'Dealer Partnerships', href: '/#services' },
+      { label: 'Rider Education', href: '/#services' },
     ],
     company: [
-      { label: 'About Us', href: '/#about' },
-      { label: 'Community', href: '/#about' },
-      { label: 'Testimonials', href: '/#testimonials' },
+      { label: 'Rider Proof', href: '/#proof' },
+      { label: 'B2B Program', href: '/#services' },
+      { label: 'Coverage Map', href: '/#contact' },
       { label: 'Contact', href: '/#contact' },
     ],
   };
@@ -50,14 +50,14 @@ export function Footer() {
                 lineHeight: 1.7,
               }}
             >
-              Premium imported motorcycles. World-class service. Unmatched
-              expertise. Join the 7POWER family today.
+              Japanese precision for Philippine roads. CR-1 protects premium
+              motorcycles through professionally applied glass coating.
             </p>
             
             {/* Contact Info */}
             <div className="space-y-3">
               <a
-                href="tel:+15557POWER7"
+                href="tel:+63"
                 className="flex items-center gap-3 text-muted-foreground hover:text-accent transition-colors group"
                 style={{
                   fontFamily: 'Inter, sans-serif',
@@ -65,10 +65,10 @@ export function Footer() {
                 }}
               >
                 <Phone size={16} className="text-accent" />
-                +1 (555) 7POWER-7
+                +63 CR1 PARTNER
               </a>
               <a
-                href="mailto:info@7powermotors.com"
+                href="mailto:partners@cr1philippines.com"
                 className="flex items-center gap-3 text-muted-foreground hover:text-accent transition-colors group"
                 style={{
                   fontFamily: 'Inter, sans-serif',
@@ -76,7 +76,7 @@ export function Footer() {
                 }}
               >
                 <Mail size={16} className="text-accent" />
-                info@7powermotors.com
+                partners@cr1philippines.com
               </a>
               <div
                 className="flex items-start gap-3 text-muted-foreground"
@@ -86,7 +86,7 @@ export function Footer() {
                 }}
               >
                 <MapPin size={16} className="text-accent mt-0.5" />
-                7890 Power Drive<br />Motor City, MC 90210
+                Metro Manila<br />Philippines
               </div>
             </div>
           </div>
@@ -102,7 +102,7 @@ export function Footer() {
                 letterSpacing: '0.05em',
               }}
             >
-              MOTORCYCLES
+              WEBSITE
             </h4>
             <ul className="space-y-3">
               {footerLinks.motorcycles.map((link) => (
@@ -206,7 +206,7 @@ export function Footer() {
                 lineHeight: 1.7,
               }}
             >
-              Get the latest news on new models, exclusive offers, and upcoming events.
+              Get CR-1 rider care tips, partner updates, and coating program news.
             </p>
             <form className="flex gap-3">
               <input
@@ -245,7 +245,7 @@ export function Footer() {
               fontSize: '0.875rem',
             }}
           >
-            Copyright {currentYear} 7POWER MOTORS. All rights reserved.
+            Copyright {currentYear} CR-1 Glass Coating Philippines. All rights reserved.
           </p>
 
           {/* Social Links */}

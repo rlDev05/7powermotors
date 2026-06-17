@@ -1,189 +1,115 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ChevronRight } from 'lucide-react';
+import { ArrowRight, ShieldCheck } from 'lucide-react';
 import { ImageWithFallback } from '@/app/components/figma/ImageWithFallback';
-
-import mainBackImg from '@/styles/images/mainback.png'; 
+import mainBackImg from '@/styles/images/mainback.png';
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen w-full overflow-hidden flex flex-col">
-      
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
+    <section className="relative min-h-screen w-full overflow-hidden bg-background">
+      <div className="absolute inset-0">
         <ImageWithFallback
-          // FIX 1: Changed 'imageUrl' to 'src' to match standard HTML attributes
-          src={mainBackImg} 
-          alt="7POWER MOTORS - Premium Imported Motorcycles"
-          className="w-full h-full object-cover"
-          
-          // FIX 2: Removed 'priority' (Next.js specific). 
-          // Added standard HTML attributes for LCP (Largest Contentful Paint) optimization.
+          src={mainBackImg}
+          alt="CR-1 motorcycle protection"
+          className="h-full w-full object-cover"
           loading="eager"
-          // @ts-expect-error fetchPriority is a valid attribute but React types might not support it yet in all versions
+          // @ts-expect-error fetchPriority is supported by modern browsers.
           fetchPriority="high"
         />
-        {/* Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/30 to-background" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-transparent to-background/40" />
+        <div className="absolute inset-0 bg-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 flex-grow w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
-        <div className="max-w-3xl py-20">
-          
-          {/* Eyebrow Text */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mb-6"
-          >
-            <span
-              className="inline-block px-4 py-1.5 border border-border/50 text-[#c0c0c0] tracking-[0.2em] backdrop-blur-sm bg-background/10"
-              style={{
-                fontFamily: 'Inter, sans-serif',
-                fontSize: '0.75rem',
-                fontWeight: 600,
-                textTransform: 'uppercase',
-              }}
+      <div className="absolute -top-32 -left-24 h-96 w-[44rem] rotate-[-12deg] bg-accent" />
+      <div className="absolute -bottom-32 right-[-18rem] h-96 w-[48rem] rotate-[-42deg] bg-accent/90" />
+
+      <div className="relative z-10 flex min-h-screen items-center px-4 pt-24 sm:px-6 lg:px-8">
+        <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="max-w-4xl">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55 }}
+              className="mb-6 inline-flex items-center gap-3 border border-white/15 bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-white/80 backdrop-blur"
             >
-              World-Class Imports
-            </span>
-          </motion.div>
+              <ShieldCheck className="h-4 w-4 text-accent" />
+              Professionally Applied Glass Armor
+            </motion.div>
 
-          {/* Main Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="mb-6 text-foreground"
-            style={{
-              fontFamily: 'Rajdhani, sans-serif',
-              fontSize: 'clamp(3rem, 8vw, 6rem)',
-              fontWeight: 700,
-              lineHeight: 0.95,
-              letterSpacing: '-0.02em',
-            }}
-          >
-            RIDE THE
-            <br />
-            <span className="text-accent">POWER</span>
-          </motion.h1>
-
-          {/* Subheadline */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="mb-12 text-muted-foreground max-w-xl"
-            style={{
-              fontFamily: 'Inter, sans-serif',
-              fontSize: '1.125rem',
-              lineHeight: 1.7,
-            }}
-          >
-            Experience imported excellence. Premium motorcycles engineered for
-            those who demand minimal design and maximum performance.
-          </motion.p>
-
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="flex flex-col sm:flex-row gap-4"
-          >
-            <motion.a
-              href="/motorcycles"
-              whileHover={{ scale: 1.03, x: 5 }}
-              whileTap={{ scale: 0.98 }}
-              className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent text-accent-foreground tracking-wider transition-all hover:bg-accent/90 rounded-sm"
-              style={{
-                fontFamily: 'Inter, sans-serif',
-                fontSize: '0.875rem',
-                fontWeight: 600,
-              }}
+            <motion.h1
+              initial={{ opacity: 0, y: 26 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.75, delay: 0.12 }}
+              className="font-[Rajdhani] text-[clamp(3rem,8vw,6.7rem)] font-black uppercase leading-[0.88] tracking-normal text-white"
             >
-              EXPLORE MODELS
-              <ChevronRight
-                size={18}
-                className="transition-transform group-hover:translate-x-1"
-              />
-            </motion.a>
+              Japanese Precision.
+              <br />
+              Philippine Roads.
+              <br />
+              <span className="text-accent">Absolute Protection.</span>
+            </motion.h1>
 
-            <motion.a
-              href="/#contact"
-              whileHover={{ scale: 1.03, x: 5 }}
-              whileTap={{ scale: 0.98 }}
-              className="group inline-flex items-center justify-center gap-2 px-8 py-4 border border-border bg-background/50 backdrop-blur-md text-foreground tracking-wider transition-all hover:bg-foreground hover:text-background rounded-sm"
-              style={{
-                fontFamily: 'Inter, sans-serif',
-                fontSize: '0.875rem',
-                fontWeight: 600,
-              }}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.25 }}
+              className="mt-8 max-w-2xl text-base leading-8 text-white/75 sm:text-lg"
             >
-              BOOK TEST RIDE
-              <ChevronRight
-                size={18}
-                className="transition-transform group-hover:translate-x-1"
-              />
-            </motion.a>
-          </motion.div>
+              Born from uncompromising Japanese engineering, CR-1 is a premium
+              motorcycle glass coating system built to shield luxury machines
+              from Philippine heat, rain, road grime, and daily wear.
+            </motion.p>
 
-          {/* Stats */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.38 }}
+              className="mt-10 flex flex-col gap-4 sm:flex-row"
+            >
+              <a
+                href="#contact"
+                className="inline-flex items-center justify-center gap-2 bg-accent px-8 py-4 text-sm font-bold uppercase tracking-[0.12em] text-white transition hover:bg-accent/90"
+              >
+                Become a Partner
+                <ArrowRight className="h-4 w-4" />
+              </a>
+              <a
+                href="#protection"
+                className="inline-flex items-center justify-center gap-2 border border-white/20 bg-white/5 px-8 py-4 text-sm font-bold uppercase tracking-[0.12em] text-white transition hover:border-accent hover:text-accent"
+              >
+                Explore Protection
+              </a>
+            </motion.div>
+          </div>
+
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1.2 }}
-            className="mt-20 flex gap-12 border-t border-border/20 pt-8"
+            initial={{ opacity: 0, x: 35 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.25 }}
+            className="hidden border-l border-white/10 pl-10 lg:block"
           >
-            {[
-              { value: '50+', label: 'Premium Models' },
-              { value: '15+', label: 'Global Brands' },
-              { value: '10K+', label: 'Riders Served' },
-            ].map((stat, index) => (
-              <div key={index} className="flex flex-col">
-                <span
-                  className="text-foreground mb-1"
-                  style={{
-                    fontFamily: 'Rajdhani, sans-serif',
-                    fontSize: '2rem',
-                    fontWeight: 700,
-                  }}
-                >
-                  {stat.value}
-                </span>
-                <span
-                  className="text-muted-foreground tracking-wide uppercase text-xs"
-                  style={{
-                    fontFamily: 'Inter, sans-serif',
-                    fontWeight: 500,
-                  }}
-                >
-                  {stat.label}
-                </span>
-              </div>
-            ))}
+            <p className="mb-6 text-sm font-bold uppercase tracking-[0.24em] text-accent">
+              Key Message
+            </p>
+            <p className="max-w-md font-[Rajdhani] text-4xl font-black uppercase leading-none text-white">
+              Premier protection for riders, dealerships, and professional
+              service centers.
+            </p>
+            <div className="mt-10 grid grid-cols-3 gap-4 border-t border-white/10 pt-8">
+              {[
+                ['JP', 'Technology'],
+                ['PH', 'Climate Fit'],
+                ['B2B', 'Partner Ready'],
+              ].map(([value, label]) => (
+                <div key={value}>
+                  <div className="font-[Rajdhani] text-3xl font-black text-accent">{value}</div>
+                  <div className="mt-1 text-xs uppercase tracking-wider text-white/55">{label}</div>
+                </div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
-      >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-          className="w-6 h-10 border border-border/50 rounded-full flex items-start justify-center p-2 backdrop-blur-sm"
-        >
-          <motion.div className="w-1.5 h-1.5 bg-accent rounded-full" />
-        </motion.div>
-      </motion.div>
     </section>
   );
 }
