@@ -14,32 +14,33 @@ export function Logo({ variant = 'default', className = '' }: LogoProps) {
         <img 
           src={powerMotorLogo} 
           alt="7 POWER lightning hand logo"
-          className="h-full w-14 max-w-none object-contain sm:w-16"
+          className="h-full w-[6.25rem] max-w-none object-contain sm:w-[3.75rem]"
         />
       </div>
       
       {/* Text Part */}
       {variant === 'default' && (
-        <div className="-ml-1 flex flex-col leading-none sm:-ml-1.5">
+        <div className="-ml-1.5 flex translate-y-[1px] flex-col items-start justify-center sm:-ml-2">
           <span
-            className="text-accent tracking-wider"
+            className="block text-accent"
             style={{
               fontFamily: 'Rajdhani, sans-serif',
               fontSize: '2rem',
               fontWeight: 700,
-              letterSpacing: '0.05em',
+              letterSpacing: '0.06em',
+              lineHeight: 0.85,
             }}
           >
             POWER
           </span>
           <span
-            className="text-foreground/70 tracking-widest"
+            className="mt-1 block pl-[2px] text-foreground/70"
             style={{
               fontFamily: 'Inter, sans-serif',
-              fontSize: '0.58rem',
-              fontWeight: 500,
-              letterSpacing: '0.15em',
-              marginTop: '-4px',
+              fontSize: '0.6rem',
+              fontWeight: 600,
+              letterSpacing: '0.22em',
+              lineHeight: 1,
             }}
           >
             MOTORS
