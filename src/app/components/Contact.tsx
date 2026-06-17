@@ -53,7 +53,7 @@ export function Contact() {
               letterSpacing: '-0.01em',
             }}
           >
-            Start a CR-1 Conversation
+            Start a 7 POWER Conversation
           </h2>
           <p
             className="text-muted-foreground"
@@ -64,7 +64,7 @@ export function Contact() {
             }}
           >
             Talk to us about rider applications, dealership partnerships,
-            installer training, or CR-1 service center opportunities.
+            installer training, or 7 POWER service center opportunities.
           </p>
         </motion.div>
 
@@ -89,7 +89,7 @@ export function Contact() {
                 {
                   icon: <Phone size={24} />,
                   title: 'Call Us',
-                  content: '+63 CR1 PARTNER',
+                  content: '+63 7POWER',
                   subContent: 'Available during business hours',
                 },
                 {
@@ -158,7 +158,7 @@ export function Contact() {
                     fontSize: '0.875rem',
                   }}
                 >
-                  CR-1 Partner Coverage Map
+                  7 POWER Partner Coverage Map
                 </p>
               </div>
             </motion.div>
@@ -268,7 +268,7 @@ export function Contact() {
                   className="w-full px-4 py-3 bg-input-background border border-border text-foreground focus:border-accent focus:outline-none transition-colors"
                 >
                   <option value="">Select an option</option>
-                  <option value="rider-application">CR-1 Application for My Bike</option>
+                  <option value="rider-application">7 POWER Coating for My Bike</option>
                   <option value="dealer">Dealership Partnership</option>
                   <option value="installer">Authorized Installer Training</option>
                   <option value="service-center">Service Center Opportunity</option>

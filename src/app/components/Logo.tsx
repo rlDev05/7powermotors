@@ -30,7 +30,7 @@ export function Logo({ variant = 'default', className = '' }: LogoProps) {
               letterSpacing: '0.05em',
             }}
           >
-            CR-1
+            7POWER
           </span>
           <span
             className="text-foreground/70 tracking-widest"
@@ -42,7 +42,7 @@ export function Logo({ variant = 'default', className = '' }: LogoProps) {
               marginTop: '-2px',
             }}
           >
-            GLASS COATING
+            MOTORS
           </span>
         </div>
       )}

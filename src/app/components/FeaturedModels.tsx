@@ -6,16 +6,16 @@ import NakedImg from '@/styles/images/naked.png';
 
 const points = [
   {
-    title: 'Japanese Technology & Standards',
-    text: 'Position CR-1 as a premium glass coating system from Japan, backed by disciplined application standards.',
+    title: 'Premium Application Standards',
+    text: 'Position 7 POWER around careful preparation, controlled application, and consistent finish quality.',
   },
   {
     title: 'Professionally Applied',
-    text: 'A controlled service experience that separates CR-1 from DIY coatings and generic ceramic alternatives.',
+    text: 'A controlled service experience that separates 7 POWER from DIY care and ordinary detailing packages.',
   },
   {
-    title: 'Perfect Fit for Philippine Climate',
-    text: 'Designed for heat, UV exposure, acidic rain, daily dust, and road grime across Philippine riding conditions.',
+    title: 'Built for Daily Riding Conditions',
+    text: 'Designed for heat, UV exposure, rain, daily dust, and road grime across demanding riding conditions.',
   },
   {
     title: 'Longer-Lasting Durability',
@@ -34,14 +34,14 @@ export function FeaturedModels() {
           transition={{ duration: 0.55 }}
         >
           <span className="mb-4 block text-xs font-bold uppercase tracking-[0.24em] text-accent">
-            Key Differentiators
+            Why Riders Choose It
           </span>
           <h2 className="font-[Rajdhani] text-[clamp(2.5rem,6vw,5rem)] font-black uppercase leading-none text-foreground">
-            Unique Selling Points
+            Protection That Makes Sense
           </h2>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-muted-foreground">
             The website now leads with protection value, not motorcycle
-            inventory. That is the clearer promise for CR-1 and the better path
+            inventory. That is the clearer promise for 7 POWER and the better path
             for B2C and B2B lead generation.
           </p>
 
@@ -72,7 +72,7 @@ export function FeaturedModels() {
             href="#contact"
             className="mt-12 inline-flex items-center gap-2 bg-accent px-8 py-4 text-sm font-bold uppercase tracking-[0.12em] text-white transition hover:bg-accent/90"
           >
-            Ask About CR-1 Application
+            Ask About 7 POWER Coating
             <ArrowRight className="h-4 w-4" />
           </a>
         </motion.div>
@@ -86,7 +86,7 @@ export function FeaturedModels() {
         >
           <ImageWithFallback
             src={NakedImg}
-            alt="Motorcycle surface protected by CR-1"
+            alt="Motorcycle surface protected by 7 POWER coating"
             className="h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />

@@ -11,13 +11,13 @@ const testimonials = [
   },
   {
     quote:
-      'CR-1 gives our shop a premium service with a stronger story than ordinary coating packages.',
+      '7 POWER gives our shop a premium service with a stronger story than ordinary coating packages.',
     name: 'Detailing Shop Partner',
     role: 'B2B Service Center',
   },
   {
     quote:
-      'Customers understand the value quickly when they see protection, gloss, and the Japanese-standard positioning.',
+      'Customers understand the value quickly when they see the cleaner finish, gloss, and professional process.',
     name: 'Motorcycle Dealer',
     role: 'Dealer Partner',
   },

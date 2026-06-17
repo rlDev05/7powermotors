@@ -2,15 +2,15 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, ShieldCheck } from 'lucide-react';
 import { ImageWithFallback } from '@/app/components/figma/ImageWithFallback';
-import mainBackImg from '@/styles/images/mainback.png';
+import coatingApplicationImg from '@/styles/images/coating/coating-application-web.jpg';
 
 export function Hero() {
   return (
     <section className="relative min-h-screen w-full overflow-hidden bg-background">
       <div className="absolute inset-0">
         <ImageWithFallback
-          src={mainBackImg}
-          alt="CR-1 motorcycle protection"
+          src={coatingApplicationImg}
+          alt="7 POWER premium motorcycle coating application"
           className="h-full w-full object-cover"
           loading="eager"
           // @ts-expect-error fetchPriority is supported by modern browsers.
@@ -33,7 +33,7 @@ export function Hero() {
               className="mb-6 inline-flex items-center gap-3 border border-white/15 bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-white/80 backdrop-blur"
             >
               <ShieldCheck className="h-4 w-4 text-accent" />
-              Professionally Applied Glass Armor
+              7 POWER Premium Surface Care
             </motion.div>
 
             <motion.h1
@@ -42,11 +42,11 @@ export function Hero() {
               transition={{ duration: 0.75, delay: 0.12 }}
               className="font-[Rajdhani] text-[clamp(3rem,8vw,6.7rem)] font-black uppercase leading-[0.88] tracking-normal text-white"
             >
-              Japanese Precision.
+              Premium Finish.
               <br />
-              Philippine Roads.
+              Daily Roads.
               <br />
-              <span className="text-accent">Absolute Protection.</span>
+              <span className="text-accent">Lasting Protection.</span>
             </motion.h1>
 
             <motion.p
@@ -55,9 +55,9 @@ export function Hero() {
               transition={{ duration: 0.7, delay: 0.25 }}
               className="mt-8 max-w-2xl text-base leading-8 text-white/75 sm:text-lg"
             >
-              Born from uncompromising Japanese engineering, CR-1 is a premium
-              motorcycle glass coating system built to shield luxury machines
-              from Philippine heat, rain, road grime, and daily wear.
+              7 POWER helps riders preserve the look, gloss, and confidence of
+              their motorcycles through careful surface preparation and
+              professionally applied coating services.
             </motion.p>
 
             <motion.div
@@ -70,14 +70,14 @@ export function Hero() {
                 href="#contact"
                 className="inline-flex items-center justify-center gap-2 bg-accent px-8 py-4 text-sm font-bold uppercase tracking-[0.12em] text-white transition hover:bg-accent/90"
               >
-                Become a Partner
+                Partner With 7 POWER
                 <ArrowRight className="h-4 w-4" />
               </a>
               <a
                 href="#protection"
                 className="inline-flex items-center justify-center gap-2 border border-white/20 bg-white/5 px-8 py-4 text-sm font-bold uppercase tracking-[0.12em] text-white transition hover:border-accent hover:text-accent"
               >
-                Explore Protection
+                Explore Coating Services
               </a>
             </motion.div>
           </div>
@@ -89,11 +89,11 @@ export function Hero() {
             className="hidden border-l border-white/10 pl-10 lg:block"
           >
             <p className="mb-6 text-sm font-bold uppercase tracking-[0.24em] text-accent">
-              Key Message
+              Main Promise
             </p>
             <p className="max-w-md font-[Rajdhani] text-4xl font-black uppercase leading-none text-white">
-              Premier protection for riders, dealerships, and professional
-              service centers.
+              Professional coating services for riders, dealerships, and
+              service centers that care about finish quality.
             </p>
             <div className="mt-10 grid grid-cols-3 gap-4 border-t border-white/10 pt-8">
               {[

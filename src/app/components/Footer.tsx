@@ -10,11 +10,11 @@ export function Footer() {
     motorcycles: [
       { label: 'Strategy', href: '/#strategy' },
       { label: 'Protection', href: '/#protection' },
-      { label: 'Objectives', href: '/#objectives' },
-      { label: 'Content Pillars', href: '/#content' },
+      { label: 'Growth Plan', href: '/#objectives' },
+      { label: 'Education Themes', href: '/#content' },
     ],
     services: [
-      { label: 'CR-1 Glass Coating', href: '/#services' },
+      { label: '7 POWER Coating Care', href: '/#services' },
       { label: 'Installer Training', href: '/#services' },
       { label: 'Dealer Partnerships', href: '/#services' },
       { label: 'Rider Education', href: '/#services' },
@@ -50,8 +50,8 @@ export function Footer() {
                 lineHeight: 1.7,
               }}
             >
-              Japanese precision for Philippine roads. CR-1 protects premium
-              motorcycles through professionally applied glass coating.
+              7 POWER helps riders and shops preserve motorcycle finish
+              quality through professionally applied coating care.
             </p>
             
             {/* Contact Info */}
@@ -65,7 +65,7 @@ export function Footer() {
                 }}
               >
                 <Phone size={16} className="text-accent" />
-                +63 CR1 PARTNER
+                +63 7POWER
               </a>
               <a
                 href="mailto:partners@cr1philippines.com"
@@ -206,7 +206,7 @@ export function Footer() {
                 lineHeight: 1.7,
               }}
             >
-              Get CR-1 rider care tips, partner updates, and coating program news.
+              Get 7 POWER rider care tips, partner updates, and coating program news.
             </p>
             <form className="flex gap-3">
               <input
@@ -245,7 +245,7 @@ export function Footer() {
               fontSize: '0.875rem',
             }}
           >
-            Copyright {currentYear} CR-1 Glass Coating Philippines. All rights reserved.
+            Copyright {currentYear} 7 POWER. All rights reserved.
           </p>
 
           {/* Social Links */}

@@ -6,7 +6,7 @@ const objectives = [
   {
     icon: <Megaphone className="h-7 w-7" />,
     label: 'Brand Awareness',
-    copy: 'Position CR-1 as the top-of-mind premium motorcycle glass coating from Japan.',
+    copy: 'Position 7 POWER as a premium motorcycle coating and surface care partner.',
   },
   {
     icon: <Route className="h-7 w-7" />,
@@ -21,7 +21,7 @@ const objectives = [
   {
     icon: <BadgeCheck className="h-7 w-7" />,
     label: 'Trust',
-    copy: 'Build confidence through professional application, Japanese standards, and rider-focused proof.',
+    copy: 'Build confidence through professional application, visible finish quality, and rider-focused proof.',
   },
 ];
 
@@ -37,7 +37,7 @@ export function PerformanceEngineering() {
           className="mb-14 max-w-3xl"
         >
           <span className="mb-4 block text-xs font-bold uppercase tracking-[0.24em] text-accent">
-            Marketing Objectives
+            Market Focus
           </span>
           <h2 className="font-[Rajdhani] text-[clamp(2.4rem,5vw,4.5rem)] font-black uppercase leading-none text-foreground">
             Awareness, partners, and professional service centers.
@@ -75,8 +75,8 @@ export function PerformanceEngineering() {
           className="mt-16 border-l-4 border-accent bg-secondary/40 p-8"
         >
           <p className="max-w-5xl font-[Rajdhani] text-3xl font-black uppercase leading-tight text-foreground md:text-4xl">
-            The long-term vision is to establish CR-1 as the most recognized
-            and respected motorcycle glass coating brand in the country.
+            The long-term vision is to establish 7 POWER as a recognized and
+            respected motorcycle coating and surface care name.
           </p>
         </motion.div>
       </div>

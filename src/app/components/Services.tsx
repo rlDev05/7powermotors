@@ -2,12 +2,12 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { GraduationCap, Handshake, Shield, Sparkles } from 'lucide-react';
 import { ImageWithFallback } from '@/app/components/figma/ImageWithFallback';
-import ScootDragImg from '@/styles/images/scootdrag.png';
+import helmetApplicationImg from '@/styles/images/coating/helmet-application-web.jpg';
 
 const services = [
   {
     icon: <Shield className="h-7 w-7" />,
-    title: 'CR-1 Glass Coating',
+    title: '7 POWER Coating Care',
     description:
       'Professional coating application for motorcycles that need long-lasting gloss, easier cleaning, and stronger surface protection.',
     items: ['Paint and surface protection', 'Gloss preservation', 'Road grime resistance'],
@@ -16,7 +16,7 @@ const services = [
     icon: <GraduationCap className="h-7 w-7" />,
     title: 'Authorized Installer Training',
     description:
-      'A pathway for service centers and detailing shops to apply CR-1 with consistent technique and quality control.',
+      'A pathway for service centers and detailing shops to apply 7 POWER coating services with consistent technique and quality control.',
     items: ['Application standards', 'Product handling', 'Service process alignment'],
   },
   {
@@ -30,7 +30,7 @@ const services = [
     icon: <Sparkles className="h-7 w-7" />,
     title: 'Rider Education Content',
     description:
-      'Useful motormaintenance content that positions CR-1 as the expert in motorcycle preservation.',
+      'Useful motorcycle maintenance content that positions 7 POWER as a helpful voice in motorcycle preservation.',
     items: ['Care tips', 'Before/after stories', 'Rider and shop testimonials'],
   },
 ];
@@ -55,7 +55,7 @@ export function Services() {
             Product, training, and partner support in one system.
           </h2>
           <p className="mt-6 text-lg leading-8 text-muted-foreground">
-            CR-1 is not only a coating product. It is a partner-ready program
+            7 POWER is not only a coating service. It is a partner-ready program
             for riders, shops, and dealerships that want premium surface
             protection with a stronger business story.
           </p>
@@ -101,15 +101,15 @@ export function Services() {
         >
           <div className="p-8 md:p-12">
             <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-accent">
-              B2B Lead Generation
+              Partner Growth
             </p>
             <h3 className="font-[Rajdhani] text-4xl font-black uppercase leading-none text-foreground md:text-5xl">
               Help shops elevate their brand status.
             </h3>
             <p className="mt-6 text-base leading-8 text-muted-foreground">
-              CR-1 gives partners a premium service story: official Japanese
-              certification, application support, and a durable result that
-              helps customers feel the difference after every wash-and-ride.
+              7 POWER gives partners a premium service story: application
+              support, polished presentation, and a result customers can
+              appreciate every time they clean and ride.
             </p>
             <a
               href="#contact"
@@ -120,7 +120,7 @@ export function Services() {
           </div>
           <div className="relative min-h-[320px]">
             <ImageWithFallback
-              src={ScootDragImg}
+              src={helmetApplicationImg}
               alt="Motorcycle service and detailing"
               className="h-full w-full object-cover"
             />

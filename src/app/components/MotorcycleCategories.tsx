@@ -22,7 +22,7 @@ const audiences = [
   {
     icon: <Wrench className="h-7 w-7" />,
     title: 'Service Centers',
-    subtitle: 'Authorized CR-1 application centers across key motorcycle hubs.',
+    subtitle: 'Authorized 7 POWER application partners across key motorcycle hubs.',
     details:
       'A professional network built around process control, product support, and consistent application quality.',
   },
@@ -51,16 +51,16 @@ export function MotorcycleCategories() {
         >
           <ImageWithFallback
             src={CruiserImg}
-            alt="Premium motorcycle protected with CR-1 coating"
+            alt="Premium motorcycle protected by 7 POWER coating care"
             className="h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/45 to-transparent" />
           <div className="absolute bottom-0 left-0 right-0 p-8">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-accent">
-              Strategic Vision
+              Growth Direction
             </p>
             <h2 className="font-[Rajdhani] text-4xl font-black uppercase leading-none text-white sm:text-5xl">
-              Build the country&apos;s most trusted motorcycle glass coating network.
+              Build a trusted motorcycle coating and surface care network.
             </h2>
           </div>
         </motion.div>
@@ -74,14 +74,14 @@ export function MotorcycleCategories() {
             className="mb-12 max-w-3xl"
           >
             <span className="mb-4 block text-xs font-bold uppercase tracking-[0.24em] text-accent">
-              Business Objectives
+              Growth Plan
             </span>
             <h2 className="font-[Rajdhani] text-[clamp(2.4rem,5vw,4.5rem)] font-black uppercase leading-none text-foreground">
               From awareness to authorized application centers.
             </h2>
             <p className="mt-6 text-lg leading-8 text-muted-foreground">
-              CR-1 aims to become the top-of-mind premium glass coating brand
-              for motorcycle owners and the preferred coating partner for shops
+              7 POWER aims to become a top-of-mind premium motorcycle surface
+              care name for riders and a reliable coating partner for shops
               serving the riding community.
             </p>
           </motion.div>
