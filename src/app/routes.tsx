@@ -1,5 +1,12 @@
 // src/app/routes.tsx
-import { createBrowserRouter, useRouteError, isRouteErrorResponse } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import {
+  createBrowserRouter,
+  isRouteErrorResponse,
+  Outlet,
+  useLocation,
+  useRouteError,
+} from 'react-router-dom';
 
 // Import your pages
 import Home from '@/app/pages/Home';
@@ -30,56 +37,72 @@ function ErrorPage() {
   );
 }
 
+function RouteScrollReset() {
+  const { pathname, search } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [pathname, search]);
+
+  return <Outlet />;
+}
+
 // --- ROUTER CONFIGURATION ---
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <Home />,
+    element: <RouteScrollReset />,
     errorElement: <ErrorPage />,
-  },
-  {
-    path: '/motorcycles',
-    element: <MotorcyclesPage />,
-  },
-  {
-    path: '/models',
-    element: <MotorcyclesPage />,
-  },
-  {
-    path: '/products',
-    element: <ProductsPage />,
-  },
-  {
-    path: '/motorcycles/:id', // This matches the useParams in BikeDetailsPage
-    element: <BikeDetailsPage />,
-  },
-  {
-    path: '/models/:id',
-    element: <BikeDetailsPage />,
-  },
-  {
-    path: '/services',
-    element: <ServicesPage />,
-  },
-  {
-    path: '/partners',
-    element: <PartnersPage />,
-  },
-  {
-    path: '/contact',
-    element: <ContactPage />,
-  },
-  // --- CATCH-ALL ROUTE (404) ---
-  {
-    path: '*',
-    element: (
-      <div className="p-10 text-center min-h-screen pt-32">
-        <h2 className="text-2xl font-bold">404 - Page Not Found</h2>
-        <p className="mt-2">The bike you are looking for has ridden away.</p>
-        <a href="/" className="mt-4 inline-block bg-black text-white px-4 py-2 rounded hover:bg-gray-800">
-          Return Home
-        </a>
-      </div>
-    ),
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: 'motorcycles',
+        element: <MotorcyclesPage />,
+      },
+      {
+        path: 'models',
+        element: <MotorcyclesPage />,
+      },
+      {
+        path: 'products',
+        element: <ProductsPage />,
+      },
+      {
+        path: 'motorcycles/:id', // This matches the useParams in BikeDetailsPage
+        element: <BikeDetailsPage />,
+      },
+      {
+        path: 'models/:id',
+        element: <BikeDetailsPage />,
+      },
+      {
+        path: 'services',
+        element: <ServicesPage />,
+      },
+      {
+        path: 'partners',
+        element: <PartnersPage />,
+      },
+      {
+        path: 'contact',
+        element: <ContactPage />,
+      },
+      // --- CATCH-ALL ROUTE (404) ---
+      {
+        path: '*',
+        element: (
+          <div className="p-10 text-center min-h-screen pt-32">
+            <h2 className="text-2xl font-bold">404 - Page Not Found</h2>
+            <p className="mt-2">The bike you are looking for has ridden away.</p>
+            <a href="/" className="mt-4 inline-block bg-black text-white px-4 py-2 rounded hover:bg-gray-800">
+              Return Home
+            </a>
+          </div>
+        ),
+      },
+    ],
   },
 ]);
