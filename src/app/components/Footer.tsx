@@ -9,9 +9,10 @@ export function Footer() {
   const footerLinks = {
     motorcycles: [
       { label: 'All Products', href: '/products' },
+      { label: 'Coating', href: '/products?category=Coating' },
+      { label: 'Shampoo', href: '/products?category=Shampoo' },
       { label: 'Quick Cloth', href: '/products?category=Quick%20Cloth' },
       { label: 'Maintenance', href: '/products?category=Maintenance' },
-      { label: 'Protection', href: '/products?category=Protection' },
     ],
     services: [
       { label: '7 POWER Coating Care', href: '/services' },

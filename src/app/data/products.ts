@@ -8,6 +8,10 @@ import amazingCloth from '@/styles/images/products/amazing-cloth.webp';
 import chainDegreaser from '@/styles/images/products/chain-degreaser.webp';
 import bikeCoverHalf from '@/styles/images/products/bike-cover-half.webp';
 import bikeCoverFull from '@/styles/images/products/bike-cover-full.webp';
+import cure2 from '@/styles/images/products/cure-2.webp';
+import personalNext from '@/styles/images/products/personal-next.webp';
+import proShampooClear from '@/styles/images/products/pro-shampoo-clear.webp';
+import proShampooMetal from '@/styles/images/products/pro-shampoo-metal.webp';
 
 export interface CareProduct {
   id: string;
@@ -19,6 +23,38 @@ export interface CareProduct {
 }
 
 export const careProducts: CareProduct[] = [
+  {
+    id: 'personal-next-glass-coating',
+    name: 'Personal Next Glass Coating',
+    category: 'Coating',
+    image: personalNext,
+    summary: 'Personal glass-coating kit for riders who want stronger gloss and surface protection.',
+    uses: ['Paintwork', 'Gloss armor', 'Premium finish'],
+  },
+  {
+    id: 'cure-2-protection-spray',
+    name: 'Cure 2 Protection Spray',
+    category: 'Coating',
+    image: cure2,
+    summary: 'Spray-on surface protection for quick maintenance after washing or detailing.',
+    uses: ['Quick coating', 'Gloss boost', 'After-care'],
+  },
+  {
+    id: 'pro-shampoo-clear',
+    name: 'Pro Shampoo Clear',
+    category: 'Shampoo',
+    image: proShampooClear,
+    summary: 'Clear-strike shampoo for routine washing while keeping coated surfaces clean.',
+    uses: ['Foam wash', 'Clear finish', 'Coating care'],
+  },
+  {
+    id: 'pro-shampoo-metal',
+    name: 'Pro Shampoo Metal',
+    category: 'Shampoo',
+    image: proShampooMetal,
+    summary: 'Metal-shield shampoo made for sharper cleaning on brightwork and exposed details.',
+    uses: ['Metal parts', 'Deep wash', 'Detail care'],
+  },
   {
     id: 'disinfection-wipes',
     name: 'Motorcycle Disinfection Wipes',
