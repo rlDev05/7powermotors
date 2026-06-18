@@ -25,9 +25,9 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section id="proof" className="relative overflow-hidden bg-background py-28">
+    <section id="proof" className="racing-section bg-card">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="racing-container">
         <motion.div
           initial={{ opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -35,10 +35,10 @@ export function Testimonials() {
           transition={{ duration: 0.55 }}
           className="mx-auto mb-14 max-w-3xl text-center"
         >
-          <span className="mb-4 block text-xs font-bold uppercase tracking-[0.24em] text-accent">
+          <span className="racing-kicker">
             Rider & Partner Proof
           </span>
-          <h2 className="font-[Rajdhani] text-[clamp(2.4rem,5vw,4.5rem)] font-black uppercase leading-none text-foreground">
+          <h2 className="racing-title">
             Let the riding community do the talking.
           </h2>
         </motion.div>
@@ -51,7 +51,7 @@ export function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.45, delay: index * 0.08 }}
-              className="border border-border/50 bg-card p-8"
+              className="racing-card p-8"
             >
               <Quote className="mb-6 h-10 w-10 text-accent" />
               <p className="min-h-32 text-lg leading-8 text-foreground">

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { Logo } from '@/app/components/Logo';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -20,7 +20,7 @@ export function Navbar() {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border"
+      className="fixed left-0 right-0 top-0 z-50 border-b border-border bg-white/90 shadow-[0_10px_40px_rgba(16,16,16,0.06)] backdrop-blur-xl"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
@@ -35,23 +35,32 @@ export function Navbar() {
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden items-center gap-1 md:flex">
             {navItems.map((item) => (
               <motion.div
                 key={item.label}
-                className="text-sm tracking-wider text-muted-foreground hover:text-foreground transition-colors relative group"
+                className="relative"
                 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
               >
-                <Link to={item.href}>{item.label}</Link>
-                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-accent group-hover:w-full transition-all duration-300" />
+                <NavLink
+                  to={item.href}
+                  className={({ isActive }) =>
+                    `group relative block px-4 py-3 text-xs font-black uppercase tracking-[0.16em] transition ${
+                      isActive ? 'text-accent' : 'text-muted-foreground hover:text-foreground'
+                    }`
+                  }
+                >
+                  {item.label}
+                  <span className="absolute bottom-1 left-4 right-4 h-[2px] origin-left scale-x-0 bg-accent transition group-hover:scale-x-100" />
+                </NavLink>
               </motion.div>
             ))}
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-6 py-2 bg-accent text-accent-foreground tracking-wider transition-all hover:bg-accent/90"
+              className="ml-4 bg-accent px-6 py-3 text-accent-foreground tracking-wider transition-all hover:bg-black"
               style={{
                 fontFamily: 'Inter, sans-serif',
                 fontSize: '0.875rem',
@@ -81,7 +90,7 @@ export function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-card border-t border-border"
+            className="border-t border-border bg-white md:hidden"
           >
             <div className="px-4 py-6 space-y-4">
               {navItems.map((item) => (

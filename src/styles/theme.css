@@ -125,6 +125,10 @@
 
   body {
     @apply bg-background text-foreground;
+    background-image:
+      linear-gradient(90deg, rgba(16, 16, 16, 0.035) 1px, transparent 1px),
+      linear-gradient(180deg, rgba(16, 16, 16, 0.03) 1px, transparent 1px);
+    background-size: 72px 72px;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
@@ -200,5 +204,55 @@
     html {
       scroll-behavior: smooth;
     }
+  }
+}
+
+@layer components {
+  .racing-section {
+    @apply relative overflow-hidden py-24 sm:py-28;
+  }
+
+  .racing-container {
+    @apply relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .racing-kicker {
+    @apply mb-4 block text-xs font-black uppercase tracking-[0.24em] text-accent;
+  }
+
+  .racing-title {
+    @apply font-[Rajdhani] text-[clamp(2.5rem,5.5vw,5.25rem)] font-black uppercase leading-[0.88] tracking-normal text-foreground;
+  }
+
+  .racing-copy {
+    @apply text-base leading-8 text-muted-foreground sm:text-lg;
+  }
+
+  .racing-card {
+    @apply relative overflow-hidden border border-border bg-card transition duration-300 hover:-translate-y-1 hover:border-accent/70 hover:shadow-[0_18px_50px_rgba(16,16,16,0.08)];
+  }
+
+  .racing-button {
+    @apply inline-flex items-center justify-center gap-2 bg-accent px-7 py-4 text-sm font-black uppercase tracking-[0.12em] text-white transition hover:bg-black;
+  }
+
+  .racing-button-outline {
+    @apply inline-flex items-center justify-center gap-2 border border-foreground/20 bg-white px-7 py-4 text-sm font-black uppercase tracking-[0.12em] text-foreground transition hover:border-accent hover:bg-accent hover:text-white;
+  }
+
+  .racing-media {
+    @apply relative overflow-hidden border border-border bg-black;
+  }
+
+  .racing-slashed {
+    clip-path: polygon(0 0, calc(100% - 52px) 0, 100% 52px, 100% 100%, 0 100%);
+  }
+
+  .racing-rule {
+    @apply h-px w-full bg-gradient-to-r from-accent via-[#ff5a00] to-transparent;
+  }
+
+  .racing-number {
+    @apply font-[Rajdhani] text-6xl font-black uppercase leading-none text-foreground/10;
   }
 }

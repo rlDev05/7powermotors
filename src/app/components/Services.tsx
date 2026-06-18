@@ -37,10 +37,11 @@ const services = [
 
 export function Services() {
   return (
-    <section id="services" className="relative overflow-hidden bg-secondary/30 py-28">
+    <section id="services" className="racing-section bg-secondary/40">
       <div className="absolute -left-32 top-0 h-80 w-[36rem] rotate-[-36deg] bg-accent" />
+      <div className="absolute right-[-16rem] top-24 h-48 w-[34rem] rotate-[-20deg] bg-white" />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="racing-container">
         <motion.div
           initial={{ opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -48,20 +49,20 @@ export function Services() {
           transition={{ duration: 0.55 }}
           className="mb-14 max-w-3xl"
         >
-          <span className="mb-4 block text-xs font-bold uppercase tracking-[0.24em] text-accent">
+          <span className="racing-kicker">
             Service Network
           </span>
-          <h2 className="font-[Rajdhani] text-[clamp(2.4rem,5vw,4.5rem)] font-black uppercase leading-none text-foreground">
+          <h2 className="racing-title">
             Product, training, and partner support in one system.
           </h2>
-          <p className="mt-6 text-lg leading-8 text-muted-foreground">
+          <p className="racing-copy mt-6">
             7 POWER is not only a coating service. It is a partner-ready program
             for riders, shops, and dealerships that want premium surface
             protection with a stronger business story.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-5 lg:grid-cols-4">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
@@ -69,12 +70,12 @@ export function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.45, delay: index * 0.08 }}
-              className="border border-border/50 bg-card p-7 transition hover:border-accent/70"
+              className="racing-card p-7"
             >
-              <div className="mb-6 flex h-14 w-14 items-center justify-center bg-accent text-white">
+              <div className="mb-6 flex h-14 w-14 items-center justify-center bg-accent text-white shadow-[8px_8px_0_#101010]">
                 {service.icon}
               </div>
-              <h3 className="font-[Rajdhani] text-2xl font-black uppercase text-foreground">
+              <h3 className="font-[Rajdhani] text-2xl font-black uppercase leading-none tracking-normal text-foreground">
                 {service.title}
               </h3>
               <p className="mt-4 text-sm leading-7 text-muted-foreground">
@@ -83,7 +84,7 @@ export function Services() {
               <ul className="mt-6 space-y-2">
                 {service.items.map((item) => (
                   <li key={item} className="flex gap-2 text-sm text-muted-foreground">
-                    <span className="text-accent">-</span>
+                    <span className="font-black text-accent">/</span>
                     {item}
                   </li>
                 ))}
@@ -97,10 +98,10 @@ export function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.65 }}
-          className="mt-16 grid min-h-[430px] grid-cols-1 overflow-hidden border border-border/50 bg-card lg:grid-cols-[0.95fr_1.05fr]"
+          className="racing-card mt-16 grid min-h-[430px] grid-cols-1 lg:grid-cols-[0.95fr_1.05fr]"
         >
           <div className="p-8 md:p-12">
-            <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-accent">
+            <p className="racing-kicker">
               Partner Growth
             </p>
             <h3 className="font-[Rajdhani] text-4xl font-black uppercase leading-none text-foreground md:text-5xl">
@@ -113,7 +114,7 @@ export function Services() {
             </p>
             <a
               href="/contact"
-              className="mt-8 inline-flex bg-accent px-8 py-4 text-sm font-bold uppercase tracking-[0.12em] text-white transition hover:bg-accent/90"
+              className="racing-button mt-8"
             >
               Apply as a Partner
             </a>

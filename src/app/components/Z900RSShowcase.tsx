@@ -24,30 +24,35 @@ export function Z900RSShowcase() {
   };
 
   return (
-    <section id="z900rs" className="relative overflow-hidden bg-background py-20 sm:py-24">
+    <section id="z900rs" className="racing-section bg-background">
       <div className="absolute left-[-12rem] top-16 h-40 w-[32rem] rotate-[-16deg] bg-accent/75" />
       <div className="absolute bottom-10 right-[-18rem] h-44 w-[34rem] rotate-[-37deg] bg-[#ff5a00]/70" />
 
-      <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[0.75fr_1.25fr] lg:px-8">
+      <div className="racing-container grid grid-cols-1 gap-10 lg:grid-cols-[0.72fr_1.28fr]">
         <div className="flex flex-col justify-between gap-8">
           <div>
-            <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-accent">
+            <p className="racing-kicker">
               Z900RS Visual Covers
             </p>
-            <h2 className="font-[Rajdhani] text-[clamp(2.5rem,6vw,5.4rem)] font-black uppercase leading-[0.9] tracking-normal text-foreground">
+            <h2 className="racing-title">
               Detail shots.
               <br />
               Real finish.
             </h2>
-            <p className="mt-6 max-w-xl text-base leading-8 text-muted-foreground">
+            <p className="racing-copy mt-6 max-w-xl">
               Close-up Z900RS visuals for paint depth, chrome highlights,
               engine texture, and the premium riding mood of the brand.
+            </p>
+          </div>
+          <div className="hidden border-l-4 border-accent bg-white p-6 shadow-[12px_12px_0_rgba(16,16,16,0.08)] lg:block">
+            <p className="font-[Rajdhani] text-4xl font-black uppercase leading-none text-foreground">
+              Model gallery for finish inspiration.
             </p>
           </div>
         </div>
 
         <div className="min-w-0">
-            <div className="relative aspect-[16/10] overflow-hidden border border-border bg-black">
+          <div className="racing-media aspect-[16/10]">
             <AnimatePresence mode="wait">
               <motion.img
                 key={current.src}

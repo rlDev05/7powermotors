@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ArrowRight, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Gauge, ShieldCheck, Sparkles } from 'lucide-react';
 import { z900rsHeroSlides } from '@/app/data/z900rsImages';
 
 export function Hero() {
@@ -58,6 +58,7 @@ export function Hero() {
 
       <div className="relative z-10 flex min-h-screen items-center px-4 pt-24 sm:px-6 lg:px-8">
         <div className="mx-auto w-full max-w-7xl">
+          <div className="grid items-end gap-10 lg:grid-cols-[1fr_0.42fr]">
           <div className="max-w-4xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -113,6 +114,33 @@ export function Hero() {
                 Explore Coating Services
               </a>
             </motion.div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 26 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.75, delay: 0.48 }}
+            className="hidden border border-white/15 bg-white/10 p-6 backdrop-blur-md lg:block"
+          >
+            <div className="racing-rule mb-6" />
+            {[
+              { icon: <ShieldCheck className="h-5 w-5" />, label: 'Surface Protection', value: 'JP Standard' },
+              { icon: <Gauge className="h-5 w-5" />, label: 'Road Focus', value: 'PH Climate' },
+              { icon: <Sparkles className="h-5 w-5" />, label: 'Finish Goal', value: 'Lasting Gloss' },
+            ].map((item) => (
+              <div key={item.label} className="border-b border-white/10 py-5 last:border-b-0">
+                <div className="mb-2 flex items-center gap-2 text-[#ffc400]">
+                  {item.icon}
+                  <span className="text-xs font-black uppercase tracking-[0.2em] text-white/60">
+                    {item.label}
+                  </span>
+                </div>
+                <p className="font-[Rajdhani] text-3xl font-black uppercase leading-none text-white">
+                  {item.value}
+                </p>
+              </div>
+            ))}
+          </motion.div>
           </div>
         </div>
       </div>

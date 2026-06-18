@@ -56,16 +56,16 @@ export default function MotorcyclesPage() {
           </Link>
         </div>
 
-        <section className="mb-10 overflow-hidden border border-border/50 bg-card">
+        <section className="racing-card racing-slashed mb-10">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_0.75fr]">
             <div className="p-8 md:p-12">
-              <span className="text-accent tracking-[0.24em] text-xs font-bold font-inter mb-4 block uppercase">
+              <span className="racing-kicker">
                 7 POWER Models
               </span>
-              <h1 className="font-[Rajdhani] text-[clamp(2.8rem,6vw,5.5rem)] font-black uppercase leading-none text-foreground">
+              <h1 className="racing-title">
                 Motorcycle models for finish inspiration.
               </h1>
-              <p className="mt-6 max-w-3xl text-base leading-8 text-muted-foreground md:text-lg">
+              <p className="racing-copy mt-6 max-w-3xl">
                 Browse model references and featured motorcycles that pair
                 naturally with 7 POWER surface care.
               </p>
@@ -86,7 +86,7 @@ export default function MotorcyclesPage() {
           </div>
         </section>
 
-        <div className="mb-10 border border-border/50 bg-background p-4 md:p-5">
+        <div className="racing-card mb-10 bg-white p-4 md:p-5">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
             <div>
               <span className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-accent">
@@ -137,12 +137,12 @@ export default function MotorcyclesPage() {
         </div>
 
         {/* Grid Display */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
           {filteredBikes.length > 0 ? (
             filteredBikes.map((bike) => (
               <div 
                 key={bike.id} 
-                className="group bg-card border border-border/50 overflow-hidden hover:border-accent/60 transition-all duration-300 flex flex-col"
+                className="racing-card group flex flex-col"
               >
                 {/* Image Area */}
                 <Link to={`/models/${bike.id}`} className="h-72 overflow-hidden relative bg-secondary/40 block">
@@ -170,7 +170,7 @@ export default function MotorcyclesPage() {
                     {/* THIS IS THE CRITICAL FIX: Link to the specific ID */}
                     <Link 
                         to={`/models/${bike.id}`}
-                        className="mt-auto inline-flex w-full items-center justify-center gap-2 py-3 border border-input text-foreground font-semibold font-rajdhani hover:bg-accent hover:text-white hover:border-accent transition-colors"
+                        className="racing-button-outline mt-auto w-full py-3"
                     >
                         VIEW MODEL
                         <ArrowRight className="h-4 w-4" />
@@ -179,7 +179,7 @@ export default function MotorcyclesPage() {
               </div>
             ))
           ) : (
-            <div className="col-span-full text-center py-20 bg-card border border-dashed border-border rounded-lg">
+            <div className="col-span-full border border-dashed border-border bg-card py-20 text-center">
               <p className="text-xl text-muted-foreground font-inter">No models found in this category.</p>
               <Link to="/models" className="text-accent mt-4 inline-block font-bold hover:underline">
                 View all models

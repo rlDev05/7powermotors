@@ -24,11 +24,11 @@ export function ApplicationShowcase() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-card py-20 sm:py-24">
+    <section className="racing-section bg-card">
       <div className="absolute right-[-16rem] top-12 h-44 w-[34rem] rotate-[-24deg] bg-[#ff5a00]/70" />
 
-      <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:px-8">
-        <div className="relative aspect-[16/10] overflow-hidden bg-black">
+      <div className="racing-container grid grid-cols-1 gap-10 lg:grid-cols-[1.15fr_0.85fr]">
+        <div className="racing-media aspect-[16/10]">
           <AnimatePresence mode="wait">
             <motion.img
               key={current.src}
@@ -59,7 +59,7 @@ export function ApplicationShowcase() {
                 type="button"
                 onClick={next}
                 aria-label="Next application photo"
-                className="flex h-11 w-11 items-center justify-center bg-accent text-white transition hover:bg-accent/90"
+                className="flex h-11 w-11 items-center justify-center bg-accent text-white transition hover:bg-black"
               >
                 <ArrowRight className="h-5 w-5" />
               </button>
@@ -68,15 +68,15 @@ export function ApplicationShowcase() {
         </div>
 
         <div className="flex flex-col justify-center">
-          <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-accent">
+          <p className="racing-kicker">
             Professional Application
           </p>
-          <h2 className="font-[Rajdhani] text-[clamp(2.5rem,6vw,5.2rem)] font-black uppercase leading-[0.9] tracking-normal text-foreground">
+          <h2 className="racing-title">
             Applied with control.
             <br />
             Finished with care.
           </h2>
-          <p className="mt-6 max-w-lg text-base leading-8 text-muted-foreground">
+          <p className="racing-copy mt-6 max-w-lg">
             A cleaner look at the service side of 7 POWER: precise spray work,
             focused preparation, and a finish made for daily riding conditions.
           </p>

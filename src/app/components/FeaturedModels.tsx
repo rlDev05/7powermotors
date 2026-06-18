@@ -25,21 +25,22 @@ const points = [
 
 export function FeaturedModels() {
   return (
-    <section id="protection" className="relative overflow-hidden bg-secondary/30 py-28">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1fr_0.95fr] lg:px-8">
+    <section id="protection" className="racing-section bg-secondary/40">
+      <div className="absolute right-[-14rem] top-16 h-44 w-[34rem] rotate-[-22deg] bg-accent/90" />
+      <div className="racing-container grid grid-cols-1 items-center gap-12 lg:grid-cols-[1fr_0.95fr]">
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.55 }}
         >
-          <span className="mb-4 block text-xs font-bold uppercase tracking-[0.24em] text-accent">
+          <span className="racing-kicker">
             Why Riders Choose It
           </span>
-          <h2 className="font-[Rajdhani] text-[clamp(2.5rem,6vw,5rem)] font-black uppercase leading-none text-foreground">
+          <h2 className="racing-title">
             Protection That Makes Sense
           </h2>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-muted-foreground">
+          <p className="racing-copy mt-6 max-w-2xl">
             7 POWER focuses on protection value: careful application, lasting
             gloss, and a motorcycle finish that stays easier to maintain.
           </p>
@@ -52,7 +53,7 @@ export function FeaturedModels() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: index * 0.08 }}
-                className="flex gap-5"
+                className="racing-card flex gap-5 p-5"
               >
                 <CheckCircle2 className="mt-1 h-8 w-8 shrink-0 fill-accent text-white" />
                 <div>
@@ -69,7 +70,7 @@ export function FeaturedModels() {
 
           <a
             href="/contact"
-            className="mt-12 inline-flex items-center gap-2 bg-accent px-8 py-4 text-sm font-bold uppercase tracking-[0.12em] text-white transition hover:bg-accent/90"
+            className="racing-button mt-12"
           >
             Ask About 7 POWER Coating
             <ArrowRight className="h-4 w-4" />
@@ -81,14 +82,14 @@ export function FeaturedModels() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.65 }}
-          className="relative min-h-[560px] overflow-hidden border border-border/50"
+          className="racing-media min-h-[560px]"
         >
           <ImageWithFallback
             src={NakedImg}
             alt="Motorcycle surface protected by 7 POWER coating"
             className="h-full w-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
           <div className="absolute -bottom-24 -right-24 h-72 w-96 rotate-[-38deg] bg-accent" />
           <div className="absolute bottom-0 left-0 max-w-lg p-8">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-accent">

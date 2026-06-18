@@ -43,7 +43,7 @@ export const Bike360Viewer: React.FC<Bike360ViewerProps> = ({ images, onClose })
   <iframe
     src={viewerUrl}
     title="3D Model Viewer"
-    className="w-full flex-1 rounded-2xl"
+    className="w-full flex-1"
     allow="autoplay; fullscreen; xr-spatial-tracking"
     allowFullScreen
   />
@@ -134,7 +134,7 @@ export const Bike360Viewer: React.FC<Bike360ViewerProps> = ({ images, onClose })
 
       {/* Loading Overlay */}
       {!allLoaded && (
-        <div className="absolute inset-0 z-50 flex flex-col items-center justify-center bg-white/90 backdrop-blur-md rounded-2xl">
+        <div className="absolute inset-0 z-50 flex flex-col items-center justify-center bg-white/90 backdrop-blur-md">
           <div className="w-12 h-12 border-4 border-black/10 border-t-accent rounded-full animate-spin mb-4" />
           <p className="font-rajdhani font-bold text-accent tracking-widest">
             LOADING 360 deg ({loadingProgress}%)

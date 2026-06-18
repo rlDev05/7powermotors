@@ -104,9 +104,8 @@ export default function BikeDetailsPage() {
       <Navbar />
       <main className="pt-28 pb-20 px-4 sm:px-6 lg:px-8 relative">
       
-      {/* Background Decor Elements */}
-      <div className="fixed top-0 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[100px] pointer-events-none -z-10" />
-      <div className="fixed bottom-0 left-0 w-[300px] h-[300px] bg-accent/5 rounded-full blur-[80px] pointer-events-none -z-10" />
+      <div className="pointer-events-none fixed right-[-14rem] top-28 -z-10 h-44 w-[34rem] rotate-[-24deg] bg-accent/80" />
+      <div className="pointer-events-none fixed bottom-24 left-[-18rem] -z-10 h-44 w-[36rem] rotate-[-32deg] bg-[#ff5a00]/70" />
 
       <div className="max-w-[1400px] mx-auto">
         
@@ -126,16 +125,16 @@ export default function BikeDetailsPage() {
           {/* LEFT: IMAGE OR 360 VIEW */}
           <div className="lg:col-span-7 relative">
             <div className="sticky top-32">
-              <div className="bg-card/30 backdrop-blur-sm border border-white/5 rounded-2xl relative min-h-[500px] flex items-center justify-center overflow-hidden shadow-2xl">
+              <div className="racing-card relative flex min-h-[500px] items-center justify-center bg-white">
                 
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-transparent opacity-50 pointer-events-none z-0" />
+                <div className="pointer-events-none absolute inset-x-0 top-0 z-0 h-2 bg-gradient-to-r from-accent via-[#ff5a00] to-[#ffc400]" />
 
                 {bike.view360 && !is360Mode && (
                   <button
                     onClick={() => setIs360Mode(true)}
                     className="absolute top-6 right-6 z-30 group"
                   >
-                    <div className="bg-background/80 backdrop-blur-md text-foreground px-4 py-2 rounded-full font-bold font-rajdhani border border-border group-hover:border-accent transition-all flex items-center gap-2 shadow-lg group-hover:shadow-accent/20 cursor-pointer">
+                    <div className="flex cursor-pointer items-center gap-2 border border-border bg-white px-4 py-2 font-bold font-rajdhani text-foreground shadow-lg transition-all group-hover:border-accent group-hover:shadow-accent/20">
                       <Rotate3d className="w-5 h-5 text-accent group-hover:rotate-180 transition-transform duration-700" />
                       <span className="text-sm tracking-wide">360 deg VIEW</span>
                     </div>
@@ -171,7 +170,7 @@ export default function BikeDetailsPage() {
               <div>
                 {/* --- ADDED: AVAILABILITY BADGE --- */}
                 {bike.availability && (
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-500 mb-4 animate-pulse">
+                  <div className="mb-4 inline-flex items-center gap-2 border border-[#ffc400]/50 bg-[#ffc400]/15 px-3 py-1 text-black">
                     <AlertCircle className="w-3 h-3" />
                     <span className="text-xs font-bold font-rajdhani uppercase tracking-widest">
                       {bike.availability}
@@ -202,9 +201,9 @@ export default function BikeDetailsPage() {
                         <button
                           key={index}
                           onClick={() => handleColorChange(color.image)}
-                          className={`group relative w-20 h-20 rounded-xl overflow-hidden transition-all duration-300
+                          className={`group relative h-20 w-20 overflow-hidden border border-border transition-all duration-300
                             ${isActive 
-                              ? 'ring-2 ring-accent ring-offset-2 ring-offset-background scale-110 shadow-lg shadow-accent/20' 
+                              ? 'scale-110 ring-2 ring-accent ring-offset-2 ring-offset-background shadow-lg shadow-accent/20' 
                               : 'opacity-70 hover:opacity-100 hover:scale-105'
                             }
                           `}
@@ -226,9 +225,9 @@ export default function BikeDetailsPage() {
               )}
 
               <div className="pt-6">
-                <button className="w-full sm:w-auto min-w-[240px] group relative px-8 py-5 bg-accent text-white font-bold font-rajdhani text-xl overflow-hidden skew-x-[-10deg] hover:bg-accent/90 transition-all shadow-[0_0_20px_rgba(var(--accent),0.3)] hover:shadow-[0_0_30px_rgba(var(--accent),0.5)]">
+                <button className="racing-button group relative min-w-[240px] overflow-hidden px-8 py-5 font-[Rajdhani] text-xl sm:w-auto">
                   <div className="absolute inset-0 w-full h-full bg-white/20 -translate-x-full group-hover:skew-x-12 group-hover:translate-x-full transition-transform duration-700 ease-in-out" />
-                  <span className="skew-x-[10deg] inline-flex items-center gap-3 tracking-wide">
+                  <span className="inline-flex items-center gap-3 tracking-wide">
                     ASK ABOUT THIS MODEL
                     <ArrowUpRight className="w-5 h-5 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
                   </span>
@@ -266,10 +265,10 @@ export default function BikeDetailsPage() {
                 return (
                   <div 
                     key={group.title}
-                    className="bg-card/20 backdrop-blur-md border border-white/5 rounded-2xl overflow-hidden hover:border-accent/30 transition-colors duration-300"
-                  >
-                    <div className="px-6 py-4 bg-white/5 border-b border-white/5 flex items-center gap-3">
-                      <div className="p-2 bg-accent/10 rounded-lg text-accent">
+                  className="racing-card overflow-hidden"
+                >
+                    <div className="flex items-center gap-3 border-b border-border bg-secondary/50 px-6 py-4">
+                      <div className="bg-accent p-2 text-white">
                         <GroupIcon className="w-5 h-5" />
                       </div>
                       <h4 className="font-rajdhani font-bold text-lg tracking-wide text-foreground">
@@ -289,11 +288,11 @@ export default function BikeDetailsPage() {
                                 <span className="text-muted-foreground font-inter text-xs uppercase tracking-wider font-medium shrink-0 group-hover/item:text-accent transition-colors">
                                   {formatLabel(key)}
                                 </span>
-                                <span className="text-foreground font-rajdhani font-semibold text-right border-b border-white/5 pb-1 sm:border-none sm:pb-0">
+                                <span className="border-b border-border pb-1 text-right font-rajdhani font-semibold text-foreground sm:border-none sm:pb-0">
                                   {value} {/* Ensure only string values are rendered here */}
                                 </span>
                               </div>
-                              <div className="hidden sm:block w-full border-b border-dashed border-white/10 mt-1 opacity-50" />
+                              <div className="mt-1 hidden w-full border-b border-dashed border-border opacity-60 sm:block" />
                             </li>
                           );
                         })}
@@ -306,9 +305,9 @@ export default function BikeDetailsPage() {
 
             {/* --- NEW SECTION: SPECIAL FEATURES LIST --- */}
             {bike.specs.features && bike.specs.features.length > 0 && (
-              <div className="mt-6 bg-card/20 backdrop-blur-md border border-white/5 rounded-2xl overflow-hidden">
-                <div className="px-6 py-4 bg-white/5 border-b border-white/5 flex items-center gap-3">
-                  <div className="p-2 bg-accent/10 rounded-lg text-accent">
+              <div className="racing-card mt-6 overflow-hidden">
+                <div className="flex items-center gap-3 border-b border-border bg-secondary/50 px-6 py-4">
+                  <div className="bg-accent p-2 text-white">
                     <Star className="w-5 h-5" />
                   </div>
                   <h4 className="font-rajdhani font-bold text-lg tracking-wide text-foreground">

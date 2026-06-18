@@ -24,18 +24,20 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-32 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="racing-section bg-background">
+      <div className="absolute -left-28 top-20 h-52 w-[34rem] rotate-[-24deg] bg-accent" />
+      <div className="absolute -right-32 bottom-24 h-48 w-[34rem] rotate-[-32deg] bg-[#ff5a00]/80" />
+      <div className="racing-container">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="max-w-3xl mx-auto text-center mb-16"
+          className="mx-auto mb-16 max-w-3xl text-center"
         >
           <span
-            className="text-accent tracking-[0.2em] mb-4 block"
+            className="racing-kicker"
             style={{
               fontFamily: 'Inter, sans-serif',
               fontSize: '0.75rem',
@@ -50,7 +52,7 @@ export function Contact() {
               fontFamily: 'Rajdhani, sans-serif',
               fontSize: 'clamp(2rem, 5vw, 3rem)',
               fontWeight: 700,
-              letterSpacing: '-0.01em',
+              letterSpacing: 0,
             }}
           >
             Start a 7 POWER Conversation
@@ -68,14 +70,14 @@ export function Contact() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[0.82fr_1.18fr]">
           {/* Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-8"
+            className="space-y-6"
           >
             {/* Contact Cards */}
             <div className="space-y-6">
@@ -105,7 +107,7 @@ export function Contact() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="flex gap-4 p-6 bg-card border border-border/50 hover:border-accent/50 transition-all"
+                  className="racing-card flex gap-4 p-6"
                 >
                   <div className="text-accent mt-1">{item.icon}</div>
                   <div>
@@ -148,9 +150,9 @@ export function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="h-64 bg-card border border-border/50 flex items-center justify-center"
+              className="racing-card flex h-64 items-center justify-center bg-[#101010] text-white"
             >
-              <div className="text-center text-muted-foreground">
+              <div className="text-center text-white/70">
                 <MapPin size={48} className="mx-auto mb-4 text-accent" />
                 <p
                   style={{
@@ -171,7 +173,7 @@ export function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="racing-card space-y-6 p-6 md:p-8">
               {/* Name */}
               <div>
                 <label
@@ -192,7 +194,7 @@ export function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-input-background border border-border text-foreground focus:border-accent focus:outline-none transition-colors"
+                  className="w-full border border-border bg-input-background px-4 py-3 text-foreground transition-colors focus:border-accent focus:outline-none"
                   placeholder="Enter your name"
                 />
               </div>
@@ -218,7 +220,7 @@ export function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-input-background border border-border text-foreground focus:border-accent focus:outline-none transition-colors"
+                    className="w-full border border-border bg-input-background px-4 py-3 text-foreground transition-colors focus:border-accent focus:outline-none"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -240,7 +242,7 @@ export function Contact() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-input-background border border-border text-foreground focus:border-accent focus:outline-none transition-colors"
+                    className="w-full border border-border bg-input-background px-4 py-3 text-foreground transition-colors focus:border-accent focus:outline-none"
                     placeholder="+1 (555) 000-0000"
                   />
                 </div>
@@ -265,7 +267,7 @@ export function Contact() {
                   value={formData.interest}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-input-background border border-border text-foreground focus:border-accent focus:outline-none transition-colors"
+                  className="w-full border border-border bg-input-background px-4 py-3 text-foreground transition-colors focus:border-accent focus:outline-none"
                 >
                   <option value="">Select an option</option>
                   <option value="rider-application">7 POWER Coating for My Bike</option>
@@ -297,7 +299,7 @@ export function Contact() {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 bg-input-background border border-border text-foreground focus:border-accent focus:outline-none transition-colors resize-none"
+                  className="w-full resize-none border border-border bg-input-background px-4 py-3 text-foreground transition-colors focus:border-accent focus:outline-none"
                   placeholder="Tell us about your needs..."
                 />
               </div>
@@ -307,7 +309,7 @@ export function Contact() {
                 type="submit"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full flex items-center justify-center gap-2 px-8 py-4 bg-accent text-accent-foreground hover:bg-accent/90 transition-all"
+                className="racing-button w-full"
                 style={{
                   fontFamily: 'Inter, sans-serif',
                   fontSize: '0.875rem',
