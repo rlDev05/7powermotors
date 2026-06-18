@@ -25,8 +25,8 @@ export function Z900RSShowcase() {
 
   return (
     <section id="z900rs" className="racing-section bg-background">
-      <div className="absolute left-[-12rem] top-16 h-40 w-[32rem] rotate-[-16deg] bg-accent/75" />
-      <div className="absolute bottom-10 right-[-18rem] h-44 w-[34rem] rotate-[-37deg] bg-[#ff5a00]/70" />
+      <div className="absolute left-[-12rem] top-16 h-40 w-[32rem] rotate-[-16deg] bg-accent/45" />
+      <div className="absolute bottom-10 right-[-18rem] h-44 w-[34rem] rotate-[-37deg] bg-accent/28" />
 
       <div className="racing-container grid grid-cols-1 gap-10 lg:grid-cols-[0.72fr_1.28fr]">
         <div className="flex flex-col justify-between gap-8">

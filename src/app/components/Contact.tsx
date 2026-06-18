@@ -25,8 +25,8 @@ export function Contact() {
 
   return (
     <section id="contact" className="racing-section bg-background">
-      <div className="absolute -left-28 top-20 h-52 w-[34rem] rotate-[-24deg] bg-accent" />
-      <div className="absolute -right-32 bottom-24 h-48 w-[34rem] rotate-[-32deg] bg-[#ff5a00]/80" />
+      <div className="absolute -left-28 top-20 h-52 w-[34rem] rotate-[-24deg] bg-accent/70" />
+      <div className="absolute -right-32 bottom-24 h-48 w-[34rem] rotate-[-32deg] bg-accent/30" />
       <div className="racing-container">
         {/* Section Header */}
         <motion.div

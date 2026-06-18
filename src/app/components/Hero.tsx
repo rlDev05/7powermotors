@@ -53,8 +53,8 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="absolute -top-48 -left-40 h-72 w-[42rem] rotate-[-12deg] bg-accent/90" />
-      <div className="absolute -bottom-44 right-[-24rem] h-72 w-[42rem] rotate-[-42deg] bg-[#ff5a00]/75" />
+      <div className="absolute -top-48 -left-40 h-72 w-[42rem] rotate-[-12deg] bg-accent/75" />
+      <div className="absolute -bottom-44 right-[-24rem] h-72 w-[42rem] rotate-[-42deg] bg-accent/45" />
 
       <div className="relative z-10 flex min-h-screen items-center px-4 pt-24 sm:px-6 lg:px-8">
         <div className="mx-auto w-full max-w-7xl">
@@ -102,7 +102,7 @@ export function Hero() {
             >
               <a
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-accent px-8 py-4 text-sm font-bold uppercase tracking-[0.12em] text-white transition hover:bg-accent/90"
+                className="inline-flex items-center justify-center gap-2 bg-accent px-8 py-4 text-sm font-bold uppercase tracking-[0.12em] text-white shadow-[0_16px_35px_rgba(255,90,0,0.24)] transition hover:bg-black"
               >
                 Partner With 7 POWER
                 <ArrowRight className="h-4 w-4" />

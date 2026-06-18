@@ -223,7 +223,7 @@ export function Footer() {
                 type="submit"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                className="px-6 py-3 bg-accent text-accent-foreground hover:bg-accent/90 transition-all"
+                className="bg-accent px-6 py-3 text-accent-foreground shadow-[0_12px_28px_rgba(255,90,0,0.2)] transition-all hover:bg-white hover:text-black"
                 style={{
                   fontFamily: 'Inter, sans-serif',
                   fontSize: '0.875rem',

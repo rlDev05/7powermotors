@@ -104,8 +104,8 @@ export default function BikeDetailsPage() {
       <Navbar />
       <main className="pt-28 pb-20 px-4 sm:px-6 lg:px-8 relative">
       
-      <div className="pointer-events-none fixed right-[-14rem] top-28 -z-10 h-44 w-[34rem] rotate-[-24deg] bg-accent/80" />
-      <div className="pointer-events-none fixed bottom-24 left-[-18rem] -z-10 h-44 w-[36rem] rotate-[-32deg] bg-[#ff5a00]/70" />
+      <div className="pointer-events-none fixed right-[-14rem] top-28 -z-10 h-44 w-[34rem] rotate-[-24deg] bg-accent/38" />
+      <div className="pointer-events-none fixed bottom-24 left-[-18rem] -z-10 h-44 w-[36rem] rotate-[-32deg] bg-accent/25" />
 
       <div className="max-w-[1400px] mx-auto">
         
@@ -127,7 +127,7 @@ export default function BikeDetailsPage() {
             <div className="sticky top-32">
               <div className="racing-card relative flex min-h-[500px] items-center justify-center bg-white">
                 
-                <div className="pointer-events-none absolute inset-x-0 top-0 z-0 h-2 bg-gradient-to-r from-accent via-[#ff5a00] to-[#ffc400]" />
+                <div className="pointer-events-none absolute inset-x-0 top-0 z-0 h-2 bg-gradient-to-r from-accent via-accent to-[#ffc400]" />
 
                 {bike.view360 && !is360Mode && (
                   <button

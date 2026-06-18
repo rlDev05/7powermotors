@@ -22,7 +22,7 @@ export function Logo({ variant = 'default', className = '' }: LogoProps) {
       {variant === 'default' && (
         <div className="flex flex-col items-start justify-center">
           <span
-            className="block text-[#ff5a00]"
+            className="block text-accent"
             style={{
               fontFamily: 'Rajdhani, sans-serif',
               fontSize: '2rem',

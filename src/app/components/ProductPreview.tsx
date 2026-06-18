@@ -9,8 +9,8 @@ const featuredProducts = careProducts.slice(0, 6);
 export function ProductPreview() {
   return (
     <section id="products-preview" className="racing-section bg-background">
-      <div className="absolute left-[-14rem] top-20 h-44 w-[36rem] rotate-[-18deg] bg-accent" />
-      <div className="absolute bottom-16 right-[-18rem] h-48 w-[38rem] rotate-[-34deg] bg-[#ff5a00]/80" />
+      <div className="absolute left-[-14rem] top-20 h-44 w-[36rem] rotate-[-18deg] bg-accent/80" />
+      <div className="absolute bottom-16 right-[-18rem] h-48 w-[38rem] rotate-[-34deg] bg-accent/35" />
 
       <div className="racing-container">
         <div className="mb-12 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">

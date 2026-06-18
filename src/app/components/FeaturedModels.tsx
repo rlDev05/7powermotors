@@ -26,7 +26,7 @@ const points = [
 export function FeaturedModels() {
   return (
     <section id="protection" className="racing-section bg-secondary/40">
-      <div className="absolute right-[-14rem] top-16 h-44 w-[34rem] rotate-[-22deg] bg-accent/90" />
+      <div className="absolute right-[-14rem] top-16 h-44 w-[34rem] rotate-[-22deg] bg-accent/45" />
       <div className="racing-container grid grid-cols-1 items-center gap-12 lg:grid-cols-[1fr_0.95fr]">
         <motion.div
           initial={{ opacity: 0, y: 25 }}
@@ -90,7 +90,7 @@ export function FeaturedModels() {
             className="h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
-          <div className="absolute -bottom-24 -right-24 h-72 w-96 rotate-[-38deg] bg-accent" />
+          <div className="absolute -bottom-24 -right-24 h-72 w-96 rotate-[-38deg] bg-accent/85" />
           <div className="absolute bottom-0 left-0 max-w-lg p-8">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-accent">
               Brand Role

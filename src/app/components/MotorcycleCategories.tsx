@@ -38,8 +38,8 @@ const audiences = [
 export function MotorcycleCategories() {
   return (
     <section id="strategy" className="racing-section bg-background">
-      <div className="absolute -right-32 top-10 h-72 w-[32rem] rotate-[-38deg] bg-accent/90" />
-      <div className="absolute -left-40 bottom-0 h-64 w-[36rem] rotate-[-30deg] bg-accent/20" />
+      <div className="absolute -right-32 top-10 h-72 w-[32rem] rotate-[-38deg] bg-accent/55" />
+      <div className="absolute -left-40 bottom-0 h-64 w-[36rem] rotate-[-30deg] bg-accent/16" />
 
       <div className="racing-container grid grid-cols-1 gap-14 lg:grid-cols-[0.9fr_1.1fr]">
         <motion.div

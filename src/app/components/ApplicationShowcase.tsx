@@ -25,7 +25,7 @@ export function ApplicationShowcase() {
 
   return (
     <section className="racing-section bg-card">
-      <div className="absolute right-[-16rem] top-12 h-44 w-[34rem] rotate-[-24deg] bg-[#ff5a00]/70" />
+      <div className="absolute right-[-16rem] top-12 h-44 w-[34rem] rotate-[-24deg] bg-accent/35" />
 
       <div className="racing-container grid grid-cols-1 gap-10 lg:grid-cols-[1.15fr_0.85fr]">
         <div className="racing-media aspect-[16/10]">

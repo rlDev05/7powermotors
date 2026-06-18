@@ -38,7 +38,7 @@ const services = [
 export function Services() {
   return (
     <section id="services" className="racing-section bg-secondary/40">
-      <div className="absolute -left-32 top-0 h-80 w-[36rem] rotate-[-36deg] bg-accent" />
+      <div className="absolute -left-32 top-0 h-80 w-[36rem] rotate-[-36deg] bg-accent/75" />
       <div className="absolute right-[-16rem] top-24 h-48 w-[34rem] rotate-[-20deg] bg-white" />
 
       <div className="racing-container">
@@ -72,7 +72,7 @@ export function Services() {
               transition={{ duration: 0.45, delay: index * 0.08 }}
               className="racing-card p-7"
             >
-              <div className="mb-6 flex h-14 w-14 items-center justify-center bg-accent text-white shadow-[8px_8px_0_#101010]">
+              <div className="mb-6 flex h-14 w-14 items-center justify-center bg-accent text-white shadow-[8px_8px_0_rgba(16,16,16,0.12)]">
                 {service.icon}
               </div>
               <h3 className="font-[Rajdhani] text-2xl font-black uppercase leading-none tracking-normal text-foreground">

@@ -20,7 +20,7 @@ export function Navbar() {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className="fixed left-0 right-0 top-0 z-50 border-b border-border bg-white/90 shadow-[0_10px_40px_rgba(16,16,16,0.06)] backdrop-blur-xl"
+      className="fixed left-0 right-0 top-0 z-50 border-b border-border bg-[#fffdf8]/92 shadow-[0_10px_40px_rgba(16,16,16,0.055)] backdrop-blur-xl"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
@@ -60,7 +60,7 @@ export function Navbar() {
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="ml-4 bg-accent px-6 py-3 text-accent-foreground tracking-wider transition-all hover:bg-black"
+              className="ml-4 bg-accent px-6 py-3 text-accent-foreground shadow-[0_12px_28px_rgba(255,90,0,0.22)] tracking-wider transition-all hover:bg-black"
               style={{
                 fontFamily: 'Inter, sans-serif',
                 fontSize: '0.875rem',
@@ -90,7 +90,7 @@ export function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="border-t border-border bg-white md:hidden"
+            className="border-t border-border bg-[#fffdf8] md:hidden"
           >
             <div className="px-4 py-6 space-y-4">
               {navItems.map((item) => (
@@ -106,7 +106,7 @@ export function Navbar() {
               ))}
               <Link
                 to="/contact"
-                className="w-full px-6 py-3 bg-accent text-accent-foreground tracking-wider transition-all hover:bg-accent/90"
+                className="w-full bg-accent px-6 py-3 text-accent-foreground tracking-wider transition-all hover:bg-black"
                 style={{
                   fontFamily: 'Inter, sans-serif',
                   fontSize: '0.875rem',
