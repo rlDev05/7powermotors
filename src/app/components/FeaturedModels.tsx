@@ -40,9 +40,8 @@ export function FeaturedModels() {
             Protection That Makes Sense
           </h2>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-muted-foreground">
-            The website now leads with protection value, not motorcycle
-            inventory. That is the clearer promise for 7 POWER and the better path
-            for B2C and B2B lead generation.
+            7 POWER focuses on protection value: careful application, lasting
+            gloss, and a motorcycle finish that stays easier to maintain.
           </p>
 
           <div className="mt-12 space-y-6">

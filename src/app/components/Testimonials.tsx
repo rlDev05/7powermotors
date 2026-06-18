@@ -7,13 +7,13 @@ const testimonials = [
     quote:
       'The bike stays easier to clean after long rides. It still looks polished even after rain and road dust.',
     name: 'Motorcycle Owner',
-    role: 'B2C Rider',
+    role: 'Rider',
   },
   {
     quote:
       '7 POWER gives our shop a premium service with a stronger story than ordinary coating packages.',
     name: 'Detailing Shop Partner',
-    role: 'B2B Service Center',
+    role: 'Service Center',
   },
   {
     quote:

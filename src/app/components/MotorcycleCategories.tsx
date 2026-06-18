@@ -7,14 +7,14 @@ import CruiserImg from '@/styles/images/cruiser.png';
 const audiences = [
   {
     icon: <Users className="h-7 w-7" />,
-    title: 'B2C Riders',
+    title: 'Riders',
     subtitle: 'Motorcycle owners, enthusiasts, collectors, and communities.',
     details:
       'For riders who see their motorcycle as an extension of identity and want showroom shine that lasts longer than ordinary detailing.',
   },
   {
     icon: <Building2 className="h-7 w-7" />,
-    title: 'B2B Partners',
+    title: 'Shop Partners',
     subtitle: 'Dealerships, distributors, detailing shops, and autocare businesses.',
     details:
       'For shops that need a premium upsell, official application training, and a protection system that strengthens customer trust.',

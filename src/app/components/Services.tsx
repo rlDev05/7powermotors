@@ -24,7 +24,7 @@ const services = [
     title: 'Dealer & Shop Partnerships',
     description:
       'A premium upsell for motorcycle dealerships, distributors, detailing shops, and autocare businesses.',
-    items: ['B2B support', 'Partner enablement', 'Customer trust building'],
+    items: ['Shop support', 'Partner enablement', 'Customer trust building'],
   },
   {
     icon: <Sparkles className="h-7 w-7" />,

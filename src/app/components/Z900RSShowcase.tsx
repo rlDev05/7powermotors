@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ArrowLeft, ArrowRight, Camera, Sparkles } from 'lucide-react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { z900rsImages } from '@/app/data/z900rsImages';
 
 export function Z900RSShowcase() {
@@ -28,40 +28,21 @@ export function Z900RSShowcase() {
       <div className="absolute left-[-12rem] top-16 h-40 w-[32rem] rotate-[-16deg] bg-accent/75" />
       <div className="absolute bottom-10 right-[-18rem] h-44 w-[34rem] rotate-[-37deg] bg-accent/70" />
 
-      <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
+      <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[0.75fr_1.25fr] lg:px-8">
         <div className="flex flex-col justify-between gap-8">
           <div>
-            <div className="mb-5 inline-flex items-center gap-3 border border-accent/25 bg-accent/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-accent">
-              <Camera className="h-4 w-4" />
-              Z900RS Cover Set
-            </div>
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-accent">
+              Z900RS Visual Covers
+            </p>
             <h2 className="font-[Rajdhani] text-[clamp(2.5rem,6vw,5.4rem)] font-black uppercase leading-[0.9] tracking-normal text-foreground">
-              Cinematic detail,
+              Detail shots.
               <br />
-              built for finish.
+              Real finish.
             </h2>
             <p className="mt-6 max-w-xl text-base leading-8 text-muted-foreground">
-              Premium Z900RS visuals give the site a stronger motorcycle identity:
-              glossy paint, chrome highlights, engine texture, and the kind of
-              close-up finish riders notice immediately.
+              Close-up Z900RS visuals for paint depth, chrome highlights,
+              engine texture, and the premium riding mood of the brand.
             </p>
-          </div>
-
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-            {[
-              ['13', 'Photo Assets'],
-              ['Z900RS', 'Feature Bike'],
-              ['7 POWER', 'Brand Focus'],
-            ].map(([value, label]) => (
-              <div key={label} className="border border-border bg-card/60 p-4">
-                <div className="font-[Rajdhani] text-3xl font-black uppercase text-accent">
-                  {value}
-                </div>
-                <div className="mt-1 text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">
-                  {label}
-                </div>
-              </div>
-            ))}
           </div>
         </div>
 
@@ -82,10 +63,6 @@ export function Z900RSShowcase() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 flex items-end justify-between gap-4 p-5">
               <div>
-                <div className="mb-2 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-accent">
-                  <Sparkles className="h-4 w-4" />
-                  Active Cover
-                </div>
                 <h3 className="font-[Rajdhani] text-4xl font-black uppercase leading-none text-white">
                   {current.label}
                 </h3>

@@ -57,7 +57,7 @@ export function Hero() {
       <div className="absolute -bottom-44 right-[-24rem] h-72 w-[42rem] rotate-[-42deg] bg-accent/70" />
 
       <div className="relative z-10 flex min-h-screen items-center px-4 pt-24 sm:px-6 lg:px-8">
-        <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="mx-auto w-full max-w-7xl">
           <div className="max-w-4xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -114,33 +114,6 @@ export function Hero() {
               </a>
             </motion.div>
           </div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 35 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.25 }}
-            className="hidden border-l border-white/10 pl-10 lg:block"
-          >
-            <p className="mb-6 text-sm font-bold uppercase tracking-[0.24em] text-accent">
-              Key Message
-            </p>
-            <p className="max-w-md font-[Rajdhani] text-4xl font-black uppercase leading-none text-white">
-              Precision surface care for Philippine roads, built around
-              professional application and lasting finish confidence.
-            </p>
-            <div className="mt-10 grid grid-cols-3 gap-4 border-t border-white/10 pt-8">
-              {[
-                ['JP', 'Technology'],
-                ['PH', 'Climate Fit'],
-                ['B2B', 'Partner Ready'],
-              ].map(([value, label]) => (
-                <div key={value}>
-                  <div className="font-[Rajdhani] text-3xl font-black text-accent">{value}</div>
-                  <div className="mt-1 text-xs uppercase tracking-wider text-white/55">{label}</div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
         </div>
       </div>
     </section>
