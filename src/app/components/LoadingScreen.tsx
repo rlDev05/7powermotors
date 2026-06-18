@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import loadingVid from '../../styles/videos/motor7power.mp4';
+import React, { useCallback, useEffect, useState } from 'react';
+import powerMotorLogo from '@/styles/images/powermotorlogo.png';
 
 interface LoadingScreenProps {
   onFinished: () => void;
@@ -9,26 +9,55 @@ export function LoadingScreen({ onFinished }: LoadingScreenProps) {
   const [showSkip, setShowSkip] = useState(false);
 
   useEffect(() => {
-    // Show the skip button after 2 seconds of playback
-    const timer = setTimeout(() => setShowSkip(true), 2000);
-    return () => clearTimeout(timer);
-  }, []);
+    const skipTimer = window.setTimeout(() => setShowSkip(true), 1200);
+    const finishTimer = window.setTimeout(onFinished, 3200);
+
+    return () => {
+      window.clearTimeout(skipTimer);
+      window.clearTimeout(finishTimer);
+    };
+  }, [onFinished]);
+
+  const finishIntro = useCallback(() => {
+    onFinished();
+  }, [onFinished]);
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' || event.key === 'Enter' || event.key === ' ') {
+        finishIntro();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [finishIntro]);
 
   return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black group">
-      <video
-        src={loadingVid}
-        autoPlay
-        muted
-        playsInline
-        onEnded={onFinished}
-        className="w-full h-full object-cover"
-      />
+    <div className="group fixed inset-0 z-[9999] flex items-center justify-center overflow-hidden bg-[#090806]">
+      <div className="absolute inset-x-0 top-1/2 h-px bg-gradient-to-r from-transparent via-accent/70 to-transparent" />
+      <div className="absolute -left-40 top-20 h-40 w-[34rem] rotate-[-18deg] bg-accent/35" />
+      <div className="absolute -right-40 bottom-20 h-40 w-[34rem] rotate-[-28deg] bg-[#ffc400]/20" />
+
+      <div className="relative z-10 flex flex-col items-center gap-8 px-6 text-center">
+        <img
+          src={powerMotorLogo}
+          alt="7 POWER Motors logo"
+          className="h-auto w-[min(72vw,420px)] object-contain drop-shadow-[0_22px_55px_rgba(255,90,0,0.28)]"
+        />
+        <div className="h-px w-64 bg-gradient-to-r from-transparent via-white/35 to-transparent" />
+        <p
+          className="text-xs font-black uppercase tracking-[0.34em] text-white/65"
+          style={{ fontFamily: 'Rajdhani, sans-serif' }}
+        >
+          Premium Surface Care
+        </p>
+      </div>
 
       {/* Skip Button Overlay */}
       {showSkip && (
         <button
-          onClick={onFinished}
+          onClick={finishIntro}
           className="absolute bottom-10 right-10 z-[10000] px-6 py-2 
                      bg-black/20 hover:bg-white/10 border border-white/30 
                      backdrop-blur-md text-white text-sm font-bold tracking-[0.2em] 
@@ -36,7 +65,7 @@ export function LoadingScreen({ onFinished }: LoadingScreenProps) {
                      hover:border-accent"
           style={{ fontFamily: 'Rajdhani, sans-serif' }}
         >
-          Skip Intro
+          Enter Site
         </button>
       )}
 
