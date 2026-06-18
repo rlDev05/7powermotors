@@ -1,36 +1,56 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowRight, ShieldCheck } from 'lucide-react';
-import { ImageWithFallback } from '@/app/components/figma/ImageWithFallback';
-import coatingApplicationImg from '@/styles/images/coating/coating-application-web.jpg';
-import heroVideo from '@/styles/videos/motor7power.mp4';
+import { z900rsHeroSlides } from '@/app/data/z900rsImages';
 
 export function Hero() {
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setActiveSlide((current) => (current + 1) % z900rsHeroSlides.length);
+    }, 5200);
+
+    return () => window.clearInterval(timer);
+  }, []);
+
+  const currentSlide = z900rsHeroSlides[activeSlide];
+
   return (
     <section className="relative min-h-screen w-full overflow-hidden bg-background">
       <div className="absolute inset-0">
-        <ImageWithFallback
-          src={coatingApplicationImg}
-          alt="7 POWER premium motorcycle coating application"
-          className="h-full w-full object-cover"
-          loading="eager"
-          // @ts-expect-error fetchPriority is supported by modern browsers.
-          fetchPriority="high"
-        />
-        <video
-          className="absolute inset-0 h-full w-full object-cover"
-          autoPlay
-          loop
-          muted
-          playsInline
-          poster={coatingApplicationImg}
-          aria-label="Cinematic 7 POWER motorcycle lifestyle hero video"
-        >
-          <source src={heroVideo} type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-black/35" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/45 to-background/10" />
+        <AnimatePresence initial={false}>
+          <motion.img
+            key={currentSlide.src}
+            src={currentSlide.src}
+            alt={currentSlide.alt}
+            className="absolute inset-0 h-full w-full object-cover object-center"
+            initial={{ opacity: 0, scale: 1.04 }}
+            animate={{ opacity: 1, scale: 1.12 }}
+            exit={{ opacity: 0 }}
+            transition={{
+              opacity: { duration: 1.15, ease: 'easeOut' },
+              scale: { duration: 6.4, ease: 'easeOut' },
+            }}
+          />
+        </AnimatePresence>
+        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/78 via-background/40 to-background/8" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/55 via-transparent to-background/25" />
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent" />
+        <div className="absolute bottom-8 right-8 z-10 hidden items-center gap-2 lg:flex">
+          {z900rsHeroSlides.map((slide, index) => (
+            <button
+              key={slide.src}
+              type="button"
+              aria-label={`Show ${slide.label}`}
+              onClick={() => setActiveSlide(index)}
+              className={`h-1.5 rounded-full transition-all ${
+                index === activeSlide ? 'w-10 bg-accent' : 'w-5 bg-white/35 hover:bg-white/60'
+              }`}
+            />
+          ))}
+        </div>
       </div>
 
       <div className="absolute -top-48 -left-40 h-72 w-[42rem] rotate-[-12deg] bg-accent/80" />

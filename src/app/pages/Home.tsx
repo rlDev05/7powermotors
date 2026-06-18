@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navbar } from '@/app/components/Navbar';
 import { Hero } from '@/app/components/Hero';
+import { Z900RSShowcase } from '@/app/components/Z900RSShowcase';
 import { ProductPreview } from '@/app/components/ProductPreview';
 import { MotorcycleCategories } from '@/app/components/MotorcycleCategories';
 import { PerformanceEngineering } from '@/app/components/PerformanceEngineering';
@@ -16,6 +17,7 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <Z900RSShowcase />
         <ProductPreview />
         <MotorcycleCategories />
         <PerformanceEngineering />
