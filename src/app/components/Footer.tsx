@@ -21,7 +21,7 @@ export function Footer() {
     ],
     company: [
       { label: 'Rider Proof', href: '/#proof' },
-      { label: 'Partner Program', href: '/services' },
+      { label: 'Partner Program', href: '/partners' },
       { label: 'Coverage Map', href: '/contact' },
       { label: 'Contact', href: '/contact' },
     ],

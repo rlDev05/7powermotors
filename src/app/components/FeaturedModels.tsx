@@ -68,7 +68,7 @@ export function FeaturedModels() {
           </div>
 
           <a
-            href="#contact"
+            href="/contact"
             className="mt-12 inline-flex items-center gap-2 bg-accent px-8 py-4 text-sm font-bold uppercase tracking-[0.12em] text-white transition hover:bg-accent/90"
           >
             Ask About 7 POWER Coating

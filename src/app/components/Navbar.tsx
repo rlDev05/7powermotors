@@ -11,7 +11,7 @@ export function Navbar() {
     { label: 'HOME', href: '/' },
     { label: 'PRODUCTS', href: '/products' },
     { label: 'SERVICES', href: '/services' },
-    { label: 'PARTNERS', href: '/#strategy' },
+    { label: 'PARTNERS', href: '/partners' },
     { label: 'CONTACT', href: '/contact' },
   ];
 

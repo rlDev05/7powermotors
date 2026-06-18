@@ -5,6 +5,7 @@ import { createBrowserRouter, useRouteError, isRouteErrorResponse } from 'react-
 import Home from '@/app/pages/Home';
 import ServicesPage from '@/app/pages/ServicesPage';
 import ContactPage from '@/app/pages/ContactPage';
+import PartnersPage from '@/app/pages/PartnersPage';
 import MotorcyclesPage from '@/app/motorcycles/MotorcyclesPage';
 import BikeDetailsPage from '@/app/motorcycles/BikeDetailsPage';
 
@@ -54,6 +55,10 @@ export const router = createBrowserRouter([
   {
     path: '/services',
     element: <ServicesPage />,
+  },
+  {
+    path: '/partners',
+    element: <PartnersPage />,
   },
   {
     path: '/contact',
