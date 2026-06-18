@@ -224,13 +224,9 @@ export function MotorcycleModal({ bike, isOpen, onClose }: MotorcycleModalProps)
               </div>
 
               {/* Footer / CTA */}
-              <div className="flex flex-col sm:flex-row items-center justify-between pt-4 border-t border-border/50 gap-4">
-                <div className="text-center sm:text-left">
-                  <span className="block text-[10px] text-muted-foreground uppercase tracking-wider">Total Price</span>
-                  <span className="text-2xl font-bold font-[Rajdhani]">{bike.price}</span>
-                </div>
+              <div className="flex flex-col sm:flex-row items-center justify-end pt-4 border-t border-border/50 gap-4">
                 <button className="w-full sm:w-auto px-6 py-3 bg-accent text-accent-foreground text-sm font-bold hover:bg-accent/90 transition-transform active:scale-95 shadow-lg shadow-accent/20 rounded-sm">
-                  PRE-ORDER
+                  ASK ABOUT THIS MODEL
                 </button>
               </div>
 

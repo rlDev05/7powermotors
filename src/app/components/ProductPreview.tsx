@@ -19,21 +19,21 @@ export function ProductPreview() {
         <div className="mb-12 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
             <span className="mb-4 block text-xs font-bold uppercase tracking-[0.24em] text-accent">
-              Motorcycles & Products
+              Featured Models
             </span>
             <h2 className="font-[Rajdhani] text-[clamp(2.4rem,5vw,4.75rem)] font-black uppercase leading-none text-foreground">
-              Shop the bikes, then protect the finish.
+              Motorcycles worth protecting.
             </h2>
             <p className="mt-5 text-lg leading-8 text-muted-foreground">
-              7 POWER carries standout motorcycles and supports riders with
-              coating care that keeps every machine looking prepared for the road.
+              Keep the motorcycle lineup as model inspiration, then use 7 POWER
+              products and services to protect the finish.
             </p>
           </div>
           <Link
-            to="/products"
+            to="/models"
             className="inline-flex items-center justify-center gap-2 bg-accent px-7 py-4 text-sm font-bold uppercase tracking-[0.12em] text-white transition hover:bg-accent/90"
           >
-            View All Products
+            View All Models
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
@@ -48,7 +48,7 @@ export function ProductPreview() {
               transition={{ duration: 0.45, delay: index * 0.08 }}
               className="group overflow-hidden border border-border/50 bg-card transition hover:border-accent/70"
             >
-              <Link to={`/motorcycles/${bike.id}`} className="block">
+              <Link to={`/models/${bike.id}`} className="block">
                 <div className="relative aspect-[4/3] overflow-hidden bg-secondary/50">
                   <ImageWithFallback
                     src={bike.image}
@@ -75,15 +75,10 @@ export function ProductPreview() {
                       Coating Ready
                     </span>
                   </div>
-                  <div className="mt-6 flex items-center justify-between border-t border-border/50 pt-5">
-                    <span className="font-[Rajdhani] text-2xl font-black text-accent">
-                      ${bike.price.toLocaleString()}
-                    </span>
-                    <span className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.12em] text-foreground">
-                      Details
-                      <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-                    </span>
-                  </div>
+                  <span className="mt-6 inline-flex items-center gap-2 border-t border-border/50 pt-5 text-sm font-bold uppercase tracking-[0.12em] text-foreground">
+                    View Model
+                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                  </span>
                 </div>
               </Link>
             </motion.article>

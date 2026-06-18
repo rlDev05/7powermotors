@@ -26,7 +26,7 @@ export function Z900RSShowcase() {
   return (
     <section id="z900rs" className="relative overflow-hidden bg-background py-20 sm:py-24">
       <div className="absolute left-[-12rem] top-16 h-40 w-[32rem] rotate-[-16deg] bg-accent/75" />
-      <div className="absolute bottom-10 right-[-18rem] h-44 w-[34rem] rotate-[-37deg] bg-accent/70" />
+      <div className="absolute bottom-10 right-[-18rem] h-44 w-[34rem] rotate-[-37deg] bg-[#ff5a00]/70" />
 
       <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[0.75fr_1.25fr] lg:px-8">
         <div className="flex flex-col justify-between gap-8">
@@ -47,7 +47,7 @@ export function Z900RSShowcase() {
         </div>
 
         <div className="min-w-0">
-          <div className="relative aspect-[16/10] overflow-hidden border border-white/10 bg-black">
+            <div className="relative aspect-[16/10] overflow-hidden border border-border bg-black">
             <AnimatePresence mode="wait">
               <motion.img
                 key={current.src}
@@ -96,7 +96,7 @@ export function Z900RSShowcase() {
                 onClick={() => setActive(index)}
                 aria-label={`Select ${image.label}`}
                 className={`group relative aspect-[4/3] overflow-hidden border transition ${
-                  index === active ? 'border-accent' : 'border-white/10 hover:border-white/45'
+                  index === active ? 'border-accent' : 'border-border hover:border-foreground/45'
                 }`}
               >
                 <img

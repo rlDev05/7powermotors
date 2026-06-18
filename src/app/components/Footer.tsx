@@ -9,9 +9,9 @@ export function Footer() {
   const footerLinks = {
     motorcycles: [
       { label: 'All Products', href: '/products' },
-      { label: 'Small Bikes', href: '/products?category=small-bike' },
-      { label: 'Naked Bikes', href: '/products?category=naked' },
-      { label: 'Adventure Bikes', href: '/products?category=adventure' },
+      { label: 'Quick Cloth', href: '/products?category=Quick%20Cloth' },
+      { label: 'Maintenance', href: '/products?category=Maintenance' },
+      { label: 'Protection', href: '/products?category=Protection' },
     ],
     services: [
       { label: '7 POWER Coating Care', href: '/services' },
@@ -20,7 +20,8 @@ export function Footer() {
       { label: 'Rider Education', href: '/services' },
     ],
     company: [
-      { label: 'Rider Proof', href: '/#proof' },
+      { label: 'Rider Proof', href: '/partners#proof' },
+      { label: 'Model Gallery', href: '/models' },
       { label: 'Partner Program', href: '/partners' },
       { label: 'Coverage Map', href: '/contact' },
       { label: 'Contact', href: '/contact' },
@@ -35,13 +36,13 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-card border-t border-border">
+    <footer className="border-t border-black bg-[#0b0b0b] text-white [--border:rgba(255,255,255,0.14)] [--input-background:#151515] [--muted-foreground:#b8b8b8]">
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
           {/* Brand Column */}
           <div className="lg:col-span-2">
-            <Logo className="mb-6" />
+            <Logo className="mb-6 [&_span:last-child]:!text-white/70" />
             <p
               className="text-muted-foreground mb-6 max-w-sm"
               style={{
@@ -85,7 +86,7 @@ export function Footer() {
                   fontSize: '0.875rem',
                 }}
               >
-                <MapPin size={16} className="text-accent mt-0.5" />
+                  <MapPin size={16} className="mt-0.5 text-accent" />
                 Metro Manila<br />Philippines
               </div>
             </div>
@@ -212,7 +213,7 @@ export function Footer() {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-4 py-3 bg-input-background border border-border text-foreground focus:border-accent focus:outline-none transition-colors"
+                className="flex-1 border border-border bg-input-background px-4 py-3 text-white placeholder:text-white/45 transition-colors focus:border-accent focus:outline-none"
                 style={{
                   fontFamily: 'Inter, sans-serif',
                   fontSize: '0.875rem',

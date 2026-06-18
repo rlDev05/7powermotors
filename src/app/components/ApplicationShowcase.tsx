@@ -25,7 +25,7 @@ export function ApplicationShowcase() {
 
   return (
     <section className="relative overflow-hidden bg-card py-20 sm:py-24">
-      <div className="absolute right-[-16rem] top-12 h-44 w-[34rem] rotate-[-24deg] bg-accent/70" />
+      <div className="absolute right-[-16rem] top-12 h-44 w-[34rem] rotate-[-24deg] bg-[#ff5a00]/70" />
 
       <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:px-8">
         <div className="relative aspect-[16/10] overflow-hidden bg-black">

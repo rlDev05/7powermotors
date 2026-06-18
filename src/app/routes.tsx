@@ -3,6 +3,7 @@ import { createBrowserRouter, useRouteError, isRouteErrorResponse } from 'react-
 
 // Import your pages
 import Home from '@/app/pages/Home';
+import ProductsPage from '@/app/pages/ProductsPage';
 import ServicesPage from '@/app/pages/ServicesPage';
 import ContactPage from '@/app/pages/ContactPage';
 import PartnersPage from '@/app/pages/PartnersPage';
@@ -41,15 +42,19 @@ export const router = createBrowserRouter([
     element: <MotorcyclesPage />,
   },
   {
-    path: '/products',
+    path: '/models',
     element: <MotorcyclesPage />,
+  },
+  {
+    path: '/products',
+    element: <ProductsPage />,
   },
   {
     path: '/motorcycles/:id', // This matches the useParams in BikeDetailsPage
     element: <BikeDetailsPage />,
   },
   {
-    path: '/products/:id',
+    path: '/models/:id',
     element: <BikeDetailsPage />,
   },
   {

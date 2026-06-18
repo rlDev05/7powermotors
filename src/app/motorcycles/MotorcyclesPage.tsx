@@ -29,7 +29,7 @@ export default function MotorcyclesPage() {
   // Dynamic Title
   const pageTitle = selectedCategory 
     ? selectedCategory.replace(/-/g, ' ').toUpperCase() 
-    : 'ALL PRODUCTS';
+    : 'ALL MODELS';
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -52,7 +52,7 @@ export default function MotorcyclesPage() {
             >
               <path d="m15 18-6-6 6-6"/>
             </svg>
-            Back to Main Page
+            Back to Home
           </Link>
         </div>
 
@@ -60,18 +60,17 @@ export default function MotorcyclesPage() {
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_0.75fr]">
             <div className="p-8 md:p-12">
               <span className="text-accent tracking-[0.24em] text-xs font-bold font-inter mb-4 block uppercase">
-                7 POWER Products
+                7 POWER Models
               </span>
               <h1 className="font-[Rajdhani] text-[clamp(2.8rem,6vw,5.5rem)] font-black uppercase leading-none text-foreground">
-                Motorcycles, specials, and coating-ready rides.
+                Motorcycle models for finish inspiration.
               </h1>
               <p className="mt-6 max-w-3xl text-base leading-8 text-muted-foreground md:text-lg">
-                Browse available units, limited releases, and bikes that pair
-                naturally with 7 POWER surface care. Each product page includes
-                images, available finishes, specs, and inquiry actions.
+                Browse model references and featured motorcycles that pair
+                naturally with 7 POWER surface care.
               </p>
               <div className="mt-8 flex flex-wrap gap-3 text-xs font-bold uppercase tracking-[0.16em] text-muted-foreground">
-                <span className="border border-border px-4 py-3">{bikes.length} products</span>
+                <span className="border border-border px-4 py-3">{bikes.length} models</span>
                 <span className="border border-border px-4 py-3">{categories.length} categories</span>
                 <span className="border border-border px-4 py-3">Detail pages ready</span>
               </div>
@@ -79,7 +78,7 @@ export default function MotorcyclesPage() {
             <div className="relative min-h-[320px] bg-secondary/50">
               <ImageWithFallback
                 src={bikes[0]?.image || ''}
-                alt="Featured 7 POWER motorcycle product"
+                alt="Featured 7 POWER motorcycle model"
                 className="h-full w-full object-contain p-10"
               />
               <div className="absolute inset-0 bg-gradient-to-l from-transparent to-card/40" />
@@ -92,7 +91,7 @@ export default function MotorcyclesPage() {
             <div>
               <span className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-accent">
                 <SlidersHorizontal className="h-4 w-4" />
-                Browse Products
+                Browse Models
               </span>
               <h2 className="font-[Rajdhani] text-3xl font-black uppercase text-foreground">
                 {pageTitle}
@@ -104,7 +103,7 @@ export default function MotorcyclesPage() {
                 type="search"
                 value={searchTerm}
                 onChange={(event) => setSearchTerm(event.target.value)}
-                placeholder="Search products"
+                placeholder="Search models"
                 className="w-full border border-border bg-input-background py-3 pl-12 pr-4 text-sm text-foreground outline-none transition focus:border-accent"
               />
             </label>
@@ -112,7 +111,7 @@ export default function MotorcyclesPage() {
 
           <div className="mt-5 flex flex-wrap gap-3">
             <Link
-              to="/products"
+              to="/models"
               className={`px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] transition ${
                 !selectedCategory
                   ? 'bg-accent text-white'
@@ -124,7 +123,7 @@ export default function MotorcyclesPage() {
             {categories.map((category) => (
               <Link
                 key={category}
-                to={`/products?category=${category}`}
+                to={`/models?category=${category}`}
                 className={`px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] transition ${
                   selectedCategory === category
                     ? 'bg-accent text-white'
@@ -146,7 +145,7 @@ export default function MotorcyclesPage() {
                 className="group bg-card border border-border/50 overflow-hidden hover:border-accent/60 transition-all duration-300 flex flex-col"
               >
                 {/* Image Area */}
-                <Link to={`/motorcycles/${bike.id}`} className="h-72 overflow-hidden relative bg-secondary/40 block">
+                <Link to={`/models/${bike.id}`} className="h-72 overflow-hidden relative bg-secondary/40 block">
                    <ImageWithFallback 
                      src={bike.image || ''} 
                      alt={bike.name}
@@ -163,9 +162,6 @@ export default function MotorcyclesPage() {
                 <div className="p-6 flex flex-col flex-grow">
                     <div className="flex justify-between items-start mb-2">
                         <h2 className="text-2xl font-black uppercase font-rajdhani leading-none">{bike.name}</h2>
-                        <span className="text-accent font-bold font-rajdhani text-xl">
-                            ${bike.price.toLocaleString()}
-                        </span>
                     </div>
                     <p className="text-muted-foreground text-sm font-inter capitalize mb-4 flex-grow">
                         {bike.category.replace(/-/g, ' ')}
@@ -173,10 +169,10 @@ export default function MotorcyclesPage() {
                     
                     {/* THIS IS THE CRITICAL FIX: Link to the specific ID */}
                     <Link 
-                        to={`/motorcycles/${bike.id}`}
+                        to={`/models/${bike.id}`}
                         className="mt-auto inline-flex w-full items-center justify-center gap-2 py-3 border border-input text-foreground font-semibold font-rajdhani hover:bg-accent hover:text-white hover:border-accent transition-colors"
                     >
-                        VIEW DETAILS
+                        VIEW MODEL
                         <ArrowRight className="h-4 w-4" />
                     </Link>
                 </div>
@@ -184,9 +180,9 @@ export default function MotorcyclesPage() {
             ))
           ) : (
             <div className="col-span-full text-center py-20 bg-card border border-dashed border-border rounded-lg">
-              <p className="text-xl text-muted-foreground font-inter">No motorcycles found in this category.</p>
-              <Link to="/motorcycles" className="text-accent mt-4 inline-block font-bold hover:underline">
-                View all motorcycles
+              <p className="text-xl text-muted-foreground font-inter">No models found in this category.</p>
+              <Link to="/models" className="text-accent mt-4 inline-block font-bold hover:underline">
+                View all models
               </Link>
             </div>
           )}

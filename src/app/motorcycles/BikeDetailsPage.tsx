@@ -84,16 +84,16 @@ export default function BikeDetailsPage() {
           Bike not found
         </h2>
         <Link
-          to="/motorcycles"
+          to="/models"
           className="text-accent hover:text-accent/80 underline mt-4 block font-inter"
         >
-          Return to Inventory
+          Return to Models
         </Link>
       </div>
     );
   }
 
-  const backLink = `/motorcycles?category=${bike.category}`;
+  const backLink = `/models?category=${bike.category}`;
   
   const formatLabel = (key: string) =>
     key.replace(/([A-Z])/g, ' $1')
@@ -117,7 +117,7 @@ export default function BikeDetailsPage() {
             className="inline-flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors font-medium font-inter text-sm group uppercase tracking-wider"
           >
             <ChevronLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-            Back to Inventory
+            Back to Models
           </Link>
         </div>
 
@@ -189,13 +189,6 @@ export default function BikeDetailsPage() {
                 </h1>
               </div>
 
-              <div className="flex items-end gap-4 border-b border-border/30 pb-8">
-                <div className="text-4xl font-bold font-rajdhani text-accent">
-                  ${bike.price.toLocaleString()}
-                </div>
-                <span className="text-muted-foreground font-inter mb-2 text-sm">Base price (Excl. Tax)</span>
-              </div>
-
               {/* COLORS */}
               {bike.colors && bike.colors.length > 0 && (
                 <div className="py-4">
@@ -236,7 +229,7 @@ export default function BikeDetailsPage() {
                 <button className="w-full sm:w-auto min-w-[240px] group relative px-8 py-5 bg-accent text-white font-bold font-rajdhani text-xl overflow-hidden skew-x-[-10deg] hover:bg-accent/90 transition-all shadow-[0_0_20px_rgba(var(--accent),0.3)] hover:shadow-[0_0_30px_rgba(var(--accent),0.5)]">
                   <div className="absolute inset-0 w-full h-full bg-white/20 -translate-x-full group-hover:skew-x-12 group-hover:translate-x-full transition-transform duration-700 ease-in-out" />
                   <span className="skew-x-[10deg] inline-flex items-center gap-3 tracking-wide">
-                    {bike.availability ? 'PRE-ORDER NOW' : 'ENQUIRE NOW'} 
+                    ASK ABOUT THIS MODEL
                     <ArrowUpRight className="w-5 h-5 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
                   </span>
                 </button>

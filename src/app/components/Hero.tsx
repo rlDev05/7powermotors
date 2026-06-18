@@ -34,9 +34,9 @@ export function Hero() {
             }}
           />
         </AnimatePresence>
-        <div className="absolute inset-0 bg-black/30" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/78 via-background/40 to-background/8" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/55 via-transparent to-background/25" />
+        <div className="absolute inset-0 bg-black/35" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-black/10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/20" />
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent" />
         <div className="absolute bottom-8 right-8 z-10 hidden items-center gap-2 lg:flex">
           {z900rsHeroSlides.map((slide, index) => (
@@ -53,8 +53,8 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="absolute -top-48 -left-40 h-72 w-[42rem] rotate-[-12deg] bg-accent/80" />
-      <div className="absolute -bottom-44 right-[-24rem] h-72 w-[42rem] rotate-[-42deg] bg-accent/70" />
+      <div className="absolute -top-48 -left-40 h-72 w-[42rem] rotate-[-12deg] bg-accent/90" />
+      <div className="absolute -bottom-44 right-[-24rem] h-72 w-[42rem] rotate-[-42deg] bg-[#ff5a00]/75" />
 
       <div className="relative z-10 flex min-h-screen items-center px-4 pt-24 sm:px-6 lg:px-8">
         <div className="mx-auto w-full max-w-7xl">
@@ -65,7 +65,7 @@ export function Hero() {
               transition={{ duration: 0.55 }}
               className="mb-6 inline-flex items-center gap-3 border border-white/15 bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-white/80 backdrop-blur"
             >
-              <ShieldCheck className="h-4 w-4 text-accent" />
+              <ShieldCheck className="h-4 w-4 text-[#ffc400]" />
               7 POWER Premium Surface Care
             </motion.div>
 
