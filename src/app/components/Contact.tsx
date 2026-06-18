@@ -25,8 +25,8 @@ export function Contact() {
 
   return (
     <section id="contact" className="racing-section bg-background">
-      <div className="absolute -left-28 top-20 h-52 w-[34rem] rotate-[-24deg] bg-accent/70" />
-      <div className="absolute -right-32 bottom-24 h-48 w-[34rem] rotate-[-32deg] bg-accent/30" />
+      <div className="absolute -left-28 top-20 h-52 w-[34rem] rotate-[-24deg] bg-accent/60" />
+      <div className="absolute -right-32 bottom-24 h-48 w-[34rem] rotate-[-32deg] bg-[#ffc400]/18" />
       <div className="racing-container">
         {/* Section Header */}
         <motion.div
@@ -37,7 +37,7 @@ export function Contact() {
           className="mx-auto mb-16 max-w-3xl text-center"
         >
           <span
-            className="racing-kicker"
+            className="brand-chip mx-auto w-fit"
             style={{
               fontFamily: 'Inter, sans-serif',
               fontSize: '0.75rem',
@@ -46,15 +46,7 @@ export function Contact() {
           >
             GET IN TOUCH
           </span>
-          <h2
-            className="mb-6"
-            style={{
-              fontFamily: 'Rajdhani, sans-serif',
-              fontSize: 'clamp(2rem, 5vw, 3rem)',
-              fontWeight: 700,
-              letterSpacing: 0,
-            }}
-          >
+          <h2 className="racing-title mx-auto mb-6 max-w-3xl">
             Start a 7 POWER Conversation
           </h2>
           <p
@@ -107,7 +99,7 @@ export function Contact() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="racing-card flex gap-4 p-6"
+                  className="racing-card flex gap-4 bg-white/95 p-6"
                 >
                   <div className="text-accent mt-1">{item.icon}</div>
                   <div>
@@ -178,7 +170,7 @@ export function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <form onSubmit={handleSubmit} className="racing-card space-y-6 p-6 md:p-8">
+            <form onSubmit={handleSubmit} className="racing-card space-y-6 bg-white/95 p-6 md:p-8">
               {/* Name */}
               <div>
                 <label
@@ -199,7 +191,7 @@ export function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full border border-border bg-input-background px-4 py-3 text-foreground transition-colors focus:border-accent focus:outline-none"
+                  className="form-field"
                   placeholder="Enter your name"
                 />
               </div>
@@ -225,7 +217,7 @@ export function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full border border-border bg-input-background px-4 py-3 text-foreground transition-colors focus:border-accent focus:outline-none"
+                    className="form-field"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -247,7 +239,7 @@ export function Contact() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full border border-border bg-input-background px-4 py-3 text-foreground transition-colors focus:border-accent focus:outline-none"
+                    className="form-field"
                     placeholder="+1 (555) 000-0000"
                   />
                 </div>
@@ -272,7 +264,7 @@ export function Contact() {
                   value={formData.interest}
                   onChange={handleChange}
                   required
-                  className="w-full border border-border bg-input-background px-4 py-3 text-foreground transition-colors focus:border-accent focus:outline-none"
+                  className="form-field"
                 >
                   <option value="">Select an option</option>
                   <option value="rider-application">7 POWER Coating for My Bike</option>
@@ -304,7 +296,7 @@ export function Contact() {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full resize-none border border-border bg-input-background px-4 py-3 text-foreground transition-colors focus:border-accent focus:outline-none"
+                  className="form-field resize-none"
                   placeholder="Tell us about your needs..."
                 />
               </div>

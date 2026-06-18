@@ -9,8 +9,8 @@ const featuredProducts = careProducts.slice(0, 6);
 export function ProductPreview() {
   return (
     <section id="products-preview" className="racing-section bg-background">
-      <div className="absolute left-[-14rem] top-20 h-44 w-[36rem] rotate-[-18deg] bg-accent/80" />
-      <div className="absolute bottom-16 right-[-18rem] h-48 w-[38rem] rotate-[-34deg] bg-accent/35" />
+      <div className="absolute left-[-14rem] top-20 h-44 w-[36rem] rotate-[-18deg] bg-accent/75" />
+      <div className="absolute bottom-16 right-[-18rem] h-48 w-[38rem] rotate-[-34deg] bg-[#ffc400]/20" />
 
       <div className="racing-container">
         <div className="mb-12 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
@@ -43,19 +43,20 @@ export function ProductPreview() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.45, delay: index * 0.08 }}
-              className="racing-card group"
+              className="racing-card group bg-white/95"
             >
               <Link to="/products" className="block">
                 <div className="absolute right-4 top-4 z-10 racing-number">
                   {String(index + 1).padStart(2, '0')}
                 </div>
                 <div className="relative flex aspect-[4/3] items-center justify-center bg-white p-8">
+                  <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-accent via-[#ffc400] to-transparent opacity-80" />
                   <img
                     src={product.image}
                     alt={product.name}
                     className="h-full w-full object-contain transition duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute left-0 top-0 bg-accent px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-white">
+                  <div className="absolute left-0 top-0 bg-[#0b0907] px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-white">
                     {product.category}
                   </div>
                 </div>
@@ -67,7 +68,7 @@ export function ProductPreview() {
                     {product.summary}
                   </p>
                   <span className="mt-6 inline-flex items-center gap-2 border-t border-border/50 pt-5 text-sm font-black uppercase tracking-[0.12em] text-foreground">
-                    <Sparkles className="h-4 w-4 text-[#ffc400]" />
+                    <Sparkles className="h-4 w-4 text-accent" />
                     Explore Product
                     <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                   </span>

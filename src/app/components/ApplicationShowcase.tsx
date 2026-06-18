@@ -25,7 +25,8 @@ export function ApplicationShowcase() {
 
   return (
     <section className="racing-section bg-card">
-      <div className="absolute right-[-16rem] top-12 h-44 w-[34rem] rotate-[-24deg] bg-accent/35" />
+      <div className="absolute right-[-16rem] top-12 h-44 w-[34rem] rotate-[-24deg] bg-accent/32" />
+      <div className="absolute left-[-18rem] bottom-14 h-40 w-[34rem] rotate-[-22deg] bg-[#ffc400]/12" />
 
       <div className="racing-container grid grid-cols-1 gap-10 lg:grid-cols-[1.15fr_0.85fr]">
         <div className="racing-media aspect-[16/10]">
@@ -41,7 +42,7 @@ export function ApplicationShowcase() {
               transition={{ duration: 0.55, ease: 'easeOut' }}
             />
           </AnimatePresence>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/72 via-black/8 to-transparent" />
           <div className="absolute bottom-0 left-0 right-0 flex items-end justify-between gap-4 p-5">
             <h3 className="font-[Rajdhani] text-4xl font-black uppercase leading-none text-white">
               {current.label}
@@ -68,7 +69,7 @@ export function ApplicationShowcase() {
         </div>
 
         <div className="flex flex-col justify-center">
-          <p className="racing-kicker">
+          <p className="brand-chip w-fit">
             Professional Application
           </p>
           <h2 className="racing-title">

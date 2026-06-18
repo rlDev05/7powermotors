@@ -20,7 +20,7 @@ export function Navbar() {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className="fixed left-0 right-0 top-0 z-50 border-b border-border bg-[#fffdf8]/92 shadow-[0_10px_40px_rgba(16,16,16,0.055)] backdrop-blur-xl"
+      className="fixed left-0 right-0 top-0 z-50 border-b border-black/10 bg-[#fffefa]/90 shadow-[0_14px_45px_rgba(16,16,16,0.07)] backdrop-blur-2xl"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
@@ -44,23 +44,28 @@ export function Navbar() {
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
               >
-                <NavLink
-                  to={item.href}
-                  className={({ isActive }) =>
-                    `group relative block px-4 py-3 text-xs font-black uppercase tracking-[0.16em] transition ${
-                      isActive ? 'text-accent' : 'text-muted-foreground hover:text-foreground'
-                    }`
-                  }
-                >
-                  {item.label}
-                  <span className="absolute bottom-1 left-4 right-4 h-[2px] origin-left scale-x-0 bg-accent transition group-hover:scale-x-100" />
+                <NavLink to={item.href}>
+                  {({ isActive }) => (
+                    <span
+                      className={`group relative block px-4 py-3 text-xs font-black uppercase tracking-[0.16em] transition ${
+                        isActive ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'
+                      }`}
+                    >
+                      {item.label}
+                      <span
+                        className={`absolute bottom-1 left-4 right-4 h-[2px] origin-left bg-gradient-to-r from-accent to-[#ffc400] transition ${
+                          isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                        }`}
+                      />
+                    </span>
+                  )}
                 </NavLink>
               </motion.div>
             ))}
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="ml-4 bg-accent px-6 py-3 text-accent-foreground shadow-[0_12px_28px_rgba(255,90,0,0.22)] tracking-wider transition-all hover:bg-black"
+              className="ml-4 bg-accent px-6 py-3 text-accent-foreground shadow-[0_12px_28px_rgba(255,90,0,0.24)] tracking-wider transition-all hover:bg-black"
               style={{
                 fontFamily: 'Inter, sans-serif',
                 fontSize: '0.875rem',
@@ -90,7 +95,7 @@ export function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="border-t border-border bg-[#fffdf8] md:hidden"
+            className="border-t border-border bg-[#fffefa] md:hidden"
           >
             <div className="px-4 py-6 space-y-4">
               {navItems.map((item) => (

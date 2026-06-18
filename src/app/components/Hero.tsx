@@ -17,7 +17,7 @@ export function Hero() {
   const currentSlide = z900rsHeroSlides[activeSlide];
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-background">
+    <section className="relative min-h-screen w-full overflow-hidden bg-[#0b0907]">
       <div className="absolute inset-0">
         <AnimatePresence initial={false}>
           <motion.img
@@ -34,9 +34,9 @@ export function Hero() {
             }}
           />
         </AnimatePresence>
-        <div className="absolute inset-0 bg-black/35" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-black/10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/20" />
+        <div className="absolute inset-0 bg-black/22" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/88 via-black/48 to-black/5" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/62 via-transparent to-black/16" />
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent" />
         <div className="absolute bottom-8 right-8 z-10 hidden items-center gap-2 lg:flex">
           {z900rsHeroSlides.map((slide, index) => (
@@ -53,8 +53,9 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="absolute -top-48 -left-40 h-72 w-[42rem] rotate-[-12deg] bg-accent/75" />
-      <div className="absolute -bottom-44 right-[-24rem] h-72 w-[42rem] rotate-[-42deg] bg-accent/45" />
+      <div className="absolute -top-48 -left-40 h-72 w-[42rem] rotate-[-12deg] bg-accent/70" />
+      <div className="absolute -bottom-44 right-[-24rem] h-72 w-[42rem] rotate-[-42deg] bg-accent/50" />
+      <div className="absolute left-0 top-20 h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent" />
 
       <div className="relative z-10 flex min-h-screen items-center px-4 pt-24 sm:px-6 lg:px-8">
         <div className="mx-auto w-full max-w-7xl">
@@ -74,7 +75,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 26 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.75, delay: 0.12 }}
-              className="font-[Rajdhani] text-[clamp(3rem,8vw,6.7rem)] font-black uppercase leading-[0.88] tracking-normal text-white"
+              className="font-[Rajdhani] text-[clamp(3.15rem,8.2vw,7rem)] font-black uppercase leading-[0.86] tracking-normal text-white"
             >
               Japanese Precision.
               <br />
@@ -87,7 +88,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.25 }}
-              className="mt-8 max-w-2xl text-base leading-8 text-white/75 sm:text-lg"
+              className="mt-8 max-w-2xl text-base leading-8 text-white/78 sm:text-lg"
             >
               7 POWER brings a premium surface-care standard to riders who want
               their motorcycles prepared for heat, rain, road grime, and daily
@@ -102,14 +103,14 @@ export function Hero() {
             >
               <a
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-accent px-8 py-4 text-sm font-bold uppercase tracking-[0.12em] text-white shadow-[0_16px_35px_rgba(255,90,0,0.24)] transition hover:bg-black"
+                className="racing-button px-8 py-4"
               >
                 Partner With 7 POWER
                 <ArrowRight className="h-4 w-4" />
               </a>
               <a
                 href="/services"
-                className="inline-flex items-center justify-center gap-2 border border-white/20 bg-white/5 px-8 py-4 text-sm font-bold uppercase tracking-[0.12em] text-white transition hover:border-accent hover:text-accent"
+                className="inline-flex items-center justify-center gap-2 border border-white/20 bg-white/8 px-8 py-4 text-sm font-black uppercase tracking-[0.12em] text-white backdrop-blur transition hover:border-[#ffc400] hover:text-[#ffc400]"
               >
                 Explore Coating Services
               </a>
@@ -120,7 +121,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 26 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, delay: 0.48 }}
-            className="hidden border border-white/15 bg-white/10 p-6 backdrop-blur-md lg:block"
+            className="hidden border border-white/15 bg-white/10 p-6 shadow-[0_24px_70px_rgba(0,0,0,0.28)] backdrop-blur-md lg:block"
           >
             <div className="racing-rule mb-6" />
             {[

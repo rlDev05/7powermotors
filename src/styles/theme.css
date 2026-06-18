@@ -4,25 +4,25 @@
   --font-size: 16px;
   
   /* 7POWER MOTORS Premium Orange Theme */
-  --background: #f8f7f3;
+  --background: #f6f3ec;
   --foreground: #101010;
-  --card: #fffdf8;
+  --card: #fffefa;
   --card-foreground: #101010;
   --popover: #ffffff;
   --popover-foreground: #101010;
   --primary: #101010;
   --primary-foreground: #ffffff;
-  --secondary: #f0eee8;
+  --secondary: #ebe6dc;
   --secondary-foreground: #101010;
-  --muted: #f1efea;
-  --muted-foreground: #5f5a52;
+  --muted: #eee8dd;
+  --muted-foreground: #5f594f;
   --accent: #ff5a00;
   --accent-foreground: #ffffff;
   --destructive: #b42318;
   --destructive-foreground: #ffffff;
-  --border: rgba(16, 16, 16, 0.11);
-  --input: rgba(16, 16, 16, 0.12);
-  --input-background: #fffdf8;
+  --border: rgba(16, 16, 16, 0.13);
+  --input: rgba(16, 16, 16, 0.13);
+  --input-background: #fffefa;
   --switch-background: #e6e1d7;
   --font-weight-medium: 500;
   --font-weight-normal: 400;
@@ -34,6 +34,8 @@
   --orange: #ff5a00;
   --orange-deep: #c94700;
   --yellow: #ffc400;
+  --ink: #0b0907;
+  --warm-white: #fffefa;
   
   --radius: 0.25rem;
   
@@ -127,9 +129,12 @@
   body {
     @apply bg-background text-foreground;
     background-image:
-      linear-gradient(90deg, rgba(16, 16, 16, 0.026) 1px, transparent 1px),
-      linear-gradient(180deg, rgba(16, 16, 16, 0.022) 1px, transparent 1px);
-    background-size: 80px 80px;
+      radial-gradient(circle at 18% 0%, rgba(255, 90, 0, 0.10), transparent 28rem),
+      radial-gradient(circle at 88% 20%, rgba(255, 196, 0, 0.08), transparent 24rem),
+      linear-gradient(90deg, rgba(16, 16, 16, 0.022) 1px, transparent 1px),
+      linear-gradient(180deg, rgba(16, 16, 16, 0.018) 1px, transparent 1px);
+    background-attachment: fixed;
+    background-size: auto, auto, 88px 88px, 88px 88px;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
@@ -219,30 +224,48 @@
 
   .racing-kicker {
     @apply mb-4 block text-xs font-black uppercase tracking-[0.24em] text-accent;
+    text-wrap: balance;
   }
 
   .racing-title {
-    @apply font-[Rajdhani] text-[clamp(2.5rem,5.5vw,5.25rem)] font-black uppercase leading-[0.88] tracking-normal text-foreground;
+    @apply font-[Rajdhani] text-[clamp(2.45rem,5.2vw,5.1rem)] font-black uppercase leading-[0.9] tracking-normal text-foreground;
+    text-wrap: balance;
   }
 
   .racing-copy {
     @apply text-base leading-8 text-muted-foreground sm:text-lg;
+    text-wrap: pretty;
   }
 
   .racing-card {
-    @apply relative overflow-hidden border border-border bg-card shadow-[0_16px_45px_rgba(16,16,16,0.045)] transition duration-300 hover:-translate-y-1 hover:border-accent/55 hover:shadow-[0_24px_60px_rgba(255,90,0,0.11)];
+    @apply relative overflow-hidden border border-border bg-card shadow-[0_18px_50px_rgba(16,16,16,0.07)] transition duration-300 hover:-translate-y-1 hover:border-accent/55 hover:shadow-[0_26px_70px_rgba(255,90,0,0.13)];
+  }
+
+  .racing-card::before {
+    content: "";
+    @apply pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/70 to-transparent;
+  }
+
+  .racing-card::after {
+    content: "";
+    @apply pointer-events-none absolute -right-20 -top-20 h-40 w-40 bg-accent/0 transition duration-300;
+    transform: rotate(-28deg);
+  }
+
+  .racing-card:hover::after {
+    @apply bg-accent/[0.045];
   }
 
   .racing-button {
-    @apply inline-flex items-center justify-center gap-2 bg-accent px-7 py-4 text-sm font-black uppercase tracking-[0.12em] text-white shadow-[0_14px_30px_rgba(255,90,0,0.22)] transition hover:bg-[#101010] hover:shadow-[0_16px_36px_rgba(16,16,16,0.18)];
+    @apply inline-flex items-center justify-center gap-2 bg-accent px-7 py-4 text-sm font-black uppercase tracking-[0.12em] text-white shadow-[0_14px_30px_rgba(255,90,0,0.24)] transition hover:bg-[#101010] hover:shadow-[0_18px_38px_rgba(16,16,16,0.2)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background;
   }
 
   .racing-button-outline {
-    @apply inline-flex items-center justify-center gap-2 border border-foreground/20 bg-white px-7 py-4 text-sm font-black uppercase tracking-[0.12em] text-foreground transition hover:border-accent hover:bg-accent hover:text-white;
+    @apply inline-flex items-center justify-center gap-2 border border-foreground/20 bg-white px-7 py-4 text-sm font-black uppercase tracking-[0.12em] text-foreground transition hover:border-accent hover:bg-accent hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background;
   }
 
   .racing-media {
-    @apply relative overflow-hidden border border-border bg-black;
+    @apply relative overflow-hidden border border-border bg-black shadow-[0_24px_70px_rgba(16,16,16,0.14)];
   }
 
   .racing-slashed {
@@ -255,5 +278,21 @@
 
   .racing-number {
     @apply font-[Rajdhani] text-6xl font-black uppercase leading-none text-foreground/10;
+  }
+
+  .premium-band {
+    @apply bg-[#0b0907] text-white;
+    background-image:
+      linear-gradient(120deg, rgba(255, 90, 0, 0.18), transparent 34%),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: auto, 72px 72px;
+  }
+
+  .brand-chip {
+    @apply inline-flex items-center gap-2 border border-accent/35 bg-accent/10 px-3 py-1.5 text-xs font-black uppercase tracking-[0.18em] text-accent;
+  }
+
+  .form-field {
+    @apply w-full border border-border bg-input-background px-4 py-3 text-foreground transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/15;
   }
 }

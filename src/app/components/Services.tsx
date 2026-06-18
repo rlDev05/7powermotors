@@ -37,9 +37,9 @@ const services = [
 
 export function Services() {
   return (
-    <section id="services" className="racing-section bg-secondary/40">
-      <div className="absolute -left-32 top-0 h-80 w-[36rem] rotate-[-36deg] bg-accent/75" />
-      <div className="absolute right-[-16rem] top-24 h-48 w-[34rem] rotate-[-20deg] bg-white" />
+    <section id="services" className="racing-section bg-secondary/45">
+      <div className="absolute -left-32 top-0 h-80 w-[36rem] rotate-[-36deg] bg-accent/65" />
+      <div className="absolute right-[-16rem] top-24 h-48 w-[34rem] rotate-[-20deg] bg-white/75" />
 
       <div className="racing-container">
         <motion.div
@@ -72,7 +72,7 @@ export function Services() {
               transition={{ duration: 0.45, delay: index * 0.08 }}
               className="racing-card p-7"
             >
-              <div className="mb-6 flex h-14 w-14 items-center justify-center bg-accent text-white shadow-[8px_8px_0_rgba(16,16,16,0.12)]">
+              <div className="mb-6 flex h-14 w-14 items-center justify-center bg-[#0b0907] text-accent shadow-[8px_8px_0_rgba(255,90,0,0.22)]">
                 {service.icon}
               </div>
               <h3 className="font-[Rajdhani] text-2xl font-black uppercase leading-none tracking-normal text-foreground">
@@ -98,24 +98,21 @@ export function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.65 }}
-          className="racing-card mt-16 grid min-h-[430px] grid-cols-1 lg:grid-cols-[0.95fr_1.05fr]"
+          className="racing-card mt-16 grid min-h-[430px] grid-cols-1 bg-[#0b0907] text-white lg:grid-cols-[0.95fr_1.05fr]"
         >
           <div className="p-8 md:p-12">
-            <p className="racing-kicker">
+            <p className="brand-chip">
               Partner Growth
             </p>
-            <h3 className="font-[Rajdhani] text-4xl font-black uppercase leading-none text-foreground md:text-5xl">
+            <h3 className="mt-5 font-[Rajdhani] text-4xl font-black uppercase leading-none text-white md:text-5xl">
               Help shops elevate their brand status.
             </h3>
-            <p className="mt-6 text-base leading-8 text-muted-foreground">
+            <p className="mt-6 text-base leading-8 text-white/70">
               7 POWER gives partners a premium service story: application
               support, polished presentation, and a result customers can
               appreciate every time they clean and ride.
             </p>
-            <a
-              href="/contact"
-              className="racing-button mt-8"
-            >
+            <a href="/contact" className="racing-button mt-8">
               Apply as a Partner
             </a>
           </div>
@@ -125,7 +122,7 @@ export function Services() {
               alt="Motorcycle service and detailing"
               className="h-full w-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-card via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0b0907] via-transparent to-transparent" />
           </div>
         </motion.div>
       </div>

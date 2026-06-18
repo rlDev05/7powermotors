@@ -25,8 +25,9 @@ const points = [
 
 export function FeaturedModels() {
   return (
-    <section id="protection" className="racing-section bg-secondary/40">
-      <div className="absolute right-[-14rem] top-16 h-44 w-[34rem] rotate-[-22deg] bg-accent/45" />
+    <section id="protection" className="racing-section bg-background">
+      <div className="absolute right-[-14rem] top-16 h-44 w-[34rem] rotate-[-22deg] bg-accent/40" />
+      <div className="absolute left-[-18rem] bottom-10 h-40 w-[34rem] rotate-[-28deg] bg-[#ffc400]/15" />
       <div className="racing-container grid grid-cols-1 items-center gap-12 lg:grid-cols-[1fr_0.95fr]">
         <motion.div
           initial={{ opacity: 0, y: 25 }}
@@ -53,7 +54,7 @@ export function FeaturedModels() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: index * 0.08 }}
-                className="racing-card flex gap-5 p-5"
+                className="racing-card flex gap-5 bg-white/95 p-5"
               >
                 <CheckCircle2 className="mt-1 h-8 w-8 shrink-0 fill-accent text-white" />
                 <div>
@@ -92,7 +93,7 @@ export function FeaturedModels() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
           <div className="absolute -bottom-24 -right-24 h-72 w-96 rotate-[-38deg] bg-accent/85" />
           <div className="absolute bottom-0 left-0 max-w-lg p-8">
-            <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-accent">
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-[#ffc400]">
               Brand Role
             </p>
             <p className="font-[Rajdhani] text-4xl font-black uppercase leading-none text-white">

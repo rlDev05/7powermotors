@@ -38,8 +38,8 @@ const audiences = [
 export function MotorcycleCategories() {
   return (
     <section id="strategy" className="racing-section bg-background">
-      <div className="absolute -right-32 top-10 h-72 w-[32rem] rotate-[-38deg] bg-accent/55" />
-      <div className="absolute -left-40 bottom-0 h-64 w-[36rem] rotate-[-30deg] bg-accent/16" />
+      <div className="absolute -right-32 top-10 h-72 w-[32rem] rotate-[-38deg] bg-accent/48" />
+      <div className="absolute -left-40 bottom-0 h-64 w-[36rem] rotate-[-30deg] bg-[#ffc400]/14" />
 
       <div className="racing-container grid grid-cols-1 gap-14 lg:grid-cols-[0.9fr_1.1fr]">
         <motion.div
@@ -73,7 +73,7 @@ export function MotorcycleCategories() {
             transition={{ duration: 0.55 }}
             className="mb-12 max-w-3xl"
           >
-            <span className="racing-kicker">
+            <span className="brand-chip">
               Growth Plan
             </span>
             <h2 className="racing-title">
@@ -94,9 +94,9 @@ export function MotorcycleCategories() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: index * 0.08 }}
-                className="racing-card p-6"
+                className="racing-card bg-white/95 p-6"
               >
-                <div className="mb-5 flex h-14 w-14 items-center justify-center bg-accent text-white">
+                <div className="mb-5 flex h-14 w-14 items-center justify-center bg-[#0b0907] text-accent">
                   {item.icon}
                 </div>
                 <h3 className="font-[Rajdhani] text-2xl font-black uppercase text-foreground">
