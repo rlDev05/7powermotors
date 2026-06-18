@@ -11,8 +11,6 @@ export function Navbar() {
     { label: 'HOME', href: '/' },
     { label: 'PRODUCTS', href: '/products' },
     { label: 'SERVICES', href: '/services' },
-    { label: 'PARTNERS', href: '/partners' },
-    { label: 'CONTACT', href: '/contact' },
   ];
 
   return (
@@ -111,7 +109,7 @@ export function Navbar() {
               ))}
               <Link
                 to="/contact"
-                className="w-full bg-accent px-6 py-3 text-accent-foreground tracking-wider transition-all hover:bg-black"
+                className="block w-full bg-accent px-6 py-3 text-center text-accent-foreground tracking-wider transition-all hover:bg-black"
                 style={{
                   fontFamily: 'Inter, sans-serif',
                   fontSize: '0.875rem',
