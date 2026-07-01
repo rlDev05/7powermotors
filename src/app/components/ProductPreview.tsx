@@ -10,7 +10,7 @@ export function ProductPreview() {
   return (
     <section id="products-preview" className="racing-section bg-background">
       <div className="absolute left-[-14rem] top-20 h-44 w-[36rem] rotate-[-18deg] bg-accent/75" />
-      <div className="absolute bottom-16 right-[-18rem] h-48 w-[38rem] rotate-[-34deg] bg-black/10" />
+      <div className="absolute bottom-16 right-[-18rem] h-48 w-[38rem] rotate-[-34deg] bg-[#c8a96e]/10" />
 
       <div className="racing-container">
         <div className="mb-12 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
@@ -19,11 +19,11 @@ export function ProductPreview() {
               Product System
             </span>
             <h2 className="racing-title">
-              Cleaner care products, ready for daily riders.
+              CR-1 glass coating care for daily riders.
             </h2>
             <p className="racing-copy mt-5">
-              A fast-scanning catalog preview for wipes, cloths, covers, and
-              maintenance essentials that support professional finish care.
+              Coating, shampoo, cloths, wipes, covers, and maintenance
+              essentials that support professional finish care after every ride.
             </p>
           </div>
           <Link
@@ -43,7 +43,7 @@ export function ProductPreview() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.45, delay: index * 0.08 }}
-              className="racing-card group bg-white/95"
+              className="racing-card group bg-card"
             >
               <Link to="/products" className="block">
                 <div className="absolute right-4 top-4 z-10 racing-number">

@@ -43,7 +43,7 @@ export function LoadingScreen({ onFinished }: LoadingScreenProps) {
         <img
           src={cr1LogoDark}
           alt="CR-1 Philippines logo"
-          className="h-auto w-[min(72vw,360px)] object-contain drop-shadow-[0_24px_70px_rgba(227,6,19,0.30)]"
+          className="h-auto w-[min(72vw,360px)] object-contain drop-shadow-[0_24px_70px_rgba(139,26,26,0.34)]"
         />
         <div className="h-px w-64 bg-gradient-to-r from-transparent via-white/35 to-transparent" />
         <p

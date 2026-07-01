@@ -9,37 +9,37 @@ const services = [
     icon: <Shield className="h-7 w-7" />,
     title: 'CR-1 Coating Care',
     description:
-      'Professional coating application for motorcycles that need long-lasting gloss, easier cleaning, and stronger surface protection.',
-    items: ['Paint and surface protection', 'Gloss preservation', 'Road grime resistance'],
+      'Certified application for motorcycles, helmets, and parts that need a true glass film instead of short-lived wax, polymer, or resin.',
+    items: ['100% glass coating', 'Gloss preservation', 'Heat and UV resistance'],
   },
   {
     icon: <GraduationCap className="h-7 w-7" />,
     title: 'Authorized Installer Training',
     description:
-      'A pathway for service centers and detailing shops to apply CR-1 coating services with consistent technique and quality control.',
-    items: ['Application standards', 'Product handling', 'Service process alignment'],
+      'A pathway for service centers and detailing shops to deliver CR-1 with proper preparation, low-pressure spray technique, and quality control.',
+    items: ['Surface prep process', 'Product handling', 'Certificate-ready application'],
   },
   {
     icon: <Handshake className="h-7 w-7" />,
     title: 'Dealer & Shop Partnerships',
     description:
-      'A premium upsell for motorcycle dealerships, distributors, detailing shops, and autocare businesses.',
-    items: ['Shop support', 'Partner enablement', 'Customer trust building'],
+      'A premium, high-trust service program for motorcycle dealerships, distributors, detailing shops, and autocare businesses.',
+    items: ['Dealer enablement', 'Training support', 'Premium service positioning'],
   },
   {
     icon: <Sparkles className="h-7 w-7" />,
     title: 'Rider Education Content',
     description:
-      'Useful motorcycle maintenance content that positions CR-1 as a helpful voice in motorcycle preservation.',
-    items: ['Care tips', 'Before/after stories', 'Rider and shop testimonials'],
+      'Clear care guidance that helps riders understand coating value before and after professional application.',
+    items: ['Care tips', 'Before/after stories', 'Rider and shop proof'],
   },
 ];
 
 export function Services() {
   return (
-    <section id="services" className="racing-section bg-secondary/45">
+    <section id="services" className="racing-section bg-secondary/55">
       <div className="absolute -left-32 top-0 h-80 w-[36rem] rotate-[-36deg] bg-accent/65" />
-      <div className="absolute right-[-16rem] top-24 h-48 w-[34rem] rotate-[-20deg] bg-white/75" />
+      <div className="absolute right-[-16rem] top-24 h-48 w-[34rem] rotate-[-20deg] bg-[#c8a96e]/10" />
 
       <div className="racing-container">
         <motion.div
@@ -53,12 +53,12 @@ export function Services() {
             Service Network
           </span>
           <h2 className="racing-title">
-            Product, training, and partner support in one system.
+            Certified coating, training, and dealer support in one system.
           </h2>
           <p className="racing-copy mt-6">
-            CR-1 is not only a coating service. It is a partner-ready program
-            for riders, shops, and dealerships that want premium surface
-            protection with a stronger business story.
+            Every CR-1 application begins with preparation, cleaning,
+            dehydration, degreasing, and professional coating. The result is a
+            premium service that riders can see and shops can stand behind.
           </p> 
         </motion.div>
 
@@ -72,7 +72,7 @@ export function Services() {
               transition={{ duration: 0.45, delay: index * 0.08 }}
               className="racing-card p-7"
             >
-              <div className="mb-6 flex h-14 w-14 items-center justify-center bg-[#050505] text-accent shadow-[8px_8px_0_rgba(227,6,19,0.22)]">
+              <div className="mb-6 flex h-14 w-14 items-center justify-center bg-[#050505] text-[#c8a96e] shadow-[8px_8px_0_rgba(139,26,26,0.28)]">
                 {service.icon}
               </div>
               <h3 className="font-[Rajdhani] text-2xl font-black uppercase leading-none tracking-normal text-foreground">
@@ -108,9 +108,9 @@ export function Services() {
               Help shops elevate their brand status.
             </h3>
             <p className="mt-6 text-base leading-8 text-white/70">
-              CR-1 gives partners a premium service story: application
-              support, polished presentation, and a result customers can
-              appreciate every time they clean and ride.
+              Join the CR-1 dealer network and offer customers a Japan-grade
+              coating service with training, certification, and a product story
+              that is easy to demonstrate.
             </p>
             <a href="/contact" className="racing-button mt-8">
               Apply as a Partner

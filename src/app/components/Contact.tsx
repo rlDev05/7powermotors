@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { ExternalLink, Facebook, Instagram, Mail, MapPin, MessageCircle, Music2, Phone, Send } from 'lucide-react';
+import { cr1Contact, cr1SocialLinks } from '@/app/data/brand';
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -25,8 +26,8 @@ export function Contact() {
 
   return (
     <section id="contact" className="racing-section bg-background">
-      <div className="absolute -left-28 top-20 h-52 w-[34rem] rotate-[-24deg] bg-accent/60" />
-      <div className="absolute -right-32 bottom-24 h-48 w-[34rem] rotate-[-32deg] bg-black/10" />
+      <div className="absolute -left-28 top-20 h-52 w-[34rem] rotate-[-24deg] bg-accent/45" />
+      <div className="absolute -right-32 bottom-24 h-48 w-[34rem] rotate-[-32deg] bg-[#c8a96e]/15" />
       <div className="racing-container">
         {/* Section Header */}
         <motion.div
@@ -44,10 +45,10 @@ export function Contact() {
               fontWeight: 600,
             }}
           >
-            GET IN TOUCH
+            CONTACT / DEALER INQUIRY
           </span>
           <h2 className="racing-title mx-auto mb-6 max-w-3xl">
-            Start a CR-1 Conversation
+            Let's talk. We're here to help.
           </h2>
           <p
             className="text-muted-foreground"
@@ -57,8 +58,9 @@ export function Contact() {
               lineHeight: 1.7,
             }}
           >
-            Talk to us about rider applications, dealership partnerships,
-            installer training, or CR-1 service center opportunities.
+            Whether you need coating for a motorcycle, helmet, or parts, or you
+            want to become an authorized dealer, send us a message and we will
+            guide the next step.
           </p>
         </motion.div>
 
@@ -76,20 +78,26 @@ export function Contact() {
               {[
                 {
                   icon: <MapPin size={24} />,
-                  title: 'Visit Us',
-                  content: 'Metro Manila, Philippines',
-                  subContent: 'Partner inquiries and application bookings',
+                  title: cr1Contact.distributor.label,
+                  content: cr1Contact.distributor.name,
+                  subContent: cr1Contact.distributor.address,
+                },
+                {
+                  icon: <MapPin size={24} />,
+                  title: cr1Contact.flagshipDealer.label,
+                  content: cr1Contact.flagshipDealer.name,
+                  subContent: cr1Contact.flagshipDealer.address,
                 },
                 {
                   icon: <Phone size={24} />,
                   title: 'Call Us',
-                  content: '+63 7POWER',
+                  content: cr1Contact.phoneLabel,
                   subContent: 'Available during business hours',
                 },
                 {
                   icon: <Mail size={24} />,
                   title: 'Email Us',
-                  content: 'partners@7powermotors.com',
+                  content: cr1Contact.email,
                   subContent: 'We respond within 24 hours',
                 },
               ].map((item, index) => (
@@ -99,7 +107,7 @@ export function Contact() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="racing-card flex gap-4 bg-white/95 p-6"
+                  className="racing-card flex gap-4 bg-card p-6"
                 >
                   <div className="text-accent mt-1">{item.icon}</div>
                   <div>
@@ -136,13 +144,43 @@ export function Contact() {
               ))}
             </div>
 
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="racing-card bg-card p-6"
+            >
+              <p className="mb-4 text-xs font-black uppercase tracking-[0.18em] text-[#c8a96e]">
+                Social Channels
+              </p>
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+                {[
+                  { label: 'Facebook', href: cr1SocialLinks.facebook, icon: <Facebook className="h-4 w-4" /> },
+                  { label: 'Instagram', href: cr1SocialLinks.instagram, icon: <Instagram className="h-4 w-4" /> },
+                  { label: 'TikTok', href: cr1SocialLinks.tiktok, icon: <Music2 className="h-4 w-4" /> },
+                ].map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center justify-center gap-2 border border-border bg-[#111] px-4 py-3 text-xs font-black uppercase tracking-[0.14em] text-muted-foreground transition hover:border-accent hover:text-white"
+                  >
+                    {social.icon}
+                    {social.label}
+                  </a>
+                ))}
+              </div>
+            </motion.div>
+
             {/* Location Map */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="racing-card h-72 bg-[#101010] text-white md:h-80"
+              className="racing-card h-80 bg-[#101010] text-white md:h-[25rem]"
             >
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3862.026670450718!2d121.01207957589632!3d14.540467178544509!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c93eed13070f%3A0x3dae00e35dcc62ca!2s7%20Power%20Motors!5e0!3m2!1sen!2sph!4v1781764487073!5m2!1sen!2sph"
@@ -156,9 +194,33 @@ export function Contact() {
                 <div className="flex items-center gap-2">
                   <MapPin size={16} className="text-accent" />
                   <p className="text-xs font-black uppercase tracking-[0.16em] text-white">
-                    CR-1 Philippines
+                    Distributor: {cr1Contact.distributor.name}
                   </p>
                 </div>
+              </div>
+              <div className="absolute bottom-4 left-4 right-4 grid gap-3 sm:grid-cols-2">
+                {[
+                  cr1Contact.distributor,
+                  cr1Contact.flagshipDealer,
+                ].map((location) => (
+                  <a
+                    key={location.label}
+                    href={location.mapUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center justify-between gap-3 border border-white/15 bg-black/72 px-4 py-3 text-left backdrop-blur transition hover:border-accent"
+                  >
+                    <span>
+                      <span className="block text-[10px] font-black uppercase tracking-[0.2em] text-[#c8a96e]">
+                        {location.label}
+                      </span>
+                      <span className="block text-sm font-bold text-white">
+                        {location.name}
+                      </span>
+                    </span>
+                    <ExternalLink className="h-4 w-4 text-accent" />
+                  </a>
+                ))}
               </div>
             </motion.div>
           </motion.div>
@@ -170,7 +232,19 @@ export function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <form onSubmit={handleSubmit} className="racing-card space-y-6 bg-white/95 p-6 md:p-8">
+            <form onSubmit={handleSubmit} className="racing-card space-y-6 bg-card p-6 md:p-8">
+              <div className="border-l-2 border-[#c8a96e] bg-[#c8a96e]/8 p-5">
+                <div className="mb-2 flex items-center gap-2 text-[#c8a96e]">
+                  <MessageCircle className="h-5 w-5" />
+                  <p className="text-xs font-black uppercase tracking-[0.18em] text-[#c8a96e]">
+                    Dealer Priority
+                  </p>
+                </div>
+                <p className="text-sm leading-7 text-muted-foreground">
+                  Ready to become a CR-1 dealer? Tell us about your shop,
+                  service area, and current detailing or motorcycle care setup.
+                </p>
+              </div>
               {/* Name */}
               <div>
                 <label
@@ -240,7 +314,7 @@ export function Contact() {
                     value={formData.phone}
                     onChange={handleChange}
                     className="form-field"
-                    placeholder="+1 (555) 000-0000"
+                    placeholder="+63 900 000 0000"
                   />
                 </div>
               </div>
@@ -268,6 +342,7 @@ export function Contact() {
                 >
                   <option value="">Select an option</option>
                   <option value="rider-application">CR-1 Coating for My Bike</option>
+                  <option value="helmet-parts">Helmet or Parts Coating</option>
                   <option value="dealer">Dealership Partnership</option>
                   <option value="installer">Authorized Installer Training</option>
                   <option value="service-center">Service Center Opportunity</option>

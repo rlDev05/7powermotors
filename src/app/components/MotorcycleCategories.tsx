@@ -39,7 +39,7 @@ export function MotorcycleCategories() {
   return (
     <section id="strategy" className="racing-section bg-background">
       <div className="absolute -right-32 top-10 h-72 w-[32rem] rotate-[-38deg] bg-accent/48" />
-      <div className="absolute -left-40 bottom-0 h-64 w-[36rem] rotate-[-30deg] bg-black/10" />
+      <div className="absolute -left-40 bottom-0 h-64 w-[36rem] rotate-[-30deg] bg-[#c8a96e]/10" />
 
       <div className="racing-container grid grid-cols-1 gap-14 lg:grid-cols-[0.9fr_1.1fr]">
         <motion.div
@@ -80,9 +80,9 @@ export function MotorcycleCategories() {
               From awareness to authorized application centers.
             </h2>
             <p className="racing-copy mt-6">
-              CR-1 Philippines aims to become a top-of-mind premium motorcycle surface
-              care name for riders and a reliable coating partner for shops
-              serving the riding community.
+              CR-1 Philippines connects riders, certified installers, and
+              partner shops into one trusted glass coating network built for
+              Philippine riding conditions.
             </p>
           </motion.div>
 
@@ -94,7 +94,7 @@ export function MotorcycleCategories() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: index * 0.08 }}
-                className="racing-card bg-white/95 p-6"
+                className="racing-card bg-card p-6"
               >
                 <div className="mb-5 flex h-14 w-14 items-center justify-center bg-[#050505] text-accent">
                   {item.icon}

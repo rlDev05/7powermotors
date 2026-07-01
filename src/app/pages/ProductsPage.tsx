@@ -38,14 +38,15 @@ export default function ProductsPage() {
               <div className="p-8 md:p-12">
                 <span className="brand-chip">
                   <PackageCheck className="h-4 w-4" />
-                  CR-1 Products
+                  CR-1 Product Line
                 </span>
                 <h1 className="mt-5 font-[Rajdhani] text-[clamp(2.9rem,6vw,5.75rem)] font-black uppercase leading-[0.88] tracking-normal text-white">
-                  Care products for cleaner rides.
+                  Glass coating and care products.
                 </h1>
                 <p className="mt-6 max-w-3xl text-base leading-8 text-white/72 sm:text-lg">
-                  Browse cloths, wipes, covers, and maintenance products made to
-                  support daily motorcycle care and professional surface work.
+                  Explore CR-1 coating, shampoo, quick cloth, microfiber, and
+                  maintenance products for motorcycles, helmets, parts, and
+                  professional after-care.
                 </p>
               </div>
               <div className="grid min-h-[320px] grid-cols-2 gap-3 bg-white/7 p-8">
@@ -62,7 +63,7 @@ export default function ProductsPage() {
             </div>
           </section>
 
-          <div className="racing-card mb-10 bg-white/95 p-4 md:p-5">
+          <div className="racing-card mb-10 bg-card p-4 md:p-5">
             <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
               <div>
                 <span className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-accent">
@@ -90,8 +91,8 @@ export default function ProductsPage() {
                 to="/products"
                 className={`px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] transition ${
                   !selectedCategory
-                    ? 'bg-accent text-white shadow-[0_10px_22px_rgba(227,6,19,0.2)]'
-                    : 'border border-border bg-white text-muted-foreground hover:border-accent hover:text-accent'
+                    ? 'bg-accent text-white shadow-[0_10px_22px_rgba(139,26,26,0.26)]'
+                    : 'border border-border bg-[#111] text-muted-foreground hover:border-[#c8a96e] hover:text-[#c8a96e]'
                 }`}
               >
                 All
@@ -102,8 +103,8 @@ export default function ProductsPage() {
                   to={`/products?category=${encodeURIComponent(category)}`}
                   className={`px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] transition ${
                     selectedCategory === category
-                      ? 'bg-accent text-white shadow-[0_10px_22px_rgba(227,6,19,0.2)]'
-                      : 'border border-border bg-white text-muted-foreground hover:border-accent hover:text-accent'
+                      ? 'bg-accent text-white shadow-[0_10px_22px_rgba(139,26,26,0.26)]'
+                      : 'border border-border bg-[#111] text-muted-foreground hover:border-[#c8a96e] hover:text-[#c8a96e]'
                   }`}
                 >
                   {category}

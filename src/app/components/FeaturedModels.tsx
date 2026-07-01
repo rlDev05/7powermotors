@@ -27,7 +27,7 @@ export function FeaturedModels() {
   return (
     <section id="protection" className="racing-section bg-background">
       <div className="absolute right-[-14rem] top-16 h-44 w-[34rem] rotate-[-22deg] bg-accent/40" />
-      <div className="absolute left-[-18rem] bottom-10 h-40 w-[34rem] rotate-[-28deg] bg-black/10" />
+      <div className="absolute left-[-18rem] bottom-10 h-40 w-[34rem] rotate-[-28deg] bg-[#c8a96e]/10" />
       <div className="racing-container grid grid-cols-1 items-center gap-12 lg:grid-cols-[1fr_0.95fr]">
         <motion.div
           initial={{ opacity: 0, y: 25 }}
@@ -39,11 +39,12 @@ export function FeaturedModels() {
             Why Riders Choose It
           </span>
           <h2 className="racing-title">
-            Protection That Makes Sense
+            Why CR-1 is different.
           </h2>
           <p className="racing-copy mt-6 max-w-2xl">
-            CR-1 focuses on protection value: careful application, lasting
-            gloss, and a motorcycle finish that stays easier to maintain.
+            Most coatings are resin or polymer-based and need frequent
+            reapplication. CR-1 is inorganic glass, professionally applied for
+            durable gloss, easier washing, and stronger surface confidence.
           </p>
 
           <div className="mt-12 space-y-6">
@@ -54,7 +55,7 @@ export function FeaturedModels() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: index * 0.08 }}
-                className="racing-card flex gap-5 bg-white/95 p-5"
+                className="racing-card flex gap-5 bg-card p-5"
               >
                 <CheckCircle2 className="mt-1 h-8 w-8 shrink-0 fill-accent text-white" />
                 <div>

@@ -63,7 +63,7 @@ export function Navbar() {
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="ml-4 bg-accent px-6 py-3 text-accent-foreground shadow-[0_12px_28px_rgba(227,6,19,0.28)] tracking-wider transition-all hover:bg-white hover:text-black"
+              className="ml-4 bg-accent px-6 py-3 text-accent-foreground shadow-[0_12px_28px_rgba(139,26,26,0.32)] tracking-wider transition-all hover:bg-white hover:text-black"
               style={{
                 fontFamily: 'Inter, sans-serif',
                 fontSize: '0.875rem',

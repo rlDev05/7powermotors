@@ -68,7 +68,7 @@ export function Hero() {
               className="mb-6 inline-flex items-center gap-3 border border-white/15 bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-white/80 backdrop-blur"
             >
               <ShieldCheck className="h-4 w-4 text-white" />
-              CR-1 Philippines Surface Care
+              Japan Technology · Exclusive PH Distributor
             </motion.div>
 
             <motion.h1
@@ -77,9 +77,9 @@ export function Hero() {
               transition={{ duration: 0.75, delay: 0.12 }}
               className="font-[Rajdhani] text-[clamp(3.15rem,8.2vw,7rem)] font-black uppercase leading-[0.86] tracking-normal text-white"
             >
-              Engineered to Protect
+              100% Pure Glass Coating
               <br />
-              <span className="text-accent">Built to Last.</span>
+              <span className="text-accent">For Philippine Roads.</span>
             </motion.h1>
 
             <motion.p
@@ -88,9 +88,9 @@ export function Hero() {
               transition={{ duration: 0.7, delay: 0.25 }}
               className="mt-8 max-w-2xl text-base leading-8 text-white/78 sm:text-lg"
             >
-              CR-1 Philippines brings a premium surface-care standard to riders who want
-              their motorcycles prepared for heat, rain, road grime, and daily
-              Philippine riding conditions.
+              Not wax, polymer, or resin. CR-1 forms a real glass film for
+              motorcycles, helmets, and parts that need lasting gloss, heat
+              resistance, and professional-grade protection.
             </motion.p>
 
             <motion.div
@@ -123,9 +123,9 @@ export function Hero() {
           >
             <div className="racing-rule mb-6" />
             {[
-              { icon: <ShieldCheck className="h-5 w-5" />, label: 'Surface Protection', value: 'JP Standard' },
-              { icon: <Gauge className="h-5 w-5" />, label: 'Road Focus', value: 'PH Climate' },
-              { icon: <Sparkles className="h-5 w-5" />, label: 'Finish Goal', value: 'Lasting Gloss' },
+              { icon: <ShieldCheck className="h-5 w-5" />, label: 'Hardness', value: '9H' },
+              { icon: <Gauge className="h-5 w-5" />, label: 'Heat Resistance', value: '1300°C' },
+              { icon: <Sparkles className="h-5 w-5" />, label: 'Durability', value: '10 Years' },
             ].map((item) => (
               <div key={item.label} className="border-b border-white/10 py-5 last:border-b-0">
                 <div className="mb-2 flex items-center gap-2 text-white">

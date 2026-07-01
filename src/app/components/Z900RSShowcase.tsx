@@ -44,7 +44,7 @@ export function Z900RSShowcase() {
               engine texture, and the premium riding mood of the brand.
             </p>
           </div>
-          <div className="hidden border-l-4 border-accent bg-[#050505] p-6 shadow-[12px_12px_0_rgba(227,6,19,0.16)] lg:block">
+          <div className="hidden border-l-4 border-accent bg-[#050505] p-6 shadow-[12px_12px_0_rgba(139,26,26,0.22)] lg:block">
             <p className="font-[Rajdhani] text-4xl font-black uppercase leading-none text-white">
               Model gallery for finish inspiration.
             </p>

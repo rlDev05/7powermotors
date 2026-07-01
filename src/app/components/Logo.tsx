@@ -13,7 +13,7 @@ export function Logo({ variant = 'default', className = '' }: LogoProps) {
         <img 
           src={cr1LogoDark} 
           alt="CR-1 logo"
-          className="h-full w-full object-contain drop-shadow-[0_10px_24px_rgba(227,6,19,0.22)]"
+          className="h-full w-full object-contain drop-shadow-[0_10px_24px_rgba(139,26,26,0.28)]"
         />
       </div>
 

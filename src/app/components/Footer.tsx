@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Facebook, Instagram, Twitter, Youtube, Mail, Phone, MapPin } from 'lucide-react';
+import { Facebook, Instagram, Mail, MapPin, Music2, Phone } from 'lucide-react';
 import { Logo } from '@/app/components/Logo';
+import { cr1Contact, cr1SocialLinks } from '@/app/data/brand';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -21,19 +22,17 @@ export function Footer() {
       { label: 'Rider Education', href: '/services' },
     ],
     company: [
-      { label: 'Rider Proof', href: '/partners#proof' },
+      { label: 'Why CR-1', href: '/services' },
       { label: 'Model Gallery', href: '/models' },
-      { label: 'Partner Program', href: '/partners' },
-      { label: 'Coverage Map', href: '/contact' },
-      { label: 'Contact', href: '/contact' },
+      { label: 'Become a Dealer', href: '/contact' },
+      { label: 'Dealer Locator', href: '/contact' },
     ],
   };
 
   const socialLinks = [
-    { icon: <Facebook size={20} />, href: '#', label: 'Facebook' },
-    { icon: <Instagram size={20} />, href: '#', label: 'Instagram' },
-    { icon: <Twitter size={20} />, href: '#', label: 'Twitter' },
-    { icon: <Youtube size={20} />, href: '#', label: 'YouTube' },
+    { icon: <Facebook size={20} />, href: cr1SocialLinks.facebook, label: 'Facebook' },
+    { icon: <Instagram size={20} />, href: cr1SocialLinks.instagram, label: 'Instagram' },
+    { icon: <Music2 size={20} />, href: cr1SocialLinks.tiktok, label: 'TikTok' },
   ];
 
   return (
@@ -52,14 +51,14 @@ export function Footer() {
                 lineHeight: 1.7,
               }}
             >
-              CR-1 Philippines helps riders and shops preserve motorcycle finish
-              quality through professionally applied coating care.
+              CR-1 Philippines brings Japan-developed glass coating care to
+              riders, helmets, parts, and partner shops across the Philippines.
             </p>
             
             {/* Contact Info */}
             <div className="space-y-3">
               <a
-                href="tel:+63"
+                href={cr1Contact.phoneHref}
                 className="flex items-center gap-3 text-muted-foreground hover:text-accent transition-colors group"
                 style={{
                   fontFamily: 'Inter, sans-serif',
@@ -67,10 +66,10 @@ export function Footer() {
                 }}
               >
                 <Phone size={16} className="text-accent" />
-                +63 7POWER
+                {cr1Contact.phoneLabel}
               </a>
               <a
-                href="mailto:partners@7powermotors.com"
+                href={`mailto:${cr1Contact.email}`}
                 className="flex items-center gap-3 text-muted-foreground hover:text-accent transition-colors group"
                 style={{
                   fontFamily: 'Inter, sans-serif',
@@ -78,7 +77,7 @@ export function Footer() {
                 }}
               >
                 <Mail size={16} className="text-accent" />
-                partners@7powermotors.com
+                {cr1Contact.email}
               </a>
               <div
                 className="flex items-start gap-3 text-muted-foreground"
@@ -88,7 +87,11 @@ export function Footer() {
                 }}
               >
                   <MapPin size={16} className="mt-0.5 text-accent" />
-                Metro Manila<br />Philippines
+                <span>
+                  {cr1Contact.distributor.label}: {cr1Contact.distributor.name}
+                  <br />
+                  {cr1Contact.distributor.address}
+                </span>
               </div>
             </div>
           </div>
@@ -224,7 +227,7 @@ export function Footer() {
                 type="submit"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                className="bg-accent px-6 py-3 text-accent-foreground shadow-[0_12px_28px_rgba(227,6,19,0.22)] transition-all hover:bg-white hover:text-black"
+                className="bg-accent px-6 py-3 text-accent-foreground shadow-[0_12px_28px_rgba(139,26,26,0.28)] transition-all hover:bg-white hover:text-black"
                 style={{
                   fontFamily: 'Inter, sans-serif',
                   fontSize: '0.875rem',
@@ -256,6 +259,8 @@ export function Footer() {
               <motion.a
                 key={social.label}
                 href={social.href}
+                target="_blank"
+                rel="noreferrer"
                 whileHover={{ scale: 1.1, y: -2 }}
                 className="w-10 h-10 flex items-center justify-center border border-border hover:border-accent text-muted-foreground hover:text-accent transition-all"
                 aria-label={social.label}
