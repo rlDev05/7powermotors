@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import cr1Logo from '@/styles/images/cr1-logo.png';
+import cr1LogoDark from '@/styles/images/cr1-logo-dark.png';
 
 interface LoadingScreenProps {
   onFinished: () => void;
@@ -40,13 +40,11 @@ export function LoadingScreen({ onFinished }: LoadingScreenProps) {
       <div className="absolute -right-40 bottom-20 h-40 w-[34rem] rotate-[-28deg] bg-white/10" />
 
       <div className="relative z-10 flex flex-col items-center gap-8 px-6 text-center">
-        <div className="bg-white px-8 py-5 shadow-[0_24px_70px_rgba(227,6,19,0.24)]">
-          <img
-            src={cr1Logo}
-            alt="CR-1 Philippines logo"
-            className="h-auto w-[min(72vw,360px)] object-contain"
-          />
-        </div>
+        <img
+          src={cr1LogoDark}
+          alt="CR-1 Philippines logo"
+          className="h-auto w-[min(72vw,360px)] object-contain drop-shadow-[0_24px_70px_rgba(227,6,19,0.30)]"
+        />
         <div className="h-px w-64 bg-gradient-to-r from-transparent via-white/35 to-transparent" />
         <p
           className="text-xs font-black uppercase tracking-[0.34em] text-white/65"
