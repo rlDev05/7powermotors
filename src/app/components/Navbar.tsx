@@ -18,7 +18,7 @@ export function Navbar() {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className="fixed left-0 right-0 top-0 z-50 border-b border-black/10 bg-[#fffefa]/90 shadow-[0_14px_45px_rgba(16,16,16,0.07)] backdrop-blur-2xl"
+      className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-[#050505]/92 text-white shadow-[0_18px_50px_rgba(0,0,0,0.28)] backdrop-blur-2xl [--foreground:#ffffff] [--muted-foreground:rgba(255,255,255,0.62)]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
@@ -27,8 +27,8 @@ export function Navbar() {
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.2 }}
           >
-            <Link to="/" aria-label="7 POWER home">
-              <Logo />
+            <Link to="/" aria-label="CR-1 Philippines home">
+              <Logo className="[&_span:last-child]:!text-white/68" />
             </Link>
           </motion.div>
 
@@ -51,7 +51,7 @@ export function Navbar() {
                     >
                       {item.label}
                       <span
-                        className={`absolute bottom-1 left-4 right-4 h-[2px] origin-left bg-gradient-to-r from-accent to-[#ffc400] transition ${
+                        className={`absolute bottom-1 left-4 right-4 h-[2px] origin-left bg-gradient-to-r from-accent to-white transition ${
                           isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
                         }`}
                       />
@@ -63,7 +63,7 @@ export function Navbar() {
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="ml-4 bg-accent px-6 py-3 text-accent-foreground shadow-[0_12px_28px_rgba(255,90,0,0.24)] tracking-wider transition-all hover:bg-black"
+              className="ml-4 bg-accent px-6 py-3 text-accent-foreground shadow-[0_12px_28px_rgba(227,6,19,0.28)] tracking-wider transition-all hover:bg-white hover:text-black"
               style={{
                 fontFamily: 'Inter, sans-serif',
                 fontSize: '0.875rem',
@@ -93,7 +93,7 @@ export function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="border-t border-border bg-[#fffefa] md:hidden"
+            className="border-t border-white/10 bg-[#050505] md:hidden"
           >
             <div className="px-4 py-6 space-y-4">
               {navItems.map((item) => (
@@ -109,7 +109,7 @@ export function Navbar() {
               ))}
               <Link
                 to="/contact"
-                className="block w-full bg-accent px-6 py-3 text-center text-accent-foreground tracking-wider transition-all hover:bg-black"
+                className="block w-full bg-accent px-6 py-3 text-center text-accent-foreground tracking-wider transition-all hover:bg-white hover:text-black"
                 style={{
                   fontFamily: 'Inter, sans-serif',
                   fontSize: '0.875rem',

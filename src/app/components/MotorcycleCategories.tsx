@@ -22,7 +22,7 @@ const audiences = [
   {
     icon: <Wrench className="h-7 w-7" />,
     title: 'Service Centers',
-    subtitle: 'Authorized 7 POWER application partners across key motorcycle hubs.',
+    subtitle: 'Authorized CR-1 application partners across key motorcycle hubs.',
     details:
       'A professional network built around process control, product support, and consistent application quality.',
   },
@@ -39,7 +39,7 @@ export function MotorcycleCategories() {
   return (
     <section id="strategy" className="racing-section bg-background">
       <div className="absolute -right-32 top-10 h-72 w-[32rem] rotate-[-38deg] bg-accent/48" />
-      <div className="absolute -left-40 bottom-0 h-64 w-[36rem] rotate-[-30deg] bg-[#ffc400]/14" />
+      <div className="absolute -left-40 bottom-0 h-64 w-[36rem] rotate-[-30deg] bg-black/10" />
 
       <div className="racing-container grid grid-cols-1 gap-14 lg:grid-cols-[0.9fr_1.1fr]">
         <motion.div
@@ -51,7 +51,7 @@ export function MotorcycleCategories() {
         >
           <ImageWithFallback
             src={CruiserImg}
-            alt="Premium motorcycle protected by 7 POWER coating care"
+            alt="Premium motorcycle protected by CR-1 coating care"
             className="h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
@@ -80,7 +80,7 @@ export function MotorcycleCategories() {
               From awareness to authorized application centers.
             </h2>
             <p className="racing-copy mt-6">
-              7 POWER aims to become a top-of-mind premium motorcycle surface
+              CR-1 Philippines aims to become a top-of-mind premium motorcycle surface
               care name for riders and a reliable coating partner for shops
               serving the riding community.
             </p>
@@ -96,7 +96,7 @@ export function MotorcycleCategories() {
                 transition={{ duration: 0.45, delay: index * 0.08 }}
                 className="racing-card bg-white/95 p-6"
               >
-                <div className="mb-5 flex h-14 w-14 items-center justify-center bg-[#0b0907] text-accent">
+                <div className="mb-5 flex h-14 w-14 items-center justify-center bg-[#050505] text-accent">
                   {item.icon}
                 </div>
                 <h3 className="font-[Rajdhani] text-2xl font-black uppercase text-foreground">

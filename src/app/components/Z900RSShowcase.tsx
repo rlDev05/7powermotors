@@ -26,7 +26,7 @@ export function Z900RSShowcase() {
   return (
     <section id="z900rs" className="racing-section bg-background">
       <div className="absolute left-[-12rem] top-16 h-40 w-[32rem] rotate-[-16deg] bg-accent/40" />
-      <div className="absolute bottom-10 right-[-18rem] h-44 w-[34rem] rotate-[-37deg] bg-[#ffc400]/14" />
+      <div className="absolute bottom-10 right-[-18rem] h-44 w-[34rem] rotate-[-37deg] bg-black/10" />
 
       <div className="racing-container grid grid-cols-1 gap-10 lg:grid-cols-[0.72fr_1.28fr]">
         <div className="flex flex-col justify-between gap-8">
@@ -44,7 +44,7 @@ export function Z900RSShowcase() {
               engine texture, and the premium riding mood of the brand.
             </p>
           </div>
-          <div className="hidden border-l-4 border-accent bg-[#0b0907] p-6 shadow-[12px_12px_0_rgba(255,90,0,0.16)] lg:block">
+          <div className="hidden border-l-4 border-accent bg-[#050505] p-6 shadow-[12px_12px_0_rgba(227,6,19,0.16)] lg:block">
             <p className="font-[Rajdhani] text-4xl font-black uppercase leading-none text-white">
               Model gallery for finish inspiration.
             </p>

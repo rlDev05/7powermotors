@@ -60,14 +60,14 @@ export default function MotorcyclesPage() {
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_0.75fr]">
             <div className="p-8 md:p-12">
               <span className="racing-kicker">
-                7 POWER Models
+                CR-1 Models
               </span>
               <h1 className="racing-title">
                 Motorcycle models for finish inspiration.
               </h1>
               <p className="racing-copy mt-6 max-w-3xl">
                 Browse model references and featured motorcycles that pair
-                naturally with 7 POWER surface care.
+                naturally with CR-1 surface care.
               </p>
               <div className="mt-8 flex flex-wrap gap-3 text-xs font-bold uppercase tracking-[0.16em] text-muted-foreground">
                 <span className="border border-border px-4 py-3">{bikes.length} models</span>
@@ -78,7 +78,7 @@ export default function MotorcyclesPage() {
             <div className="relative min-h-[320px] bg-secondary/50">
               <ImageWithFallback
                 src={bikes[0]?.image || ''}
-                alt="Featured 7 POWER motorcycle model"
+                alt="Featured CR-1 motorcycle model"
                 className="h-full w-full object-contain p-10"
               />
               <div className="absolute inset-0 bg-gradient-to-l from-transparent to-card/40" />

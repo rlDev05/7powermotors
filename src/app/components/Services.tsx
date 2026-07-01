@@ -7,7 +7,7 @@ import helmetApplicationImg from '@/styles/images/coating/helmet-application-web
 const services = [
   {
     icon: <Shield className="h-7 w-7" />,
-    title: '7 POWER Coating Care',
+    title: 'CR-1 Coating Care',
     description:
       'Professional coating application for motorcycles that need long-lasting gloss, easier cleaning, and stronger surface protection.',
     items: ['Paint and surface protection', 'Gloss preservation', 'Road grime resistance'],
@@ -16,7 +16,7 @@ const services = [
     icon: <GraduationCap className="h-7 w-7" />,
     title: 'Authorized Installer Training',
     description:
-      'A pathway for service centers and detailing shops to apply 7 POWER coating services with consistent technique and quality control.',
+      'A pathway for service centers and detailing shops to apply CR-1 coating services with consistent technique and quality control.',
     items: ['Application standards', 'Product handling', 'Service process alignment'],
   },
   {
@@ -30,7 +30,7 @@ const services = [
     icon: <Sparkles className="h-7 w-7" />,
     title: 'Rider Education Content',
     description:
-      'Useful motorcycle maintenance content that positions 7 POWER as a helpful voice in motorcycle preservation.',
+      'Useful motorcycle maintenance content that positions CR-1 as a helpful voice in motorcycle preservation.',
     items: ['Care tips', 'Before/after stories', 'Rider and shop testimonials'],
   },
 ];
@@ -56,10 +56,10 @@ export function Services() {
             Product, training, and partner support in one system.
           </h2>
           <p className="racing-copy mt-6">
-            7 POWER is not only a coating service. It is a partner-ready program
+            CR-1 is not only a coating service. It is a partner-ready program
             for riders, shops, and dealerships that want premium surface
             protection with a stronger business story.
-          </p>
+          </p> 
         </motion.div>
 
         <div className="grid grid-cols-1 gap-5 lg:grid-cols-4">
@@ -72,7 +72,7 @@ export function Services() {
               transition={{ duration: 0.45, delay: index * 0.08 }}
               className="racing-card p-7"
             >
-              <div className="mb-6 flex h-14 w-14 items-center justify-center bg-[#0b0907] text-accent shadow-[8px_8px_0_rgba(255,90,0,0.22)]">
+              <div className="mb-6 flex h-14 w-14 items-center justify-center bg-[#050505] text-accent shadow-[8px_8px_0_rgba(227,6,19,0.22)]">
                 {service.icon}
               </div>
               <h3 className="font-[Rajdhani] text-2xl font-black uppercase leading-none tracking-normal text-foreground">
@@ -108,7 +108,7 @@ export function Services() {
               Help shops elevate their brand status.
             </h3>
             <p className="mt-6 text-base leading-8 text-white/70">
-              7 POWER gives partners a premium service story: application
+              CR-1 gives partners a premium service story: application
               support, polished presentation, and a result customers can
               appreciate every time they clean and ride.
             </p>

@@ -3,39 +3,39 @@
 :root {
   --font-size: 16px;
   
-  /* 7POWER MOTORS Premium Orange Theme */
-  --background: #f6f3ec;
-  --foreground: #101010;
-  --card: #fffefa;
+  /* CR-1 Philippines premium black, red, and white theme */
+  --background: #f5f5f5;
+  --foreground: #0a0a0a;
+  --card: #ffffff;
   --card-foreground: #101010;
   --popover: #ffffff;
   --popover-foreground: #101010;
   --primary: #101010;
   --primary-foreground: #ffffff;
-  --secondary: #ebe6dc;
+  --secondary: #ececec;
   --secondary-foreground: #101010;
-  --muted: #eee8dd;
-  --muted-foreground: #5f594f;
-  --accent: #ff5a00;
+  --muted: #eeeeee;
+  --muted-foreground: #5b5b5b;
+  --accent: #e30613;
   --accent-foreground: #ffffff;
   --destructive: #b42318;
   --destructive-foreground: #ffffff;
   --border: rgba(16, 16, 16, 0.13);
   --input: rgba(16, 16, 16, 0.13);
-  --input-background: #fffefa;
-  --switch-background: #e6e1d7;
+  --input-background: #ffffff;
+  --switch-background: #dddddd;
   --font-weight-medium: 500;
   --font-weight-normal: 400;
-  --ring: #ff5a00;
+  --ring: #e30613;
   
   /* Metallic silver for accents */
   --silver: #c0c0c0;
   --silver-dark: #8a8a8a;
-  --orange: #ff5a00;
-  --orange-deep: #c94700;
-  --yellow: #ffc400;
-  --ink: #0b0907;
-  --warm-white: #fffefa;
+  --orange: #e30613;
+  --orange-deep: #9f0009;
+  --yellow: #ffffff;
+  --ink: #050505;
+  --warm-white: #ffffff;
   
   --radius: 0.25rem;
   
@@ -129,8 +129,8 @@
   body {
     @apply bg-background text-foreground;
     background-image:
-      radial-gradient(circle at 18% 0%, rgba(255, 90, 0, 0.10), transparent 28rem),
-      radial-gradient(circle at 88% 20%, rgba(255, 196, 0, 0.08), transparent 24rem),
+      radial-gradient(circle at 18% 0%, rgba(227, 6, 19, 0.10), transparent 28rem),
+      radial-gradient(circle at 88% 20%, rgba(10, 10, 10, 0.05), transparent 24rem),
       linear-gradient(90deg, rgba(16, 16, 16, 0.022) 1px, transparent 1px),
       linear-gradient(180deg, rgba(16, 16, 16, 0.018) 1px, transparent 1px);
     background-attachment: fixed;
@@ -238,7 +238,7 @@
   }
 
   .racing-card {
-    @apply relative overflow-hidden border border-border bg-card shadow-[0_18px_50px_rgba(16,16,16,0.07)] transition duration-300 hover:-translate-y-1 hover:border-accent/55 hover:shadow-[0_26px_70px_rgba(255,90,0,0.13)];
+    @apply relative overflow-hidden border border-border bg-card shadow-[0_18px_50px_rgba(16,16,16,0.07)] transition duration-300 hover:-translate-y-1 hover:border-accent/55 hover:shadow-[0_26px_70px_rgba(227,6,19,0.13)];
   }
 
   .racing-card::before {
@@ -257,7 +257,7 @@
   }
 
   .racing-button {
-    @apply inline-flex items-center justify-center gap-2 bg-accent px-7 py-4 text-sm font-black uppercase tracking-[0.12em] text-white shadow-[0_14px_30px_rgba(255,90,0,0.24)] transition hover:bg-[#101010] hover:shadow-[0_18px_38px_rgba(16,16,16,0.2)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+    @apply inline-flex items-center justify-center gap-2 bg-accent px-7 py-4 text-sm font-black uppercase tracking-[0.12em] text-white shadow-[0_14px_30px_rgba(227,6,19,0.24)] transition hover:bg-[#101010] hover:shadow-[0_18px_38px_rgba(16,16,16,0.2)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background;
   }
 
   .racing-button-outline {
@@ -273,7 +273,7 @@
   }
 
   .racing-rule {
-    @apply h-px w-full bg-gradient-to-r from-accent via-[#ffc400] to-transparent;
+    @apply h-px w-full bg-gradient-to-r from-accent via-white to-transparent;
   }
 
   .racing-number {
@@ -281,9 +281,9 @@
   }
 
   .premium-band {
-    @apply bg-[#0b0907] text-white;
+    @apply bg-[#050505] text-white;
     background-image:
-      linear-gradient(120deg, rgba(255, 90, 0, 0.18), transparent 34%),
+      linear-gradient(120deg, rgba(227, 6, 19, 0.18), transparent 34%),
       linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
     background-size: auto, 72px 72px;
   }

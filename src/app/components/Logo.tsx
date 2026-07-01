@@ -1,5 +1,5 @@
 import React from 'react';
-import powerMotorLogo from '@/styles/images/powermotorlogo-cropped.png';
+import cr1Logo from '@/styles/images/cr1-logo.png';
 
 interface LogoProps {
   variant?: 'default' | 'minimal';
@@ -8,17 +8,15 @@ interface LogoProps {
 
 export function Logo({ variant = 'default', className = '' }: LogoProps) {
   return (
-    <div className={`flex items-center gap-1 ${className}`}>
-      
-      <div className="relative flex h-12 w-8 shrink-0 translate-y-[-2px] items-center justify-end sm:h-14 sm:w-9">
+    <div className={`flex items-center gap-3 ${className}`}>
+      <div className="relative flex h-12 w-24 shrink-0 items-center justify-start bg-white px-2 py-1 shadow-[0_10px_22px_rgba(0,0,0,0.22)] sm:h-14 sm:w-28">
         <img 
-          src={powerMotorLogo} 
-          alt="7 POWER lightning hand logo"
+          src={cr1Logo} 
+          alt="CR-1 logo"
           className="h-full w-full object-contain"
         />
       </div>
-      
-      {/* Text Part */}
+
       {variant === 'default' && (
         <div className="flex flex-col items-start justify-center">
           <span
@@ -31,7 +29,7 @@ export function Logo({ variant = 'default', className = '' }: LogoProps) {
               lineHeight: 0.85,
             }}
           >
-            POWER
+            CR-1
           </span>
           <span
             className="mt-1 block pl-[2px] text-foreground/70"
@@ -43,7 +41,7 @@ export function Logo({ variant = 'default', className = '' }: LogoProps) {
               lineHeight: 1,
             }}
           >
-            MOTORS
+            PHILIPPINES
           </span>
         </div>
       )}

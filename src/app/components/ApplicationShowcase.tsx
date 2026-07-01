@@ -26,7 +26,7 @@ export function ApplicationShowcase() {
   return (
     <section className="racing-section bg-card">
       <div className="absolute right-[-16rem] top-12 h-44 w-[34rem] rotate-[-24deg] bg-accent/32" />
-      <div className="absolute left-[-18rem] bottom-14 h-40 w-[34rem] rotate-[-22deg] bg-[#ffc400]/12" />
+      <div className="absolute left-[-18rem] bottom-14 h-40 w-[34rem] rotate-[-22deg] bg-black/10" />
 
       <div className="racing-container grid grid-cols-1 gap-10 lg:grid-cols-[1.15fr_0.85fr]">
         <div className="racing-media aspect-[16/10]">
@@ -78,7 +78,7 @@ export function ApplicationShowcase() {
             Finished with care.
           </h2>
           <p className="racing-copy mt-6 max-w-lg">
-            A cleaner look at the service side of 7 POWER: precise spray work,
+            A cleaner look at the service side of CR-1: precise spray work,
             focused preparation, and a finish made for daily riding conditions.
           </p>
 

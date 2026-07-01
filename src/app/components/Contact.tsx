@@ -26,7 +26,7 @@ export function Contact() {
   return (
     <section id="contact" className="racing-section bg-background">
       <div className="absolute -left-28 top-20 h-52 w-[34rem] rotate-[-24deg] bg-accent/60" />
-      <div className="absolute -right-32 bottom-24 h-48 w-[34rem] rotate-[-32deg] bg-[#ffc400]/18" />
+      <div className="absolute -right-32 bottom-24 h-48 w-[34rem] rotate-[-32deg] bg-black/10" />
       <div className="racing-container">
         {/* Section Header */}
         <motion.div
@@ -47,7 +47,7 @@ export function Contact() {
             GET IN TOUCH
           </span>
           <h2 className="racing-title mx-auto mb-6 max-w-3xl">
-            Start a 7 POWER Conversation
+            Start a CR-1 Conversation
           </h2>
           <p
             className="text-muted-foreground"
@@ -58,7 +58,7 @@ export function Contact() {
             }}
           >
             Talk to us about rider applications, dealership partnerships,
-            installer training, or 7 POWER service center opportunities.
+            installer training, or CR-1 service center opportunities.
           </p>
         </motion.div>
 
@@ -146,7 +146,7 @@ export function Contact() {
             >
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3862.026670450718!2d121.01207957589632!3d14.540467178544509!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c93eed13070f%3A0x3dae00e35dcc62ca!2s7%20Power%20Motors!5e0!3m2!1sen!2sph!4v1781764487073!5m2!1sen!2sph"
-                title="7 Power Motors location map"
+                title="CR-1 Philippines location map"
                 className="h-full w-full border-0 grayscale-[15%] contrast-[1.04] saturate-[0.92]"
                 allowFullScreen
                 loading="lazy"
@@ -156,7 +156,7 @@ export function Contact() {
                 <div className="flex items-center gap-2">
                   <MapPin size={16} className="text-accent" />
                   <p className="text-xs font-black uppercase tracking-[0.16em] text-white">
-                    7 Power Motors
+                    CR-1 Philippines
                   </p>
                 </div>
               </div>
@@ -267,7 +267,7 @@ export function Contact() {
                   className="form-field"
                 >
                   <option value="">Select an option</option>
-                  <option value="rider-application">7 POWER Coating for My Bike</option>
+                  <option value="rider-application">CR-1 Coating for My Bike</option>
                   <option value="dealer">Dealership Partnership</option>
                   <option value="installer">Authorized Installer Training</option>
                   <option value="service-center">Service Center Opportunity</option>

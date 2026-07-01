@@ -127,7 +127,7 @@ export default function BikeDetailsPage() {
             <div className="sticky top-32">
               <div className="racing-card relative flex min-h-[500px] items-center justify-center bg-white">
                 
-                <div className="pointer-events-none absolute inset-x-0 top-0 z-0 h-2 bg-gradient-to-r from-accent via-accent to-[#ffc400]" />
+                <div className="pointer-events-none absolute inset-x-0 top-0 z-0 h-2 bg-gradient-to-r from-accent via-black to-white" />
 
                 {bike.view360 && !is360Mode && (
                   <button
@@ -170,7 +170,7 @@ export default function BikeDetailsPage() {
               <div>
                 {/* --- ADDED: AVAILABILITY BADGE --- */}
                 {bike.availability && (
-                  <div className="mb-4 inline-flex items-center gap-2 border border-[#ffc400]/50 bg-[#ffc400]/15 px-3 py-1 text-black">
+                  <div className="mb-4 inline-flex items-center gap-2 border border-accent/40 bg-accent/10 px-3 py-1 text-black">
                     <AlertCircle className="w-3 h-3" />
                     <span className="text-xs font-bold font-rajdhani uppercase tracking-widest">
                       {bike.availability}

@@ -11,7 +11,7 @@ const testimonials = [
   },
   {
     quote:
-      '7 POWER gives our shop a premium service with a stronger story than ordinary coating packages.',
+      'CR-1 gives our shop a premium service with a stronger story than ordinary coating packages.',
     name: 'Detailing Shop Partner',
     role: 'Service Center',
   },

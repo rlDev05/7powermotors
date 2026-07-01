@@ -15,7 +15,7 @@ export function Footer() {
       { label: 'Maintenance', href: '/products?category=Maintenance' },
     ],
     services: [
-      { label: '7 POWER Coating Care', href: '/services' },
+      { label: 'CR-1 Coating Care', href: '/services' },
       { label: 'Installer Training', href: '/services' },
       { label: 'Dealer Partnerships', href: '/services' },
       { label: 'Rider Education', href: '/services' },
@@ -52,7 +52,7 @@ export function Footer() {
                 lineHeight: 1.7,
               }}
             >
-              7 POWER helps riders and shops preserve motorcycle finish
+              CR-1 Philippines helps riders and shops preserve motorcycle finish
               quality through professionally applied coating care.
             </p>
             
@@ -208,7 +208,7 @@ export function Footer() {
                 lineHeight: 1.7,
               }}
             >
-              Get 7 POWER rider care tips, partner updates, and coating program news.
+              Get CR-1 rider care tips, partner updates, and coating program news.
             </p>
             <form className="flex gap-3">
               <input
@@ -224,7 +224,7 @@ export function Footer() {
                 type="submit"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                className="bg-accent px-6 py-3 text-accent-foreground shadow-[0_12px_28px_rgba(255,90,0,0.2)] transition-all hover:bg-white hover:text-black"
+                className="bg-accent px-6 py-3 text-accent-foreground shadow-[0_12px_28px_rgba(227,6,19,0.22)] transition-all hover:bg-white hover:text-black"
                 style={{
                   fontFamily: 'Inter, sans-serif',
                   fontSize: '0.875rem',
@@ -247,7 +247,7 @@ export function Footer() {
               fontSize: '0.875rem',
             }}
           >
-            Copyright {currentYear} 7 POWER. All rights reserved.
+            Copyright {currentYear} CR-1 Philippines. All rights reserved.
           </p>
 
           {/* Social Links */}

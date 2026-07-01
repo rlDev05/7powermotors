@@ -6,7 +6,7 @@ const objectives = [
   {
     icon: <Megaphone className="h-7 w-7" />,
     label: 'Brand Awareness',
-    copy: 'Position 7 POWER as a premium motorcycle coating and surface care partner.',
+    copy: 'Position CR-1 Philippines as a premium motorcycle coating and surface care partner.',
   },
   {
     icon: <Route className="h-7 w-7" />,
@@ -75,7 +75,7 @@ export function PerformanceEngineering() {
           className="mt-16 border-l-4 border-accent bg-secondary/40 p-8"
         >
           <p className="max-w-5xl font-[Rajdhani] text-3xl font-black uppercase leading-tight text-foreground md:text-4xl">
-            The long-term vision is to establish 7 POWER as a recognized and
+            The long-term vision is to establish CR-1 Philippines as a recognized and
             respected motorcycle coating and surface care name.
           </p>
         </motion.div>

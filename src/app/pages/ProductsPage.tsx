@@ -38,7 +38,7 @@ export default function ProductsPage() {
               <div className="p-8 md:p-12">
                 <span className="brand-chip">
                   <PackageCheck className="h-4 w-4" />
-                  7 POWER Products
+                  CR-1 Products
                 </span>
                 <h1 className="mt-5 font-[Rajdhani] text-[clamp(2.9rem,6vw,5.75rem)] font-black uppercase leading-[0.88] tracking-normal text-white">
                   Care products for cleaner rides.
@@ -90,7 +90,7 @@ export default function ProductsPage() {
                 to="/products"
                 className={`px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] transition ${
                   !selectedCategory
-                    ? 'bg-accent text-white shadow-[0_10px_22px_rgba(255,90,0,0.2)]'
+                    ? 'bg-accent text-white shadow-[0_10px_22px_rgba(227,6,19,0.2)]'
                     : 'border border-border bg-white text-muted-foreground hover:border-accent hover:text-accent'
                 }`}
               >
@@ -102,7 +102,7 @@ export default function ProductsPage() {
                   to={`/products?category=${encodeURIComponent(category)}`}
                   className={`px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] transition ${
                     selectedCategory === category
-                      ? 'bg-accent text-white shadow-[0_10px_22px_rgba(255,90,0,0.2)]'
+                      ? 'bg-accent text-white shadow-[0_10px_22px_rgba(227,6,19,0.2)]'
                       : 'border border-border bg-white text-muted-foreground hover:border-accent hover:text-accent'
                   }`}
                 >
@@ -119,7 +119,7 @@ export default function ProductsPage() {
                 className="racing-card group flex flex-col"
               >
                 <div className="relative flex aspect-[4/3] items-center justify-center bg-white p-6">
-                  <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-accent via-[#ffc400] to-transparent opacity-80" />
+                  <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-accent via-black to-transparent opacity-80" />
                   <img
                     src={product.image}
                     alt={product.name}

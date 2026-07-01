@@ -7,11 +7,11 @@ import NakedImg from '@/styles/images/naked.png';
 const points = [
   {
     title: 'Premium Application Standards',
-    text: 'Position 7 POWER around careful preparation, controlled application, and consistent finish quality.',
+    text: 'Position CR-1 around careful preparation, controlled application, and consistent finish quality.',
   },
   {
     title: 'Professionally Applied',
-    text: 'A controlled service experience that separates 7 POWER from DIY care and ordinary detailing packages.',
+    text: 'A controlled service experience that separates CR-1 from DIY care and ordinary detailing packages.',
   },
   {
     title: 'Built for Daily Riding Conditions',
@@ -27,7 +27,7 @@ export function FeaturedModels() {
   return (
     <section id="protection" className="racing-section bg-background">
       <div className="absolute right-[-14rem] top-16 h-44 w-[34rem] rotate-[-22deg] bg-accent/40" />
-      <div className="absolute left-[-18rem] bottom-10 h-40 w-[34rem] rotate-[-28deg] bg-[#ffc400]/15" />
+      <div className="absolute left-[-18rem] bottom-10 h-40 w-[34rem] rotate-[-28deg] bg-black/10" />
       <div className="racing-container grid grid-cols-1 items-center gap-12 lg:grid-cols-[1fr_0.95fr]">
         <motion.div
           initial={{ opacity: 0, y: 25 }}
@@ -42,7 +42,7 @@ export function FeaturedModels() {
             Protection That Makes Sense
           </h2>
           <p className="racing-copy mt-6 max-w-2xl">
-            7 POWER focuses on protection value: careful application, lasting
+            CR-1 focuses on protection value: careful application, lasting
             gloss, and a motorcycle finish that stays easier to maintain.
           </p>
 
@@ -73,7 +73,7 @@ export function FeaturedModels() {
             href="/contact"
             className="racing-button mt-12"
           >
-            Ask About 7 POWER Coating
+            Ask About CR-1 Coating
             <ArrowRight className="h-4 w-4" />
           </a>
         </motion.div>
@@ -87,13 +87,13 @@ export function FeaturedModels() {
         >
           <ImageWithFallback
             src={NakedImg}
-            alt="Motorcycle surface protected by 7 POWER coating"
+            alt="Motorcycle surface protected by CR-1 coating"
             className="h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
           <div className="absolute -bottom-24 -right-24 h-72 w-96 rotate-[-38deg] bg-accent/85" />
           <div className="absolute bottom-0 left-0 max-w-lg p-8">
-            <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-[#ffc400]">
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-white">
               Brand Role
             </p>
             <p className="font-[Rajdhani] text-4xl font-black uppercase leading-none text-white">

@@ -11,7 +11,7 @@ const pillars = [
   },
   {
     icon: <Sparkles className="h-8 w-8" />,
-    title: 'The 7 POWER Advantage',
+    title: 'The CR-1 Advantage',
     copy: 'Highlight professional application, visible gloss, and other USPs.',
     sample: 'Before/after coating results and coated bike stress tests.',
   },
@@ -46,7 +46,7 @@ export function LifestyleGallery() {
             Education Themes
           </span>
           <h2 className="font-[Rajdhani] text-[clamp(2.4rem,5vw,4.5rem)] font-black uppercase leading-none text-foreground">
-            What 7 POWER should talk about.
+            What CR-1 should talk about.
           </h2>
         </motion.div>
 

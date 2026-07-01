@@ -67,8 +67,8 @@ export function Hero() {
               transition={{ duration: 0.55 }}
               className="mb-6 inline-flex items-center gap-3 border border-white/15 bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-white/80 backdrop-blur"
             >
-              <ShieldCheck className="h-4 w-4 text-[#ffc400]" />
-              7 POWER Premium Surface Care
+              <ShieldCheck className="h-4 w-4 text-white" />
+              CR-1 Philippines Surface Care
             </motion.div>
 
             <motion.h1
@@ -77,11 +77,9 @@ export function Hero() {
               transition={{ duration: 0.75, delay: 0.12 }}
               className="font-[Rajdhani] text-[clamp(3.15rem,8.2vw,7rem)] font-black uppercase leading-[0.86] tracking-normal text-white"
             >
-              Japanese Precision.
+              Engineered to Protect
               <br />
-              Philippine Roads.
-              <br />
-              <span className="text-accent">Absolute Protection.</span>
+              <span className="text-accent">Built to Last.</span>
             </motion.h1>
 
             <motion.p
@@ -90,7 +88,7 @@ export function Hero() {
               transition={{ duration: 0.7, delay: 0.25 }}
               className="mt-8 max-w-2xl text-base leading-8 text-white/78 sm:text-lg"
             >
-              7 POWER brings a premium surface-care standard to riders who want
+              CR-1 Philippines brings a premium surface-care standard to riders who want
               their motorcycles prepared for heat, rain, road grime, and daily
               Philippine riding conditions.
             </motion.p>
@@ -105,12 +103,12 @@ export function Hero() {
                 href="/contact"
                 className="racing-button px-8 py-4"
               >
-                Partner With 7 POWER
+                Partner With CR-1
                 <ArrowRight className="h-4 w-4" />
               </a>
               <a
                 href="/services"
-                className="inline-flex items-center justify-center gap-2 border border-white/20 bg-white/8 px-8 py-4 text-sm font-black uppercase tracking-[0.12em] text-white backdrop-blur transition hover:border-[#ffc400] hover:text-[#ffc400]"
+                className="inline-flex items-center justify-center gap-2 border border-white/20 bg-white/8 px-8 py-4 text-sm font-black uppercase tracking-[0.12em] text-white backdrop-blur transition hover:border-white hover:bg-white hover:text-black"
               >
                 Explore Coating Services
               </a>
@@ -130,7 +128,7 @@ export function Hero() {
               { icon: <Sparkles className="h-5 w-5" />, label: 'Finish Goal', value: 'Lasting Gloss' },
             ].map((item) => (
               <div key={item.label} className="border-b border-white/10 py-5 last:border-b-0">
-                <div className="mb-2 flex items-center gap-2 text-[#ffc400]">
+                <div className="mb-2 flex items-center gap-2 text-white">
                   {item.icon}
                   <span className="text-xs font-black uppercase tracking-[0.2em] text-white/60">
                     {item.label}
