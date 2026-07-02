@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import cr1LogoDark from '@/styles/images/cr1-logo-dark.png';
+import cr1LoadingLoop from '@/styles/videos/cr1-logo-loading-loop.mp4';
 
 interface LoadingScreenProps {
   onFinished: () => void;
@@ -9,8 +10,8 @@ export function LoadingScreen({ onFinished }: LoadingScreenProps) {
   const [showSkip, setShowSkip] = useState(false);
 
   useEffect(() => {
-    const skipTimer = window.setTimeout(() => setShowSkip(true), 1200);
-    const finishTimer = window.setTimeout(onFinished, 3200);
+    const skipTimer = window.setTimeout(() => setShowSkip(true), 700);
+    const finishTimer = window.setTimeout(onFinished, 1800);
 
     return () => {
       window.clearTimeout(skipTimer);
@@ -39,13 +40,24 @@ export function LoadingScreen({ onFinished }: LoadingScreenProps) {
       <div className="absolute -left-40 top-20 h-40 w-[34rem] rotate-[-18deg] bg-accent/35" />
       <div className="absolute -right-40 bottom-20 h-40 w-[34rem] rotate-[-28deg] bg-white/10" />
 
-      <div className="relative z-10 flex flex-col items-center gap-8 px-6 text-center">
-        <img
-          src={cr1LogoDark}
-          alt="CR-1 Philippines logo"
-          className="h-auto w-[min(72vw,360px)] object-contain drop-shadow-[0_24px_70px_rgba(139,26,26,0.34)]"
-        />
-        <div className="h-px w-64 bg-gradient-to-r from-transparent via-white/35 to-transparent" />
+      <div className="relative z-10 flex flex-col items-center gap-6 px-6 text-center">
+        <div className="relative w-[min(74vw,420px)] overflow-hidden">
+          <video
+            src={cr1LoadingLoop}
+            className="h-auto w-full object-contain drop-shadow-[0_24px_70px_rgba(139,26,26,0.34)]"
+            autoPlay
+            muted
+            playsInline
+            preload="auto"
+            aria-label="CR-1 Philippines loading animation"
+          />
+          <img
+            src={cr1LogoDark}
+            alt="CR-1 Philippines logo"
+            className="sr-only"
+          />
+        </div>
+        <div className="h-px w-56 bg-gradient-to-r from-transparent via-white/35 to-transparent" />
         <p
           className="text-xs font-black uppercase tracking-[0.34em] text-white/65"
           style={{ fontFamily: 'Rajdhani, sans-serif' }}
@@ -58,9 +70,9 @@ export function LoadingScreen({ onFinished }: LoadingScreenProps) {
       {showSkip && (
         <button
           onClick={finishIntro}
-          className="absolute bottom-10 right-10 z-[10000] px-6 py-2 
+          className="absolute bottom-8 right-8 z-[10000] px-5 py-2 
                      bg-black/20 hover:bg-white/10 border border-white/30 
-                     backdrop-blur-md text-white text-sm font-bold tracking-[0.2em] 
+                     backdrop-blur-md text-white text-xs font-bold tracking-[0.2em] 
                      transition-all duration-300 rounded-sm uppercase
                      hover:border-accent"
           style={{ fontFamily: 'Rajdhani, sans-serif' }}

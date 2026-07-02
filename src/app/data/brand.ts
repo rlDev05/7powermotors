@@ -9,7 +9,7 @@ export const cr1SocialLinks = {
 export const cr1Contact = {
   phoneLabel: '+63 7POWER',
   phoneHref: 'tel:+63',
-  email: 'partners@7powermotors.com',
+  email: 'cr1.philippines@gmail.com',
   distributor: {
     label: 'Distributor',
     name: '7Power Motors',
