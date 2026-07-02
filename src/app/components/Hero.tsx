@@ -1,56 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 import { ArrowRight, Gauge, ShieldCheck, Sparkles } from 'lucide-react';
-import { z900rsHeroSlides } from '@/app/data/z900rsImages';
+import cr1HeroVideo from '@/styles/videos/cr1-hero-web.mp4';
 
 export function Hero() {
-  const [activeSlide, setActiveSlide] = useState(0);
-
-  useEffect(() => {
-    const timer = window.setInterval(() => {
-      setActiveSlide((current) => (current + 1) % z900rsHeroSlides.length);
-    }, 5200);
-
-    return () => window.clearInterval(timer);
-  }, []);
-
-  const currentSlide = z900rsHeroSlides[activeSlide];
-
   return (
     <section className="relative min-h-screen w-full overflow-hidden bg-[#0b0907]">
       <div className="absolute inset-0">
-        <AnimatePresence initial={false}>
-          <motion.img
-            key={currentSlide.src}
-            src={currentSlide.src}
-            alt={currentSlide.alt}
-            className="absolute inset-0 h-full w-full object-cover object-center"
-            initial={{ opacity: 0, scale: 1.04 }}
-            animate={{ opacity: 1, scale: 1.12 }}
-            exit={{ opacity: 0 }}
-            transition={{
-              opacity: { duration: 1.15, ease: 'easeOut' },
-              scale: { duration: 6.4, ease: 'easeOut' },
-            }}
-          />
-        </AnimatePresence>
-        <div className="absolute inset-0 bg-black/22" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/88 via-black/48 to-black/5" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/62 via-transparent to-black/16" />
+        <video
+          className="absolute inset-0 h-full w-full object-cover object-center"
+          src={cr1HeroVideo}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/54 to-black/12" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/68 via-transparent to-black/22" />
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent" />
-        <div className="absolute bottom-8 right-8 z-10 hidden items-center gap-2 lg:flex">
-          {z900rsHeroSlides.map((slide, index) => (
-            <button
-              key={slide.src}
-              type="button"
-              aria-label={`Show ${slide.label}`}
-              onClick={() => setActiveSlide(index)}
-              className={`h-1.5 rounded-full transition-all ${
-                index === activeSlide ? 'w-10 bg-accent' : 'w-5 bg-white/35 hover:bg-white/60'
-              }`}
-            />
-          ))}
-        </div>
       </div>
 
       <div className="absolute -top-48 -left-40 h-72 w-[42rem] rotate-[-12deg] bg-accent/70" />
