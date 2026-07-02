@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navbar } from '@/app/components/Navbar';
 import { Hero } from '@/app/components/Hero';
+import { AboutCR1 } from '@/app/components/AboutCR1';
 import { ApplicationShowcase } from '@/app/components/ApplicationShowcase';
 import { Z900RSShowcase } from '@/app/components/Z900RSShowcase';
 import { ProductPreview } from '@/app/components/ProductPreview';
@@ -13,6 +14,7 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <AboutCR1 />
         <ApplicationShowcase />
         <Z900RSShowcase />
         <ProductPreview />
