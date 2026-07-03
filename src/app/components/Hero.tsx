@@ -45,11 +45,11 @@ export function Hero() {
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent" />
       </div>
 
-      <div className="absolute -top-48 -left-40 h-72 w-[42rem] rotate-[-12deg] bg-accent/70" />
-      <div className="absolute -bottom-44 right-[-24rem] h-72 w-[42rem] rotate-[-42deg] bg-accent/50" />
+      <div className="absolute -left-52 -top-52 h-60 w-[32rem] rotate-[-12deg] bg-accent/70 sm:-left-40 sm:-top-48 sm:h-72 sm:w-[42rem]" />
+      <div className="absolute -bottom-44 right-[-28rem] h-60 w-[32rem] rotate-[-42deg] bg-accent/50 sm:right-[-24rem] sm:h-72 sm:w-[42rem]" />
       <div className="absolute left-0 top-20 h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent" />
 
-      <div className="relative z-10 flex min-h-screen items-center px-4 pt-24 sm:px-6 lg:px-8">
+      <div className="relative z-10 flex min-h-screen items-center px-4 pb-12 pt-24 sm:px-6 sm:pb-14 sm:pt-28 lg:px-8">
         <div className="mx-auto w-full max-w-7xl">
           <div className="grid items-center gap-8 lg:grid-cols-[1fr_0.42fr]">
             <motion.div
@@ -61,7 +61,7 @@ export function Hero() {
               <motion.div
                 variants={fadeUp}
                 transition={{ duration: 0.65, ease: 'easeOut' }}
-                className="mb-6 inline-flex items-center gap-3 overflow-hidden border border-white/15 bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-white/80 shadow-[0_18px_45px_rgba(0,0,0,0.22)] backdrop-blur"
+                className="mb-5 inline-flex max-w-full items-center gap-2 overflow-hidden border border-white/15 bg-white/5 px-3 py-2 text-[0.64rem] font-bold uppercase tracking-[0.14em] text-white/80 shadow-[0_18px_45px_rgba(0,0,0,0.22)] backdrop-blur sm:mb-6 sm:gap-3 sm:px-4 sm:text-xs sm:tracking-[0.22em]"
               >
                 <motion.span
                   className="flex h-7 w-7 items-center justify-center bg-accent"
@@ -79,7 +79,7 @@ export function Hero() {
                 Japan Technology &middot; Exclusive PH Distributor
               </motion.div>
 
-              <h1 className="font-[Rajdhani] text-[clamp(2.85rem,7.35vw,6.25rem)] font-black uppercase leading-[0.86] tracking-normal text-white">
+              <h1 className="font-[Rajdhani] text-[clamp(2.75rem,15vw,6.25rem)] font-black uppercase leading-[0.88] tracking-normal text-white sm:leading-[0.86]">
                 {heroLines.map((line) => (
                   <span key={line} className="block overflow-hidden pb-1">
                     <motion.span
@@ -110,7 +110,7 @@ export function Hero() {
               <motion.p
                 variants={fadeUp}
                 transition={{ duration: 0.72, ease: 'easeOut' }}
-                className="mt-6 max-w-2xl text-base leading-8 text-white/78 sm:text-lg"
+                className="mt-5 max-w-2xl text-sm leading-7 text-white/78 sm:mt-6 sm:text-lg sm:leading-8"
               >
                 Not wax, polymer, or resin. CR-1 forms a real glass film for
                 motorcycles, helmets, and parts that need lasting gloss, heat
@@ -120,11 +120,11 @@ export function Hero() {
               <motion.div
                 variants={fadeUp}
                 transition={{ duration: 0.72, ease: 'easeOut' }}
-                className="mt-8 flex flex-col gap-4 sm:flex-row"
+                className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:gap-4"
               >
                 <motion.a
                   href="/contact"
-                  className="racing-button px-8 py-4"
+                  className="racing-button w-full sm:w-auto sm:px-8 sm:py-4"
                   whileHover={{ y: -3, scale: 1.015 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -133,7 +133,7 @@ export function Hero() {
                 </motion.a>
                 <motion.a
                   href="/services"
-                  className="inline-flex items-center justify-center gap-2 border border-white/20 bg-white/8 px-8 py-4 text-sm font-black uppercase tracking-[0.12em] text-white backdrop-blur transition hover:border-white hover:bg-white hover:text-black"
+                  className="inline-flex min-h-12 w-full items-center justify-center gap-2 border border-white/20 bg-white/8 px-5 py-3 text-center text-xs font-black uppercase tracking-[0.1em] text-white backdrop-blur transition hover:border-white hover:bg-white hover:text-black sm:w-auto sm:px-8 sm:py-4 sm:text-sm sm:tracking-[0.12em]"
                   whileHover={{ y: -3, scale: 1.015 }}
                   whileTap={{ scale: 0.98 }}
                 >

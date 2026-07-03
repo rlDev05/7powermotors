@@ -38,10 +38,10 @@ export function Footer() {
   return (
     <footer className="border-t border-black bg-[#0b0b0b] text-white [--border:rgba(255,255,255,0.14)] [--input-background:#151515] [--muted-foreground:#b8b8b8]">
       {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+        <div className="mb-10 grid grid-cols-1 gap-9 sm:grid-cols-2 lg:mb-12 lg:grid-cols-5 lg:gap-12">
           {/* Brand Column */}
-          <div className="lg:col-span-2">
+          <div className="min-w-0 sm:col-span-2 lg:col-span-2">
             <Logo className="mb-6 [&_span:last-child]:!text-white/70" />
             <p
               className="text-muted-foreground mb-6 max-w-sm"
@@ -59,7 +59,7 @@ export function Footer() {
             <div className="space-y-3">
               <a
                 href={cr1Contact.phoneHref}
-                className="flex items-center gap-3 text-muted-foreground hover:text-accent transition-colors group"
+              className="flex min-w-0 items-center gap-3 break-words text-muted-foreground transition-colors hover:text-accent"
                 style={{
                   fontFamily: 'Inter, sans-serif',
                   fontSize: '0.875rem',
@@ -70,7 +70,7 @@ export function Footer() {
               </a>
               <a
                 href={`mailto:${cr1Contact.email}`}
-                className="flex items-center gap-3 text-muted-foreground hover:text-accent transition-colors group"
+              className="flex min-w-0 items-center gap-3 break-words text-muted-foreground transition-colors hover:text-accent"
                 style={{
                   fontFamily: 'Inter, sans-serif',
                   fontSize: '0.875rem',
@@ -213,11 +213,11 @@ export function Footer() {
             >
               Get CR-1 rider care tips, partner updates, and coating program news.
             </p>
-            <form className="flex gap-3">
+            <form className="flex flex-col gap-3 sm:flex-row">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 border border-border bg-input-background px-4 py-3 text-white placeholder:text-white/45 transition-colors focus:border-accent focus:outline-none"
+                className="min-h-12 flex-1 border border-border bg-input-background px-4 py-3 text-white placeholder:text-white/45 transition-colors focus:border-accent focus:outline-none"
                 style={{
                   fontFamily: 'Inter, sans-serif',
                   fontSize: '0.875rem',
@@ -227,7 +227,7 @@ export function Footer() {
                 type="submit"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                className="bg-accent px-6 py-3 text-accent-foreground shadow-[0_12px_28px_rgba(139,26,26,0.28)] transition-all hover:bg-white hover:text-black"
+                className="min-h-12 bg-accent px-6 py-3 text-accent-foreground shadow-[0_12px_28px_rgba(139,26,26,0.28)] transition-all hover:bg-white hover:text-black"
                 style={{
                   fontFamily: 'Inter, sans-serif',
                   fontSize: '0.875rem',
@@ -241,7 +241,7 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-border/50 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="flex flex-col items-center justify-between gap-6 border-t border-border/50 pt-8 text-center md:flex-row md:text-left">
           {/* Copyright */}
           <p
             className="text-muted-foreground text-center md:text-left"
@@ -271,7 +271,7 @@ export function Footer() {
           </div>
 
           {/* Legal Links */}
-          <div className="flex gap-6">
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
             {['Privacy Policy', 'Terms of Service'].map((link) => (
               <a
                 key={link}

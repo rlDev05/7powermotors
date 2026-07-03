@@ -38,8 +38,8 @@ const services = [
 export function Services() {
   return (
     <section id="services" className="racing-section bg-secondary/55">
-      <div className="absolute -left-32 top-0 h-80 w-[36rem] rotate-[-36deg] bg-accent/65" />
-      <div className="absolute right-[-16rem] top-24 h-48 w-[34rem] rotate-[-20deg] bg-[#c8a96e]/10" />
+      <div className="absolute -left-52 top-0 h-60 w-[30rem] rotate-[-36deg] bg-accent/65 sm:-left-32 sm:h-80 sm:w-[36rem]" />
+      <div className="absolute right-[-22rem] top-24 h-40 w-[28rem] rotate-[-20deg] bg-[#c8a96e]/10 sm:right-[-16rem] sm:h-48 sm:w-[34rem]" />
 
       <div className="racing-container">
         <motion.div
@@ -47,7 +47,7 @@ export function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.55 }}
-          className="mb-14 max-w-3xl"
+          className="mb-10 max-w-3xl sm:mb-14"
         >
           <span className="racing-kicker">
             Service Network
@@ -70,7 +70,7 @@ export function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.45, delay: index * 0.08 }}
-              className="racing-card p-7"
+              className="racing-card p-5 sm:p-7"
             >
               <div className="mb-6 flex h-14 w-14 items-center justify-center bg-[#050505] text-[#c8a96e] shadow-[8px_8px_0_rgba(139,26,26,0.28)]">
                 {service.icon}
@@ -98,13 +98,13 @@ export function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.65 }}
-          className="racing-card mt-16 grid min-h-[430px] grid-cols-1 bg-[#0b0907] text-white lg:grid-cols-[0.95fr_1.05fr]"
+          className="racing-card mt-12 grid min-h-[430px] grid-cols-1 bg-[#0b0907] text-white sm:mt-16 lg:grid-cols-[0.95fr_1.05fr]"
         >
-          <div className="p-8 md:p-12">
+          <div className="p-5 sm:p-8 md:p-12">
             <p className="brand-chip">
               Partner Growth
             </p>
-            <h3 className="mt-5 font-[Rajdhani] text-4xl font-black uppercase leading-none text-white md:text-5xl">
+            <h3 className="mt-5 font-[Rajdhani] text-[2.15rem] font-black uppercase leading-none text-white sm:text-4xl md:text-5xl">
               Help shops elevate their brand status.
             </h3>
             <p className="mt-6 text-base leading-8 text-white/70">
@@ -116,7 +116,7 @@ export function Services() {
               Apply as a Partner
             </a>
           </div>
-          <div className="relative min-h-[320px]">
+          <div className="relative min-h-[240px] sm:min-h-[320px]">
             <ImageWithFallback
               src={helmetApplicationImg}
               alt="Motorcycle service and detailing"

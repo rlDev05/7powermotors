@@ -34,11 +34,11 @@ export default function MotorcyclesPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />
-      <main className="pt-28 pb-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-[1400px] mx-auto">
+      <main className="px-4 pb-16 pt-24 sm:px-6 sm:pb-20 sm:pt-28 lg:px-8">
+      <div className="mx-auto max-w-[1400px]">
         
         {/* Back to Home Link */}
-        <div className="mb-8">
+        <div className="mb-6 sm:mb-8">
           <Link 
             to="/" // Changed href to to
             className="inline-flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors font-medium font-inter text-sm group"
@@ -58,7 +58,7 @@ export default function MotorcyclesPage() {
 
         <section className="racing-card racing-slashed mb-10">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_0.75fr]">
-            <div className="p-8 md:p-12">
+            <div className="p-5 sm:p-8 md:p-12">
               <span className="racing-kicker">
                 CR-1 Models
               </span>
@@ -69,24 +69,24 @@ export default function MotorcyclesPage() {
                 Browse model references and featured motorcycles that pair
                 naturally with CR-1 surface care.
               </p>
-              <div className="mt-8 flex flex-wrap gap-3 text-xs font-bold uppercase tracking-[0.16em] text-muted-foreground">
-                <span className="border border-border px-4 py-3">{bikes.length} models</span>
-                <span className="border border-border px-4 py-3">{categories.length} categories</span>
-                <span className="border border-border px-4 py-3">Detail pages ready</span>
+              <div className="mt-7 flex flex-wrap gap-2 text-[0.68rem] font-bold uppercase tracking-[0.13em] text-muted-foreground sm:mt-8 sm:gap-3 sm:text-xs sm:tracking-[0.16em]">
+                <span className="border border-border px-3 py-2 sm:px-4 sm:py-3">{bikes.length} models</span>
+                <span className="border border-border px-3 py-2 sm:px-4 sm:py-3">{categories.length} categories</span>
+                <span className="border border-border px-3 py-2 sm:px-4 sm:py-3">Detail pages ready</span>
               </div>
             </div>
-            <div className="relative min-h-[320px] bg-secondary/50">
+            <div className="relative min-h-[240px] bg-secondary/50 sm:min-h-[320px]">
               <ImageWithFallback
                 src={bikes[0]?.image || ''}
                 alt="Featured CR-1 motorcycle model"
-                className="h-full w-full object-contain p-10"
+                className="h-full w-full object-contain p-6 sm:p-10"
               />
               <div className="absolute inset-0 bg-gradient-to-l from-transparent to-card/40" />
             </div>
           </div>
         </section>
 
-        <div className="racing-card mb-10 bg-white p-4 md:p-5">
+        <div className="racing-card mb-8 bg-white p-4 md:mb-10 md:p-5">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
             <div>
               <span className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-accent">
@@ -109,10 +109,10 @@ export default function MotorcyclesPage() {
             </label>
           </div>
 
-          <div className="mt-5 flex flex-wrap gap-3">
+          <div className="mt-5 flex gap-3 overflow-x-auto pb-2 sm:flex-wrap sm:overflow-visible sm:pb-0">
             <Link
               to="/models"
-              className={`px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] transition ${
+              className={`shrink-0 px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] transition ${
                 !selectedCategory
                   ? 'bg-accent text-white'
                   : 'border border-border text-muted-foreground hover:border-accent hover:text-accent'
@@ -124,7 +124,7 @@ export default function MotorcyclesPage() {
               <Link
                 key={category}
                 to={`/models?category=${category}`}
-                className={`px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] transition ${
+                className={`shrink-0 px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] transition ${
                   selectedCategory === category
                     ? 'bg-accent text-white'
                     : 'border border-border text-muted-foreground hover:border-accent hover:text-accent'
@@ -145,11 +145,11 @@ export default function MotorcyclesPage() {
                 className="racing-card group flex flex-col"
               >
                 {/* Image Area */}
-                <Link to={`/models/${bike.id}`} className="h-72 overflow-hidden relative bg-secondary/40 block">
+                <Link to={`/models/${bike.id}`} className="relative block h-60 overflow-hidden bg-secondary/40 sm:h-72">
                    <ImageWithFallback 
                      src={bike.image || ''} 
                      alt={bike.name}
-                     className="w-full h-full object-contain p-6 transition-transform duration-700 group-hover:scale-105" 
+                     className="h-full w-full object-contain p-5 transition-transform duration-700 group-hover:scale-105 sm:p-6"
                    />
                    {bike.availability && (
                     <span className="absolute left-4 top-4 bg-amber-500 px-3 py-2 text-xs font-bold uppercase tracking-[0.14em] text-black">
@@ -159,9 +159,9 @@ export default function MotorcyclesPage() {
                 </Link>
                 
                 {/* Content Area */}
-                <div className="p-6 flex flex-col flex-grow">
-                    <div className="flex justify-between items-start mb-2">
-                        <h2 className="text-2xl font-black uppercase font-rajdhani leading-none">{bike.name}</h2>
+                <div className="flex flex-grow flex-col p-5 sm:p-6">
+                    <div className="mb-2 flex items-start justify-between">
+                        <h2 className="font-rajdhani text-xl font-black uppercase leading-none sm:text-2xl">{bike.name}</h2>
                     </div>
                     <p className="text-muted-foreground text-sm font-inter capitalize mb-4 flex-grow">
                         {bike.category.replace(/-/g, ' ')}

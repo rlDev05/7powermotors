@@ -8,8 +8,8 @@ interface LogoProps {
 
 export function Logo({ variant = 'default', className = '' }: LogoProps) {
   return (
-    <div className={`flex items-center gap-2.5 ${className}`}>
-      <div className="relative flex h-11 w-[104px] shrink-0 items-center justify-center sm:h-12 sm:w-[116px]">
+    <div className={`flex min-w-0 items-center gap-2 sm:gap-2.5 ${className}`}>
+      <div className="relative flex h-9 w-[86px] shrink-0 items-center justify-center sm:h-12 sm:w-[116px]">
         <img 
           src={cr1LogoDark} 
           alt="CR-1 logo"
@@ -20,10 +20,9 @@ export function Logo({ variant = 'default', className = '' }: LogoProps) {
       {variant === 'default' && (
         <div className="flex translate-y-[1px] flex-col items-start justify-center">
           <span
-            className="block text-accent"
+            className="block text-[1.45rem] text-accent sm:text-[1.9rem]"
             style={{
               fontFamily: 'Rajdhani, sans-serif',
-              fontSize: '1.9rem',
               fontWeight: 700,
               letterSpacing: '0.08em',
               lineHeight: 0.85,
@@ -32,12 +31,11 @@ export function Logo({ variant = 'default', className = '' }: LogoProps) {
             CR-1
           </span>
           <span
-            className="mt-1 block pl-[2px] text-foreground/70"
+            className="mt-1 block pl-[2px] text-[0.46rem] text-foreground/70 sm:text-[0.56rem]"
             style={{
               fontFamily: 'Inter, sans-serif',
-              fontSize: '0.56rem',
               fontWeight: 600,
-              letterSpacing: '0.22em',
+              letterSpacing: '0.18em',
               lineHeight: 1,
             }}
           >

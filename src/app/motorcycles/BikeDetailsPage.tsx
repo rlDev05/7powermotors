@@ -102,15 +102,15 @@ export default function BikeDetailsPage() {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Navbar />
-      <main className="pt-28 pb-20 px-4 sm:px-6 lg:px-8 relative">
+      <main className="relative overflow-hidden px-4 pb-16 pt-24 sm:px-6 sm:pb-20 sm:pt-28 lg:px-8">
       
-      <div className="pointer-events-none fixed right-[-14rem] top-28 -z-10 h-44 w-[34rem] rotate-[-24deg] bg-accent/38" />
-      <div className="pointer-events-none fixed bottom-24 left-[-18rem] -z-10 h-44 w-[36rem] rotate-[-32deg] bg-accent/25" />
+      <div className="pointer-events-none absolute right-[-22rem] top-28 h-40 w-[28rem] rotate-[-24deg] bg-accent/38 sm:right-[-14rem] sm:h-44 sm:w-[34rem]" />
+      <div className="pointer-events-none absolute bottom-24 left-[-24rem] h-40 w-[28rem] rotate-[-32deg] bg-accent/25 sm:left-[-18rem] sm:h-44 sm:w-[36rem]" />
 
-      <div className="max-w-[1400px] mx-auto">
+      <div className="mx-auto max-w-[1400px]">
         
         {/* Navigation Breadcrumb */}
-        <div className="mb-8">
+        <div className="mb-6 sm:mb-8">
           <Link
             to={backLink}
             className="inline-flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors font-medium font-inter text-sm group uppercase tracking-wider"
@@ -120,12 +120,12 @@ export default function BikeDetailsPage() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-20">
+        <div className="mb-16 grid grid-cols-1 gap-8 lg:mb-20 lg:grid-cols-12 lg:gap-12">
           
           {/* LEFT: IMAGE OR 360 VIEW */}
           <div className="lg:col-span-7 relative">
             <div className="sticky top-32">
-              <div className="racing-card relative flex min-h-[500px] items-center justify-center bg-white">
+              <div className="racing-card relative flex min-h-[330px] items-center justify-center bg-white sm:min-h-[460px] lg:min-h-[500px]">
                 
                 <div className="pointer-events-none absolute inset-x-0 top-0 z-0 h-2 bg-gradient-to-r from-accent via-black to-white" />
 
@@ -143,18 +143,18 @@ export default function BikeDetailsPage() {
 
                 <div className={`relative z-10 w-full h-full flex items-center justify-center transition-opacity duration-300 ${isAnimating ? 'opacity-50 blur-sm' : 'opacity-100 blur-0'}`}>
                   {is360Mode && bike.view360 ? (
-                    <div className="w-full h-[500px]"> 
+                    <div className="h-[330px] w-full sm:h-[460px] lg:h-[500px]">
                       <Bike360Viewer
                         images={bike.view360}
                         onClose={() => setIs360Mode(false)}
                       />
                     </div>
                   ) : (
-                    <div className="p-8">
+                    <div className="p-5 sm:p-8">
                         <ImageWithFallback
                         src={currentImage}
                         alt={bike.name}
-                        className="w-full h-auto object-contain max-h-[600px] drop-shadow-2xl hover:scale-105 transition-transform duration-500 ease-out"
+                        className="h-auto max-h-[320px] w-full object-contain drop-shadow-2xl transition-transform duration-500 ease-out hover:scale-105 sm:max-h-[520px] lg:max-h-[600px]"
                         key={currentImage}
                         />
                     </div>
@@ -179,11 +179,11 @@ export default function BikeDetailsPage() {
                 )}
                 {/* --------------------------------- */}
 
-                <h2 className="text-accent tracking-[0.2em] text-sm font-bold font-inter mb-3 uppercase flex items-center gap-2">
+                <h2 className="mb-3 flex items-center gap-2 font-inter text-xs font-bold uppercase tracking-[0.18em] text-accent sm:text-sm sm:tracking-[0.2em]">
                   <span className="w-8 h-[2px] bg-accent inline-block"></span>
                   {bike.category}
                 </h2>
-                <h1 className="text-5xl md:text-6xl font-black font-rajdhani text-foreground leading-tight">
+                <h1 className="font-rajdhani text-[clamp(2.6rem,12vw,3.75rem)] font-black leading-[0.95] text-foreground md:leading-tight">
                   {bike.name}
                 </h1>
               </div>
@@ -194,14 +194,14 @@ export default function BikeDetailsPage() {
                   <h3 className="text-muted-foreground font-bold font-rajdhani text-sm mb-4 tracking-wider">
                     SELECT FINISH
                   </h3>
-                  <div className="flex flex-wrap gap-4">
+                  <div className="flex flex-wrap gap-3 sm:gap-4">
                     {bike.colors.map((color, index) => {
                       const isActive = currentImage === color.image;
                       return (
                         <button
                           key={index}
                           onClick={() => handleColorChange(color.image)}
-                          className={`group relative h-20 w-20 overflow-hidden border border-border transition-all duration-300
+                          className={`group relative h-16 w-16 overflow-hidden border border-border transition-all duration-300 sm:h-20 sm:w-20
                             ${isActive 
                               ? 'scale-110 ring-2 ring-accent ring-offset-2 ring-offset-background shadow-lg shadow-accent/20' 
                               : 'opacity-70 hover:opacity-100 hover:scale-105'
@@ -225,7 +225,7 @@ export default function BikeDetailsPage() {
               )}
 
               <div className="pt-6">
-                <button className="racing-button group relative min-w-[240px] overflow-hidden px-8 py-5 font-[Rajdhani] text-xl sm:w-auto">
+                <button className="racing-button group relative w-full overflow-hidden font-[Rajdhani] text-base sm:w-auto sm:min-w-[240px] sm:px-8 sm:py-5 sm:text-xl">
                   <div className="absolute inset-0 w-full h-full bg-white/20 -translate-x-full group-hover:skew-x-12 group-hover:translate-x-full transition-transform duration-700 ease-in-out" />
                   <span className="inline-flex items-center gap-3 tracking-wide">
                     ASK ABOUT THIS MODEL
@@ -239,14 +239,14 @@ export default function BikeDetailsPage() {
 
         {/* --- SPECS SECTION START --- */}
         {bike.specs && (
-          <div className="mt-24 mb-10">
+          <div className="mb-10 mt-16 sm:mt-24">
             
             {/* Header */}
-            <div className="flex items-end gap-6 mb-12">
-              <h3 className="text-4xl font-bold font-rajdhani text-foreground uppercase tracking-wide leading-none">
+            <div className="mb-8 flex flex-col gap-4 sm:mb-12 sm:flex-row sm:items-end sm:gap-6">
+              <h3 className="font-rajdhani text-3xl font-bold uppercase leading-none tracking-wide text-foreground sm:text-4xl">
                 Technical <br /> <span className="text-accent">Specifications</span>
               </h3>
-              <div className="h-[2px] flex-1 bg-gradient-to-r from-accent/50 to-transparent mb-2" />
+              <div className="h-[2px] w-full flex-1 bg-gradient-to-r from-accent/50 to-transparent sm:mb-2" />
               <div className="text-right hidden sm:block">
                  <p className="text-muted-foreground font-inter text-sm">Full breakdown for {bike.name}</p>
                  <p className="text-accent font-bold font-rajdhani">{bike.specs.releaseDate} MODEL</p>
@@ -276,7 +276,7 @@ export default function BikeDetailsPage() {
                       </h4>
                     </div>
 
-                    <div className="p-6">
+                    <div className="p-5 sm:p-6">
                       <ul className="space-y-4">
                         {group.fields.map((key) => {
                           const value = bike.specs ? bike.specs[key as keyof BikeSpecs] : null;
@@ -288,7 +288,7 @@ export default function BikeDetailsPage() {
                                 <span className="text-muted-foreground font-inter text-xs uppercase tracking-wider font-medium shrink-0 group-hover/item:text-accent transition-colors">
                                   {formatLabel(key)}
                                 </span>
-                                <span className="border-b border-border pb-1 text-right font-rajdhani font-semibold text-foreground sm:border-none sm:pb-0">
+                                <span className="border-b border-border pb-1 text-left font-rajdhani font-semibold text-foreground sm:border-none sm:pb-0 sm:text-right">
                                   {value} {/* Ensure only string values are rendered here */}
                                 </span>
                               </div>

@@ -26,8 +26,8 @@ export function Contact() {
 
   return (
     <section id="contact" className="racing-section bg-background">
-      <div className="absolute -left-28 top-20 h-52 w-[34rem] rotate-[-24deg] bg-accent/45" />
-      <div className="absolute -right-32 bottom-24 h-48 w-[34rem] rotate-[-32deg] bg-[#c8a96e]/15" />
+      <div className="absolute -left-52 top-20 h-40 w-[28rem] rotate-[-24deg] bg-accent/45 sm:-left-28 sm:h-52 sm:w-[34rem]" />
+      <div className="absolute -right-56 bottom-24 h-40 w-[28rem] rotate-[-32deg] bg-[#c8a96e]/15 sm:-right-32 sm:h-48 sm:w-[34rem]" />
       <div className="racing-container">
         {/* Section Header */}
         <motion.div
@@ -35,7 +35,7 @@ export function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mx-auto mb-16 max-w-3xl text-center"
+          className="mx-auto mb-10 max-w-3xl text-center sm:mb-16"
         >
           <span
             className="brand-chip mx-auto w-fit"
@@ -107,10 +107,10 @@ export function Contact() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="racing-card flex gap-4 bg-card p-6"
+              className="racing-card flex min-w-0 gap-4 bg-card p-5 sm:p-6"
                 >
                   <div className="text-accent mt-1">{item.icon}</div>
-                  <div>
+                  <div className="min-w-0">
                     <h4
                       className="mb-2"
                       style={{
@@ -122,7 +122,7 @@ export function Contact() {
                       {item.title}
                     </h4>
                     <p
-                      className="text-foreground mb-1"
+                      className="mb-1 break-words text-foreground"
                       style={{
                         fontFamily: 'Inter, sans-serif',
                         fontSize: '0.875rem',
@@ -131,7 +131,7 @@ export function Contact() {
                       {item.content}
                     </p>
                     <p
-                      className="text-muted-foreground"
+                      className="break-words text-muted-foreground"
                       style={{
                         fontFamily: 'Inter, sans-serif',
                         fontSize: '0.75rem',
@@ -180,7 +180,7 @@ export function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="racing-card h-80 bg-[#101010] text-white md:h-[25rem]"
+              className="racing-card h-[30rem] bg-[#101010] text-white sm:h-80 md:h-[25rem]"
             >
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3862.026670450718!2d121.01207957589632!3d14.540467178544509!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c93eed13070f%3A0x3dae00e35dcc62ca!2s7%20Power%20Motors!5e0!3m2!1sen!2sph!4v1781764487073!5m2!1sen!2sph"
@@ -190,7 +190,7 @@ export function Contact() {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
-              <div className="pointer-events-none absolute left-4 top-4 border border-white/15 bg-black/70 px-4 py-3 backdrop-blur">
+              <div className="pointer-events-none absolute left-3 right-3 top-3 border border-white/15 bg-black/70 px-3 py-3 backdrop-blur sm:left-4 sm:right-auto sm:top-4 sm:px-4">
                 <div className="flex items-center gap-2">
                   <MapPin size={16} className="text-accent" />
                   <p className="text-xs font-black uppercase tracking-[0.16em] text-white">
@@ -208,13 +208,13 @@ export function Contact() {
                     href={location.mapUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center justify-between gap-3 border border-white/15 bg-black/72 px-4 py-3 text-left backdrop-blur transition hover:border-accent"
+                    className="flex min-w-0 items-center justify-between gap-3 border border-white/15 bg-black/72 px-3 py-3 text-left backdrop-blur transition hover:border-accent sm:px-4"
                   >
                     <span>
                       <span className="block text-[10px] font-black uppercase tracking-[0.2em] text-[#c8a96e]">
                         {location.label}
                       </span>
-                      <span className="block text-sm font-bold text-white">
+                      <span className="block truncate text-sm font-bold text-white">
                         {location.name}
                       </span>
                     </span>
@@ -232,7 +232,7 @@ export function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <form onSubmit={handleSubmit} className="racing-card space-y-6 bg-card p-6 md:p-8">
+            <form onSubmit={handleSubmit} className="racing-card space-y-5 bg-card p-5 sm:space-y-6 sm:p-6 md:p-8">
               <div className="border-l-2 border-[#c8a96e] bg-[#c8a96e]/8 p-5">
                 <div className="mb-2 flex items-center gap-2 text-[#c8a96e]">
                   <MessageCircle className="h-5 w-5" />

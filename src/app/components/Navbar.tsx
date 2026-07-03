@@ -21,11 +21,12 @@ export function Navbar() {
       className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-[#050505]/92 text-white shadow-[0_18px_50px_rgba(0,0,0,0.28)] backdrop-blur-2xl [--foreground:#ffffff] [--muted-foreground:rgba(255,255,255,0.62)]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex h-16 items-center justify-between sm:h-20">
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.2 }}
+            className="min-w-0"
           >
             <Link to="/" aria-label="CR-1 Philippines home">
               <Logo className="[&_span:last-child]:!text-white/68" />
@@ -77,8 +78,9 @@ export function Navbar() {
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-foreground"
+            className="ml-3 flex h-11 w-11 shrink-0 items-center justify-center text-foreground md:hidden"
             aria-label="Toggle menu"
+            aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -95,12 +97,12 @@ export function Navbar() {
             transition={{ duration: 0.3 }}
             className="border-t border-white/10 bg-[#050505] md:hidden"
           >
-            <div className="px-4 py-6 space-y-4">
+            <div className="space-y-3 px-4 py-5">
               {navItems.map((item) => (
                 <Link
                   key={item.label}
                   to={item.href}
-                  className="block text-sm tracking-wider text-muted-foreground hover:text-foreground transition-colors py-2"
+                  className="block border-b border-white/10 py-3 text-sm tracking-wider text-muted-foreground transition-colors hover:text-foreground"
                   style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
                   onClick={() => setMobileMenuOpen(false)}
                 >

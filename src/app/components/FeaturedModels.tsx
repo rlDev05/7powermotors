@@ -26,8 +26,8 @@ const points = [
 export function FeaturedModels() {
   return (
     <section id="protection" className="racing-section bg-background">
-      <div className="absolute right-[-14rem] top-16 h-44 w-[34rem] rotate-[-22deg] bg-accent/40" />
-      <div className="absolute left-[-18rem] bottom-10 h-40 w-[34rem] rotate-[-28deg] bg-[#c8a96e]/10" />
+      <div className="absolute right-[-22rem] top-16 h-40 w-[28rem] rotate-[-22deg] bg-accent/40 sm:right-[-14rem] sm:h-44 sm:w-[34rem]" />
+      <div className="absolute left-[-24rem] bottom-10 h-36 w-[28rem] rotate-[-28deg] bg-[#c8a96e]/10 sm:left-[-18rem] sm:h-40 sm:w-[34rem]" />
       <div className="racing-container grid grid-cols-1 items-center gap-12 lg:grid-cols-[1fr_0.95fr]">
         <motion.div
           initial={{ opacity: 0, y: 25 }}
@@ -47,7 +47,7 @@ export function FeaturedModels() {
             durable gloss, easier washing, and stronger surface confidence.
           </p>
 
-          <div className="mt-12 space-y-6">
+          <div className="mt-8 space-y-4 sm:mt-12 sm:space-y-6">
             {points.map((point, index) => (
               <motion.div
                 key={point.title}
@@ -55,11 +55,11 @@ export function FeaturedModels() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: index * 0.08 }}
-                className="racing-card flex gap-5 bg-card p-5"
+                className="racing-card flex gap-4 bg-card p-4 sm:gap-5 sm:p-5"
               >
                 <CheckCircle2 className="mt-1 h-8 w-8 shrink-0 fill-accent text-white" />
                 <div>
-                  <h3 className="font-[Rajdhani] text-2xl font-black uppercase text-foreground">
+                  <h3 className="font-[Rajdhani] text-xl font-black uppercase text-foreground sm:text-2xl">
                     {point.title}
                   </h3>
                   <p className="mt-1 text-base leading-7 text-muted-foreground">
@@ -72,7 +72,7 @@ export function FeaturedModels() {
 
           <a
             href="/contact"
-            className="racing-button mt-12"
+            className="racing-button mt-8 w-full sm:mt-12 sm:w-auto"
           >
             Ask About CR-1 Coating
             <ArrowRight className="h-4 w-4" />
@@ -84,7 +84,7 @@ export function FeaturedModels() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.65 }}
-          className="racing-media min-h-[560px]"
+          className="racing-media min-h-[420px] sm:min-h-[560px]"
         >
           <ImageWithFallback
             src={NakedImg}
@@ -92,12 +92,12 @@ export function FeaturedModels() {
             className="h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
-          <div className="absolute -bottom-24 -right-24 h-72 w-96 rotate-[-38deg] bg-accent/85" />
-          <div className="absolute bottom-0 left-0 max-w-lg p-8">
+          <div className="absolute -bottom-28 -right-32 h-60 w-80 rotate-[-38deg] bg-accent/85 sm:-bottom-24 sm:-right-24 sm:h-72 sm:w-96" />
+          <div className="absolute bottom-0 left-0 max-w-lg p-5 sm:p-8">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-white">
               Brand Role
             </p>
-            <p className="font-[Rajdhani] text-4xl font-black uppercase leading-none text-white">
+            <p className="font-[Rajdhani] text-3xl font-black uppercase leading-none text-white sm:text-4xl">
               Invisible armor for motorcycles that need to stay showroom-sharp.
             </p>
           </div>

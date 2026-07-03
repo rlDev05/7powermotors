@@ -19,9 +19,9 @@ const highlights = [
 
 export function AboutCR1() {
   return (
-    <section className="racing-section bg-[#0b0b0b] py-18 sm:py-20">
-      <div className="absolute -left-32 top-10 h-40 w-[30rem] rotate-[-18deg] bg-accent/35" />
-      <div className="absolute right-[-16rem] bottom-0 h-36 w-[34rem] rotate-[-30deg] bg-[#c8a96e]/10" />
+    <section className="racing-section bg-[#0b0b0b] py-16 sm:py-20">
+      <div className="absolute -left-52 top-10 h-36 w-[26rem] rotate-[-18deg] bg-accent/35 sm:-left-32 sm:h-40 sm:w-[30rem]" />
+      <div className="absolute right-[-24rem] bottom-0 h-32 w-[28rem] rotate-[-30deg] bg-[#c8a96e]/10 sm:right-[-16rem] sm:h-36 sm:w-[34rem]" />
 
       <div className="racing-container">
         <motion.div
@@ -29,7 +29,7 @@ export function AboutCR1() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.55 }}
-          className="grid gap-8 border border-white/10 bg-white/[0.035] p-6 backdrop-blur md:grid-cols-[0.85fr_1.15fr] md:p-8 lg:p-10"
+          className="grid gap-7 border border-white/10 bg-white/[0.035] p-5 backdrop-blur sm:p-6 md:grid-cols-[0.85fr_1.15fr] md:p-8 lg:p-10"
         >
           <div>
             <span className="brand-chip">What is CR-1?</span>
@@ -39,7 +39,7 @@ export function AboutCR1() {
           </div>
 
           <div className="flex flex-col justify-center">
-            <p className="max-w-3xl text-lg leading-8 text-white/74">
+            <p className="max-w-3xl text-base leading-8 text-white/74 sm:text-lg">
               CR-1 is a Japan-developed glass coating for motorcycles, helmets,
               and parts. It helps protect the finish, keep the shine, and make
               cleaning easier.
@@ -49,7 +49,7 @@ export function AboutCR1() {
               {highlights.map((item) => (
                 <div
                   key={item.label}
-                  className="flex items-center gap-3 border border-white/10 bg-black/35 px-4 py-4 text-white"
+                className="flex items-center gap-3 border border-white/10 bg-black/35 px-4 py-4 text-white sm:flex-col sm:items-start"
                 >
                   <div className="text-[#c8a96e]">{item.icon}</div>
                   <p className="text-sm font-black uppercase leading-5 tracking-[0.08em] text-white">

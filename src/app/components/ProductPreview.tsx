@@ -9,8 +9,8 @@ const featuredProducts = careProducts.slice(0, 6);
 export function ProductPreview() {
   return (
     <section id="products-preview" className="racing-section bg-background">
-      <div className="absolute left-[-14rem] top-20 h-44 w-[36rem] rotate-[-18deg] bg-accent/75" />
-      <div className="absolute bottom-16 right-[-18rem] h-48 w-[38rem] rotate-[-34deg] bg-[#c8a96e]/10" />
+      <div className="absolute left-[-22rem] top-20 h-40 w-[30rem] rotate-[-18deg] bg-accent/75 sm:left-[-14rem] sm:h-44 sm:w-[36rem]" />
+      <div className="absolute bottom-16 right-[-24rem] h-40 w-[30rem] rotate-[-34deg] bg-[#c8a96e]/10 sm:right-[-18rem] sm:h-48 sm:w-[38rem]" />
 
       <div className="racing-container">
         <div className="mb-12 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
@@ -28,7 +28,7 @@ export function ProductPreview() {
           </div>
           <Link
             to="/products"
-            className="racing-button"
+            className="racing-button w-full sm:w-auto"
           >
             View All Products
             <ArrowRight className="h-4 w-4" />
@@ -49,22 +49,22 @@ export function ProductPreview() {
                 <div className="absolute right-4 top-4 z-10 racing-number">
                   {String(index + 1).padStart(2, '0')}
                 </div>
-                <div className="relative flex aspect-[4/3] items-center justify-center bg-white p-8">
+                <div className="relative flex aspect-[4/3] items-center justify-center bg-white p-5 sm:p-8">
                   <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-accent via-black to-transparent opacity-80" />
                   <img
                     src={product.image}
                     alt={product.name}
                     className="h-full w-full object-contain transition duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute left-0 top-0 bg-[#050505] px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-white">
+                  <div className="absolute left-0 top-0 bg-[#050505] px-3 py-2 text-[0.65rem] font-black uppercase tracking-[0.14em] text-white sm:px-4 sm:text-xs sm:tracking-[0.18em]">
                     {product.category}
                   </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="font-[Rajdhani] text-3xl font-black uppercase leading-none tracking-normal text-foreground">
+                <div className="p-5 sm:p-6">
+                  <h3 className="font-[Rajdhani] text-[1.7rem] font-black uppercase leading-none tracking-normal text-foreground sm:text-3xl">
                     {product.name}
                   </h3>
-                  <p className="mt-4 min-h-20 text-sm leading-7 text-muted-foreground">
+                  <p className="mt-4 min-h-0 text-sm leading-7 text-muted-foreground sm:min-h-20">
                     {product.summary}
                   </p>
                   <span className="mt-6 inline-flex items-center gap-2 border-t border-border/50 pt-5 text-sm font-black uppercase tracking-[0.12em] text-foreground">
