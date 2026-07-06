@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ShieldCheck, Sparkles, Thermometer } from 'lucide-react';
+import { revealContainer, revealUp } from '@/app/lib/motionPresets';
 
 const highlights = [
   {
@@ -25,20 +26,21 @@ export function AboutCR1() {
 
       <div className="racing-container">
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
-          transition={{ duration: 0.55 }}
+          variants={revealContainer}
           className="grid gap-7 border border-white/10 bg-white/[0.035] p-5 backdrop-blur sm:p-6 md:grid-cols-[0.85fr_1.15fr] md:p-8 lg:p-10"
         >
-          <div>
+          <div className="motion-sheen" />
+          <motion.div variants={revealUp}>
             <span className="brand-chip">What is CR-1?</span>
             <h2 className="mt-5 font-[Rajdhani] text-[clamp(2.4rem,5vw,4.4rem)] font-black uppercase leading-[0.9] text-white">
               Glass armor for your ride.
             </h2>
-          </div>
+          </motion.div>
 
-          <div className="flex flex-col justify-center">
+          <motion.div className="flex flex-col justify-center" variants={revealUp}>
             <p className="max-w-3xl text-base leading-8 text-white/74 sm:text-lg">
               CR-1 is a Japan-developed glass coating for motorcycles, helmets,
               and parts. It helps protect the finish, keep the shine, and make
@@ -46,19 +48,23 @@ export function AboutCR1() {
             </p>
 
             <div className="mt-7 grid gap-3 sm:grid-cols-3">
-              {highlights.map((item) => (
-                <div
+              {highlights.map((item, index) => (
+                <motion.div
                   key={item.label}
-                className="flex items-center gap-3 border border-white/10 bg-black/35 px-4 py-4 text-white sm:flex-col sm:items-start"
+                  className="flex items-center gap-3 border border-white/10 bg-black/35 px-4 py-4 text-white sm:flex-col sm:items-start"
+                  initial={{ opacity: 0, y: 16, filter: 'blur(8px)' }}
+                  whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
                 >
                   <div className="text-[#c8a96e]">{item.icon}</div>
                   <p className="text-sm font-black uppercase leading-5 tracking-[0.08em] text-white">
                     {item.label}
                   </p>
-                </div>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

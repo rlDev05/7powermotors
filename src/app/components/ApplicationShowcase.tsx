@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { sprayerImages } from '@/app/data/sprayerImages';
+import { mediaReveal, revealContainer, revealRight, revealUp } from '@/app/lib/motionPresets';
 
 export function ApplicationShowcase() {
   const [active, setActive] = useState(0);
@@ -29,7 +30,14 @@ export function ApplicationShowcase() {
       <div className="absolute left-[-18rem] bottom-14 h-40 w-[34rem] rotate-[-22deg] bg-black/10" />
 
       <div className="racing-container grid grid-cols-1 gap-10 lg:grid-cols-[1.15fr_0.85fr]">
-        <div className="racing-media aspect-[16/10]">
+        <motion.div
+          className="racing-media aspect-[16/10]"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={mediaReveal}
+        >
+          <div className="motion-sheen z-10" />
           <AnimatePresence mode="wait">
             <motion.img
               key={current.src}
@@ -66,23 +74,29 @@ export function ApplicationShowcase() {
               </button>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="flex flex-col justify-center">
-          <p className="brand-chip w-fit">
+        <motion.div
+          className="flex flex-col justify-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={revealContainer}
+        >
+          <motion.p className="brand-chip w-fit" variants={revealUp}>
             Professional Application
-          </p>
-          <h2 className="racing-title">
+          </motion.p>
+          <motion.h2 className="racing-title" variants={revealUp}>
             Applied with control.
             <br />
             Finished with care.
-          </h2>
-          <p className="racing-copy mt-6 max-w-lg">
+          </motion.h2>
+          <motion.p className="racing-copy mt-6 max-w-lg" variants={revealUp}>
             A cleaner look at the service side of CR-1: precise spray work,
             focused preparation, and a finish made for daily riding conditions.
-          </p>
+          </motion.p>
 
-          <div className="mt-8 grid grid-cols-5 gap-2">
+          <motion.div className="mt-8 grid grid-cols-5 gap-2" variants={revealRight}>
             {sprayerImages.map((image, index) => (
               <button
                 key={image.src}
@@ -96,8 +110,8 @@ export function ApplicationShowcase() {
                 <img src={image.src} alt="" className="h-full w-full object-cover" />
               </button>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { motion } from 'motion/react';
 import { bikes, BikeSpecs } from '@/app/data/bikes'; 
 import { ImageWithFallback } from '@/app/components/figma/ImageWithFallback';
 import { Bike360Viewer } from '@/app/components/Bike360Viewer';
@@ -19,6 +20,7 @@ import {
   AlertCircle, // Added Icon for availability
   Star         // Added Icon for features
 } from 'lucide-react'; 
+import { mediaReveal, revealContainer, revealRight, revealUp } from '@/app/lib/motionPresets';
 
 const specGroups = [
     {
@@ -120,12 +122,18 @@ export default function BikeDetailsPage() {
           </Link>
         </div>
 
-        <div className="mb-16 grid grid-cols-1 gap-8 lg:mb-20 lg:grid-cols-12 lg:gap-12">
+        <motion.div
+          className="mb-16 grid grid-cols-1 gap-8 lg:mb-20 lg:grid-cols-12 lg:gap-12"
+          initial="hidden"
+          animate="visible"
+          variants={revealContainer}
+        >
           
           {/* LEFT: IMAGE OR 360 VIEW */}
-          <div className="lg:col-span-7 relative">
+          <motion.div className="relative lg:col-span-7" variants={mediaReveal}>
             <div className="sticky top-32">
               <div className="racing-card relative flex min-h-[330px] items-center justify-center bg-white sm:min-h-[460px] lg:min-h-[500px]">
+                <div className="motion-sheen z-20" />
                 
                 <div className="pointer-events-none absolute inset-x-0 top-0 z-0 h-2 bg-gradient-to-r from-accent via-black to-white" />
 
@@ -162,15 +170,15 @@ export default function BikeDetailsPage() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* RIGHT: INFO */}
-          <div className="lg:col-span-5 flex flex-col justify-center">
+          <motion.div className="flex flex-col justify-center lg:col-span-5" variants={revealRight}>
             <div className="space-y-6">
               <div>
                 {/* --- ADDED: AVAILABILITY BADGE --- */}
                 {bike.availability && (
-                  <div className="mb-4 inline-flex items-center gap-2 border border-accent/40 bg-accent/10 px-3 py-1 text-black">
+                  <div className="mb-4 inline-flex items-center gap-2 border border-accent/40 bg-accent/10 px-3 py-1 text-accent">
                     <AlertCircle className="w-3 h-3" />
                     <span className="text-xs font-bold font-rajdhani uppercase tracking-widest">
                       {bike.availability}
@@ -198,7 +206,7 @@ export default function BikeDetailsPage() {
                     {bike.colors.map((color, index) => {
                       const isActive = currentImage === color.image;
                       return (
-                        <button
+                        <motion.button
                           key={index}
                           onClick={() => handleColorChange(color.image)}
                           className={`group relative h-16 w-16 overflow-hidden border border-border transition-all duration-300 sm:h-20 sm:w-20
@@ -207,6 +215,8 @@ export default function BikeDetailsPage() {
                               : 'opacity-70 hover:opacity-100 hover:scale-105'
                             }
                           `}
+                          whileHover={{ y: -4, scale: 1.04 }}
+                          whileTap={{ scale: 0.96 }}
                         >
                           <ImageWithFallback src={color.image} alt={color.name} className="w-full h-full object-cover" />
                           {isActive && (
@@ -217,7 +227,7 @@ export default function BikeDetailsPage() {
                           <div className="absolute bottom-0 w-full bg-black/60 text-[10px] text-white py-1 text-center font-inter backdrop-blur-sm truncate px-1">
                             {color.name}
                           </div>
-                        </button>
+                        </motion.button>
                       );
                     })}
                   </div>
@@ -225,24 +235,34 @@ export default function BikeDetailsPage() {
               )}
 
               <div className="pt-6">
-                <button className="racing-button group relative w-full overflow-hidden font-[Rajdhani] text-base sm:w-auto sm:min-w-[240px] sm:px-8 sm:py-5 sm:text-xl">
+                <motion.button
+                  className="racing-button group relative w-full overflow-hidden font-[Rajdhani] text-base sm:w-auto sm:min-w-[240px] sm:px-8 sm:py-5 sm:text-xl"
+                  whileHover={{ y: -3, scale: 1.015 }}
+                  whileTap={{ scale: 0.98 }}
+                >
                   <div className="absolute inset-0 w-full h-full bg-white/20 -translate-x-full group-hover:skew-x-12 group-hover:translate-x-full transition-transform duration-700 ease-in-out" />
                   <span className="inline-flex items-center gap-3 tracking-wide">
                     ASK ABOUT THIS MODEL
                     <ArrowUpRight className="w-5 h-5 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
                   </span>
-                </button>
+                </motion.button>
               </div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* --- SPECS SECTION START --- */}
         {bike.specs && (
-          <div className="mb-10 mt-16 sm:mt-24">
+          <motion.div
+            className="mb-10 mt-16 sm:mt-24"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={revealContainer}
+          >
             
             {/* Header */}
-            <div className="mb-8 flex flex-col gap-4 sm:mb-12 sm:flex-row sm:items-end sm:gap-6">
+            <motion.div className="mb-8 flex flex-col gap-4 sm:mb-12 sm:flex-row sm:items-end sm:gap-6" variants={revealUp}>
               <h3 className="font-rajdhani text-3xl font-bold uppercase leading-none tracking-wide text-foreground sm:text-4xl">
                 Technical <br /> <span className="text-accent">Specifications</span>
               </h3>
@@ -251,10 +271,10 @@ export default function BikeDetailsPage() {
                  <p className="text-muted-foreground font-inter text-sm">Full breakdown for {bike.name}</p>
                  <p className="text-accent font-bold font-rajdhani">{bike.specs.releaseDate} MODEL</p>
               </div>
-            </div>
+            </motion.div>
 
             {/* Categorized Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            <motion.div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3" variants={revealContainer}>
               
               {specGroups.map((group) => {
                 const hasSpecs = group.fields.some(field => bike.specs && bike.specs[field as keyof BikeSpecs]);
@@ -263,10 +283,12 @@ export default function BikeDetailsPage() {
                 const GroupIcon = group.icon;
 
                 return (
-                  <div 
+                  <motion.div
                     key={group.title}
-                  className="racing-card overflow-hidden"
+                    className="racing-card overflow-hidden"
+                    variants={revealUp}
                 >
+                    <div className="motion-sheen" />
                     <div className="flex items-center gap-3 border-b border-border bg-secondary/50 px-6 py-4">
                       <div className="bg-accent p-2 text-white">
                         <GroupIcon className="w-5 h-5" />
@@ -298,14 +320,15 @@ export default function BikeDetailsPage() {
                         })}
                       </ul>
                     </div>
-                  </div>
+                  </motion.div>
                 );
               })}
-            </div>
+            </motion.div>
 
             {/* --- NEW SECTION: SPECIAL FEATURES LIST --- */}
             {bike.specs.features && bike.specs.features.length > 0 && (
-              <div className="racing-card mt-6 overflow-hidden">
+              <motion.div className="racing-card mt-6 overflow-hidden" variants={revealUp}>
+                <div className="motion-sheen" />
                 <div className="flex items-center gap-3 border-b border-border bg-secondary/50 px-6 py-4">
                   <div className="bg-accent p-2 text-white">
                     <Star className="w-5 h-5" />
@@ -326,10 +349,10 @@ export default function BikeDetailsPage() {
                       ))}
                    </ul>
                 </div>
-              </div>
+              </motion.div>
             )}
             {/* ------------------------------------------ */}
-          </div>
+          </motion.div>
         )}
         {/* --- SPECS SECTION END --- */}
 

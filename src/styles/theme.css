@@ -253,12 +253,27 @@
 
   .racing-card::after {
     content: "";
-    @apply pointer-events-none absolute -right-20 -top-20 h-40 w-40 bg-accent/0 transition duration-300;
-    transform: rotate(-28deg);
+    @apply pointer-events-none absolute inset-0 opacity-0 transition duration-700;
+    background:
+      linear-gradient(110deg, transparent 0%, rgba(255,255,255,0.11) 44%, transparent 58%),
+      radial-gradient(circle at 18% 0%, rgba(200,169,110,0.12), transparent 34%);
+    transform: translateX(-115%);
   }
 
   .racing-card:hover::after {
-    @apply bg-accent/[0.045];
+    opacity: 1;
+    transform: translateX(115%);
+  }
+
+  .motion-sheen {
+    @apply pointer-events-none absolute inset-0 opacity-0;
+    background: linear-gradient(110deg, transparent 0%, rgba(255,255,255,0.14) 45%, transparent 60%);
+    animation: premium-sheen 6.2s ease-in-out infinite;
+    animation-delay: 1.1s;
+  }
+
+  .premium-reveal-line {
+    @apply absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#c8a96e] to-transparent;
   }
 
   .racing-button {
@@ -306,5 +321,28 @@
 
   .form-field {
     @apply w-full border border-border bg-input-background px-4 py-3 text-foreground transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/15;
+  }
+
+  @keyframes premium-sheen {
+    0%, 42% {
+      opacity: 0;
+      transform: translateX(-120%);
+    }
+    52% {
+      opacity: 0.85;
+    }
+    68%, 100% {
+      opacity: 0;
+      transform: translateX(120%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .motion-sheen,
+    .racing-card::after {
+      animation: none;
+      transition: none;
+      transform: none;
+    }
   }
 }

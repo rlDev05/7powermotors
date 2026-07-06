@@ -1,10 +1,12 @@
 import React, { useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
+import { motion } from 'motion/react';
 import { ArrowRight, PackageCheck, Search, SlidersHorizontal } from 'lucide-react';
 import { Navbar } from '@/app/components/Navbar';
 import { Footer } from '@/app/components/Footer';
 import { ScrollToTop } from '@/app/components/ScrollToTop';
 import { careProducts } from '@/app/data/products';
+import { mediaReveal, revealContainer, revealUp } from '@/app/lib/motionPresets';
 
 export default function ProductsPage() {
   const [searchParams] = useSearchParams();
@@ -33,9 +35,15 @@ export default function ProductsPage() {
       <Navbar />
       <main className="px-4 pb-16 pt-24 sm:px-6 sm:pb-20 sm:pt-28 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <section className="racing-card racing-slashed mb-10 border-black/10 bg-[#0b0907] text-white">
+          <motion.section
+            className="racing-card racing-slashed mb-10 border-black/10 bg-[#0b0907] text-white"
+            initial="hidden"
+            animate="visible"
+            variants={revealContainer}
+          >
+            <div className="motion-sheen" />
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_0.72fr]">
-              <div className="p-5 sm:p-8 md:p-12">
+              <motion.div className="p-5 sm:p-8 md:p-12" variants={revealUp}>
                 <span className="brand-chip">
                   <PackageCheck className="h-4 w-4" />
                   CR-1 Product Line
@@ -48,22 +56,36 @@ export default function ProductsPage() {
                   maintenance products for motorcycles, helmets, parts, and
                   professional after-care.
                 </p>
-              </div>
-              <div className="grid min-h-[240px] grid-cols-2 gap-3 bg-white/7 p-4 sm:min-h-[320px] sm:p-8">
-                {careProducts.slice(0, 4).map((product) => (
-                  <div key={product.id} className="flex items-center justify-center border border-white/15 bg-white p-4 shadow-[0_18px_35px_rgba(0,0,0,0.18)]">
+              </motion.div>
+              <motion.div
+                className="grid min-h-[240px] grid-cols-2 gap-3 bg-white/7 p-4 sm:min-h-[320px] sm:p-8"
+                variants={mediaReveal}
+              >
+                {careProducts.slice(0, 4).map((product, index) => (
+                  <motion.div
+                    key={product.id}
+                    className="flex items-center justify-center border border-white/15 bg-white p-4 shadow-[0_18px_35px_rgba(0,0,0,0.18)]"
+                    initial={{ opacity: 0, y: 18, scale: 0.96 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{ duration: 0.58, delay: 0.38 + index * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                  >
                     <img
                       src={product.image}
                       alt={product.name}
                     className="max-h-28 w-full object-contain sm:max-h-36"
                     />
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </div>
-          </section>
+          </motion.section>
 
-          <div className="racing-card mb-8 bg-card p-4 md:mb-10 md:p-5">
+          <motion.div
+            className="racing-card mb-8 bg-card p-4 md:mb-10 md:p-5"
+            initial={{ opacity: 0, y: 24, filter: 'blur(10px)' }}
+            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+            transition={{ duration: 0.7, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
+          >
             <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
               <div>
                 <span className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-accent">
@@ -111,15 +133,23 @@ export default function ProductsPage() {
                 </Link>
               ))}
             </div>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+          <motion.div
+            className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3"
+            initial="hidden"
+            animate="visible"
+            variants={revealContainer}
+          >
             {filteredProducts.map((product) => (
-              <article
+              <motion.article
                 key={product.id}
                 className="racing-card group flex flex-col"
+                variants={revealUp}
+                whileHover={{ y: -6 }}
               >
                 <div className="relative flex aspect-[4/3] items-center justify-center bg-white p-6">
+                  <div className="motion-sheen" />
                   <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-accent via-black to-transparent opacity-80" />
                   <img
                     src={product.image}
@@ -155,9 +185,9 @@ export default function ProductsPage() {
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
-              </article>
+              </motion.article>
             ))}
-          </div>
+          </motion.div>
         </div>
       </main>
       <Footer />

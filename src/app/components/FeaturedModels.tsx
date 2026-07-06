@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import { ImageWithFallback } from '@/app/components/figma/ImageWithFallback';
 import NakedImg from '@/styles/images/naked.png';
+import { mediaReveal, revealContainer, revealLeft, revealRight, revealUp } from '@/app/lib/motionPresets';
 
 const points = [
   {
@@ -30,33 +31,36 @@ export function FeaturedModels() {
       <div className="absolute left-[-24rem] bottom-10 h-36 w-[28rem] rotate-[-28deg] bg-[#c8a96e]/10 sm:left-[-18rem] sm:h-40 sm:w-[34rem]" />
       <div className="racing-container grid grid-cols-1 items-center gap-12 lg:grid-cols-[1fr_0.95fr]">
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
-          transition={{ duration: 0.55 }}
+          variants={revealContainer}
         >
-          <span className="racing-kicker">
+          <motion.span className="racing-kicker" variants={revealUp}>
             Why Riders Choose It
-          </span>
-          <h2 className="racing-title">
+          </motion.span>
+          <motion.h2 className="racing-title" variants={revealUp}>
             Why CR-1 is different.
-          </h2>
-          <p className="racing-copy mt-6 max-w-2xl">
+          </motion.h2>
+          <motion.p className="racing-copy mt-6 max-w-2xl" variants={revealUp}>
             Most coatings are resin or polymer-based and need frequent
             reapplication. CR-1 is inorganic glass, professionally applied for
             durable gloss, easier washing, and stronger surface confidence.
-          </p>
+          </motion.p>
 
           <div className="mt-8 space-y-4 sm:mt-12 sm:space-y-6">
             {points.map((point, index) => (
               <motion.div
                 key={point.title}
-                initial={{ opacity: 0, x: -24 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial="hidden"
+                whileInView="visible"
                 viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: index * 0.08 }}
+                variants={revealLeft}
+                transition={{ delay: index * 0.08 }}
                 className="racing-card flex gap-4 bg-card p-4 sm:gap-5 sm:p-5"
+                whileHover={{ x: 6 }}
               >
+                <div className="motion-sheen" />
                 <CheckCircle2 className="mt-1 h-8 w-8 shrink-0 fill-accent text-white" />
                 <div>
                   <h3 className="font-[Rajdhani] text-xl font-black uppercase text-foreground sm:text-2xl">
@@ -80,12 +84,13 @@ export function FeaturedModels() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, x: 35 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
-          transition={{ duration: 0.65 }}
+          variants={revealRight}
           className="racing-media min-h-[420px] sm:min-h-[560px]"
         >
+          <div className="motion-sheen z-10" />
           <ImageWithFallback
             src={NakedImg}
             alt="Motorcycle surface protected by CR-1 coating"
@@ -93,14 +98,20 @@ export function FeaturedModels() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
           <div className="absolute -bottom-28 -right-32 h-60 w-80 rotate-[-38deg] bg-accent/85 sm:-bottom-24 sm:-right-24 sm:h-72 sm:w-96" />
-          <div className="absolute bottom-0 left-0 max-w-lg p-5 sm:p-8">
+          <motion.div
+            className="absolute bottom-0 left-0 max-w-lg p-5 sm:p-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={mediaReveal}
+          >
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-white">
               Brand Role
             </p>
             <p className="font-[Rajdhani] text-3xl font-black uppercase leading-none text-white sm:text-4xl">
               Invisible armor for motorcycles that need to stay showroom-sharp.
             </p>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

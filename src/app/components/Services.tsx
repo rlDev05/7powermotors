@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { GraduationCap, Handshake, Shield, Sparkles } from 'lucide-react';
 import { ImageWithFallback } from '@/app/components/figma/ImageWithFallback';
 import helmetApplicationImg from '@/styles/images/coating/helmet-application-web.jpg';
+import { mediaReveal, revealContainer, revealUp } from '@/app/lib/motionPresets';
 
 const services = [
   {
@@ -43,35 +44,40 @@ export function Services() {
 
       <div className="racing-container">
         <motion.div
-          initial={{ opacity: 0, y: 22 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
-          transition={{ duration: 0.55 }}
+          variants={revealContainer}
           className="mb-10 max-w-3xl sm:mb-14"
         >
-          <span className="racing-kicker">
+          <motion.span className="racing-kicker" variants={revealUp}>
             Service Network
-          </span>
-          <h2 className="racing-title">
+          </motion.span>
+          <motion.h2 className="racing-title" variants={revealUp}>
             Certified coating, training, and dealer support in one system.
-          </h2>
-          <p className="racing-copy mt-6">
+          </motion.h2>
+          <motion.p className="racing-copy mt-6" variants={revealUp}>
             Every CR-1 application begins with preparation, cleaning,
             dehydration, degreasing, and professional coating. The result is a
             premium service that riders can see and shops can stand behind.
-          </p> 
+          </motion.p>
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-5 lg:grid-cols-4">
+        <motion.div
+          className="grid grid-cols-1 gap-5 lg:grid-cols-4"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.18 }}
+          variants={revealContainer}
+        >
           {services.map((service, index) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.45, delay: index * 0.08 }}
+              variants={revealUp}
               className="racing-card p-5 sm:p-7"
+              whileHover={{ y: -6 }}
             >
+              <div className="motion-sheen" />
               <div className="mb-6 flex h-14 w-14 items-center justify-center bg-[#050505] text-[#c8a96e] shadow-[8px_8px_0_rgba(139,26,26,0.28)]">
                 {service.icon}
               </div>
@@ -91,15 +97,16 @@ export function Services() {
               </ul>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 32 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
-          transition={{ duration: 0.65 }}
+          variants={mediaReveal}
           className="racing-card mt-12 grid min-h-[430px] grid-cols-1 bg-[#0b0907] text-white sm:mt-16 lg:grid-cols-[0.95fr_1.05fr]"
         >
+          <div className="motion-sheen" />
           <div className="p-5 sm:p-8 md:p-12">
             <p className="brand-chip">
               Partner Growth
@@ -117,6 +124,7 @@ export function Services() {
             </a>
           </div>
           <div className="relative min-h-[240px] sm:min-h-[320px]">
+            <div className="motion-sheen z-10" />
             <ImageWithFallback
               src={helmetApplicationImg}
               alt="Motorcycle service and detailing"

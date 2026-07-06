@@ -1,11 +1,13 @@
 import React, { useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom'; // Changed from next/link & next/navigation
+import { motion } from 'motion/react';
 import { ArrowRight, Search, SlidersHorizontal } from 'lucide-react';
 import { bikes } from '@/app/data/bikes';
 import { ImageWithFallback } from '@/app/components/figma/ImageWithFallback'; 
 import { Navbar } from '@/app/components/Navbar';
 import { Footer } from '@/app/components/Footer';
 import { ScrollToTop } from '@/app/components/ScrollToTop';
+import { mediaReveal, revealContainer, revealUp } from '@/app/lib/motionPresets';
 
 export default function MotorcyclesPage() {
   // React Router hook for query params (?category=sport)
@@ -56,9 +58,15 @@ export default function MotorcyclesPage() {
           </Link>
         </div>
 
-        <section className="racing-card racing-slashed mb-10">
+        <motion.section
+          className="racing-card racing-slashed mb-10"
+          initial="hidden"
+          animate="visible"
+          variants={revealContainer}
+        >
+          <div className="motion-sheen" />
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_0.75fr]">
-            <div className="p-5 sm:p-8 md:p-12">
+            <motion.div className="p-5 sm:p-8 md:p-12" variants={revealUp}>
               <span className="racing-kicker">
                 CR-1 Models
               </span>
@@ -74,19 +82,25 @@ export default function MotorcyclesPage() {
                 <span className="border border-border px-3 py-2 sm:px-4 sm:py-3">{categories.length} categories</span>
                 <span className="border border-border px-3 py-2 sm:px-4 sm:py-3">Detail pages ready</span>
               </div>
-            </div>
-            <div className="relative min-h-[240px] bg-secondary/50 sm:min-h-[320px]">
+            </motion.div>
+            <motion.div className="relative min-h-[240px] bg-secondary/50 sm:min-h-[320px]" variants={mediaReveal}>
+              <div className="motion-sheen z-10" />
               <ImageWithFallback
                 src={bikes[0]?.image || ''}
                 alt="Featured CR-1 motorcycle model"
                 className="h-full w-full object-contain p-6 sm:p-10"
               />
               <div className="absolute inset-0 bg-gradient-to-l from-transparent to-card/40" />
-            </div>
+            </motion.div>
           </div>
-        </section>
+        </motion.section>
 
-        <div className="racing-card mb-8 bg-white p-4 md:mb-10 md:p-5">
+        <motion.div
+          className="racing-card mb-8 bg-white p-4 md:mb-10 md:p-5"
+          initial={{ opacity: 0, y: 24, filter: 'blur(10px)' }}
+          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+          transition={{ duration: 0.7, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
+        >
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
             <div>
               <span className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-accent">
@@ -134,18 +148,27 @@ export default function MotorcyclesPage() {
               </Link>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Grid Display */}
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <motion.div
+          className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3"
+          initial="hidden"
+          animate="visible"
+          variants={revealContainer}
+        >
           {filteredBikes.length > 0 ? (
             filteredBikes.map((bike) => (
-              <div 
+              <motion.div
                 key={bike.id} 
                 className="racing-card group flex flex-col"
+                variants={revealUp}
+                whileHover={{ y: -6 }}
               >
+                <div className="motion-sheen" />
                 {/* Image Area */}
                 <Link to={`/models/${bike.id}`} className="relative block h-60 overflow-hidden bg-secondary/40 sm:h-72">
+                   <div className="motion-sheen z-10" />
                    <ImageWithFallback 
                      src={bike.image || ''} 
                      alt={bike.name}
@@ -176,7 +199,7 @@ export default function MotorcyclesPage() {
                         <ArrowRight className="h-4 w-4" />
                     </Link>
                 </div>
-              </div>
+              </motion.div>
             ))
           ) : (
             <div className="col-span-full border border-dashed border-border bg-card py-20 text-center">
@@ -186,7 +209,7 @@ export default function MotorcyclesPage() {
               </Link>
             </div>
           )}
-        </div>
+        </motion.div>
       </div>
       </main>
       <Footer />

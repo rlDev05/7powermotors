@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { z900rsImages } from '@/app/data/z900rsImages';
+import { mediaReveal, revealContainer, revealLeft, revealUp } from '@/app/lib/motionPresets';
 
 export function Z900RSShowcase() {
   const [active, setActive] = useState(0);
@@ -29,30 +30,43 @@ export function Z900RSShowcase() {
       <div className="absolute bottom-10 right-[-18rem] h-44 w-[34rem] rotate-[-37deg] bg-black/10" />
 
       <div className="racing-container grid grid-cols-1 gap-10 lg:grid-cols-[0.72fr_1.28fr]">
-        <div className="flex flex-col justify-between gap-8">
+        <motion.div
+          className="flex flex-col justify-between gap-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={revealContainer}
+        >
           <div>
-            <p className="brand-chip w-fit">
+            <motion.p className="brand-chip w-fit" variants={revealUp}>
               Z900RS Visual Covers
-            </p>
-            <h2 className="racing-title">
+            </motion.p>
+            <motion.h2 className="racing-title" variants={revealUp}>
               Detail shots.
               <br />
               Real finish.
-            </h2>
-            <p className="racing-copy mt-6 max-w-xl">
+            </motion.h2>
+            <motion.p className="racing-copy mt-6 max-w-xl" variants={revealUp}>
               Close-up Z900RS visuals for paint depth, chrome highlights,
               engine texture, and the premium riding mood of the brand.
-            </p>
+            </motion.p>
           </div>
-          <div className="hidden border-l-4 border-accent bg-[#050505] p-6 shadow-[12px_12px_0_rgba(139,26,26,0.22)] lg:block">
+          <motion.div className="hidden border-l-4 border-accent bg-[#050505] p-6 shadow-[12px_12px_0_rgba(139,26,26,0.22)] lg:block" variants={revealLeft}>
             <p className="font-[Rajdhani] text-4xl font-black uppercase leading-none text-white">
               Model gallery for finish inspiration.
             </p>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         <div className="min-w-0">
-          <div className="racing-media aspect-[16/10]">
+          <motion.div
+            className="racing-media aspect-[16/10]"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={mediaReveal}
+          >
+            <div className="motion-sheen z-10" />
             <AnimatePresence mode="wait">
               <motion.img
                 key={current.src}
@@ -91,11 +105,17 @@ export function Z900RSShowcase() {
                 </button>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="mt-4 grid grid-cols-4 gap-3 sm:grid-cols-7">
+          <motion.div
+            className="mt-4 grid grid-cols-4 gap-3 sm:grid-cols-7"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={revealContainer}
+          >
             {z900rsImages.map((image, index) => (
-              <button
+              <motion.button
                 key={image.src}
                 type="button"
                 onClick={() => setActive(index)}
@@ -103,6 +123,7 @@ export function Z900RSShowcase() {
                 className={`group relative aspect-[4/3] overflow-hidden border transition ${
                   index === active ? 'border-accent' : 'border-border hover:border-foreground/45'
                 }`}
+                variants={revealUp}
               >
                 <img
                   src={image.src}
@@ -114,9 +135,9 @@ export function Z900RSShowcase() {
                     index === active ? 'bg-accent' : 'bg-transparent'
                   }`}
                 />
-              </button>
+              </motion.button>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

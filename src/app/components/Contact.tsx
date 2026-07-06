@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { ExternalLink, Facebook, Instagram, Mail, MapPin, MessageCircle, Music2, Phone, Send } from 'lucide-react';
 import { cr1Contact, cr1SocialLinks } from '@/app/data/brand';
+import { mediaReveal, revealContainer, revealLeft, revealRight, revealUp } from '@/app/lib/motionPresets';
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -31,14 +32,15 @@ export function Contact() {
       <div className="racing-container">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          variants={revealContainer}
           className="mx-auto mb-10 max-w-3xl text-center sm:mb-16"
         >
-          <span
+          <motion.span
             className="brand-chip mx-auto w-fit"
+            variants={revealUp}
             style={{
               fontFamily: 'Inter, sans-serif',
               fontSize: '0.75rem',
@@ -46,12 +48,13 @@ export function Contact() {
             }}
           >
             CONTACT / DEALER INQUIRY
-          </span>
-          <h2 className="racing-title mx-auto mb-6 max-w-3xl">
+          </motion.span>
+          <motion.h2 className="racing-title mx-auto mb-6 max-w-3xl" variants={revealUp}>
             Let's talk. We're here to help.
-          </h2>
-          <p
+          </motion.h2>
+          <motion.p
             className="text-muted-foreground"
+            variants={revealUp}
             style={{
               fontFamily: 'Inter, sans-serif',
               fontSize: '1.125rem',
@@ -61,16 +64,16 @@ export function Contact() {
             Whether you need coating for a motorcycle, helmet, or parts, or you
             want to become an authorized dealer, send us a message and we will
             guide the next step.
-          </p>
+          </motion.p>
         </motion.div>
 
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-[0.82fr_1.18fr]">
           {/* Contact Information */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            variants={revealContainer}
             className="space-y-6"
           >
             {/* Contact Cards */}
@@ -103,12 +106,11 @@ export function Contact() {
               ].map((item, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="racing-card flex min-w-0 gap-4 bg-card p-5 sm:p-6"
+                  variants={revealLeft}
+                  className="racing-card flex min-w-0 gap-4 bg-card p-5 sm:p-6"
+                  whileHover={{ x: 5 }}
                 >
+                  <div className="motion-sheen" />
                   <div className="text-accent mt-1">{item.icon}</div>
                   <div className="min-w-0">
                     <h4
@@ -145,12 +147,10 @@ export function Contact() {
             </div>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              variants={revealUp}
               className="racing-card bg-card p-6"
             >
+              <div className="motion-sheen" />
               <p className="mb-4 text-xs font-black uppercase tracking-[0.18em] text-[#c8a96e]">
                 Social Channels
               </p>
@@ -176,12 +176,10 @@ export function Contact() {
 
             {/* Location Map */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              variants={mediaReveal}
               className="racing-card h-[30rem] bg-[#101010] text-white sm:h-80 md:h-[25rem]"
             >
+              <div className="motion-sheen z-10" />
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3862.026670450718!2d121.01207957589632!3d14.540467178544509!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c93eed13070f%3A0x3dae00e35dcc62ca!2s7%20Power%20Motors!5e0!3m2!1sen!2sph!4v1781764487073!5m2!1sen!2sph"
                 title="CR-1 Philippines location map"
@@ -227,12 +225,13 @@ export function Contact() {
 
           {/* Contact Form */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            variants={revealRight}
           >
             <form onSubmit={handleSubmit} className="racing-card space-y-5 bg-card p-5 sm:space-y-6 sm:p-6 md:p-8">
+              <div className="motion-sheen" />
               <div className="border-l-2 border-[#c8a96e] bg-[#c8a96e]/8 p-5">
                 <div className="mb-2 flex items-center gap-2 text-[#c8a96e]">
                   <MessageCircle className="h-5 w-5" />
