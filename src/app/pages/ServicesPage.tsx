@@ -1,5 +1,6 @@
 import React from 'react';
 import { Navbar } from '@/app/components/Navbar';
+import { ApplicationProcess } from '@/app/components/ApplicationProcess';
 import { Services } from '@/app/components/Services';
 import { FeaturedModels } from '@/app/components/FeaturedModels';
 import { Contact } from '@/app/components/Contact';
@@ -11,6 +12,7 @@ export default function ServicesPage() {
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />
       <main className="pt-20">
+        <ApplicationProcess />
         <Services />
         <FeaturedModels />
         <Contact />

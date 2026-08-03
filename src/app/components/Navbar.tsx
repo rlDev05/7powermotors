@@ -11,6 +11,7 @@ export function Navbar() {
     { label: 'HOME', href: '/' },
     { label: 'PRODUCTS', href: '/products' },
     { label: 'SERVICES', href: '/services' },
+    { label: 'PRICING', href: '/pricing' },
   ];
 
   return (
@@ -18,7 +19,7 @@ export function Navbar() {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-[#050505]/92 text-white shadow-[0_18px_50px_rgba(0,0,0,0.28)] backdrop-blur-2xl [--foreground:#ffffff] [--muted-foreground:rgba(255,255,255,0.62)]"
+      className="fixed left-0 right-0 top-0 z-50 border-b border-border bg-white/92 text-foreground shadow-[0_12px_36px_rgba(25,25,25,0.09)] backdrop-blur-2xl"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between sm:h-20">
@@ -29,7 +30,7 @@ export function Navbar() {
             className="min-w-0"
           >
             <Link to="/" aria-label="CR-1 Philippines home">
-              <Logo className="[&_span:last-child]:!text-white/68" />
+              <Logo />
             </Link>
           </motion.div>
 
@@ -52,7 +53,7 @@ export function Navbar() {
                     >
                       {item.label}
                       <span
-                        className={`absolute bottom-1 left-4 right-4 h-[2px] origin-left bg-gradient-to-r from-accent to-white transition ${
+                        className={`absolute bottom-1 left-4 right-4 h-[2px] origin-left bg-gradient-to-r from-accent to-[#c8a96e] transition ${
                           isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
                         }`}
                       />
@@ -64,14 +65,14 @@ export function Navbar() {
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="ml-4 bg-accent px-6 py-3 text-accent-foreground shadow-[0_12px_28px_rgba(139,26,26,0.32)] tracking-wider transition-all hover:bg-white hover:text-black"
+              className="ml-4 bg-accent px-6 py-3 text-accent-foreground shadow-[0_12px_28px_rgba(214,0,0,0.24)] tracking-wider transition-all hover:bg-[var(--accent-deep)]"
               style={{
                 fontFamily: 'Inter, sans-serif',
                 fontSize: '0.875rem',
                 fontWeight: 600,
               }}
             >
-              <Link to="/contact">PARTNER WITH US</Link>
+              <Link to="/contact?intent=partner">PARTNER WITH US</Link>
             </motion.div>
           </div>
 
@@ -95,14 +96,14 @@ export function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="border-t border-white/10 bg-[#050505] md:hidden"
+            className="border-t border-border bg-white md:hidden"
           >
             <div className="space-y-3 px-4 py-5">
               {navItems.map((item) => (
                 <Link
                   key={item.label}
                   to={item.href}
-                  className="block border-b border-white/10 py-3 text-sm tracking-wider text-muted-foreground transition-colors hover:text-foreground"
+                  className="block border-b border-border py-3 text-sm tracking-wider text-muted-foreground transition-colors hover:text-accent"
                   style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -110,8 +111,8 @@ export function Navbar() {
                 </Link>
               ))}
               <Link
-                to="/contact"
-                className="block w-full bg-accent px-6 py-3 text-center text-accent-foreground tracking-wider transition-all hover:bg-white hover:text-black"
+                to="/contact?intent=partner"
+                className="block w-full bg-accent px-6 py-3 text-center text-accent-foreground tracking-wider transition-all hover:bg-[var(--accent-deep)]"
                 style={{
                   fontFamily: 'Inter, sans-serif',
                   fontSize: '0.875rem',

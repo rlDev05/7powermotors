@@ -1,5 +1,5 @@
 import React from 'react';
-import cr1LogoDark from '@/styles/images/cr1-logo-dark.png';
+import cr1LogoLight from '@/styles/images/cr1-logo.png';
 
 interface LogoProps {
   variant?: 'default' | 'minimal';
@@ -11,9 +11,9 @@ export function Logo({ variant = 'default', className = '' }: LogoProps) {
     <div className={`flex min-w-0 items-center gap-2 sm:gap-2.5 ${className}`}>
       <div className="relative flex h-9 w-[86px] shrink-0 items-center justify-center sm:h-12 sm:w-[116px]">
         <img 
-          src={cr1LogoDark} 
+          src={cr1LogoLight}
           alt="CR-1 logo"
-          className="h-full w-full object-contain drop-shadow-[0_10px_24px_rgba(139,26,26,0.28)]"
+          className="h-full w-full object-contain drop-shadow-[0_10px_24px_rgba(225,6,0,0.24)]"
         />
       </div>
 

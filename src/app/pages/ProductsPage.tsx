@@ -36,7 +36,7 @@ export default function ProductsPage() {
       <main className="px-4 pb-16 pt-24 sm:px-6 sm:pb-20 sm:pt-28 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <motion.section
-            className="racing-card racing-slashed mb-10 border-black/10 bg-[#0b0907] text-white"
+            className="racing-card racing-slashed mb-10 border-border bg-[#f4f1ec] text-foreground"
             initial="hidden"
             animate="visible"
             variants={revealContainer}
@@ -48,23 +48,23 @@ export default function ProductsPage() {
                   <PackageCheck className="h-4 w-4" />
                   CR-1 Product Line
                 </span>
-                <h1 className="mt-5 font-[Rajdhani] text-[clamp(2.35rem,11vw,5.75rem)] font-black uppercase leading-[0.9] tracking-normal text-white sm:leading-[0.88]">
+                <h1 className="mt-5 font-[Rajdhani] text-[clamp(2.35rem,11vw,5.75rem)] font-black uppercase leading-[0.9] tracking-normal text-foreground sm:leading-[0.88]">
                   Glass coating and care products.
                 </h1>
-                <p className="mt-6 max-w-3xl text-base leading-8 text-white/72 sm:text-lg">
+                <p className="mt-6 max-w-3xl text-base leading-8 text-muted-foreground sm:text-lg">
                   Explore CR-1 coating, shampoo, quick cloth, microfiber, and
                   maintenance products for motorcycles, helmets, parts, and
                   professional after-care.
                 </p>
               </motion.div>
               <motion.div
-                className="grid min-h-[240px] grid-cols-2 gap-3 bg-white/7 p-4 sm:min-h-[320px] sm:p-8"
+                className="grid min-h-[240px] grid-cols-2 gap-3 bg-secondary/70 p-4 sm:min-h-[320px] sm:p-8"
                 variants={mediaReveal}
               >
                 {careProducts.slice(0, 4).map((product, index) => (
                   <motion.div
                     key={product.id}
-                    className="flex items-center justify-center border border-white/15 bg-white p-4 shadow-[0_18px_35px_rgba(0,0,0,0.18)]"
+                    className="flex items-center justify-center border border-border bg-white p-4 shadow-[0_18px_35px_rgba(25,25,25,0.09)]"
                     initial={{ opacity: 0, y: 18, scale: 0.96 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     transition={{ duration: 0.58, delay: 0.38 + index * 0.08, ease: [0.16, 1, 0.3, 1] }}
@@ -113,8 +113,8 @@ export default function ProductsPage() {
                 to="/products"
                 className={`shrink-0 px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] transition ${
                   !selectedCategory
-                    ? 'bg-accent text-white shadow-[0_10px_22px_rgba(139,26,26,0.26)]'
-                    : 'border border-border bg-[#111] text-muted-foreground hover:border-[#c8a96e] hover:text-[#c8a96e]'
+                    ? 'bg-accent text-white shadow-[0_10px_22px_rgba(214,0,0,0.26)]'
+                    : 'border border-border bg-white text-muted-foreground hover:border-[#86672f] hover:text-[#86672f]'
                 }`}
               >
                 All
@@ -125,8 +125,8 @@ export default function ProductsPage() {
                   to={`/products?category=${encodeURIComponent(category)}`}
                   className={`shrink-0 px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] transition ${
                     selectedCategory === category
-                      ? 'bg-accent text-white shadow-[0_10px_22px_rgba(139,26,26,0.26)]'
-                      : 'border border-border bg-[#111] text-muted-foreground hover:border-[#c8a96e] hover:text-[#c8a96e]'
+                      ? 'bg-accent text-white shadow-[0_10px_22px_rgba(214,0,0,0.26)]'
+                      : 'border border-border bg-white text-muted-foreground hover:border-[#86672f] hover:text-[#86672f]'
                   }`}
                 >
                   {category}

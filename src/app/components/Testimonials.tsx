@@ -5,19 +5,19 @@ import { Quote, Star } from 'lucide-react';
 const testimonials = [
   {
     quote:
-      'The bike stays easier to clean after long rides. It still looks polished even after rain and road dust.',
+      'After long rides, the bike is noticeably easier to clean—and it still carries that polished, cared-for look through rain and road dust.',
     name: 'Motorcycle Owner',
     role: 'Rider',
   },
   {
     quote:
-      'CR-1 gives our shop a premium service with a stronger story than ordinary coating packages.',
+      'CR-1 gives our shop more than another coating package. It gives us a premium service with a story customers quickly understand.',
     name: 'Detailing Shop Partner',
     role: 'Service Center',
   },
   {
     quote:
-      'Customers understand the value quickly when they see the cleaner finish, gloss, and professional process.',
+      'Customers see the difference in the finish, then understand the value in the professional process behind it.',
     name: 'Motorcycle Dealer',
     role: 'Dealer Partner',
   },
@@ -36,10 +36,10 @@ export function Testimonials() {
           className="mx-auto mb-14 max-w-3xl text-center"
         >
           <span className="racing-kicker">
-            Rider & Partner Proof
+            Rider & Partner Perspective
           </span>
           <h2 className="racing-title">
-            Let the riding community do the talking.
+            Value you can see. Confidence you can share.
           </h2>
         </motion.div>
 

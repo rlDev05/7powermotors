@@ -2,40 +2,70 @@
 
 :root {
   --font-size: 16px;
-  
-  /* CR-1 Philippines premium dark-first palette */
-  --background: #0d0d0d;
-  --foreground: #ffffff;
-  --card: #1a1a1a;
-  --card-foreground: #ffffff;
-  --popover: #1a1a1a;
-  --popover-foreground: #ffffff;
-  --primary: #101010;
+
+  /* CR-1 Philippines light palette */
+  --background-primary: #ffffff;
+  --background-secondary: #f7f7f5;
+  --surface-color: #ffffff;
+  --text-primary: #1b1b1b;
+  --text-secondary: #626262;
+  --border-color: #e1e1de;
+
+  --background: var(--background-primary);
+  --foreground: var(--text-primary);
+  --card: var(--surface-color);
+  --card-foreground: var(--text-primary);
+  --popover: var(--surface-color);
+  --popover-foreground: var(--text-primary);
+  --primary: #171717;
   --primary-foreground: #ffffff;
-  --secondary: #161616;
-  --secondary-foreground: #ffffff;
-  --muted: #202020;
-  --muted-foreground: #a0a0a0;
-  --accent: #8b1a1a;
+  --secondary: var(--background-secondary);
+  --secondary-foreground: var(--text-primary);
+  --muted: #ececea;
+  --muted-foreground: var(--text-secondary);
+  --brand-red: #e10600;
+  --accent: #d60000;
+  --accent-deep: #b80000;
   --accent-foreground: #ffffff;
-  --destructive: #a82020;
+  --destructive: #c62828;
   --destructive-foreground: #ffffff;
-  --border: rgba(255, 255, 255, 0.12);
-  --input: rgba(255, 255, 255, 0.15);
-  --input-background: #111111;
-  --switch-background: #2c2c2c;
+  --border: var(--border-color);
+  --input: #d7d7d3;
+  --input-background: #ffffff;
+  --switch-background: #d2d2ce;
+  --overlay-color: rgba(23, 23, 23, 0.36);
+  --shadow-card: 0 18px 45px rgba(25, 25, 25, 0.08);
+  --shadow-card-hover: 0 26px 60px rgba(25, 25, 25, 0.14);
   --font-weight-medium: 500;
   --font-weight-normal: 400;
-  --ring: #8b1a1a;
+  --ring: #d60000;
   
-  --silver: #a0a0a0;
+  --silver: #707070;
   --silver-dark: #6f6f6f;
   --gold: #c8a96e;
-  --orange: #8b1a1a;
-  --orange-deep: #5f1010;
+  --gold-strong: #86672f;
+  --orange: #e10600;
+  --orange-deep: #b80000;
   --yellow: #c8a96e;
   --ink: #050505;
   --warm-white: #ffffff;
+
+  /* Existing data-series colors, adapted to light chart surfaces */
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.54 0.17 162.48);
+  --chart-3: oklch(0.55 0.16 70.08);
+  --chart-4: oklch(0.53 0.22 303.9);
+  --chart-5: oklch(0.56 0.21 16.439);
+
+  /* Shared navigation/sidebar surfaces */
+  --sidebar: #ffffff;
+  --sidebar-foreground: #1b1b1b;
+  --sidebar-primary: #d60000;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f1ece8;
+  --sidebar-accent-foreground: #1b1b1b;
+  --sidebar-border: #e1e1de;
+  --sidebar-ring: #d60000;
   
   --radius: 0.25rem;
   
@@ -52,25 +82,26 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
+  --background: var(--background-primary);
+  --foreground: var(--text-primary);
+  --card: var(--surface-color);
+  --card-foreground: var(--text-primary);
+  --popover: var(--surface-color);
+  --popover-foreground: var(--text-primary);
+  --primary: #171717;
+  --primary-foreground: #ffffff;
+  --secondary: var(--background-secondary);
+  --secondary-foreground: var(--text-primary);
+  --muted: #ececea;
+  --muted-foreground: var(--text-secondary);
+  --accent: #d60000;
+  --accent-deep: #b80000;
+  --accent-foreground: #ffffff;
+  --destructive: #c62828;
+  --destructive-foreground: #ffffff;
+  --border: var(--border-color);
+  --input: #d7d7d3;
+  --ring: #d60000;
   --font-weight-medium: 500;
   --font-weight-normal: 400;
   --chart-1: oklch(0.488 0.243 264.376);
@@ -78,14 +109,14 @@
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  --sidebar: #ffffff;
+  --sidebar-foreground: #1b1b1b;
+  --sidebar-primary: #d60000;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f1ece8;
+  --sidebar-accent-foreground: #1b1b1b;
+  --sidebar-border: #e1e1de;
+  --sidebar-ring: #d60000;
 }
 
 @theme inline {
@@ -115,6 +146,14 @@
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -129,10 +168,10 @@
   body {
     @apply bg-background text-foreground;
     background-image:
-      radial-gradient(circle at 18% 0%, rgba(139, 26, 26, 0.22), transparent 28rem),
-      radial-gradient(circle at 88% 20%, rgba(200, 169, 110, 0.08), transparent 24rem),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      radial-gradient(circle at 18% 0%, rgba(225, 6, 0, 0.08), transparent 28rem),
+      radial-gradient(circle at 88% 20%, rgba(200, 169, 110, 0.1), transparent 24rem),
+      linear-gradient(90deg, rgba(20, 20, 20, 0.026) 1px, transparent 1px),
+      linear-gradient(180deg, rgba(20, 20, 20, 0.02) 1px, transparent 1px);
     background-attachment: fixed;
     background-size: auto, auto, 88px 88px, 88px 88px;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -243,7 +282,12 @@
   }
 
   .racing-card {
-    @apply relative overflow-hidden border border-border bg-card shadow-[0_18px_50px_rgba(0,0,0,0.24)] transition duration-300 hover:-translate-y-1 hover:border-accent/55 hover:shadow-[0_26px_70px_rgba(0,0,0,0.36)];
+    @apply relative overflow-hidden border border-border bg-card transition duration-300 hover:-translate-y-1 hover:border-accent/55;
+    box-shadow: var(--shadow-card);
+  }
+
+  .racing-card:hover {
+    box-shadow: var(--shadow-card-hover);
   }
 
   .racing-card::before {
@@ -255,7 +299,7 @@
     content: "";
     @apply pointer-events-none absolute inset-0 opacity-0 transition duration-700;
     background:
-      linear-gradient(110deg, transparent 0%, rgba(255,255,255,0.11) 44%, transparent 58%),
+      linear-gradient(110deg, transparent 0%, rgba(255,255,255,0.72) 44%, transparent 58%),
       radial-gradient(circle at 18% 0%, rgba(200,169,110,0.12), transparent 34%);
     transform: translateX(-115%);
   }
@@ -277,11 +321,11 @@
   }
 
   .racing-button {
-    @apply inline-flex min-h-12 items-center justify-center gap-2 bg-accent px-5 py-3 text-center text-xs font-black uppercase tracking-[0.1em] text-white shadow-[0_14px_30px_rgba(139,26,26,0.28)] transition hover:bg-[#a82020] hover:shadow-[0_18px_38px_rgba(0,0,0,0.32)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:px-7 sm:py-4 sm:text-sm sm:tracking-[0.12em];
+    @apply inline-flex min-h-12 items-center justify-center gap-2 bg-accent px-5 py-3 text-center text-xs font-black uppercase tracking-[0.1em] text-white shadow-[0_14px_30px_rgba(214,0,0,0.28)] transition hover:bg-[var(--accent-deep)] hover:shadow-[0_18px_38px_rgba(0,0,0,0.24)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:px-7 sm:py-4 sm:text-sm sm:tracking-[0.12em];
   }
 
   .racing-button-outline {
-    @apply inline-flex min-h-12 items-center justify-center gap-2 border border-[#c8a96e]/45 bg-transparent px-5 py-3 text-center text-xs font-black uppercase tracking-[0.1em] text-[#c8a96e] transition hover:border-accent hover:bg-accent hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:px-7 sm:py-4 sm:text-sm sm:tracking-[0.12em];
+    @apply inline-flex min-h-12 items-center justify-center gap-2 border border-[#86672f]/45 bg-transparent px-5 py-3 text-center text-xs font-black uppercase tracking-[0.1em] text-[#86672f] transition hover:border-accent hover:bg-accent hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:px-7 sm:py-4 sm:text-sm sm:tracking-[0.12em];
   }
 
   .racing-media {
@@ -299,7 +343,7 @@
   }
 
   .racing-rule {
-    @apply h-px w-full bg-gradient-to-r from-[#c8a96e] via-white/40 to-transparent;
+    @apply h-px w-full bg-gradient-to-r from-[#86672f] via-black/20 to-transparent;
   }
 
   .racing-number {
@@ -307,20 +351,100 @@
   }
 
   .premium-band {
-    @apply bg-[#050505] text-white;
+    @apply bg-[#f4f1ec] text-foreground;
     background-image:
-      linear-gradient(120deg, rgba(139, 26, 26, 0.2), transparent 34%),
-      linear-gradient(145deg, rgba(200, 169, 110, 0.12), transparent 48%),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      linear-gradient(120deg, rgba(225, 6, 0, 0.09), transparent 34%),
+      linear-gradient(145deg, rgba(200, 169, 110, 0.14), transparent 48%),
+      linear-gradient(90deg, rgba(20, 20, 20, 0.035) 1px, transparent 1px);
     background-size: auto, 72px 72px;
   }
 
   .brand-chip {
-    @apply inline-flex items-center gap-2 border border-[#c8a96e]/35 bg-[#c8a96e]/10 px-3 py-1.5 text-xs font-black uppercase tracking-[0.18em] text-[#c8a96e];
+    @apply inline-flex items-center gap-2 border border-[#86672f]/35 bg-[#c8a96e]/12 px-3 py-1.5 text-xs font-black uppercase tracking-[0.18em] text-[#86672f];
   }
 
   .form-field {
-    @apply w-full border border-border bg-input-background px-4 py-3 text-foreground transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/15;
+    @apply w-full border border-border bg-input-background px-4 py-3 text-foreground transition-colors placeholder:text-muted-foreground focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/15 disabled:cursor-not-allowed disabled:bg-muted disabled:text-muted-foreground disabled:opacity-70 read-only:bg-secondary read-only:text-muted-foreground;
+  }
+
+  .cr1-map-marker {
+    background: transparent;
+    border: 0;
+  }
+
+  .cr1-map-marker > span {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    color: #fff;
+    background: var(--accent);
+    border: 3px solid #fff;
+    border-radius: 50% 50% 50% 0;
+    box-shadow: 0 8px 20px rgba(16, 16, 16, 0.3);
+    transform: rotate(-45deg);
+    transition: transform 180ms ease, background-color 180ms ease;
+  }
+
+  .cr1-map-marker strong {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 15px;
+    font-weight: 900;
+    transform: rotate(45deg);
+  }
+
+  .cr1-map-marker.is-active > span,
+  .cr1-map-marker:hover > span,
+  .cr1-map-marker:focus > span {
+    background: #111;
+    transform: rotate(-45deg) scale(1.12);
+  }
+
+  .cr1-map-popup {
+    display: grid;
+    min-width: 190px;
+    gap: 4px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .cr1-map-popup p {
+    margin: 0;
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .cr1-map-popup strong {
+    color: #111;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 19px;
+    font-weight: 900;
+  }
+
+  .cr1-map-popup span {
+    color: #5f6368;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .cr1-map-popup a {
+    margin-top: 5px;
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .leaflet-container {
+    background: #edf0f2;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .leaflet-control-zoom a {
+    color: #111;
   }
 
   @keyframes premium-sheen {

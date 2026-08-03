@@ -8,30 +8,30 @@ import { mediaReveal, revealContainer, revealUp } from '@/app/lib/motionPresets'
 const services = [
   {
     icon: <Shield className="h-7 w-7" />,
-    title: 'CR-1 Coating Care',
+    title: 'CR-1 Professional Protection',
     description:
-      'Certified application for motorcycles, helmets, and parts that need a true glass film instead of short-lived wax, polymer, or resin.',
+      'Give motorcycles, helmets, and approved parts protection with substance—not another short-lived wax, polymer, or resin shine.',
     items: ['100% glass coating', 'Gloss preservation', 'Heat and UV resistance'],
   },
   {
     icon: <GraduationCap className="h-7 w-7" />,
     title: 'Authorized Installer Training',
     description:
-      'A pathway for service centers and detailing shops to deliver CR-1 with proper preparation, low-pressure spray technique, and quality control.',
+      'Turn correct preparation, controlled spray technique, and quality checks into a repeatable premium service your team can stand behind.',
     items: ['Surface prep process', 'Product handling', 'Certificate-ready application'],
   },
   {
     icon: <Handshake className="h-7 w-7" />,
     title: 'Dealer & Shop Partnerships',
     description:
-      'A premium, high-trust service program for motorcycle dealerships, distributors, detailing shops, and autocare businesses.',
+      'Add a high-trust service that helps dealerships, detailers, distributors, and autocare businesses stand apart in a crowded market.',
     items: ['Dealer enablement', 'Training support', 'Premium service positioning'],
   },
   {
     icon: <Sparkles className="h-7 w-7" />,
     title: 'Rider Education Content',
     description:
-      'Clear care guidance that helps riders understand coating value before and after professional application.',
+      'Give customers the confidence to say yes—and the guidance to care for their finish after professional application.',
     items: ['Care tips', 'Before/after stories', 'Rider and shop proof'],
   },
 ];
@@ -51,15 +51,15 @@ export function Services() {
           className="mb-10 max-w-3xl sm:mb-14"
         >
           <motion.span className="racing-kicker" variants={revealUp}>
-            Service Network
+            One System. Two Ways Forward.
           </motion.span>
           <motion.h2 className="racing-title" variants={revealUp}>
-            Certified coating, training, and dealer support in one system.
+            Protection riders want. A premium service businesses can grow.
           </motion.h2>
           <motion.p className="racing-copy mt-6" variants={revealUp}>
-            Every CR-1 application begins with preparation, cleaning,
-            dehydration, degreasing, and professional coating. The result is a
-            premium service that riders can see and shops can stand behind.
+            From certified rider applications to installer training and partner support, CR-1
+            connects a better ownership experience with a stronger business opportunity—all
+            through one professional system.
           </motion.p>
         </motion.div>
 
@@ -78,7 +78,7 @@ export function Services() {
               whileHover={{ y: -6 }}
             >
               <div className="motion-sheen" />
-              <div className="mb-6 flex h-14 w-14 items-center justify-center bg-[#050505] text-[#c8a96e] shadow-[8px_8px_0_rgba(139,26,26,0.28)]">
+              <div className="mb-6 flex h-14 w-14 items-center justify-center border border-border bg-secondary text-[#86672f] shadow-[8px_8px_0_rgba(225,6,0,0.16)]">
                 {service.icon}
               </div>
               <h3 className="font-[Rajdhani] text-2xl font-black uppercase leading-none tracking-normal text-foreground">
@@ -104,23 +104,23 @@ export function Services() {
           whileInView="visible"
           viewport={{ once: true }}
           variants={mediaReveal}
-          className="racing-card mt-12 grid min-h-[430px] grid-cols-1 bg-[#0b0907] text-white sm:mt-16 lg:grid-cols-[0.95fr_1.05fr]"
+          className="racing-card mt-12 grid min-h-[430px] grid-cols-1 bg-card text-foreground sm:mt-16 lg:grid-cols-[0.95fr_1.05fr]"
         >
           <div className="motion-sheen" />
           <div className="p-5 sm:p-8 md:p-12">
             <p className="brand-chip">
-              Partner Growth
+              Your Next Premium Advantage
             </p>
-            <h3 className="mt-5 font-[Rajdhani] text-[2.15rem] font-black uppercase leading-none text-white sm:text-4xl md:text-5xl">
-              Help shops elevate their brand status.
+            <h3 className="mt-5 font-[Rajdhani] text-[2.15rem] font-black uppercase leading-none text-foreground sm:text-4xl md:text-5xl">
+              Differentiate your shop. Elevate every customer handover.
             </h3>
-            <p className="mt-6 text-base leading-8 text-white/70">
-              Join the CR-1 dealer network and offer customers a Japan-grade
-              coating service with training, certification, and a product story
-              that is easy to demonstrate.
+            <p className="mt-6 text-base leading-8 text-muted-foreground">
+              Bring customers a Japan-developed protection service with professional training,
+              recognizable value, and a finish they can immediately appreciate. CR-1 gives your
+              business another reason to be chosen—and remembered.
             </p>
-            <a href="/contact" className="racing-button mt-8">
-              Apply as a Partner
+            <a href="/contact?intent=partner" className="racing-button mt-8">
+              Start Your CR-1 Partnership
             </a>
           </div>
           <div className="relative min-h-[240px] sm:min-h-[320px]">
@@ -130,7 +130,7 @@ export function Services() {
               alt="Motorcycle service and detailing"
               className="h-full w-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0b0907] via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-transparent to-transparent" />
           </div>
         </motion.div>
       </div>

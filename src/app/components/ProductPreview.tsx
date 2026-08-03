@@ -23,14 +23,14 @@ export function ProductPreview() {
         >
           <div className="max-w-3xl">
             <motion.span className="racing-kicker" variants={revealUp}>
-              Product System
+              Protection Beyond the Application
             </motion.span>
             <motion.h2 className="racing-title" variants={revealUp}>
-              CR-1 glass coating care for daily riders.
+              Keep the finish. Keep the feeling.
             </motion.h2>
             <motion.p className="racing-copy mt-5" variants={revealUp}>
-              Coating, shampoo, cloths, wipes, covers, and maintenance
-              essentials that support professional finish care after every ride.
+              A complete care lineup—from coating and shampoo to wipes, cloths, and covers—built
+              to support the finish, simplify upkeep, and keep your ride ready to be seen.
             </motion.p>
           </div>
           <motion.div variants={revealUp}>
@@ -38,7 +38,7 @@ export function ProductPreview() {
             to="/products"
             className="racing-button w-full sm:w-auto"
           >
-            View All Products
+            Explore CR-1 Products
             <ArrowRight className="h-4 w-4" />
           </Link>
           </motion.div>
@@ -72,7 +72,7 @@ export function ProductPreview() {
                     alt={product.name}
                     className="h-full w-full object-contain transition duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute left-0 top-0 bg-[#050505] px-3 py-2 text-[0.65rem] font-black uppercase tracking-[0.14em] text-white sm:px-4 sm:text-xs sm:tracking-[0.18em]">
+                  <div className="absolute left-0 top-0 bg-accent px-3 py-2 text-[0.65rem] font-black uppercase tracking-[0.14em] text-white sm:px-4 sm:text-xs sm:tracking-[0.18em]">
                     {product.category}
                   </div>
                 </div>
@@ -85,7 +85,7 @@ export function ProductPreview() {
                   </p>
                   <span className="mt-6 inline-flex items-center gap-2 border-t border-border/50 pt-5 text-sm font-black uppercase tracking-[0.12em] text-foreground">
                     <Sparkles className="h-4 w-4 text-accent" />
-                    Explore Product
+                    Discover the Product
                     <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                   </span>
                 </div>

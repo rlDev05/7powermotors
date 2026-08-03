@@ -54,7 +54,7 @@ export function PerformanceEngineering() {
               transition={{ duration: 0.45, delay: index * 0.08 }}
               className="group border border-border/50 bg-card p-7 transition hover:border-accent/70"
             >
-              <div className="mb-6 flex h-14 w-14 items-center justify-center bg-[#050505] text-[#c8a96e] transition group-hover:scale-105">
+              <div className="mb-6 flex h-14 w-14 items-center justify-center border border-border bg-secondary text-[#86672f] transition group-hover:scale-105">
                 {item.icon}
               </div>
               <h3 className="font-[Rajdhani] text-2xl font-black uppercase text-foreground">

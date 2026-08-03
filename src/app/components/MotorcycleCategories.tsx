@@ -8,21 +8,21 @@ const audiences = [
   {
     icon: <Users className="h-7 w-7" />,
     title: 'Riders',
-    subtitle: 'Motorcycle owners, enthusiasts, collectors, and communities.',
+    subtitle: 'For owners who ride with pride and care with purpose.',
     details:
-      'For riders who see their motorcycle as an extension of identity and want showroom shine that lasts longer than ordinary detailing.',
+      'Connect with riders who see every motorcycle as personal and want protection that goes beyond a short-lived showroom shine.',
   },
   {
     icon: <Building2 className="h-7 w-7" />,
     title: 'Shop Partners',
-    subtitle: 'Dealerships, distributors, detailing shops, and autocare businesses.',
+    subtitle: 'For businesses ready to offer more than ordinary detailing.',
     details:
-      'For shops that need a premium upsell, official application training, and a protection system that strengthens customer trust.',
+      'Give dealerships, distributors, detailers, and autocare businesses a premium service backed by training and a stronger customer story.',
   },
   {
     icon: <Wrench className="h-7 w-7" />,
     title: 'Service Centers',
-    subtitle: 'Authorized CR-1 application partners across key motorcycle hubs.',
+    subtitle: 'Professional standards customers can recognize and trust.',
     details:
       'A professional network built around process control, product support, and consistent application quality.',
   },
@@ -57,10 +57,10 @@ export function MotorcycleCategories() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
           <div className="absolute bottom-0 left-0 right-0 p-8">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-accent">
-              Growth Direction
+              The Opportunity
             </p>
             <h2 className="font-[Rajdhani] text-4xl font-black uppercase leading-none text-white sm:text-5xl">
-              Build a trusted motorcycle coating and surface care network.
+              Build the network riders seek—and businesses trust.
             </h2>
           </div>
         </motion.div>
@@ -74,15 +74,15 @@ export function MotorcycleCategories() {
             className="mb-12 max-w-3xl"
           >
             <span className="brand-chip">
-              Growth Plan
+              CR-1 Partnership Growth
             </span>
             <h2 className="racing-title">
-              From awareness to authorized application centers.
+              Turn market interest into authorized growth.
             </h2>
             <p className="racing-copy mt-6">
-              CR-1 Philippines connects riders, certified installers, and
-              partner shops into one trusted glass coating network built for
-              Philippine riding conditions.
+              CR-1 Philippines brings riders, trained installers, and ambitious partner shops
+              into one trusted network—creating clearer customer value and more places to
+              experience professional glass-coating protection.
             </p>
           </motion.div>
 
@@ -96,7 +96,7 @@ export function MotorcycleCategories() {
                 transition={{ duration: 0.45, delay: index * 0.08 }}
                 className="racing-card bg-card p-6"
               >
-                <div className="mb-5 flex h-14 w-14 items-center justify-center bg-[#050505] text-accent">
+                <div className="mb-5 flex h-14 w-14 items-center justify-center border border-border bg-secondary text-accent">
                   {item.icon}
                 </div>
                 <h3 className="font-[Rajdhani] text-2xl font-black uppercase text-foreground">

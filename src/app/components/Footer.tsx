@@ -17,6 +17,7 @@ export function Footer() {
     ],
     services: [
       { label: 'CR-1 Coating Care', href: '/services' },
+      { label: 'Price List', href: '/pricing' },
       { label: 'Installer Training', href: '/services' },
       { label: 'Dealer Partnerships', href: '/services' },
       { label: 'Rider Education', href: '/services' },
@@ -24,7 +25,7 @@ export function Footer() {
     company: [
       { label: 'Why CR-1', href: '/services' },
       { label: 'Model Gallery', href: '/models' },
-      { label: 'Become a Dealer', href: '/contact' },
+      { label: 'Become a Dealer', href: '/contact?intent=partner' },
       { label: 'Dealer Locator', href: '/contact' },
     ],
   };
@@ -36,13 +37,13 @@ export function Footer() {
   ];
 
   return (
-    <footer className="border-t border-black bg-[#0b0b0b] text-white [--border:rgba(255,255,255,0.14)] [--input-background:#151515] [--muted-foreground:#b8b8b8]">
+    <footer className="border-t border-border bg-[#f5f5f2] text-foreground">
       {/* Main Footer Content */}
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
         <div className="mb-10 grid grid-cols-1 gap-9 sm:grid-cols-2 lg:mb-12 lg:grid-cols-5 lg:gap-12">
           {/* Brand Column */}
           <div className="min-w-0 sm:col-span-2 lg:col-span-2">
-            <Logo className="mb-6 [&_span:last-child]:!text-white/70" />
+            <Logo className="mb-6" />
             <p
               className="text-muted-foreground mb-6 max-w-sm"
               style={{
@@ -51,8 +52,8 @@ export function Footer() {
                 lineHeight: 1.7,
               }}
             >
-              CR-1 Philippines brings Japan-developed glass coating care to
-              riders, helmets, parts, and partner shops across the Philippines.
+              Japan-developed glass-coating protection for riders who care more—and businesses
+              ready to offer more across the Philippines.
             </p>
             
             {/* Contact Info */}
@@ -217,7 +218,7 @@ export function Footer() {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="min-h-12 flex-1 border border-border bg-input-background px-4 py-3 text-white placeholder:text-white/45 transition-colors focus:border-accent focus:outline-none"
+                className="min-h-12 flex-1 border border-border bg-white px-4 py-3 text-foreground placeholder:text-muted-foreground transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/15"
                 style={{
                   fontFamily: 'Inter, sans-serif',
                   fontSize: '0.875rem',
@@ -227,7 +228,7 @@ export function Footer() {
                 type="submit"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                className="min-h-12 bg-accent px-6 py-3 text-accent-foreground shadow-[0_12px_28px_rgba(139,26,26,0.28)] transition-all hover:bg-white hover:text-black"
+                className="min-h-12 bg-accent px-6 py-3 text-accent-foreground shadow-[0_12px_28px_rgba(214,0,0,0.22)] transition-all hover:bg-[var(--accent-deep)]"
                 style={{
                   fontFamily: 'Inter, sans-serif',
                   fontSize: '0.875rem',

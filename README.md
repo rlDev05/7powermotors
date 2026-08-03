@@ -133,6 +133,11 @@ The 7POWER MOTORS logo combines:
 - **Motion (Framer Motion)** — Elegant animations
 - **Vite** — Fast build tooling
 
+### Developer Guides
+
+- [Complete Developer Handbook](docs/DEVELOPER_HANDBOOK.md) — Project setup, architecture, routes, data ownership, styling, accessibility, testing, deployment, limitations, and troubleshooting.
+- [CR-1 Philippines Network Locator](docs/CR1_NETWORK_LOCATOR_GUIDE.md) — Junior-friendly instructions for location data, map behavior, styling, accessibility, testing, and troubleshooting.
+
 ### Component Structure
 ```
 /src

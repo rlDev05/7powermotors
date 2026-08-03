@@ -3,7 +3,6 @@ import { Navbar } from '@/app/components/Navbar';
 import { Hero } from '@/app/components/Hero';
 import { AboutCR1 } from '@/app/components/AboutCR1';
 import { ApplicationShowcase } from '@/app/components/ApplicationShowcase';
-import { Z900RSShowcase } from '@/app/components/Z900RSShowcase';
 import { ProductPreview } from '@/app/components/ProductPreview';
 import { Footer } from '@/app/components/Footer';
 import { ScrollToTop } from '@/app/components/ScrollToTop';
@@ -16,7 +15,6 @@ export default function Home() {
         <Hero />
         <AboutCR1 />
         <ApplicationShowcase />
-        <Z900RSShowcase />
         <ProductPreview />
       </main>
       <Footer />
