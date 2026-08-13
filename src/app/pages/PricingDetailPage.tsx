@@ -1,15 +1,20 @@
-import React, { useDeferredValue, useMemo, useState } from 'react';
+import React, { memo, useDeferredValue, useEffect, useMemo, useState } from 'react';
 import { ArrowLeft, ArrowUp, ExternalLink, Search, ShieldAlert, X } from 'lucide-react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { Footer } from '@/app/components/Footer';
 import { Navbar } from '@/app/components/Navbar';
-import { type CourseKey, type VehiclePricingPage } from '@/app/data/pricing';
+import {
+  type CourseKey,
+  type HelmetPricing,
+  type PartsPricing,
+  type VehiclePricingPage,
+} from '@/app/data/pricing';
+import { loadLocalizedPricingData, type LocalizedPricingData } from '@/app/lib/pricingData';
 import {
   JPY_TO_PHP_RATE,
   JPY_TO_PHP_RATE_DATE,
   JPY_TO_PHP_RATE_SOURCE,
-  localizedPricingCatalog as pricingCatalog,
-} from '@/app/lib/pricingLocalization';
+} from '@/app/lib/pricingMeta';
 
 const courseNames: Record<CourseKey, string> = {
   premium: 'Premium Course',
@@ -94,9 +99,13 @@ function filterVehicleSections(page: VehiclePricingPage, query: string) {
   }).filter((section) => section.rows.length > 0);
 }
 
-function VehicleTables({ page, query }: { page: VehiclePricingPage; query: string }) {
-  const sections = useMemo(() => filterVehicleSections(page, query), [page, query]);
-
+const VehicleTables = memo(function VehicleTables({
+  page,
+  sections,
+}: {
+  page: VehiclePricingPage;
+  sections: VehiclePricingPage['sections'];
+}) {
   if (!sections.length) {
     return <div className="pricing-empty-state"><Search aria-hidden="true" /><h2>No matching prices</h2><p>Try a broader model, displacement, course, or price.</p></div>;
   }
@@ -134,26 +143,57 @@ function VehicleTables({ page, query }: { page: VehiclePricingPage; query: strin
 
     </section>
   ));
-}
+});
 
 export default function PricingDetailPage() {
   const { slug = '' } = useParams();
   const [searchParams] = useSearchParams();
   const [query, setQuery] = useState(searchParams.get('q') ?? '');
+  const [dataState, setDataState] = useState<{
+    slug: string;
+    loading: boolean;
+    data?: LocalizedPricingData;
+  }>({ slug: '', loading: true });
   const deferredQuery = useDeferredValue(query);
 
-  const vehiclePage = pricingCatalog.vehiclePages.find((page) => page.slug === slug);
   const isHelmet = slug === 'helmet';
   const isParts = slug === 'parts';
-  const name = vehiclePage?.name ?? (isHelmet ? pricingCatalog.helmet.name : isParts ? pricingCatalog.parts.name : 'Price list');
+
+  useEffect(() => {
+    let cancelled = false;
+    setDataState({ slug, loading: true });
+    const request = loadLocalizedPricingData(slug);
+
+    if (!request) {
+      setDataState({ slug, loading: false });
+      return () => { cancelled = true; };
+    }
+
+    request.then((data) => {
+      if (!cancelled) {
+        setDataState({ slug, loading: false, data });
+      }
+    }).catch(() => {
+      if (!cancelled) setDataState({ slug, loading: false });
+    });
+
+    return () => { cancelled = true; };
+  }, [slug]);
+
+  const pricingData = dataState.slug === slug ? dataState.data : undefined;
+  const dataLoading = dataState.slug !== slug || dataState.loading;
+  const vehiclePage = !isHelmet && !isParts ? pricingData as VehiclePricingPage | undefined : undefined;
+  const helmet = isHelmet ? pricingData as HelmetPricing | undefined : undefined;
+  const parts = isParts ? pricingData as PartsPricing | undefined : undefined;
+  const name = vehiclePage?.name ?? helmet?.name ?? parts?.name ?? 'Price list';
 
   const normalizedQuery = deferredQuery.trim().toLocaleLowerCase();
-  const filteredHelmetRows = useMemo(() => pricingCatalog.helmet.rows.filter((row) =>
+  const filteredHelmetRows = useMemo(() => (helmet?.rows ?? []).filter((row) =>
     !normalizedQuery || row.join(' ').toLocaleLowerCase().includes(normalizedQuery),
-  ), [normalizedQuery]);
-  const filteredParts = useMemo(() => pricingCatalog.parts.items.filter((item) =>
+  ), [helmet, normalizedQuery]);
+  const filteredParts = useMemo(() => (parts?.items ?? []).filter((item) =>
     !normalizedQuery || [item.category, item.name, ...item.details].join(' ').toLocaleLowerCase().includes(normalizedQuery),
-  ), [normalizedQuery]);
+  ), [parts, normalizedQuery]);
   const filteredVehicleSections = useMemo(
     () => vehiclePage ? filterVehicleSections(vehiclePage, deferredQuery) : [],
     [vehiclePage, deferredQuery],
@@ -165,7 +205,18 @@ export default function PricingDetailPage() {
     return groups;
   }, {}), [filteredParts]);
 
-  if (!vehiclePage && !isHelmet && !isParts) {
+  if (dataLoading) {
+    return (
+      <div className="pricing-shell">
+        <Navbar />
+        <main className="pricing-main">
+          <div className="pricing-container pricing-data-loading" role="status">Loading {slug.replace(/-/g, ' ')} prices…</div>
+        </main>
+      </div>
+    );
+  }
+
+  if (!pricingData) {
     return (
       <div className="pricing-shell">
         <Navbar />
@@ -179,8 +230,8 @@ export default function PricingDetailPage() {
     );
   }
 
-  const sourceUrl = vehiclePage?.sourceUrl ?? (isHelmet ? pricingCatalog.helmet.sourceUrl : pricingCatalog.parts.sourceUrl);
-  const notes = vehiclePage?.notes ?? (isHelmet ? pricingCatalog.helmet.notes : pricingCatalog.parts.notes);
+  const sourceUrl = vehiclePage?.sourceUrl ?? helmet?.sourceUrl ?? parts?.sourceUrl ?? '';
+  const notes = vehiclePage?.notes ?? helmet?.notes ?? parts?.notes ?? [];
 
   return (
     <div className="pricing-shell">
@@ -220,7 +271,7 @@ export default function PricingDetailPage() {
             label={`Filter ${name} pricing`}
           />
 
-          {vehiclePage && <VehicleTables page={vehiclePage} query={deferredQuery} />}
+          {vehiclePage && <VehicleTables page={vehiclePage} sections={filteredVehicleSections} />}
 
           {isHelmet && (
             <section className="pricing-table-section">
@@ -231,12 +282,12 @@ export default function PricingDetailPage() {
               <div className="pricing-table-scroll" tabIndex={0} aria-label="Helmet pricing table; scroll horizontally if needed">
                 <table className="pricing-table pricing-helmet-table">
                   <caption>CR-1 helmet coating prices</caption>
-                  <thead><tr>{pricingCatalog.helmet.columns.map((column) => <th scope="col" key={column}>{column}</th>)}</tr></thead>
+                  <thead><tr>{helmet?.columns.map((column) => <th scope="col" key={column}>{column}</th>)}</tr></thead>
                   <tbody>
                     {filteredHelmetRows.map((row) => (
                       <tr key={row[0]}>
                         <th scope="row">{row[0]}</th>
-                        {row.slice(1).map((value, index) => <td data-label={pricingCatalog.helmet.columns[index + 1]} key={pricingCatalog.helmet.columns[index + 1]}><PriceValue value={value} /></td>)}
+                        {row.slice(1).map((value, index) => <td data-label={helmet?.columns[index + 1]} key={helmet?.columns[index + 1]}><PriceValue value={value} /></td>)}
                       </tr>
                     ))}
                   </tbody>

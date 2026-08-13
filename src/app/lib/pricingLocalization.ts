@@ -1,4 +1,9 @@
-import { pricingCatalog } from '@/app/data/pricing';
+import {
+  pricingCatalog,
+  type HelmetPricing,
+  type PartsPricing,
+  type VehiclePricingPage,
+} from '@/app/data/pricing';
 export { JPY_TO_PHP_RATE, JPY_TO_PHP_RATE_DATE, JPY_TO_PHP_RATE_SOURCE } from '@/app/lib/pricingMeta';
 import { JPY_TO_PHP_RATE } from '@/app/lib/pricingMeta';
 
@@ -180,10 +185,8 @@ export function localizePricingText(value: string) {
   return localized;
 }
 
-export const localizedPricingCatalog = {
-  ...pricingCatalog,
-  generatedFrom: 'Official CR-1 Japan price list — English display with PHP estimates',
-  vehiclePages: pricingCatalog.vehiclePages.map((page) => ({
+function localizeVehiclePage(page: VehiclePricingPage): VehiclePricingPage {
+  return {
     ...page,
     sections: page.sections.map((section) => ({
       ...section,
@@ -195,14 +198,25 @@ export const localizedPricingCatalog = {
       })),
     })),
     notes: page.notes.map(localizePricingText),
-  })),
-  helmet: {
+  };
+}
+
+export function getLocalizedVehiclePage(slug: string) {
+  const page = pricingCatalog.vehiclePages.find((candidate) => candidate.slug === slug);
+  return page ? localizeVehiclePage(page) : undefined;
+}
+
+export function getLocalizedHelmet(): HelmetPricing {
+  return {
     ...pricingCatalog.helmet,
     columns: pricingCatalog.helmet.columns.map(localizePricingText),
     rows: pricingCatalog.helmet.rows.map((row) => row.map(localizePricingText)),
     notes: pricingCatalog.helmet.notes.map(localizePricingText),
-  },
-  parts: {
+  };
+}
+
+export function getLocalizedParts(): PartsPricing {
+  return {
     ...pricingCatalog.parts,
     items: pricingCatalog.parts.items.map((item) => ({
       ...item,
@@ -211,5 +225,16 @@ export const localizedPricingCatalog = {
       details: item.details.map(localizePricingText),
     })),
     notes: pricingCatalog.parts.notes.map(localizePricingText),
-  },
-};
+  };
+}
+
+/** Build the full dataset only when the overview's cross-catalog search is used. */
+export function getLocalizedPricingCatalog() {
+  return {
+    ...pricingCatalog,
+    generatedFrom: 'Official CR-1 Japan price list — English display with PHP estimates',
+    vehiclePages: pricingCatalog.vehiclePages.map(localizeVehiclePage),
+    helmet: getLocalizedHelmet(),
+    parts: getLocalizedParts(),
+  };
+}
