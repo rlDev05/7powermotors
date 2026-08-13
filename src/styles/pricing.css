@@ -223,23 +223,27 @@
   margin: 1.25rem 0 3rem;
   padding: .8rem;
   border: 1px solid var(--border);
-  background: rgba(255,255,255,.94);
-  backdrop-filter: blur(8px);
+  background: #fff;
 }
 
 .pricing-detail-toolbar > p { margin: 0; padding-right: .6rem; color: var(--muted-foreground); font-size: .78rem; white-space: nowrap; }
-.pricing-table-section, .pricing-parts-section { margin-top: 3.5rem; scroll-margin-top: 11rem; }
+.pricing-table-section, .pricing-parts-section {
+  margin-top: 3.5rem;
+  scroll-margin-top: 11rem;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 50rem;
+}
 .pricing-table-heading { display: flex; justify-content: space-between; gap: 2rem; align-items: end; margin-bottom: 1rem; }
 .pricing-table-heading > div > span, .pricing-table-heading > span { color: #86672f; font-size: .67rem; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
 .pricing-table-heading h2 { margin-top: .35rem; font-size: clamp(1.7rem,4vw,2.35rem); }
 .pricing-table-scroll { overflow-x: auto; border: 1px solid var(--border); overscroll-behavior-inline: contain; scrollbar-color: #d60000 #ececea; }
 .pricing-table-scroll:focus-visible { outline: 2px solid #c8a96e; outline-offset: 3px; }
 
-.pricing-table { width: 100%; min-width: 72rem; border-collapse: collapse; background: #ffffff; }
+.pricing-table { width: 100%; min-width: 72rem; border-collapse: separate; border-spacing: 0; background: #ffffff; }
 .pricing-table caption { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
 .pricing-table th, .pricing-table td { padding: 1rem; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); vertical-align: top; text-align: left; }
-.pricing-table thead th { position: sticky; top: 0; z-index: 1; min-width: 10rem; border-top: 3px solid var(--course-color,#777); background: #f2f2ef; color: var(--foreground); font-family: "Rajdhani",sans-serif; font-size: .9rem; letter-spacing: .05em; text-transform: uppercase; }
-.pricing-table thead th:first-child { left: 0; z-index: 2; min-width: 18rem; border-top-color: #575757; }
+.pricing-table thead th { min-width: 10rem; border-top: 3px solid var(--course-color,#777); background: #f2f2ef; color: var(--foreground); font-family: "Rajdhani",sans-serif; font-size: .9rem; letter-spacing: .05em; text-transform: uppercase; }
+.pricing-table thead th:first-child { min-width: 18rem; border-top-color: #575757; }
 .pricing-table tbody th { max-width: 28rem; background: #fafaf8; color: var(--foreground); font-size: .84rem; font-weight: 700; line-height: 1.55; }
 .pricing-table tbody tr:hover th, .pricing-table tbody tr:hover td { background-color: rgba(225,6,0,.07); }
 
