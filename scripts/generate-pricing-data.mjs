@@ -30,7 +30,7 @@ try {
           key: `${page.slug}-${section.section}-${row.model}`,
           eyebrow: page.name,
           title: row.model,
-          meta: section.section,
+          context: section.section,
           slug: page.slug,
           haystack: [page.name, page.group, section.section, ...section.courses, row.model, ...row.values]
             .join(' ')
@@ -42,7 +42,7 @@ try {
       key: `helmet-${row[0]}`,
       eyebrow: 'Helmets',
       title: row[0],
-      meta: row.slice(1).join(' · '),
+      context: row.slice(1).join(' · '),
       slug: 'helmet',
       haystack: ['helmet', 'helmets', ...row].join(' ').toLocaleLowerCase(),
     })),
@@ -50,7 +50,7 @@ try {
       key: `parts-${item.category}-${item.name}`,
       eyebrow: 'Individual parts',
       title: item.name,
-      meta: item.category,
+      context: item.category,
       slug: 'parts',
       haystack: ['parts', 'individual parts', 'components', item.category, item.name, ...item.details]
         .join(' ')

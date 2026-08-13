@@ -1,5 +1,6 @@
 // src/app/routes.tsx
 import React, { lazy, Suspense, useEffect } from 'react';
+import { getPricingTranslations } from '@/app/i18n/pricing';
 import {
   createBrowserRouter,
   isRouteErrorResponse,
@@ -42,7 +43,7 @@ const legacyPricingSlugs: Record<string, string> = {
 };
 
 function PricingLoader() {
-  return <div className="min-h-screen bg-background pt-32 text-center text-muted-foreground">Loading price list…</div>;
+  return <div className="min-h-screen bg-background pt-32 text-center text-muted-foreground">{getPricingTranslations('en').loading.priceList}</div>;
 }
 
 function LegacyPricingRedirect() {

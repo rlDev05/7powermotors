@@ -4,7 +4,7 @@ export type IndexedPricingResult = {
   key: string;
   eyebrow: string;
   title: string;
-  meta: string;
+  context: string;
   slug: string;
   haystack: string;
 };

@@ -189,7 +189,7 @@
 .pricing-result-row:hover, .pricing-result-row:focus-visible { background: rgba(225,6,0,.1); }
 .pricing-result-type { color: #86672f; font-size: .7rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
 .pricing-result-name { font-weight: 750; }
-.pricing-result-meta { color: var(--muted-foreground); font-size: .8rem; }
+.pricing-result-context { color: var(--muted-foreground); font-size: .8rem; }
 
 .pricing-empty-state { display: grid; min-height: 15rem; place-items: center; align-content: center; gap: .6rem; padding: 2rem; border: 1px dashed #c9c9c5; background: #fff; text-align: center; }
 .pricing-empty-state h2, .pricing-empty-state h3, .pricing-empty-state p { margin: 0; }
@@ -301,7 +301,7 @@
   .pricing-brand-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .pricing-brand-card { min-height: 4.7rem; padding: .9rem; font-size: .92rem; }
   .pricing-result-row { grid-template-columns: 1fr auto; gap: .35rem 1rem; }
-  .pricing-result-type, .pricing-result-name, .pricing-result-meta { grid-column: 1; }
+  .pricing-result-type, .pricing-result-name, .pricing-result-context { grid-column: 1; }
   .pricing-result-row svg { grid-column: 2; grid-row: 1 / span 3; }
   .pricing-notice-summary { grid-template-columns: 1fr; margin-top: 3.75rem; padding: 1.25rem; }
   .pricing-detail-actions { grid-template-columns: 1fr 1fr; min-width: 0; }

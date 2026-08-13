@@ -4,8 +4,8 @@ import {
   type PartsPricing,
   type VehiclePricingPage,
 } from '@/app/data/pricing';
-export { JPY_TO_PHP_RATE, JPY_TO_PHP_RATE_DATE, JPY_TO_PHP_RATE_SOURCE } from '@/app/lib/pricingMeta';
-import { JPY_TO_PHP_RATE } from '@/app/lib/pricingMeta';
+export { JPY_TO_PHP_RATE, JPY_TO_PHP_RATE_DATE, JPY_TO_PHP_RATE_SOURCE } from '@/app/lib/pricingConfig';
+import { JPY_TO_PHP_RATE } from '@/app/lib/pricingConfig';
 
 const pesoFormatter = new Intl.NumberFormat('en-PH', {
   style: 'currency',

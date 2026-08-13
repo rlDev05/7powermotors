@@ -14,12 +14,15 @@ import { Footer } from '@/app/components/Footer';
 import { Navbar } from '@/app/components/Navbar';
 import { ScrollToTop } from '@/app/components/ScrollToTop';
 import { type CourseKey } from '@/app/data/pricing';
+import { getPricingTranslations } from '@/app/i18n/pricing';
 import {
   JPY_TO_PHP_RATE,
   JPY_TO_PHP_RATE_DATE,
   PRICING_TOTAL_ROWS,
   pricingVehiclePages,
-} from '@/app/lib/pricingMeta';
+} from '@/app/lib/pricingConfig';
+
+const pricingText = getPricingTranslations('en');
 
 const courseDetails: Array<{
   key: CourseKey;
@@ -29,31 +32,31 @@ const courseDetails: Array<{
 }> = [
   {
     key: 'premium',
-    name: 'Premium Course',
+    name: pricingText.courses.premium,
     eyebrow: 'Meister Proshop',
     description: 'Full Course coverage plus a low-friction, water-repellent top coat on exterior surfaces.',
   },
   {
     key: 'full',
-    name: 'Full Course',
+    name: pricingText.courses.full,
     eyebrow: 'Comprehensive coverage',
     description: 'Bodywork, engine, exhaust, forks, swingarm, controls, frame, and wheels.',
   },
   {
     key: 'standard',
-    name: 'Standard Course',
+    name: pricingText.courses.standard,
     eyebrow: 'Core coverage',
     description: 'Tank, fenders, cowls, engine, and exhaust for balanced whole-bike care.',
   },
   {
     key: 'exterior',
-    name: 'Exterior Course',
+    name: pricingText.courses.exterior,
     eyebrow: 'Painted surfaces',
     description: 'Tank, front fender, cowls, and seat cowl—the most visible exterior panels.',
   },
   {
     key: 'wheel',
-    name: 'Wheel Course',
+    name: pricingText.courses.wheel,
     eyebrow: 'Focused protection',
     description: 'Front and rear wheels only. Removal and nearby-part work may cost extra.',
   },
@@ -63,7 +66,7 @@ type SearchResult = {
   key: string;
   eyebrow: string;
   title: string;
-  meta: string;
+  context: string;
   href: string;
 };
 
@@ -102,10 +105,10 @@ export default function PricingPage() {
       }));
 
       if ('helmet helmets'.includes(normalizedQuery)) {
-        results.unshift({ key: 'helmet-category', eyebrow: 'Category', title: 'Helmets', meta: 'Shell and shield coating prices', href: '/pricing/helmet' });
+        results.unshift({ key: 'helmet-category', eyebrow: pricingText.labels.category, title: 'Helmets', context: 'Shell and shield coating prices', href: '/pricing/helmet' });
       }
       if ('parts individual parts components'.includes(normalizedQuery)) {
-        results.unshift({ key: 'parts-category', eyebrow: 'Category', title: 'Individual parts', meta: 'Component-by-component prices', href: '/pricing/parts' });
+        results.unshift({ key: 'parts-category', eyebrow: pricingText.labels.category, title: 'Individual parts', context: 'Component-by-component prices', href: '/pricing/parts' });
       }
 
       setSearchResults(results.slice(0, 60));
@@ -160,17 +163,17 @@ export default function PricingPage() {
             </div>
             <div className="pricing-search-field">
               <Search aria-hidden="true" size={20} />
-              <label className="pricing-sr-only" htmlFor="pricing-search">Search CR-1 pricing</label>
+              <label className="pricing-sr-only" htmlFor="pricing-search">{pricingText.search.overviewLabel}</label>
               <input
                 id="pricing-search"
                 type="search"
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
-                placeholder="Search brand, model, displacement, course…"
+                placeholder={pricingText.search.overviewPlaceholder}
                 autoComplete="off"
               />
               {query && (
-                <button type="button" onClick={() => setQuery('')} aria-label="Clear pricing search">
+                <button type="button" onClick={() => setQuery('')} aria-label={pricingText.actions.clearSearch}>
                   <X aria-hidden="true" size={18} />
                 </button>
               )}
@@ -185,7 +188,7 @@ export default function PricingPage() {
                   <h2 id="pricing-results-title">Matches for “{query.trim()}”</h2>
                 </div>
                 <p role="status" aria-live="polite">
-                  {searchPending ? 'Searching price lists…' : `${matchedCourses.length + searchResults.length} result${matchedCourses.length + searchResults.length === 1 ? '' : 's'}`}
+                  {searchPending ? pricingText.search.pending : `${matchedCourses.length + searchResults.length} result${matchedCourses.length + searchResults.length === 1 ? '' : 's'}`}
                   {searchResults.length === 60 ? ' — refine your search to narrow the list' : ''}
                 </p>
               </div>
@@ -208,7 +211,7 @@ export default function PricingPage() {
                     <Link className="pricing-result-row" to={result.href} key={result.key}>
                       <span className="pricing-result-type">{result.eyebrow}</span>
                       <span className="pricing-result-name">{result.title}</span>
-                      <span className="pricing-result-meta">{result.meta}</span>
+                      <span className="pricing-result-context">{result.context}</span>
                       <ArrowRight aria-hidden="true" size={18} />
                     </Link>
                   ))}
@@ -216,8 +219,8 @@ export default function PricingPage() {
               ) : matchedCourses.length === 0 && !searchPending ? (
                 <div className="pricing-empty-state">
                   <Search aria-hidden="true" size={26} />
-                  <h3>No exact match yet</h3>
-                  <p>Check the spelling or try a broader brand, model family, displacement, or course name.</p>
+                  <h3>{pricingText.labels.noExactMatch}</h3>
+                  <p>{pricingText.search.emptyHint}</p>
                 </div>
               ) : null}
             </section>

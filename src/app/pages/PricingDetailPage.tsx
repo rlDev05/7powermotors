@@ -10,18 +10,21 @@ import {
   type VehiclePricingPage,
 } from '@/app/data/pricing';
 import { loadLocalizedPricingData, type LocalizedPricingData } from '@/app/lib/pricingData';
+import { getPricingTranslations } from '@/app/i18n/pricing';
 import {
   JPY_TO_PHP_RATE,
   JPY_TO_PHP_RATE_DATE,
   JPY_TO_PHP_RATE_SOURCE,
-} from '@/app/lib/pricingMeta';
+} from '@/app/lib/pricingConfig';
+
+const pricingText = getPricingTranslations('en');
 
 const courseNames: Record<CourseKey, string> = {
-  premium: 'Premium Course',
-  full: 'Full Course',
-  standard: 'Standard Course',
-  exterior: 'Exterior Course',
-  wheel: 'Wheel Course',
+  premium: pricingText.courses.premium,
+  full: pricingText.courses.full,
+  standard: pricingText.courses.standard,
+  exterior: pricingText.courses.exterior,
+  wheel: pricingText.courses.wheel,
 };
 
 const sharedDisclaimer = [
@@ -33,14 +36,14 @@ const sharedDisclaimer = [
 ];
 
 function PriceValue({ value }: { value: string }) {
-  if (!value || value === '-') return <span className="pricing-unavailable">—</span>;
+  if (!value || value === '-') return <span className="pricing-unavailable">{pricingText.labels.unavailable}</span>;
   const [newVehicle, ...usedParts] = value.split(' / ');
   const usedVehicle = usedParts.join(' / ').replace(/[【】]/g, '');
 
   return (
     <span className="pricing-price-pair">
-      <span className="pricing-price-new"><small>New</small>{newVehicle}</span>
-      {usedVehicle && <span className="pricing-price-used"><small>Existing</small>{usedVehicle}</span>}
+      <span className="pricing-price-new"><small>{pricingText.labels.newVehicle}</small>{newVehicle}</span>
+      {usedVehicle && <span className="pricing-price-used"><small>{pricingText.labels.existingVehicle}</small>{usedVehicle}</span>}
     </span>
   );
 }
@@ -66,11 +69,11 @@ function DetailSearch({
           type="search"
           value={query}
           onChange={(event) => onChange(event.target.value)}
-          placeholder="Filter models, displacement, prices, or courses…"
+          placeholder={pricingText.search.detailPlaceholder}
           autoComplete="off"
         />
         {query && (
-          <button type="button" onClick={() => onChange('')} aria-label="Clear detail search">
+          <button type="button" onClick={() => onChange('')} aria-label={pricingText.actions.clearDetailSearch}>
             <X aria-hidden="true" size={18} />
           </button>
         )}
@@ -107,7 +110,7 @@ const VehicleTables = memo(function VehicleTables({
   sections: VehiclePricingPage['sections'];
 }) {
   if (!sections.length) {
-    return <div className="pricing-empty-state"><Search aria-hidden="true" /><h2>No matching prices</h2><p>Try a broader model, displacement, course, or price.</p></div>;
+    return <div className="pricing-empty-state"><Search aria-hidden="true" /><h2>{pricingText.labels.noMatchingPrices}</h2><p>{pricingText.search.detailEmptyHint}</p></div>;
   }
 
   return sections.map((section) => (
@@ -122,7 +125,7 @@ const VehicleTables = memo(function VehicleTables({
           <caption>{page.name} — {section.section}</caption>
           <thead>
             <tr>
-              <th scope="col">Model / vehicle type</th>
+              <th scope="col">{pricingText.labels.modelOrVehicleType}</th>
               {section.courses.map((course) => (
                 <th scope="col" className={`course-heading course-${course}`} key={course}>{courseNames[course]}</th>
               ))}
@@ -210,7 +213,7 @@ export default function PricingDetailPage() {
       <div className="pricing-shell">
         <Navbar />
         <main className="pricing-main">
-          <div className="pricing-container pricing-data-loading" role="status">Loading {slug.replace(/-/g, ' ')} prices…</div>
+          <div className="pricing-container pricing-data-loading" role="status">{pricingText.loading.categoryPrefix} {slug.replace(/-/g, ' ')} {pricingText.loading.categorySuffix}</div>
         </main>
       </div>
     );
