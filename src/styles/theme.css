@@ -257,6 +257,22 @@
   }
 }
 
+@media (max-width: 48rem), (hover: none) {
+  .motion-sheen {
+    display: none;
+  }
+
+  .racing-card,
+  .racing-card:hover {
+    transform: none;
+    box-shadow: var(--shadow-card);
+  }
+
+  .racing-card::after {
+    display: none;
+  }
+}
+
 @layer components {
   .racing-section {
     @apply relative overflow-hidden py-16 sm:py-20 lg:py-28;

@@ -67,7 +67,7 @@ export function ProductPreview() {
                 <div className="relative flex aspect-[4/3] items-center justify-center bg-white p-5 sm:p-8">
                   <div className="motion-sheen" />
                   <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-accent via-black to-transparent opacity-80" />
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={product.image}
                     alt={product.name}
                     className="h-full w-full object-contain transition duration-700 group-hover:scale-105"

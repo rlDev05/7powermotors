@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useDeferredValue, useMemo, useState } from 'react';
 import {
   ArrowRight,
   Bike,
@@ -66,13 +66,18 @@ type SearchResult = {
   href: string;
 };
 
+const importedBrands = pricingCatalog.vehiclePages.filter((page) => page.group === 'imported');
+const domestic = pricingCatalog.vehiclePages.find((page) => page.slug === 'domestic')!;
+const special = pricingCatalog.vehiclePages.find((page) => page.slug === 'special')!;
+const totalRows = pricingCatalog.vehiclePages.reduce(
+  (total, page) => total + page.sections.reduce((subtotal, section) => subtotal + section.rows.length, 0),
+  0,
+);
+
 export default function PricingPage() {
   const [query, setQuery] = useState('');
-  const normalizedQuery = query.trim().toLocaleLowerCase();
-
-  const importedBrands = pricingCatalog.vehiclePages.filter((page) => page.group === 'imported');
-  const domestic = pricingCatalog.vehiclePages.find((page) => page.slug === 'domestic')!;
-  const special = pricingCatalog.vehiclePages.find((page) => page.slug === 'special')!;
+  const deferredQuery = useDeferredValue(query);
+  const normalizedQuery = deferredQuery.trim().toLocaleLowerCase();
 
   const matchedCourses = normalizedQuery
     ? courseDetails.filter((course) =>
@@ -105,7 +110,7 @@ export default function PricingPage() {
               eyebrow: page.name,
               title: row.model,
               meta: section.section,
-              href: `/pricing/${page.slug}?q=${encodeURIComponent(query.trim())}`,
+              href: `/pricing/${page.slug}?q=${encodeURIComponent(deferredQuery.trim())}`,
             });
           }
           if (results.length >= 60) return results;
@@ -130,7 +135,7 @@ export default function PricingPage() {
           eyebrow: 'Helmets',
           title: row[0],
           meta: row.slice(1).join(' · '),
-          href: `/pricing/helmet?q=${encodeURIComponent(query.trim())}`,
+          href: `/pricing/helmet?q=${encodeURIComponent(deferredQuery.trim())}`,
         });
       }
     }
@@ -152,22 +157,17 @@ export default function PricingPage() {
           eyebrow: 'Individual parts',
           title: item.name,
           meta: item.category,
-          href: `/pricing/parts?q=${encodeURIComponent(query.trim())}`,
+          href: `/pricing/parts?q=${encodeURIComponent(deferredQuery.trim())}`,
         });
       }
     }
 
     return results.slice(0, 60);
-  }, [normalizedQuery, query]);
+  }, [normalizedQuery, deferredQuery]);
 
   const filteredBrands = normalizedQuery
     ? importedBrands.filter((brand) => brand.name.toLocaleLowerCase().includes(normalizedQuery))
     : importedBrands;
-
-  const totalRows = pricingCatalog.vehiclePages.reduce(
-    (total, page) => total + page.sections.reduce((subtotal, section) => subtotal + section.rows.length, 0),
-    0,
-  );
 
   return (
     <div className="pricing-shell">

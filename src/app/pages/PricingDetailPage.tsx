@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useDeferredValue, useMemo, useState } from 'react';
 import { ArrowLeft, ArrowUp, ExternalLink, Search, ShieldAlert, X } from 'lucide-react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { Footer } from '@/app/components/Footer';
@@ -124,7 +124,7 @@ function VehicleTables({ page, query }: { page: VehiclePricingPage; query: strin
               <tr key={`${row.model}-${rowIndex}`}>
                 <th scope="row">{row.model}</th>
                 {section.courses.map((course, index) => (
-                  <td key={course}><PriceValue value={row.values[index] ?? '-'} /></td>
+                  <td key={course} data-label={courseNames[course]}><PriceValue value={row.values[index] ?? '-'} /></td>
                 ))}
               </tr>
             ))}
@@ -132,21 +132,6 @@ function VehicleTables({ page, query }: { page: VehiclePricingPage; query: strin
         </table>
       </div>
 
-      <div className="pricing-mobile-list">
-        {section.rows.map((row, rowIndex) => (
-          <article className="pricing-mobile-card" key={`${row.model}-mobile-${rowIndex}`}>
-            <h3>{row.model}</h3>
-            <dl>
-              {section.courses.map((course, index) => (
-                <div key={course}>
-                  <dt className={`course-${course}`}>{courseNames[course]}</dt>
-                  <dd><PriceValue value={row.values[index] ?? '-'} /></dd>
-                </div>
-              ))}
-            </dl>
-          </article>
-        ))}
-      </div>
     </section>
   ));
 }
@@ -155,26 +140,30 @@ export default function PricingDetailPage() {
   const { slug = '' } = useParams();
   const [searchParams] = useSearchParams();
   const [query, setQuery] = useState(searchParams.get('q') ?? '');
+  const deferredQuery = useDeferredValue(query);
 
   const vehiclePage = pricingCatalog.vehiclePages.find((page) => page.slug === slug);
   const isHelmet = slug === 'helmet';
   const isParts = slug === 'parts';
   const name = vehiclePage?.name ?? (isHelmet ? pricingCatalog.helmet.name : isParts ? pricingCatalog.parts.name : 'Price list');
 
-  const normalizedQuery = query.trim().toLocaleLowerCase();
-  const filteredHelmetRows = pricingCatalog.helmet.rows.filter((row) =>
+  const normalizedQuery = deferredQuery.trim().toLocaleLowerCase();
+  const filteredHelmetRows = useMemo(() => pricingCatalog.helmet.rows.filter((row) =>
     !normalizedQuery || row.join(' ').toLocaleLowerCase().includes(normalizedQuery),
-  );
-  const filteredParts = pricingCatalog.parts.items.filter((item) =>
+  ), [normalizedQuery]);
+  const filteredParts = useMemo(() => pricingCatalog.parts.items.filter((item) =>
     !normalizedQuery || [item.category, item.name, ...item.details].join(' ').toLocaleLowerCase().includes(normalizedQuery),
+  ), [normalizedQuery]);
+  const filteredVehicleSections = useMemo(
+    () => vehiclePage ? filterVehicleSections(vehiclePage, deferredQuery) : [],
+    [vehiclePage, deferredQuery],
   );
-  const filteredVehicleSections = vehiclePage ? filterVehicleSections(vehiclePage, query) : [];
   const vehicleCount = filteredVehicleSections.reduce((total, section) => total + section.rows.length, 0);
 
-  const groupedParts = filteredParts.reduce<Record<string, typeof filteredParts>>((groups, item) => {
+  const groupedParts = useMemo(() => filteredParts.reduce<Record<string, typeof filteredParts>>((groups, item) => {
     (groups[item.category] ??= []).push(item);
     return groups;
-  }, {});
+  }, {}), [filteredParts]);
 
   if (!vehiclePage && !isHelmet && !isParts) {
     return (
@@ -231,7 +220,7 @@ export default function PricingDetailPage() {
             label={`Filter ${name} pricing`}
           />
 
-          {vehiclePage && <VehicleTables page={vehiclePage} query={query} />}
+          {vehiclePage && <VehicleTables page={vehiclePage} query={deferredQuery} />}
 
           {isHelmet && (
             <section className="pricing-table-section">
@@ -247,23 +236,11 @@ export default function PricingDetailPage() {
                     {filteredHelmetRows.map((row) => (
                       <tr key={row[0]}>
                         <th scope="row">{row[0]}</th>
-                        {row.slice(1).map((value, index) => <td key={pricingCatalog.helmet.columns[index + 1]}><PriceValue value={value} /></td>)}
+                        {row.slice(1).map((value, index) => <td data-label={pricingCatalog.helmet.columns[index + 1]} key={pricingCatalog.helmet.columns[index + 1]}><PriceValue value={value} /></td>)}
                       </tr>
                     ))}
                   </tbody>
                 </table>
-              </div>
-              <div className="pricing-mobile-list">
-                {filteredHelmetRows.map((row) => (
-                  <article className="pricing-mobile-card" key={`${row[0]}-mobile`}>
-                    <h3>{row[0]}</h3>
-                    <dl>{row.slice(1).map((value, index) => (
-                      <div key={pricingCatalog.helmet.columns[index + 1]}>
-                        <dt>{pricingCatalog.helmet.columns[index + 1]}</dt><dd><PriceValue value={value} /></dd>
-                      </div>
-                    ))}</dl>
-                  </article>
-                ))}
               </div>
             </section>
           )}

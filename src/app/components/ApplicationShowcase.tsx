@@ -223,7 +223,7 @@ export function ApplicationShowcase() {
             variants={revealContainer}
           >
             <motion.figure className="racing-media aspect-[16/10]" variants={mediaReveal}>
-              <img
+              <img loading="lazy" decoding="async"
                 src={completedBike.src}
                 alt="Completed CR-1-treated Kawasaki Z900RS presented in the studio"
                 className="h-full w-full object-cover"
@@ -246,7 +246,7 @@ export function ApplicationShowcase() {
                   className={`racing-media aspect-[4/5] ${index === 2 ? 'col-span-2 sm:col-span-1' : ''}`}
                   variants={mediaReveal}
                 >
-                  <img src={image.src} alt={image.alt} className="h-full w-full object-cover" />
+                  <img src={image.src} alt={image.alt} loading="lazy" decoding="async" className="h-full w-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/78 via-black/5 to-transparent" />
                   <figcaption className="absolute inset-x-0 bottom-0 p-4">
                     <span className="font-[Rajdhani] text-lg font-black uppercase tracking-[0.06em] text-white sm:text-xl">
@@ -285,10 +285,9 @@ export function ApplicationShowcase() {
           <div className="grid grid-cols-3 gap-2 border-t border-border py-5 sm:grid-cols-6 lg:grid-cols-9">
             {allMedia.map((image) => (
               <figure key={image.src} className="group/media relative aspect-square overflow-hidden bg-muted">
-                <img
+                <img loading="lazy" decoding="async"
                   src={image.src}
                   alt={image.alt}
-                  loading="lazy"
                   className="h-full w-full object-cover transition duration-300 group-hover/media:scale-[1.04]"
                 />
                 <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent px-2 pb-2 pt-6 text-[0.55rem] font-black uppercase tracking-[0.12em] text-white opacity-0 transition group-hover/media:opacity-100 group-focus-within/media:opacity-100">

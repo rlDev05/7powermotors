@@ -125,7 +125,7 @@ export function Z900RSShowcase() {
                 }`}
                 variants={revealUp}
               >
-                <img
+                <img loading="lazy" decoding="async"
                   src={image.src}
                   alt=""
                   className="h-full w-full object-cover transition duration-300 group-hover:scale-105"

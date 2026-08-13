@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useDeferredValue, useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom'; // Changed from next/link & next/navigation
 import { motion } from 'motion/react';
 import { ArrowRight, Search, SlidersHorizontal } from 'lucide-react';
@@ -13,6 +13,7 @@ export default function MotorcyclesPage() {
   // React Router hook for query params (?category=sport)
   const [searchParams] = useSearchParams(); 
   const [searchTerm, setSearchTerm] = useState('');
+  const deferredSearchTerm = useDeferredValue(searchTerm);
   const selectedCategory = searchParams.get('category');
 
   const categories = useMemo(
@@ -20,13 +21,13 @@ export default function MotorcyclesPage() {
     []
   );
 
-  const filteredBikes = bikes.filter((bike) => {
+  const filteredBikes = useMemo(() => bikes.filter((bike) => {
     const matchesCategory = selectedCategory
       ? bike.category.toLowerCase() === selectedCategory.toLowerCase()
       : true;
-    const matchesSearch = bike.name.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesSearch = bike.name.toLowerCase().includes(deferredSearchTerm.trim().toLowerCase());
     return matchesCategory && matchesSearch;
-  });
+  }), [deferredSearchTerm, selectedCategory]);
 
   // Dynamic Title
   const pageTitle = selectedCategory 
@@ -85,10 +86,11 @@ export default function MotorcyclesPage() {
             </motion.div>
             <motion.div className="relative min-h-[240px] bg-secondary/50 sm:min-h-[320px]" variants={mediaReveal}>
               <div className="motion-sheen z-10" />
-              <ImageWithFallback
-                src={bikes[0]?.image || ''}
-                alt="Featured CR-1 motorcycle model"
-                className="h-full w-full object-contain p-6 sm:p-10"
+               <ImageWithFallback
+                 src={bikes[0]?.image || ''}
+                 alt="Featured CR-1 motorcycle model"
+                 loading="eager"
+                 className="h-full w-full object-contain p-6 sm:p-10"
               />
               <div className="absolute inset-0 bg-gradient-to-l from-transparent to-card/40" />
             </motion.div>
@@ -118,6 +120,7 @@ export default function MotorcyclesPage() {
                 value={searchTerm}
                 onChange={(event) => setSearchTerm(event.target.value)}
                 placeholder="Search models"
+                aria-label="Search motorcycle models"
                 className="w-full border border-border bg-input-background py-3 pl-12 pr-4 text-sm text-foreground outline-none transition focus:border-accent"
               />
             </label>
@@ -137,7 +140,7 @@ export default function MotorcyclesPage() {
             {categories.map((category) => (
               <Link
                 key={category}
-                to={`/models?category=${category}`}
+                  to={`/models?category=${encodeURIComponent(category)}`}
                 className={`shrink-0 px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] transition ${
                   selectedCategory === category
                     ? 'bg-accent text-white'
@@ -204,9 +207,9 @@ export default function MotorcyclesPage() {
           ) : (
             <div className="col-span-full border border-dashed border-border bg-card py-20 text-center">
               <p className="text-xl text-muted-foreground font-inter">No models found in this category.</p>
-              <Link to="/models" className="text-accent mt-4 inline-block font-bold hover:underline">
-                View all models
-              </Link>
+              <button type="button" onClick={() => setSearchTerm('')} className="text-accent mt-4 font-bold hover:underline">
+                Clear search
+              </button>
             </div>
           )}
         </motion.div>

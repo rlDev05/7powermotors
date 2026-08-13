@@ -17,8 +17,8 @@ export function LoadingScreen({ onFinished }: LoadingScreenProps) {
   }, [onFinished]);
 
   useEffect(() => {
-    const skipTimer = window.setTimeout(() => setShowSkip(true), 800);
-    const finishTimer = window.setTimeout(finishIntro, 5200);
+    const skipTimer = window.setTimeout(() => setShowSkip(true), 350);
+    const finishTimer = window.setTimeout(finishIntro, 1800);
 
     return () => {
       window.clearTimeout(skipTimer);
@@ -52,7 +52,7 @@ export function LoadingScreen({ onFinished }: LoadingScreenProps) {
             autoPlay
             muted
             playsInline
-            preload="auto"
+            preload="metadata"
             disablePictureInPicture
             controlsList="nodownload noplaybackrate noremoteplayback"
             onEnded={finishIntro}

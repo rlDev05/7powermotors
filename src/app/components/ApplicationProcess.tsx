@@ -120,12 +120,10 @@ export function ApplicationProcess() {
             className="relative min-h-[26rem] overflow-hidden border-b border-border bg-[#f3efe3] sm:min-h-[31rem] lg:min-h-full lg:border-b-0 lg:border-r"
             variants={mediaReveal}
           >
-            <img
+            <img loading="lazy" decoding="async"
               src={certificateBackground}
               alt=""
               aria-hidden="true"
-              loading="lazy"
-              decoding="async"
               className="absolute inset-0 h-full w-full object-cover object-top"
             />
             <div

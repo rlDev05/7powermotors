@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useDeferredValue, useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ArrowRight, PackageCheck, Search, SlidersHorizontal } from 'lucide-react';
@@ -11,6 +11,7 @@ import { mediaReveal, revealContainer, revealUp } from '@/app/lib/motionPresets'
 export default function ProductsPage() {
   const [searchParams] = useSearchParams();
   const [searchTerm, setSearchTerm] = useState('');
+  const deferredSearchTerm = useDeferredValue(searchTerm);
   const selectedCategory = searchParams.get('category');
 
   const categories = useMemo(
@@ -18,17 +19,17 @@ export default function ProductsPage() {
     []
   );
 
-  const filteredProducts = careProducts.filter((product) => {
+  const filteredProducts = useMemo(() => careProducts.filter((product) => {
     const matchesCategory = selectedCategory
       ? product.category.toLowerCase() === selectedCategory.toLowerCase()
       : true;
-    const query = searchTerm.toLowerCase();
+    const query = deferredSearchTerm.trim().toLowerCase();
     const matchesSearch =
       product.name.toLowerCase().includes(query) ||
       product.summary.toLowerCase().includes(query);
 
     return matchesCategory && matchesSearch;
-  });
+  }), [deferredSearchTerm, selectedCategory]);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -72,6 +73,8 @@ export default function ProductsPage() {
                     <img
                       src={product.image}
                       alt={product.name}
+                      loading={index === 0 ? 'eager' : 'lazy'}
+                      decoding="async"
                     className="max-h-28 w-full object-contain sm:max-h-36"
                     />
                   </motion.div>
@@ -103,6 +106,7 @@ export default function ProductsPage() {
                   value={searchTerm}
                   onChange={(event) => setSearchTerm(event.target.value)}
                   placeholder="Search care products"
+                  aria-label="Search care products"
                   className="form-field py-3 pl-12 pr-4 text-sm"
                 />
               </label>
@@ -154,6 +158,8 @@ export default function ProductsPage() {
                   <img
                     src={product.image}
                     alt={product.name}
+                    loading="lazy"
+                    decoding="async"
                     className="h-full w-full object-contain transition duration-500 group-hover:scale-105"
                   />
                 </div>
@@ -187,6 +193,14 @@ export default function ProductsPage() {
                 </div>
               </motion.article>
             ))}
+            {filteredProducts.length === 0 && (
+              <div className="col-span-full border border-dashed border-border bg-card px-5 py-14 text-center">
+                <p className="text-lg font-semibold text-foreground">No care products match those filters.</p>
+                <button type="button" onClick={() => setSearchTerm('')} className="mt-3 font-bold text-accent hover:underline">
+                  Clear search
+                </button>
+              </div>
+            )}
           </motion.div>
         </div>
       </main>

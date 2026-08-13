@@ -10,15 +10,13 @@ import {
   useRouteError,
 } from 'react-router-dom';
 
-// Import your pages
-import Home from '@/app/pages/Home';
-import ProductsPage from '@/app/pages/ProductsPage';
-import ServicesPage from '@/app/pages/ServicesPage';
-import ContactPage from '@/app/pages/ContactPage';
-import PartnersPage from '@/app/pages/PartnersPage';
-import MotorcyclesPage from '@/app/motorcycles/MotorcyclesPage';
-import BikeDetailsPage from '@/app/motorcycles/BikeDetailsPage';
-
+const Home = lazy(() => import('@/app/pages/Home'));
+const ProductsPage = lazy(() => import('@/app/pages/ProductsPage'));
+const ServicesPage = lazy(() => import('@/app/pages/ServicesPage'));
+const ContactPage = lazy(() => import('@/app/pages/ContactPage'));
+const PartnersPage = lazy(() => import('@/app/pages/PartnersPage'));
+const MotorcyclesPage = lazy(() => import('@/app/motorcycles/MotorcyclesPage'));
+const BikeDetailsPage = lazy(() => import('@/app/motorcycles/BikeDetailsPage'));
 const PricingPage = lazy(() => import('@/app/pages/PricingPage'));
 const PricingDetailPage = lazy(() => import('@/app/pages/PricingDetailPage'));
 
@@ -52,6 +50,8 @@ function LegacyPricingRedirect() {
   const slug = legacyPricingSlugs[legacyFile];
   return <Navigate to={slug ? `/pricing/${slug}` : '/pricing'} replace />;
 }
+
+const withPageLoader = (page: React.ReactNode) => <Suspense fallback={<PricingLoader />}>{page}</Suspense>;
 
 function ErrorPage() {
   const error = useRouteError();
@@ -92,39 +92,39 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />,
+        element: withPageLoader(<Home />),
       },
       {
         path: 'motorcycles',
-        element: <MotorcyclesPage />,
+        element: withPageLoader(<MotorcyclesPage />),
       },
       {
         path: 'models',
-        element: <MotorcyclesPage />,
+        element: withPageLoader(<MotorcyclesPage />),
       },
       {
         path: 'products',
-        element: <ProductsPage />,
+        element: withPageLoader(<ProductsPage />),
       },
       {
         path: 'motorcycles/:id', // This matches the useParams in BikeDetailsPage
-        element: <BikeDetailsPage />,
+        element: withPageLoader(<BikeDetailsPage />),
       },
       {
         path: 'models/:id',
-        element: <BikeDetailsPage />,
+        element: withPageLoader(<BikeDetailsPage />),
       },
       {
         path: 'services',
-        element: <ServicesPage />,
+        element: withPageLoader(<ServicesPage />),
       },
       {
         path: 'pricing',
-        element: <Suspense fallback={<PricingLoader />}><PricingPage /></Suspense>,
+        element: withPageLoader(<PricingPage />),
       },
       {
         path: 'pricing/:slug',
-        element: <Suspense fallback={<PricingLoader />}><PricingDetailPage /></Suspense>,
+        element: withPageLoader(<PricingDetailPage />),
       },
       {
         path: 'service',
@@ -140,11 +140,11 @@ export const router = createBrowserRouter([
       },
       {
         path: 'partners',
-        element: <PartnersPage />,
+        element: withPageLoader(<PartnersPage />),
       },
       {
         path: 'contact',
-        element: <ContactPage />,
+        element: withPageLoader(<ContactPage />),
       },
       // --- CATCH-ALL ROUTE (404) ---
       {

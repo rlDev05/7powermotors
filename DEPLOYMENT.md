@@ -10,11 +10,14 @@ Use **Compose from URL** and paste the repository URL:
 https://github.com/rlDev05/7powermotors.git
 ```
 
-The included `docker-compose.yml` exposes the site on port `8080`:
+The included `docker-compose.yml` exposes the site on port `8082` by default:
 
 ```text
-http://srv1742945.hstgr.cloud:8080
+http://srv1742945.hstgr.cloud:8082
 ```
+
+To use a different available host port, set `CR1_PORT` before starting Docker Compose.
+The container continues to serve Nginx on its internal port `80`.
 
 ## GitHub Actions Workflow
 
