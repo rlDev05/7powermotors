@@ -6,6 +6,10 @@
   "scripts": {
     "build": "vite build",
     "dev": "vite",
+    "preview": "vite preview",
+    "test": "npm run test:pricing",
+    "test:pricing": "node --experimental-strip-types scripts/test-pricing.mjs",
+    "test:production": "npm run build && vite preview",
     "generate:pricing": "node scripts/generate-pricing-data.mjs"
   },
   "dependencies": {
