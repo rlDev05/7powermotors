@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Layers3, ShieldCheck, Thermometer } from 'lucide-react';
 import cr1HeroVideo from '@/styles/videos/cr1-hero-web.mp4';
 
-const heroLines = ['100% Pure Glass', 'Zero Compromise'];
+const heroLines = ['100% Pure Glass', 'Motorcycle Exclusive'];
 
 const heroProofPoints = [
   {
@@ -16,13 +16,13 @@ const heroProofPoints = [
   {
     icon: <Thermometer className="h-5 w-5" aria-hidden="true" />,
     label: 'Heat Resistance',
-    value: '1,300°C+',
+    value: '1,300°C',
     detail: 'For approved heat-exposed areas',
   },
   {
     icon: <Layers3 className="h-5 w-5" aria-hidden="true" />,
     label: 'Ultra-Thin Glass',
-    value: '≈0.1 μm',
+    value: '0.1 μm',
     detail: 'Preserves texture and character',
   },
 ];
@@ -155,9 +155,9 @@ export function Hero() {
                 transition={{ duration: 0.72, ease: 'easeOut' }}
                 className="mt-5 max-w-2xl text-sm leading-7 text-white/82 [text-shadow:0_2px_14px_rgba(0,0,0,0.45)] sm:mt-6 sm:text-lg sm:leading-8"
               >
-                CR-1 is a Japan-developed, fully inorganic glass coating professionally applied to
-                motorcycles, helmets, and approved components. It helps preserve the finish and
-                makes regular care easier without hiding the motorcycle&apos;s character.
+                CR-1 is a glass coating brand made exclusively for motorcycles. Sprayed on by
+                certified technicians and chemically cured into a 100% pure glass layer, it offers
+                9H scratch resistance, 1,300°C heat resistance, and about 10 years of durability.
               </motion.p>
 
               <motion.div

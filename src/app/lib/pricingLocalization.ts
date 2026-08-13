@@ -1,8 +1,6 @@
 import { pricingCatalog } from '@/app/data/pricing';
-
-export const JPY_TO_PHP_RATE = 0.3803;
-export const JPY_TO_PHP_RATE_DATE = '16 July 2026';
-export const JPY_TO_PHP_RATE_SOURCE = 'Bangko Sentral ng Pilipinas';
+export { JPY_TO_PHP_RATE, JPY_TO_PHP_RATE_DATE, JPY_TO_PHP_RATE_SOURCE } from '@/app/lib/pricingMeta';
+import { JPY_TO_PHP_RATE } from '@/app/lib/pricingMeta';
 
 const pesoFormatter = new Intl.NumberFormat('en-PH', {
   style: 'currency',

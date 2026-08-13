@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'motion/react';
 import { Facebook, Instagram, Mail, MapPin, Music2, Phone } from 'lucide-react';
 import { Logo } from '@/app/components/Logo';
 import { cr1Contact, cr1SocialLinks } from '@/app/data/brand';
@@ -52,8 +51,8 @@ export function Footer() {
                 lineHeight: 1.7,
               }}
             >
-              Japan-developed glass-coating protection for riders who care more—and businesses
-              ready to offer more across the Philippines.
+              Glass coating made exclusively for motorcycles, professionally applied across approved
+              motorcycle, helmet, wheel, exhaust, part, and accessory surfaces.
             </p>
             
             {/* Contact Info */}
@@ -214,7 +213,7 @@ export function Footer() {
             >
               Get CR-1 rider care tips, partner updates, and coating program news.
             </p>
-            <form className="flex flex-col gap-3 sm:flex-row">
+            <form className="flex flex-col gap-3 sm:flex-row" onSubmit={(event) => event.preventDefault()}>
               <input
                 type="email"
                 placeholder="Enter your email"
@@ -224,11 +223,9 @@ export function Footer() {
                   fontSize: '0.875rem',
                 }}
               />
-              <motion.button
+              <button
                 type="submit"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                className="min-h-12 bg-accent px-6 py-3 text-accent-foreground shadow-[0_12px_28px_rgba(214,0,0,0.22)] transition-all hover:bg-[var(--accent-deep)]"
+                className="min-h-12 bg-accent px-6 py-3 text-accent-foreground shadow-[0_12px_28px_rgba(214,0,0,0.22)] transition-transform hover:scale-[1.03] hover:bg-[var(--accent-deep)] active:scale-[.97]"
                 style={{
                   fontFamily: 'Inter, sans-serif',
                   fontSize: '0.875rem',
@@ -236,7 +233,7 @@ export function Footer() {
                 }}
               >
                 SUBSCRIBE
-              </motion.button>
+              </button>
             </form>
           </div>
         </div>
@@ -257,17 +254,16 @@ export function Footer() {
           {/* Social Links */}
           <div className="flex gap-4">
             {socialLinks.map((social) => (
-              <motion.a
+              <a
                 key={social.label}
                 href={social.href}
                 target="_blank"
                 rel="noreferrer"
-                whileHover={{ scale: 1.1, y: -2 }}
-                className="w-10 h-10 flex items-center justify-center border border-border hover:border-accent text-muted-foreground hover:text-accent transition-all"
+                className="w-10 h-10 flex items-center justify-center border border-border hover:border-accent text-muted-foreground hover:-translate-y-0.5 hover:scale-110 hover:text-accent transition-transform"
                 aria-label={social.label}
               >
                 {social.icon}
-              </motion.a>
+              </a>
             ))}
           </div>
 

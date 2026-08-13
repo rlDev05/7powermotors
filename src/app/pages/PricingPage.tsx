@@ -1,4 +1,4 @@
-import React, { useDeferredValue, useMemo, useState } from 'react';
+import React, { useDeferredValue, useEffect, useState } from 'react';
 import {
   ArrowRight,
   Bike,
@@ -17,8 +17,9 @@ import { type CourseKey } from '@/app/data/pricing';
 import {
   JPY_TO_PHP_RATE,
   JPY_TO_PHP_RATE_DATE,
-  localizedPricingCatalog as pricingCatalog,
-} from '@/app/lib/pricingLocalization';
+  PRICING_TOTAL_ROWS,
+  pricingVehiclePages,
+} from '@/app/lib/pricingMeta';
 
 const courseDetails: Array<{
   key: CourseKey;
@@ -35,7 +36,7 @@ const courseDetails: Array<{
   {
     key: 'full',
     name: 'Full Course',
-    eyebrow: 'Complete protection',
+    eyebrow: 'Comprehensive coverage',
     description: 'Bodywork, engine, exhaust, forks, swingarm, controls, frame, and wheels.',
   },
   {
@@ -66,16 +67,12 @@ type SearchResult = {
   href: string;
 };
 
-const importedBrands = pricingCatalog.vehiclePages.filter((page) => page.group === 'imported');
-const domestic = pricingCatalog.vehiclePages.find((page) => page.slug === 'domestic')!;
-const special = pricingCatalog.vehiclePages.find((page) => page.slug === 'special')!;
-const totalRows = pricingCatalog.vehiclePages.reduce(
-  (total, page) => total + page.sections.reduce((subtotal, section) => subtotal + section.rows.length, 0),
-  0,
-);
+const importedBrands = pricingVehiclePages.filter((page) => page.group === 'imported');
 
 export default function PricingPage() {
   const [query, setQuery] = useState('');
+  const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
+  const [searchPending, setSearchPending] = useState(false);
   const deferredQuery = useDeferredValue(query);
   const normalizedQuery = deferredQuery.trim().toLocaleLowerCase();
 
@@ -88,81 +85,34 @@ export default function PricingPage() {
       )
     : [];
 
-  const searchResults = useMemo<SearchResult[]>(() => {
-    if (!normalizedQuery) return [];
+  useEffect(() => {
+    if (!normalizedQuery) {
+      setSearchResults([]);
+      setSearchPending(false);
+      return;
+    }
 
-    const results: SearchResult[] = [];
-    for (const page of pricingCatalog.vehiclePages) {
-      for (const section of page.sections) {
-        const contextMatches = [page.name, page.group, section.section, ...section.courses]
-          .join(' ')
-          .toLocaleLowerCase()
-          .includes(normalizedQuery);
+    let cancelled = false;
+    setSearchPending(true);
+    import('@/app/lib/pricingSearchIndex').then(({ searchPricingIndex }) => {
+      if (cancelled) return;
+      const results: SearchResult[] = searchPricingIndex(normalizedQuery).map(({ haystack: _haystack, slug, ...entry }) => ({
+        ...entry,
+        href: `/pricing/${slug}?q=${encodeURIComponent(deferredQuery.trim())}`,
+      }));
 
-        for (const row of section.rows) {
-          if (
-            contextMatches ||
-            row.model.toLocaleLowerCase().includes(normalizedQuery) ||
-            row.values.join(' ').toLocaleLowerCase().includes(normalizedQuery)
-          ) {
-            results.push({
-              key: `${page.slug}-${section.section}-${row.model}`,
-              eyebrow: page.name,
-              title: row.model,
-              meta: section.section,
-              href: `/pricing/${page.slug}?q=${encodeURIComponent(deferredQuery.trim())}`,
-            });
-          }
-          if (results.length >= 60) return results;
-        }
+      if ('helmet helmets'.includes(normalizedQuery)) {
+        results.unshift({ key: 'helmet-category', eyebrow: 'Category', title: 'Helmets', meta: 'Shell and shield coating prices', href: '/pricing/helmet' });
       }
-    }
-
-    if ('helmet helmets'.includes(normalizedQuery)) {
-      results.push({
-        key: 'helmet-category',
-        eyebrow: 'Category',
-        title: 'Helmets',
-        meta: 'Shell and shield coating prices',
-        href: '/pricing/helmet',
-      });
-    }
-
-    for (const row of pricingCatalog.helmet.rows) {
-      if (row.join(' ').toLocaleLowerCase().includes(normalizedQuery)) {
-        results.push({
-          key: `helmet-${row[0]}`,
-          eyebrow: 'Helmets',
-          title: row[0],
-          meta: row.slice(1).join(' · '),
-          href: `/pricing/helmet?q=${encodeURIComponent(deferredQuery.trim())}`,
-        });
+      if ('parts individual parts components'.includes(normalizedQuery)) {
+        results.unshift({ key: 'parts-category', eyebrow: 'Category', title: 'Individual parts', meta: 'Component-by-component prices', href: '/pricing/parts' });
       }
-    }
 
-    if ('parts individual parts components'.includes(normalizedQuery)) {
-      results.push({
-        key: 'parts-category',
-        eyebrow: 'Category',
-        title: 'Individual parts',
-        meta: 'Component-by-component prices',
-        href: '/pricing/parts',
-      });
-    }
+      setSearchResults(results.slice(0, 60));
+      setSearchPending(false);
+    });
 
-    for (const item of pricingCatalog.parts.items) {
-      if ([item.category, item.name, ...item.details].join(' ').toLocaleLowerCase().includes(normalizedQuery)) {
-        results.push({
-          key: `parts-${item.category}-${item.name}`,
-          eyebrow: 'Individual parts',
-          title: item.name,
-          meta: item.category,
-          href: `/pricing/parts?q=${encodeURIComponent(deferredQuery.trim())}`,
-        });
-      }
-    }
-
-    return results.slice(0, 60);
+    return () => { cancelled = true; };
   }, [normalizedQuery, deferredQuery]);
 
   const filteredBrands = normalizedQuery
@@ -196,8 +146,8 @@ export default function PricingPage() {
               </p>
             </div>
             <dl className="pricing-stats" aria-label="Price list coverage">
-              <div><dt>{pricingCatalog.vehiclePages.length}</dt><dd>Vehicle lists</dd></div>
-              <div><dt>{totalRows}</dt><dd>Pricing rows</dd></div>
+              <div><dt>{pricingVehiclePages.length}</dt><dd>Vehicle lists</dd></div>
+              <div><dt>{PRICING_TOTAL_ROWS}</dt><dd>Pricing rows</dd></div>
               <div><dt>5</dt><dd>Service courses</dd></div>
             </dl>
           </header>
@@ -235,7 +185,7 @@ export default function PricingPage() {
                   <h2 id="pricing-results-title">Matches for “{query.trim()}”</h2>
                 </div>
                 <p role="status" aria-live="polite">
-                  {matchedCourses.length + searchResults.length} result{matchedCourses.length + searchResults.length === 1 ? '' : 's'}
+                  {searchPending ? 'Searching price lists…' : `${matchedCourses.length + searchResults.length} result${matchedCourses.length + searchResults.length === 1 ? '' : 's'}`}
                   {searchResults.length === 60 ? ' — refine your search to narrow the list' : ''}
                 </p>
               </div>
@@ -263,7 +213,7 @@ export default function PricingPage() {
                     </Link>
                   ))}
                 </div>
-              ) : matchedCourses.length === 0 ? (
+              ) : matchedCourses.length === 0 && !searchPending ? (
                 <div className="pricing-empty-state">
                   <Search aria-hidden="true" size={26} />
                   <h3>No exact match yet</h3>
@@ -308,7 +258,7 @@ export default function PricingPage() {
                     <span className="pricing-card-copy">
                       <small>By engine displacement</small>
                       <strong>Domestic motorcycles</strong>
-                      <span>{domestic.sections.length} displacement and vehicle-type groups</span>
+                      <span>Displacement and vehicle-type price groups</span>
                     </span>
                     <ArrowRight aria-hidden="true" />
                   </Link>
@@ -317,7 +267,7 @@ export default function PricingPage() {
                     <span className="pricing-card-copy">
                       <small>Model-specific rates</small>
                       <strong>Special vehicles</strong>
-                      <span>{special.sections.reduce((count, section) => count + section.rows.length, 0)} special vehicle entries</span>
+                      <span>Model-specific special vehicle pricing</span>
                     </span>
                     <ArrowRight aria-hidden="true" />
                   </Link>

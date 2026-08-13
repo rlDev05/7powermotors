@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { Logo } from '@/app/components/Logo';
-import { motion, AnimatePresence } from 'motion/react';
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -31,34 +30,25 @@ export function Navbar() {
   ];
 
   return (
-    <motion.nav
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
-      className="fixed left-0 right-0 top-0 z-50 border-b border-border bg-white/95 text-foreground shadow-[0_8px_24px_rgba(25,25,25,0.08)] backdrop-blur-md"
+    <nav
+      className="fixed left-0 right-0 top-0 z-50 border-b border-border bg-white text-foreground shadow-[0_8px_24px_rgba(25,25,25,0.08)]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between sm:h-20">
           {/* Logo */}
-          <motion.div
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.2 }}
-            className="min-w-0"
-          >
+          <div className="min-w-0 transition-transform hover:scale-[1.02]">
             <Link to="/" aria-label="CR-1 Philippines home">
               <Logo />
             </Link>
-          </motion.div>
+          </div>
 
           {/* Desktop Navigation */}
           <div className="hidden items-center gap-1 md:flex">
             {navItems.map((item) => (
-              <motion.div
+              <div
                 key={item.label}
-                className="relative"
+                className="relative transition-transform hover:scale-105"
                 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.2 }}
               >
                 <NavLink to={item.href}>
                   {({ isActive }) => (
@@ -76,12 +66,10 @@ export function Navbar() {
                     </span>
                   )}
                 </NavLink>
-              </motion.div>
+              </div>
             ))}
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="ml-4 bg-accent px-6 py-3 text-accent-foreground shadow-[0_12px_28px_rgba(214,0,0,0.24)] tracking-wider transition-all hover:bg-[var(--accent-deep)]"
+            <div
+              className="ml-4 bg-accent px-6 py-3 text-accent-foreground shadow-[0_12px_28px_rgba(214,0,0,0.24)] tracking-wider transition-transform hover:scale-105 hover:bg-[var(--accent-deep)] active:scale-95"
               style={{
                 fontFamily: 'Inter, sans-serif',
                 fontSize: '0.875rem',
@@ -89,7 +77,7 @@ export function Navbar() {
               }}
             >
               <Link to="/contact?intent=partner">PARTNER WITH US</Link>
-            </motion.div>
+            </div>
           </div>
 
           {/* Mobile menu button */}
@@ -105,13 +93,8 @@ export function Navbar() {
       </div>
 
       {/* Mobile Navigation */}
-      <AnimatePresence>
         {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
+          <div
             className="max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-border bg-white md:hidden"
           >
             <div className="space-y-3 px-4 py-5">
@@ -139,9 +122,8 @@ export function Navbar() {
                 PARTNER WITH US
               </Link>
             </div>
-          </motion.div>
+          </div>
         )}
-      </AnimatePresence>
-    </motion.nav>
+    </nav>
   );
 }

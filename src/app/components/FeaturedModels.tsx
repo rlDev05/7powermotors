@@ -16,7 +16,7 @@ const points = [
   },
   {
     title: 'Built for Daily Riding Conditions',
-    text: 'Designed for heat, UV exposure, rain, daily dust, and road grime across demanding riding conditions.',
+    text: 'Helps slow UV-related fading while supporting easier care against rain, daily dust, and road grime.',
   },
   {
     title: 'Longer-Lasting Durability',

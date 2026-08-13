@@ -11,7 +11,7 @@ const services = [
     title: 'CR-1 Professional Protection',
     description:
       'Give motorcycles, helmets, and approved parts protection with substance—not another short-lived wax, polymer, or resin shine.',
-    items: ['100% glass coating', 'Gloss preservation', 'Heat and UV resistance'],
+    items: ['100% pure glass coating', 'Scratch-resistant finish', 'Helps slow UV-related fading'],
   },
   {
     icon: <GraduationCap className="h-7 w-7" />,

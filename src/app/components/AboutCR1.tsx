@@ -67,7 +67,7 @@ const specifications: TechnologySpecification[] = [
   },
   {
     icon: <Thermometer className="h-6 w-6" aria-hidden="true" />,
-    value: '1,300°C+',
+    value: '1,300°C',
     title: 'Heat Resistance',
     evidence: 'Approved heat-exposed areas',
     description:
@@ -76,21 +76,30 @@ const specifications: TechnologySpecification[] = [
   },
   {
     icon: <Clock3 className="h-6 w-6" aria-hidden="true" />,
-    value: 'Long-Term',
-    title: 'Inorganic Protection',
-    evidence: 'Fully inorganic glass layer',
+    value: 'About 10 Years',
+    title: 'Durability',
+    evidence: '100% pure glass coating',
     description:
       'Designed to remain on professionally prepared surfaces longer than wax or temporary treatments.',
     benefit: 'Less frequent reapplication. More lasting value.',
   },
   {
     icon: <Layers3 className="h-6 w-6" aria-hidden="true" />,
-    value: '≈0.1 μm',
+    value: '0.1 μm',
     title: 'Ultra-Thin Layer',
     evidence: 'Approximately one-thousandth of a hair',
     description:
       'Protects without creating a thick artificial appearance or hiding approved matte and detailed textures.',
     benefit: 'Protection without changing the motorcycle’s character.',
+  },
+  {
+    icon: <Bike className="h-6 w-6" aria-hidden="true" />,
+    value: 'Non-Slip',
+    title: 'Rider Contact Surfaces',
+    evidence: 'Designed not to hinder knee grip',
+    description:
+      'The ultra-thin glass layer maintains a non-slip surface on approved rider contact areas.',
+    benefit: 'Protection that respects vehicle handling.',
   },
 ];
 
@@ -199,12 +208,15 @@ function CR1Introduction({ reducedMotion }: { reducedMotion: boolean }) {
 
         <div>
           <p className="text-lg font-semibold leading-8 text-foreground">
-            CR-1 is a professionally applied, fully inorganic glass coating developed in Japan for
-            motorcycles, helmets, and approved components.
+            CR-1 is a glass coating brand made exclusively for motorcycles. Certified technicians
+            spray it on and chemically cure it into a 100% pure glass layer.
           </p>
           <p className="mt-4 text-base leading-7 text-muted-foreground">
-            Its ultra-thin layer helps preserve paint clarity, metal detail, and surface character
-            while making regular care easier.
+            Its 0.1 μm layer provides scratch resistance, withstands heat up to 1,300°C, and helps
+            slow paint fading, plastic yellowing, and rust without changing the motorcycle&apos;s character.
+          </p>
+          <p className="mt-4 text-sm leading-6 text-muted-foreground">
+            CR-1 is trusted by premium wheel brands Marchesini of Italy and GALE SPEED of Japan.
           </p>
         </div>
       </div>
@@ -224,7 +236,7 @@ function CR1Introduction({ reducedMotion }: { reducedMotion: boolean }) {
             Not wax. Not polymer.
           </p>
           <h3 className="mt-2 font-[Rajdhani] text-2xl font-black uppercase leading-none text-foreground">
-            Fully inorganic glass technology.
+            100% pure glass technology.
           </h3>
           <p className="mt-3 text-sm leading-6 text-muted-foreground">
             Unlike temporary surface treatments, CR-1 is delivered through controlled professional
@@ -262,7 +274,7 @@ function CR1Technology({ reducedMotion }: { reducedMotion: boolean }) {
         </p>
       </div>
 
-      <div className="mt-10 grid gap-px border border-border bg-border md:grid-cols-2 xl:grid-cols-4">
+      <div className="mt-10 grid gap-px border border-border bg-border md:grid-cols-2 xl:grid-cols-5">
         {specifications.map((specification) => (
           <article key={specification.title} className="relative flex h-full flex-col bg-card p-5 sm:p-7">
             <span className="absolute inset-x-0 top-0 h-0.5 bg-accent" aria-hidden="true" />
@@ -289,9 +301,9 @@ function CR1Technology({ reducedMotion }: { reducedMotion: boolean }) {
       </div>
 
       <aside className="mt-6 border-l-2 border-[#c8a96e] bg-white/70 px-4 py-4 text-xs leading-5 text-muted-foreground">
-        Technical values describe the coating under controlled conditions. CR-1 does not make a
-        motorcycle scratch-proof, damage-proof, maintenance-free, or corrosion-proof. Surface
-        suitability and durability depend on material, preparation, use, climate, storage,
+        Technical values describe the coating under controlled conditions. CR-1 is scratch-resistant,
+        but scratches and other damage remain possible. It slows fading, yellowing, and rust rather
+        than completely preventing them. Surface suitability and durability depend on material, preparation, use, climate, storage,
         maintenance, and physical or chemical damage. Confirm approved application coverage with an
         authorized CR-1 Pro Shop.
       </aside>

@@ -1,21 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
 import { ChevronUp } from 'lucide-react';
 
 export function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    let frame = 0;
     const toggleVisibility = () => {
-      if (window.scrollY > 500) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+      if (frame) return;
+      frame = window.requestAnimationFrame(() => {
+        setIsVisible(window.scrollY > 500);
+        frame = 0;
+      });
     };
 
-    window.addEventListener('scroll', toggleVisibility);
-    return () => window.removeEventListener('scroll', toggleVisibility);
+    toggleVisibility();
+    window.addEventListener('scroll', toggleVisibility, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', toggleVisibility);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
   }, []);
 
   const scrollToTop = () => {
@@ -26,21 +30,14 @@ export function ScrollToTop() {
   };
 
   return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.button
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.8 }}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
+      isVisible ? (
+        <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 flex h-12 w-12 items-center justify-center border border-accent bg-accent text-accent-foreground shadow-[0_12px_28px_rgba(214,0,0,0.25)] transition-all hover:bg-[var(--accent-deep)]"
+          className="fixed bottom-5 right-5 z-50 flex h-11 w-11 items-center justify-center border border-accent bg-accent text-accent-foreground shadow-[0_12px_28px_rgba(214,0,0,0.25)] transition-transform hover:scale-110 hover:bg-[var(--accent-deep)] active:scale-90 sm:bottom-8 sm:right-8 sm:h-12 sm:w-12"
           aria-label="Scroll to top"
         >
           <ChevronUp size={24} />
-        </motion.button>
-      )}
-    </AnimatePresence>
+        </button>
+      ) : null
   );
 }

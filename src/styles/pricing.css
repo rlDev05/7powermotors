@@ -109,7 +109,7 @@
 .pricing-search-field button:hover { color: #d60000; }
 .pricing-search-field button:focus-visible { border-radius: .15rem; outline: 2px solid #d60000; outline-offset: 2px; }
 
-.pricing-section, .pricing-results { padding-top: 5rem; content-visibility: auto; contain-intrinsic-size: 1px 700px; }
+.pricing-section, .pricing-results { padding-top: 5rem; }
 .pricing-section-heading { display: flex; justify-content: space-between; gap: 2rem; align-items: end; margin-bottom: 1.5rem; }
 .pricing-section-heading > p { max-width: 28rem; text-align: right; }
 .pricing-course-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0.75rem; }
