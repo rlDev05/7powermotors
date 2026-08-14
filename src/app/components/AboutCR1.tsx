@@ -341,8 +341,8 @@ function CR1ApplicationAndFinish({ reducedMotion }: { reducedMotion: boolean }) 
         className="mt-10 grid overflow-hidden border border-border bg-white lg:grid-cols-[0.96fr_1.04fr]"
         variants={mediaReveal}
       >
-        <div className="grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-1">
-          <figure className="racing-media aspect-[4/3] sm:aspect-[4/5] lg:min-h-[31rem] lg:aspect-auto">
+        <div className="grid gap-px bg-border sm:grid-cols-2 lg:h-full lg:grid-cols-1 lg:grid-rows-[minmax(0,2fr)_minmax(0,1fr)]">
+          <figure className="racing-media aspect-[4/3] sm:aspect-[4/5] lg:h-full lg:min-h-0 lg:aspect-auto">
             <ImageWithFallback
               src={coatingApplicationImg}
               alt="Trained CR-1 technician performing controlled coating application on motorcycle bodywork"
@@ -354,7 +354,7 @@ function CR1ApplicationAndFinish({ reducedMotion }: { reducedMotion: boolean }) 
             </figcaption>
           </figure>
 
-          <figure className="racing-media aspect-[4/3] sm:aspect-[4/5] lg:aspect-[16/8]">
+          <figure className="racing-media aspect-[4/3] sm:aspect-[4/5] lg:h-full lg:min-h-0 lg:aspect-auto">
             <ImageWithFallback
               src={helmetApplicationImg}
               alt="Professional CR-1 application on an approved motorcycle helmet surface"
@@ -422,15 +422,13 @@ function CR1ApplicationAndFinish({ reducedMotion }: { reducedMotion: boolean }) 
         </div>
 
         <motion.div
-          className="mt-10 grid gap-3 md:grid-cols-2 lg:grid-cols-4 lg:grid-rows-2"
+          className="mt-10 grid gap-3 md:grid-cols-2 lg:h-[clamp(32rem,42vw,40rem)] lg:grid-cols-4 lg:grid-rows-[minmax(0,0.72fr)_minmax(0,1.28fr)]"
           variants={mediaReveal}
         >
           {finishGallery.map((item, index) => (
             <figure
               key={item.caption}
-              className={`racing-media ${
-                index === 0 ? 'aspect-[16/10] lg:aspect-auto' : 'aspect-[16/10]'
-              } ${item.className ?? ''}`}
+              className={`racing-media aspect-[16/10] lg:aspect-auto ${item.className ?? ''}`}
             >
               <ImageWithFallback
                 src={item.src}
