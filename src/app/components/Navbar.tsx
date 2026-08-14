@@ -33,7 +33,7 @@ export function Navbar() {
     <nav
       className="fixed left-0 right-0 top-0 z-50 border-b border-border bg-white text-foreground shadow-[0_8px_24px_rgba(25,25,25,0.08)]"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-[90rem] px-4 sm:px-6 lg:px-8 xl:px-10">
         <div className="flex h-16 items-center justify-between sm:h-20">
           {/* Logo */}
           <div className="min-w-0 transition-transform hover:scale-[1.02]">
@@ -43,7 +43,7 @@ export function Navbar() {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden items-center gap-1 md:flex">
+          <div className="hidden items-center gap-1 lg:flex">
             {navItems.map((item) => (
               <div
                 key={item.label}
@@ -83,7 +83,7 @@ export function Navbar() {
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="ml-3 flex h-11 w-11 shrink-0 items-center justify-center text-foreground md:hidden"
+            className="ml-3 flex h-11 w-11 shrink-0 items-center justify-center text-foreground lg:hidden"
             aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileMenuOpen}
           >
@@ -95,14 +95,14 @@ export function Navbar() {
       {/* Mobile Navigation */}
         {mobileMenuOpen && (
           <div
-            className="max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-border bg-white md:hidden"
+            className="max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-border bg-white lg:hidden"
           >
             <div className="space-y-3 px-4 py-5">
               {navItems.map((item) => (
                 <Link
                   key={item.label}
                   to={item.href}
-                  className="block border-b border-border py-3 text-sm tracking-wider text-muted-foreground transition-colors hover:text-accent"
+                  className="flex min-h-12 items-center border-b border-border py-3 text-sm tracking-wider text-muted-foreground transition-colors hover:text-accent"
                   style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -111,7 +111,7 @@ export function Navbar() {
               ))}
               <Link
                 to="/contact?intent=partner"
-                className="block w-full bg-accent px-6 py-3 text-center text-accent-foreground tracking-wider transition-all hover:bg-[var(--accent-deep)]"
+                className="flex min-h-12 w-full items-center justify-center bg-accent px-6 py-3 text-center text-accent-foreground tracking-wider transition-all hover:bg-[var(--accent-deep)]"
                 style={{
                   fontFamily: 'Inter, sans-serif',
                   fontSize: '0.875rem',

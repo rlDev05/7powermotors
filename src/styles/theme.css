@@ -188,11 +188,6 @@
   html {
     font-size: var(--font-size);
     scroll-behavior: smooth;
-    overflow-x: hidden;
-  }
-
-  body {
-    overflow-x: hidden;
   }
 
   h1 {
@@ -279,7 +274,7 @@
   }
 
   .racing-container {
-    @apply relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+    @apply relative z-10 mx-auto w-full max-w-[90rem] px-4 sm:px-6 lg:px-8 xl:px-10;
   }
 
   .racing-kicker {
@@ -380,7 +375,7 @@
   }
 
   .form-field {
-    @apply w-full border border-border bg-input-background px-4 py-3 text-foreground transition-colors placeholder:text-muted-foreground focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/15 disabled:cursor-not-allowed disabled:bg-muted disabled:text-muted-foreground disabled:opacity-70 read-only:bg-secondary read-only:text-muted-foreground;
+    @apply min-h-12 w-full min-w-0 border border-border bg-input-background px-4 py-3 text-foreground transition-colors placeholder:text-muted-foreground focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/15 disabled:cursor-not-allowed disabled:bg-muted disabled:text-muted-foreground disabled:opacity-70 read-only:bg-secondary read-only:text-muted-foreground;
   }
 
   .cr1-map-marker {

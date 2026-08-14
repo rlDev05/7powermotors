@@ -38,7 +38,7 @@ export default function MotorcyclesPage() {
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />
       <main className="px-4 pb-16 pt-24 sm:px-6 sm:pb-20 sm:pt-28 lg:px-8">
-      <div className="mx-auto max-w-[1400px]">
+      <div className="mx-auto w-full max-w-[90rem]">
         
         {/* Back to Home Link */}
         <div className="mb-6 sm:mb-8">
@@ -129,7 +129,7 @@ export default function MotorcyclesPage() {
           <div className="mt-5 flex gap-3 overflow-x-auto pb-2 sm:flex-wrap sm:overflow-visible sm:pb-0">
             <Link
               to="/models"
-              className={`shrink-0 px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] transition ${
+              className={`flex min-h-11 shrink-0 items-center px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] transition ${
                 !selectedCategory
                   ? 'bg-accent text-white'
                   : 'border border-border text-muted-foreground hover:border-accent hover:text-accent'
@@ -141,7 +141,7 @@ export default function MotorcyclesPage() {
               <Link
                 key={category}
                   to={`/models?category=${encodeURIComponent(category)}`}
-                className={`shrink-0 px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] transition ${
+                className={`flex min-h-11 shrink-0 items-center px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] transition ${
                   selectedCategory === category
                     ? 'bg-accent text-white'
                     : 'border border-border text-muted-foreground hover:border-accent hover:text-accent'

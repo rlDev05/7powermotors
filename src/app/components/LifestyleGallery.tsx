@@ -34,7 +34,7 @@ export function LifestyleGallery() {
     <section id="content" className="relative overflow-hidden bg-secondary/30 py-28">
       <div className="absolute -right-36 bottom-0 h-72 w-[34rem] rotate-[-38deg] bg-accent" />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto w-full max-w-[90rem] px-4 sm:px-6 lg:px-8 xl:px-10">
         <motion.div
           initial={{ opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}

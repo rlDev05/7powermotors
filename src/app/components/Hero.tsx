@@ -82,7 +82,7 @@ export function Hero() {
       />
 
       <div className="relative z-10 flex min-h-screen items-center px-4 pb-12 pt-24 sm:px-6 sm:pb-14 sm:pt-28 lg:px-8">
-        <div className="mx-auto w-full max-w-7xl">
+        <div className="mx-auto w-full max-w-[90rem]">
           <div className="grid items-center gap-8 lg:grid-cols-[1fr_0.42fr]">
             <motion.div
               className="max-w-4xl"

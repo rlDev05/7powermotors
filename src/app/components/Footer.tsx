@@ -38,8 +38,8 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-[#f5f5f2] text-foreground">
       {/* Main Footer Content */}
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
-        <div className="mb-10 grid grid-cols-1 gap-9 sm:grid-cols-2 lg:mb-12 lg:grid-cols-5 lg:gap-12">
+      <div className="mx-auto w-full max-w-[90rem] px-4 py-12 sm:px-6 sm:py-16 lg:px-8 xl:px-10">
+        <div className="mb-10 grid grid-cols-1 gap-9 sm:grid-cols-2 lg:mb-12 lg:grid-cols-5 lg:gap-10 xl:gap-12">
           {/* Brand Column */}
           <div className="min-w-0 sm:col-span-2 lg:col-span-2">
             <Logo className="mb-6" />
@@ -259,7 +259,7 @@ export function Footer() {
                 href={social.href}
                 target="_blank"
                 rel="noreferrer"
-                className="w-10 h-10 flex items-center justify-center border border-border hover:border-accent text-muted-foreground hover:-translate-y-0.5 hover:scale-110 hover:text-accent transition-transform"
+                className="flex h-11 w-11 items-center justify-center border border-border text-muted-foreground transition-transform hover:-translate-y-0.5 hover:scale-105 hover:border-accent hover:text-accent"
                 aria-label={social.label}
               >
                 {social.icon}

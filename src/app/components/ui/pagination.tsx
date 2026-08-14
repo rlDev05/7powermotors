@@ -27,7 +27,7 @@ function PaginationContent({
   return (
     <ul
       data-slot="pagination-content"
-      className={cn("flex flex-row items-center gap-1", className)}
+      className={cn("flex max-w-full flex-row items-center gap-1 overflow-x-auto py-1", className)}
       {...props}
     />
   );
@@ -107,7 +107,7 @@ function PaginationEllipsis({
     <span
       aria-hidden
       data-slot="pagination-ellipsis"
-      className={cn("flex size-9 items-center justify-center", className)}
+      className={cn("flex size-11 shrink-0 items-center justify-center", className)}
       {...props}
     >
       <MoreHorizontalIcon className="size-4" />

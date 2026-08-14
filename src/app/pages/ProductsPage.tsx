@@ -35,7 +35,7 @@ export default function ProductsPage() {
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />
       <main className="px-4 pb-16 pt-24 sm:px-6 sm:pb-20 sm:pt-28 lg:px-8">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto w-full max-w-[90rem]">
           <motion.section
             className="racing-card racing-slashed mb-10 border-border bg-[#f4f1ec] text-foreground"
             initial="hidden"
@@ -115,7 +115,7 @@ export default function ProductsPage() {
             <div className="mt-5 flex gap-3 overflow-x-auto pb-2 sm:flex-wrap sm:overflow-visible sm:pb-0">
               <Link
                 to="/products"
-                className={`shrink-0 px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] transition ${
+                className={`flex min-h-11 shrink-0 items-center px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] transition ${
                   !selectedCategory
                     ? 'bg-accent text-white shadow-[0_10px_22px_rgba(214,0,0,0.26)]'
                     : 'border border-border bg-white text-muted-foreground hover:border-[#86672f] hover:text-[#86672f]'
@@ -127,7 +127,7 @@ export default function ProductsPage() {
                 <Link
                   key={category}
                   to={`/products?category=${encodeURIComponent(category)}`}
-                  className={`shrink-0 px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] transition ${
+                  className={`flex min-h-11 shrink-0 items-center px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] transition ${
                     selectedCategory === category
                       ? 'bg-accent text-white shadow-[0_10px_22px_rgba(214,0,0,0.26)]'
                       : 'border border-border bg-white text-muted-foreground hover:border-[#86672f] hover:text-[#86672f]'

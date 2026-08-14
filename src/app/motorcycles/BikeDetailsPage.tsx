@@ -102,14 +102,14 @@ export default function BikeDetailsPage() {
        .replace(/^./, (str) => str.toUpperCase());
 
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+    <div className="min-h-screen bg-background text-foreground">
       <Navbar />
       <main className="relative overflow-hidden px-4 pb-16 pt-24 sm:px-6 sm:pb-20 sm:pt-28 lg:px-8">
       
       <div className="pointer-events-none absolute right-[-22rem] top-28 h-40 w-[28rem] rotate-[-24deg] bg-accent/38 sm:right-[-14rem] sm:h-44 sm:w-[34rem]" />
       <div className="pointer-events-none absolute bottom-24 left-[-24rem] h-40 w-[28rem] rotate-[-32deg] bg-accent/25 sm:left-[-18rem] sm:h-44 sm:w-[36rem]" />
 
-      <div className="mx-auto max-w-[1400px]">
+      <div className="mx-auto w-full max-w-[90rem]">
         
         {/* Navigation Breadcrumb */}
         <div className="mb-6 sm:mb-8">

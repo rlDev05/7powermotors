@@ -56,7 +56,7 @@ export function MotorcycleModal({ bike, isOpen, onClose }: MotorcycleModalProps)
   return (
     <AnimatePresence>
       {isOpen && bike && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 lg:p-6">
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -69,10 +69,8 @@ export function MotorcycleModal({ bike, isOpen, onClose }: MotorcycleModalProps)
           {/* Modal Content Wrapper */}
           <motion.div
             layoutId={`card-${bike.model}`}
-            // CHANGED: Uses Flex on desktop for better height control. max-h-[90vh] ensures it fits.
-            className="relative w-full max-w-5xl bg-card border border-border shadow-2xl z-10 
-                       flex flex-col lg:flex-row 
-                       max-h-[90vh] rounded-xl overflow-hidden"
+            // Viewport-safe scrolling on small screens; split-panel scrolling on desktop.
+            className="relative z-10 flex max-h-[calc(100dvh-1rem)] w-full max-w-5xl flex-col overflow-y-auto rounded-xl border border-border bg-card shadow-2xl sm:max-h-[calc(100dvh-2rem)] lg:flex-row lg:overflow-hidden"
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -81,13 +79,14 @@ export function MotorcycleModal({ bike, isOpen, onClose }: MotorcycleModalProps)
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-3 right-3 z-30 p-2 bg-black/50 hover:bg-accent text-white rounded-full transition-colors"
+              className="absolute right-2 top-2 z-30 flex size-11 items-center justify-center rounded-full bg-black/60 text-white transition-colors hover:bg-accent sm:right-3 sm:top-3"
+              aria-label="Close motorcycle details"
             >
               <X size={18} />
             </button>
 
             {/* --- LEFT COLUMN: Visuals (Fixed Height on Mobile, Full Height on Desktop) --- */}
-            <div className="relative h-56 shrink-0 lg:h-auto lg:w-[45%] bg-black overflow-hidden flex flex-col justify-between">
+            <div className="relative flex h-[clamp(9rem,30dvh,14rem)] shrink-0 flex-col justify-between overflow-hidden bg-black sm:h-64 lg:h-auto lg:w-[45%]">
               
               {/* Image Container */}
               <div className="relative w-full h-full">
@@ -128,7 +127,7 @@ export function MotorcycleModal({ bike, isOpen, onClose }: MotorcycleModalProps)
             </div>
 
             {/* --- RIGHT COLUMN: Details (Scrollable) --- */}
-            <div className="flex flex-col flex-1 overflow-y-auto custom-scrollbar bg-card p-5 lg:p-8">
+            <div className="flex min-w-0 flex-1 flex-col bg-card p-4 sm:p-5 lg:overflow-y-auto lg:p-8">
               
               {/* Header */}
               <div className="mb-6">
@@ -138,7 +137,7 @@ export function MotorcycleModal({ bike, isOpen, onClose }: MotorcycleModalProps)
               </div>
 
               {/* Quick Specs Grid */}
-              <div className="grid grid-cols-3 gap-2 mb-6 p-3 bg-secondary/20 rounded-lg border border-border/50">
+              <div className="mb-6 grid grid-cols-1 gap-2 rounded-lg border border-border/50 bg-secondary/20 p-3 min-[360px]:grid-cols-3">
                 {bike.specs.map((spec, i) => (
                   <div key={i} className="text-center">
                     <div className="flex justify-center text-accent mb-1">{spec.icon}</div>
@@ -157,9 +156,9 @@ export function MotorcycleModal({ bike, isOpen, onClose }: MotorcycleModalProps)
                   </h4>
                   <div className="grid grid-cols-1 gap-y-2 text-sm">
                     {Object.entries(bike.details.techSpecs).map(([key, value]) => (
-                      <div key={key} className="flex justify-between border-b border-border/40 pb-1">
+                      <div key={key} className="flex min-w-0 flex-col gap-1 border-b border-border/40 pb-2 min-[360px]:flex-row min-[360px]:justify-between">
                         <span className="text-muted-foreground text-xs lg:text-sm">{key}</span>
-                        <span className="font-semibold text-foreground text-right text-xs lg:text-sm">{value}</span>
+                        <span className="break-words text-left text-xs font-semibold text-foreground min-[360px]:text-right lg:text-sm">{value}</span>
                       </div>
                     ))}
                   </div>
