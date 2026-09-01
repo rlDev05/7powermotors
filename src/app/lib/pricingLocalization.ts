@@ -4,14 +4,7 @@ import {
   type PartsPricing,
   type VehiclePricingPage,
 } from '@/app/data/pricing';
-export { JPY_TO_PHP_RATE, JPY_TO_PHP_RATE_DATE, JPY_TO_PHP_RATE_SOURCE } from '@/app/lib/pricingConfig';
-import { JPY_TO_PHP_RATE } from '@/app/lib/pricingConfig';
-
-const pesoFormatter = new Intl.NumberFormat('en-PH', {
-  style: 'currency',
-  currency: 'PHP',
-  maximumFractionDigits: 0,
-});
+import { convertJPYToPHP, formatPHP } from '@/app/lib/pricingConfig';
 
 const exactTranslations: Record<string, string> = {
   '1000cc以上': '1000cc and above',
@@ -147,7 +140,7 @@ function convertYenAmounts(value: string) {
     const yenText = prefixed ?? suffixed;
     if (!yenText) return match;
     const yen = Number(yenText.replace(/,/g, ''));
-    return pesoFormatter.format(Math.round(yen * JPY_TO_PHP_RATE));
+    return formatPHP(convertJPYToPHP(yen));
   });
 }
 

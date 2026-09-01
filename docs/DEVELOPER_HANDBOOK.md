@@ -292,7 +292,9 @@ The pricing feature is split into three responsibilities:
 | File | Responsibility |
 | --- | --- |
 | `data/pricing.ts` | Raw structured pricing catalog and legal/service notes. |
-| `lib/pricingLocalization.ts` | English translations and JPY-to-PHP display conversion. |
+| `lib/pricingConfig.ts` | Single JPY-to-PHP rate, conversion, and JPY/PHP formatting. |
+| `lib/pricingLocalization.ts` | English translations that use the centralized currency helpers. |
+| `data/pricing-localized/*.json` | Generated, lazy-loaded display chunks derived from the raw JPY catalog. |
 | `pages/PricingPage.tsx` and `PricingDetailPage.tsx` | Search, navigation, tables, mobile cards, breadcrumbs, and notices. |
 | `styles/pricing.css` | Pricing layout and responsive presentation. |
 
@@ -306,14 +308,18 @@ export const JPY_TO_PHP_RATE_DATE = '16 July 2026';
 export const JPY_TO_PHP_RATE_SOURCE = 'Bangko Sentral ng Pilipinas';
 ```
 
+`convertJPYToPHP`, `formatJPY`, and `formatPHP` live beside this configuration. Conversion rounds
+to the nearest whole peso. The pricing feature does not request an exchange rate at runtime.
+
 Before changing the rate:
 
 1. Verify a current authoritative source.
 2. Update the numeric rate.
 3. Update the displayed date.
 4. Update the source label only if the source changed.
-5. Check several known JPY values manually.
-6. Confirm that pricing disclaimers still describe estimates accurately.
+5. Run `npm run generate:pricing` to refresh the derived lazy-loaded pricing chunks.
+6. Run `npm run test:pricing` and `npm run build`.
+7. Confirm that pricing disclaimers still describe estimates accurately.
 
 Never silently replace source prices. The PHP amount is an estimate derived from the underlying JPY value.
 
@@ -727,4 +733,3 @@ Before handing the project to someone else, provide:
 - Links to this handbook and the locator guide.
 
 The receiving developer should be able to install, build, navigate, and explain the application before beginning feature work.
-

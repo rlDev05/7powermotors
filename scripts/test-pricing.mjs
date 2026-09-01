@@ -5,6 +5,9 @@ import { fileURLToPath } from 'node:url';
 
 import { pricingCatalog } from '../src/app/data/pricing.ts';
 import {
+  convertJPYToPHP,
+  formatJPY,
+  formatPHP,
   JPY_TO_PHP_RATE,
   PRICING_TOTAL_ROWS,
   pricingVehiclePages,
@@ -18,6 +21,12 @@ import {
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const localizedDirectory = path.join(root, 'src', 'app', 'data', 'pricing-localized');
 const expectedCourses = ['premium', 'full', 'standard', 'exterior', 'wheel'];
+
+assert.equal(convertJPYToPHP(12_000), Math.round(12_000 * JPY_TO_PHP_RATE));
+assert.equal(formatJPY(12_000), '¥12,000');
+assert.equal(formatPHP(convertJPYToPHP(12_000)), '₱4,564');
+assert.equal(convertJPYToPHP(1), 0, 'Sub-peso estimates should round to the nearest whole peso');
+assert.throws(() => convertJPYToPHP(Number.NaN), TypeError);
 
 async function readJson(filePath) {
   return JSON.parse(await readFile(filePath, 'utf8'));
@@ -41,7 +50,7 @@ function verifyConvertedPrices(source, localized, trail = []) {
     const pesoAmounts = extractAmounts(localized, 'peso');
     assert.deepEqual(
       pesoAmounts,
-      yenAmounts.map((amount) => Math.round(amount * JPY_TO_PHP_RATE)),
+      yenAmounts.map(convertJPYToPHP),
       `Incorrect JPY to PHP conversion at ${trail.join('.')}`,
     );
     return yenAmounts.length;
