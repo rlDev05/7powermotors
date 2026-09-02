@@ -26,7 +26,7 @@ Remove conflicting `A`, `AAAA`, or `CNAME` records for these names. DNS propagat
 
 Create `/opt/7powermotors-new/.env` from `.env.example` on the server. Keep this file uncommitted and readable only by the deployment account. Replace the SMTP password placeholder with the Brevo SMTP key; do not use the Brevo login password.
 
-The sender `service@cr-1phillipines.com` and the domain must be verified in Brevo. Add the exact DKIM and other authentication records that Brevo displays for this domain. Do not guess these DNS values.
+Partnership inquiries are delivered to `cr1.philippines@gmail.com`. The sender `service@cr-1phillipines.com` and the domain must be verified in Brevo. Add the exact DKIM and other authentication records that Brevo displays for this domain. Do not guess these DNS values.
 
 Start the container from the application directory:
 

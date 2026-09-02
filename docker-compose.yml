@@ -21,7 +21,7 @@ services:
       RATE_LIMIT_WINDOW_MS: "${RATE_LIMIT_WINDOW_MS:-900000}"
       RATE_LIMIT_MAX: "${RATE_LIMIT_MAX:-5}"
       DUPLICATE_WINDOW_MS: "${DUPLICATE_WINDOW_MS:-600000}"
-      PARTNERSHIP_INBOX: "${PARTNERSHIP_INBOX:-service@cr-1phillipines.com}"
+      PARTNERSHIP_INBOX: "${PARTNERSHIP_INBOX:-cr1.philippines@gmail.com}"
       MAIL_FROM_ADDRESS: "${MAIL_FROM_ADDRESS:-service@cr-1phillipines.com}"
       MAIL_FROM_NAME: "${MAIL_FROM_NAME:-CR-1 Philippines}"
       MAIL_TIME_ZONE: "${MAIL_TIME_ZONE:-Asia/Manila}"

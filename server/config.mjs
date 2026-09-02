@@ -15,7 +15,7 @@ export function loadServerConfig(env = process.env) {
     rateLimitWindowMs: integer(env.RATE_LIMIT_WINDOW_MS, 15 * 60 * 1000),
     rateLimitMax: integer(env.RATE_LIMIT_MAX, 5),
     duplicateWindowMs: integer(env.DUPLICATE_WINDOW_MS, 10 * 60 * 1000),
-    internalInbox: env.PARTNERSHIP_INBOX ?? 'service@cr-1phillipines.com',
+    internalInbox: env.PARTNERSHIP_INBOX ?? 'cr1.philippines@gmail.com',
     mailFromAddress: env.MAIL_FROM_ADDRESS ?? 'service@cr-1phillipines.com',
     mailFromName: env.MAIL_FROM_NAME ?? 'CR-1 Philippines',
     mailTimeZone: env.MAIL_TIME_ZONE ?? 'Asia/Manila',

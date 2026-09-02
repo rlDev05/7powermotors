@@ -9,7 +9,7 @@ const baseConfig = {
   nodeEnv: 'test', port: 0, trustProxy: false,
   allowedOrigins: ['https://cr-1phillipines.com'],
   rateLimitWindowMs: 60_000, rateLimitMax: 10, duplicateWindowMs: 60_000,
-  internalInbox: 'service@cr-1phillipines.com',
+  internalInbox: 'cr1.philippines@gmail.com',
   mailFromAddress: 'service@cr-1phillipines.com', mailFromName: 'CR-1 Philippines',
   mailTimeZone: 'Asia/Manila',
   smtp: { host: '', port: 587, username: '', password: '', encryption: 'tls' },
@@ -73,7 +73,7 @@ test('accepts only after both emails and blocks duplicate submission', async () 
     assert.equal(response.status, 201);
     assert.equal((await response.json()).success, true);
     assert.equal(sent.length, 2);
-    assert.equal(sent[0].to, 'service@cr-1phillipines.com');
+    assert.equal(sent[0].to, 'cr1.philippines@gmail.com');
     assert.equal(sent[1].to, 'juan@example.com');
     assert.equal((await post(baseUrl, validPayload)).status, 409);
     assert.equal(sent.length, 2);
