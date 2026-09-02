@@ -1,0 +1,18 @@
+{
+  "interests": [
+    { "value": "rider-application", "label": "CR-1 Coating for My Bike" },
+    { "value": "helmet-parts", "label": "Helmet or Parts Coating" },
+    { "value": "dealer", "label": "Dealership Partnership" },
+    { "value": "installer", "label": "Authorized Installer Training" },
+    { "value": "service-center", "label": "Service Center Opportunity" },
+    { "value": "distribution", "label": "Distribution Inquiry" },
+    { "value": "other", "label": "Other Inquiry" }
+  ],
+  "limits": {
+    "fullNameMax": 100,
+    "emailMax": 254,
+    "phoneMax": 30,
+    "messageMin": 20,
+    "messageMax": 3000
+  }
+}

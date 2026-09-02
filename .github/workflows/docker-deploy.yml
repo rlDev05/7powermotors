@@ -33,6 +33,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Run regression and partnership API tests
+        run: npm test
+
       - name: Build production site
         run: npm run build
 
@@ -71,4 +74,4 @@ jobs:
       - name: Pull latest code and restart Docker Compose
         run: |
           ssh -p "${{ secrets.VPS_PORT || '22' }}" "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}" \
-            "cd '${{ secrets.VPS_APP_PATH }}' && git pull origin main && docker compose up -d --build"
+            "cd '${{ secrets.VPS_APP_PATH }}' && git pull --ff-only origin main && docker compose config && docker compose up -d --build && docker compose ps"

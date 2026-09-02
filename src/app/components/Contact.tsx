@@ -15,10 +15,58 @@ import {
 } from 'lucide-react';
 import { cr1Contact, cr1Locations, cr1SocialLinks } from '@/app/data/brand';
 import { revealContainer, revealLeft, revealRight, revealUp } from '@/app/lib/motionPresets';
+import partnershipConfig from '../../../shared/partnership-config.json';
 
 const NetworkMap = lazy(() =>
   import('@/app/components/NetworkMap').then((module) => ({ default: module.NetworkMap }))
 );
+
+type PartnershipFormData = {
+  name: string;
+  email: string;
+  phone: string;
+  interest: string;
+  message: string;
+  website: string;
+};
+
+type PartnershipField = 'name' | 'email' | 'phone' | 'interest' | 'message';
+type PartnershipErrors = Partial<Record<PartnershipField, string>>;
+
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const phonePattern = /^[+\d][\d\s().-]*$/;
+
+function validatePartnershipForm(data: PartnershipFormData): PartnershipErrors {
+  const errors: PartnershipErrors = {};
+  const limits = partnershipConfig.limits;
+  const name = data.name.trim();
+  const email = data.email.trim();
+  const phone = data.phone.trim();
+  const message = data.message.trim();
+
+  if (!name) errors.name = 'Enter your full name.';
+  else if (name.length > limits.fullNameMax) errors.name = `Use ${limits.fullNameMax} characters or fewer.`;
+
+  if (!email) errors.email = 'Enter your email address.';
+  else if (email.length > limits.emailMax || !emailPattern.test(email)) errors.email = 'Enter a valid email address.';
+
+  if (phone) {
+    const digitCount = phone.replace(/\D/g, '').length;
+    if (phone.length > limits.phoneMax || !phonePattern.test(phone) || digitCount < 7 || digitCount > 15) {
+      errors.phone = 'Enter a valid phone number or leave this field blank.';
+    }
+  }
+
+  if (!partnershipConfig.interests.some(({ value }) => value === data.interest)) {
+    errors.interest = 'Select an inquiry type.';
+  }
+
+  if (!message) errors.message = 'Enter a message.';
+  else if (message.length < limits.messageMin) errors.message = `Use at least ${limits.messageMin} characters.`;
+  else if (message.length > limits.messageMax) errors.message = `Use ${limits.messageMax} characters or fewer.`;
+
+  return errors;
+}
 
 export function Contact() {
   const [searchParams] = useSearchParams();
@@ -31,13 +79,16 @@ export function Contact() {
     cr1Locations.find((location) => location.id === activeLocationId) ?? null;
   const regions = Array.from(new Set(cr1Locations.map((location) => location.region)));
 
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<PartnershipFormData>({
     name: '',
     email: '',
     phone: '',
     interest: '',
     message: '',
+    website: '',
   });
+  const [formErrors, setFormErrors] = useState<PartnershipErrors>({});
+  const [submissionState, setSubmissionState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
   useEffect(() => {
     if (!selectedInterest) return;
@@ -80,16 +131,68 @@ export function Contact() {
           submitLabel: 'SEND MESSAGE',
         };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
+    if (submissionState === 'submitting') return;
+
+    const errors = validatePartnershipForm(formData);
+    setFormErrors(errors);
+    setSubmissionState('idle');
+    if (Object.keys(errors).length) return;
+
+    setSubmissionState('submitting');
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 30_000);
+
+    try {
+      const response = await fetch('/api/partnership', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          fullName: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          interest: formData.interest,
+          message: formData.message,
+          website: formData.website,
+        }),
+        signal: controller.signal,
+      });
+      const result = await response.json().catch(() => null);
+
+      if (!response.ok) {
+        if (response.status === 422 && result?.fields) {
+          const serverErrors: PartnershipErrors = {
+            name: result.fields.fullName,
+            email: result.fields.email,
+            phone: result.fields.phone,
+            interest: result.fields.interest,
+            message: result.fields.message,
+          };
+          setFormErrors(Object.fromEntries(Object.entries(serverErrors).filter(([, value]) => value)) as PartnershipErrors);
+        }
+        throw new Error('Submission failed');
+      }
+
+      setFormData({ name: '', email: '', phone: '', interest: selectedInterest, message: '', website: '' });
+      setFormErrors({});
+      setSubmissionState('success');
+    } catch {
+      setSubmissionState('error');
+    } finally {
+      window.clearTimeout(timeout);
+    }
   };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const field = e.target.name as keyof PartnershipFormData;
+    setFormData((current) => ({ ...current, [field]: e.target.value }));
+    if (field !== 'website') {
+      setFormErrors((current) => ({ ...current, [field]: undefined }));
+    }
+    if (submissionState !== 'submitting') setSubmissionState('idle');
   };
 
   return (
@@ -509,6 +612,7 @@ export function Contact() {
             <form
               id="contact-form"
               onSubmit={handleSubmit}
+              noValidate
               className="racing-card scroll-mt-28 space-y-5 bg-card p-5 sm:space-y-6 sm:p-6 md:p-8"
             >
               <div className="motion-sheen" />
@@ -543,9 +647,14 @@ export function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
+                  maxLength={partnershipConfig.limits.fullNameMax}
+                  autoComplete="name"
+                  aria-invalid={Boolean(formErrors.name)}
+                  aria-describedby={formErrors.name ? 'name-error' : undefined}
                   className="form-field"
                   placeholder="Enter your name"
                 />
+                {formErrors.name && <p id="name-error" className="mt-2 text-sm font-semibold text-destructive">{formErrors.name}</p>}
               </div>
 
               {/* Email & Phone */}
@@ -569,9 +678,14 @@ export function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     required
+                    maxLength={partnershipConfig.limits.emailMax}
+                    autoComplete="email"
+                    aria-invalid={Boolean(formErrors.email)}
+                    aria-describedby={formErrors.email ? 'email-error' : undefined}
                     className="form-field"
                     placeholder="your@email.com"
                   />
+                  {formErrors.email && <p id="email-error" className="mt-2 text-sm font-semibold text-destructive">{formErrors.email}</p>}
                 </div>
                 <div>
                   <label
@@ -591,9 +705,15 @@ export function Contact() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
+                    maxLength={partnershipConfig.limits.phoneMax}
+                    autoComplete="tel"
+                    inputMode="tel"
+                    aria-invalid={Boolean(formErrors.phone)}
+                    aria-describedby={formErrors.phone ? 'phone-error' : undefined}
                     className="form-field"
                     placeholder="+63 900 000 0000"
                   />
+                  {formErrors.phone && <p id="phone-error" className="mt-2 text-sm font-semibold text-destructive">{formErrors.phone}</p>}
                 </div>
               </div>
 
@@ -616,17 +736,16 @@ export function Contact() {
                   value={formData.interest}
                   onChange={handleChange}
                   required
+                  aria-invalid={Boolean(formErrors.interest)}
+                  aria-describedby={formErrors.interest ? 'interest-error' : undefined}
                   className="form-field"
                 >
                   <option value="">Select an option</option>
-                  <option value="rider-application">CR-1 Coating for My Bike</option>
-                  <option value="helmet-parts">Helmet or Parts Coating</option>
-                  <option value="dealer">Dealership Partnership</option>
-                  <option value="installer">Authorized Installer Training</option>
-                  <option value="service-center">Service Center Opportunity</option>
-                  <option value="distribution">Distribution Inquiry</option>
-                  <option value="other">Other Inquiry</option>
+                  {partnershipConfig.interests.map(({ value, label }) => (
+                    <option value={value} key={value}>{label}</option>
+                  ))}
                 </select>
+                {formErrors.interest && <p id="interest-error" className="mt-2 text-sm font-semibold text-destructive">{formErrors.interest}</p>}
               </div>
 
               {/* Message */}
@@ -648,27 +767,63 @@ export function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   required
+                  minLength={partnershipConfig.limits.messageMin}
+                  maxLength={partnershipConfig.limits.messageMax}
+                  aria-invalid={Boolean(formErrors.message)}
+                  aria-describedby={formErrors.message ? 'message-error' : undefined}
                   rows={5}
                   className="form-field resize-none"
                   placeholder={inquiryContext.placeholder}
                 />
+                <div className="mt-2 flex items-start justify-between gap-4">
+                  {formErrors.message
+                    ? <p id="message-error" className="text-sm font-semibold text-destructive">{formErrors.message}</p>
+                    : <span />}
+                  <span className="shrink-0 text-xs text-muted-foreground">{formData.message.length}/{partnershipConfig.limits.messageMax}</span>
+                </div>
               </div>
+
+              <div className="absolute left-[-10000px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
+                <label htmlFor="website">Website</label>
+                <input
+                  id="website"
+                  name="website"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={formData.website}
+                  onChange={handleChange}
+                />
+              </div>
+
+              {submissionState === 'success' && (
+                <div role="status" aria-live="polite" className="border border-emerald-600/30 bg-emerald-50 p-4 text-sm leading-6 text-emerald-900">
+                  <strong className="block">Thank you. Your inquiry has been received successfully.</strong>
+                  A confirmation has been sent to your email address. Our CR-1 team will review your inquiry and get back to you regarding the next steps.
+                </div>
+              )}
+              {submissionState === 'error' && (
+                <div role="alert" className="border border-destructive/30 bg-red-50 p-4 text-sm font-semibold text-destructive">
+                  We couldn&apos;t submit your inquiry right now. Please try again. Your information has not been cleared.
+                </div>
+              )}
 
               {/* Submit Button */}
               <motion.button
-                type="submit"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="racing-button w-full"
+                 type="submit"
+                 disabled={submissionState === 'submitting' || submissionState === 'success'}
+                 whileHover={{ scale: 1.02 }}
+                 whileTap={{ scale: 0.98 }}
+                 className="racing-button w-full disabled:cursor-not-allowed disabled:opacity-60"
                 style={{
                   fontFamily: 'Inter, sans-serif',
                   fontSize: '0.875rem',
                   fontWeight: 600,
                   letterSpacing: '0.05em',
                 }}
-              >
-                {inquiryContext.submitLabel}
-                <Send size={18} />
+               >
+                 {submissionState === 'submitting' ? 'SENDING...' : submissionState === 'success' ? 'INQUIRY RECEIVED' : inquiryContext.submitLabel}
+                 <Send size={18} />
               </motion.button>
             </form>
           </motion.div>

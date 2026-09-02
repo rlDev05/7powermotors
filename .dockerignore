@@ -3,6 +3,9 @@ dist
 .git
 .codex
 .agents
+.env
+.env.*
+!.env.example
 npm-debug.log*
 README.md
 DELIVERY_SUMMARY.md

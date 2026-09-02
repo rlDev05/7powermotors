@@ -5,5 +5,34 @@ services:
       dockerfile: Dockerfile
     container_name: seven-power-motors
     restart: unless-stopped
+    init: true
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m,mode=1777
+    security_opt:
+      - no-new-privileges:true
     ports:
-      - "${CR1_PORT:-8082}:80"
+      - "${CR1_BIND_ADDRESS:-127.0.0.1}:${CR1_PORT:-8080}:3000"
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      TRUST_PROXY_HOPS: "${TRUST_PROXY_HOPS:-1}"
+      ALLOWED_ORIGINS: "${ALLOWED_ORIGINS:-https://cr-1phillipines.com,https://www.cr-1phillipines.com}"
+      RATE_LIMIT_WINDOW_MS: "${RATE_LIMIT_WINDOW_MS:-900000}"
+      RATE_LIMIT_MAX: "${RATE_LIMIT_MAX:-5}"
+      DUPLICATE_WINDOW_MS: "${DUPLICATE_WINDOW_MS:-600000}"
+      PARTNERSHIP_INBOX: "${PARTNERSHIP_INBOX:-service@cr-1phillipines.com}"
+      MAIL_FROM_ADDRESS: "${MAIL_FROM_ADDRESS:-service@cr-1phillipines.com}"
+      MAIL_FROM_NAME: "${MAIL_FROM_NAME:-CR-1 Philippines}"
+      MAIL_TIME_ZONE: "${MAIL_TIME_ZONE:-Asia/Manila}"
+      SMTP_HOST: "${SMTP_HOST:-}"
+      SMTP_PORT: "${SMTP_PORT:-587}"
+      SMTP_USERNAME: "${SMTP_USERNAME:-}"
+      SMTP_PASSWORD: "${SMTP_PASSWORD:-}"
+      SMTP_ENCRYPTION: "${SMTP_ENCRYPTION:-tls}"
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/api/health').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s

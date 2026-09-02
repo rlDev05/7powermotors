@@ -1,18 +1,24 @@
 FROM node:20-alpine AS builder
 
 WORKDIR /app
-
 COPY package*.json ./
 RUN npm ci
-
 COPY . .
 RUN npm run build
 
-FROM nginx:1.27-alpine AS production
+FROM node:20-alpine AS production
 
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-COPY --from=builder /app/dist /usr/share/nginx/html
+ENV NODE_ENV=production \
+    PORT=3000
 
-EXPOSE 80
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --omit=dev && npm cache clean --force
+COPY --from=builder /app/dist ./dist
+COPY server ./server
+COPY shared ./shared
 
-CMD ["nginx", "-g", "daemon off;"]
+USER node
+EXPOSE 3000
+
+CMD ["node", "server/index.mjs"]
