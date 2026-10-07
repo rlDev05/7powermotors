@@ -19,13 +19,17 @@ export function createApp({ config, mailer = createSmtpMailer(config), logger = 
   app.disable('x-powered-by');
   app.set('trust proxy', config.trustProxy);
   app.use(helmet({
+    // OpenStreetMap's public tile service requires browser clients to send a
+    // valid Referer. Helmet defaults to `no-referrer`, which causes OSM to
+    // return its 403 "Access blocked" tiles in production.
+    referrerPolicy: { policy: 'strict-origin-when-cross-origin' },
     contentSecurityPolicy: {
       directives: {
         defaultSrc: ["'self'"],
-        connectSrc: ["'self'", 'https://*.tile.openstreetmap.org'],
+        connectSrc: ["'self'", 'https://tile.openstreetmap.org'],
         fontSrc: ["'self'", 'https://fonts.gstatic.com', 'data:'],
         frameSrc: ["'self'", 'https://sketchfab.com'],
-        imgSrc: ["'self'", 'data:', 'https://*.tile.openstreetmap.org'],
+        imgSrc: ["'self'", 'data:', 'https://tile.openstreetmap.org'],
         mediaSrc: ["'self'"],
         scriptSrc: ["'self'"],
         styleSrc: ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com'],

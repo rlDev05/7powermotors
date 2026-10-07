@@ -108,3 +108,14 @@ test('returns a safe response when SMTP is not configured', async () => {
     assert.doesNotMatch(JSON.stringify(await response.json()), /SMTP|password|server/i);
   });
 });
+
+test('allows production map requests to send an origin referrer', async () => {
+  await withServer({ config: baseConfig, mailer: null }, async (baseUrl) => {
+    const response = await fetch(`${baseUrl}/api/health`);
+    assert.equal(response.headers.get('referrer-policy'), 'strict-origin-when-cross-origin');
+    assert.match(
+      response.headers.get('content-security-policy') ?? '',
+      /img-src 'self' data: https:\/\/tile\.openstreetmap\.org/
+    );
+  });
+});
