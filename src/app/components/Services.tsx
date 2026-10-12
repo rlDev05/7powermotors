@@ -56,7 +56,7 @@ export function Services() {
           <motion.h2 className="racing-title" variants={revealUp}>
             Protection riders want. A premium service businesses can grow.
           </motion.h2>
-          <motion.p className="racing-copy mt-6" variants={revealUp}>
+          <motion.p className="racing-copy mt-6 text-justify" variants={revealUp}>
             From certified rider applications to installer training and partner support, CR-1
             connects a better ownership experience with a stronger business opportunity—all
             through one professional system.
@@ -74,17 +74,17 @@ export function Services() {
             <motion.div
               key={service.title}
               variants={revealUp}
-              className="racing-card p-5 sm:p-7"
+              className="racing-card p-5 sm:p-7 rounded-2xl"
               whileHover={{ y: -6 }}
             >
               <div className="motion-sheen" />
-              <div className="mb-6 flex h-14 w-14 items-center justify-center border border-border bg-secondary text-[#86672f] shadow-[8px_8px_0_rgba(225,6,0,0.16)]">
+              <div className="mb-6 flex h-14 w-14 items-center justify-center border border-border bg-secondary text-[#86672f] shadow-[8px_8px_0_rgba(225,6,0,0.16)] rounded-xl">
                 {service.icon}
               </div>
               <h3 className="font-[Rajdhani] text-2xl font-black uppercase leading-none tracking-normal text-foreground">
                 {service.title}
               </h3>
-              <p className="mt-4 text-sm leading-7 text-muted-foreground">
+              <p className="mt-4 text-sm leading-7 text-muted-foreground text-justify">
                 {service.description}
               </p>
               <ul className="mt-6 space-y-2">
@@ -104,22 +104,22 @@ export function Services() {
           whileInView="visible"
           viewport={{ once: true }}
           variants={mediaReveal}
-          className="racing-card mt-12 grid min-h-[430px] grid-cols-1 bg-card text-foreground sm:mt-16 lg:grid-cols-[0.95fr_1.05fr]"
+          className="racing-card mt-12 grid min-h-[430px] grid-cols-1 bg-card text-foreground sm:mt-16 lg:grid-cols-[0.95fr_1.05fr] rounded-2xl"
         >
           <div className="motion-sheen" />
           <div className="p-5 sm:p-8 md:p-12">
-            <p className="brand-chip">
+            <p className="brand-chip rounded-xl">
               Your Next Premium Advantage
             </p>
             <h3 className="mt-5 font-[Rajdhani] text-[2.15rem] font-black uppercase leading-none text-foreground sm:text-4xl md:text-5xl">
               Differentiate your shop. Elevate every customer handover.
             </h3>
-            <p className="mt-6 text-base leading-8 text-muted-foreground">
+            <p className="mt-6 text-base leading-8 text-muted-foreground text-justify">
               Bring customers a Japan-developed protection service with professional training,
               recognizable value, and a finish they can immediately appreciate. CR-1 gives your
               business another reason to be chosen—and remembered.
             </p>
-            <a href="/contact?intent=partner" className="racing-button mt-8">
+            <a href="/contact?intent=partner" className="racing-button mt-8 rounded-xl">
               Start Your CR-1 Partnership
             </a>
           </div>

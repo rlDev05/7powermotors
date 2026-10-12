@@ -76,7 +76,7 @@ const specifications: TechnologySpecification[] = [
   },
   {
     icon: <Clock3 className="h-6 w-6" aria-hidden="true" />,
-    value: 'About 10 Years',
+    value: 'ABOUT 10 YEARS',
     title: 'Durability',
     evidence: '100% pure glass coating',
     description:
@@ -197,7 +197,7 @@ function CR1Introduction({ reducedMotion }: { reducedMotion: boolean }) {
     >
       <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-end lg:gap-16">
         <div>
-          <span className="brand-chip">What is CR-1?</span>
+          <span className="brand-chip rounded-xl">What is CR-1?</span>
           <h2
             id="what-is-cr1-title"
             className="mt-5 font-[Rajdhani] text-[clamp(2.65rem,7vw,5rem)] font-black uppercase leading-[0.9] text-foreground"
@@ -207,11 +207,12 @@ function CR1Introduction({ reducedMotion }: { reducedMotion: boolean }) {
         </div>
 
         <div>
-          <p className="text-lg font-semibold leading-8 text-foreground">
+          <p className="text-lg font-semibold leading-8 text-foreground text-justify">
             CR-1 is a glass coating brand made exclusively for motorcycles. Certified technicians
-            spray it on and chemically cure it into a 100% pure glass layer.
+            spray it on and chemically cure it into a 100% pure inorganic glass coating engineered by Yamashiro Japan, applied by an Import Hauz
+            technician certified by CR-1 PH.
           </p>
-          <p className="mt-4 text-base leading-7 text-muted-foreground">
+          <p className="mt-4 text-base leading-7 text-muted-foreground text-justify">
             Its 0.1 μm layer provides scratch resistance, withstands heat up to 1,300°C, and helps
             slow paint fading, plastic yellowing, and rust without changing the motorcycle&apos;s character.
           </p>
@@ -231,14 +232,14 @@ function CR1Introduction({ reducedMotion }: { reducedMotion: boolean }) {
           ))}
         </ul>
 
-        <aside className="border-l-2 border-accent bg-white/70 px-5 py-5">
+        <aside className="border-l-2 border-accent bg-white/70 px-5 py-5 rounded-xl">
           <p className="text-xs font-black uppercase tracking-[0.18em] text-accent">
             Not wax. Not polymer.
           </p>
           <h3 className="mt-2 font-[Rajdhani] text-2xl font-black uppercase leading-none text-foreground">
             100% pure glass technology.
           </h3>
-          <p className="mt-3 text-sm leading-6 text-muted-foreground">
+          <p className="mt-3 text-sm leading-6 text-muted-foreground text-justify">
             Unlike temporary surface treatments, CR-1 is delivered through controlled professional
             preparation and application for longer-lasting protection on approved surfaces.
           </p>
@@ -268,20 +269,20 @@ function CR1Technology({ reducedMotion }: { reducedMotion: boolean }) {
             <span className="text-accent">Everyday value.</span>
           </h2>
         </div>
-        <p className="racing-copy max-w-2xl lg:justify-self-end">
+        <p className="racing-copy max-w-2xl lg:justify-self-end text-justify">
           Four core specifications explain how CR-1 supports easier care, broader approved surface
           coverage, and protection that respects the motorcycle&apos;s authentic finish.
         </p>
       </div>
 
-      <div className="mt-10 grid gap-px border border-border bg-border md:grid-cols-2 xl:grid-cols-5">
+      <div className="mt-10 grid gap-5 bg-auto md:grid-cols-2 xl:grid-cols-5">
         {specifications.map((specification) => (
-          <article key={specification.title} className="relative flex h-full flex-col bg-card p-5 sm:p-7">
+          <article key={specification.title} className="relative flex h-full flex-col bg-card p-5 sm:p-7 rounded-b-xl">
             <span className="absolute inset-x-0 top-0 h-0.5 bg-accent" aria-hidden="true" />
-            <div className="flex h-12 w-12 items-center justify-center bg-secondary text-[#86672f]">
+            <div className="flex h-12 w-12 items-center justify-center bg-secondary text-[#86672f] rounded-xl">
               {specification.icon}
             </div>
-            <p className="mt-7 font-[Rajdhani] text-4xl font-black uppercase leading-none text-accent">
+            <p className="mt-7 font-[Rajdhani] text-4xl font-black leading-none text-accent">
               {specification.value}
             </p>
             <h3 className="mt-3 font-[Rajdhani] text-xl font-black uppercase leading-6 text-foreground">
@@ -300,12 +301,12 @@ function CR1Technology({ reducedMotion }: { reducedMotion: boolean }) {
         ))}
       </div>
 
-      <aside className="mt-6 border-l-2 border-[#c8a96e] bg-white/70 px-4 py-4 text-xs leading-5 text-muted-foreground">
+      <aside className="mt-6 border-l-2 border-[#c8a96e] bg-white/70 px-4 py-4 text-xs leading-5 text-muted-foreground text-justify rounded-xl">
         Technical values describe the coating under controlled conditions. CR-1 is scratch-resistant,
         but scratches and other damage remain possible. It slows fading, yellowing, and rust rather
         than completely preventing them. Surface suitability and durability depend on material, preparation, use, climate, storage,
         maintenance, and physical or chemical damage. Confirm approved application coverage with an
-        authorized CR-1 Pro Shop.
+        authorized CR-1 Dealer.
       </aside>
     </motion.section>
   );
@@ -338,7 +339,7 @@ function CR1ApplicationAndFinish({ reducedMotion }: { reducedMotion: boolean }) 
       </div>
 
       <motion.div
-        className="mt-10 grid overflow-hidden border border-border bg-white lg:grid-cols-[0.96fr_1.04fr]"
+        className="mt-10 grid overflow-hidden border border-border bg-white lg:grid-cols-[0.96fr_1.04fr] rounded-2xl"
         variants={mediaReveal}
       >
         <div className="grid gap-px bg-border sm:grid-cols-2 lg:h-full lg:grid-cols-1 lg:grid-rows-[minmax(0,2fr)_minmax(0,1fr)]">
@@ -368,14 +369,14 @@ function CR1ApplicationAndFinish({ reducedMotion }: { reducedMotion: boolean }) 
         </div>
 
         <div className="p-6 sm:p-9 lg:p-12">
-          <span className="brand-chip">
+          <span className="brand-chip rounded-xl">
             <BadgeCheck className="h-4 w-4" aria-hidden="true" />
             Defined professional process
           </span>
           <h3 className="mt-5 font-[Rajdhani] text-3xl font-black uppercase leading-none text-foreground sm:text-4xl">
             Professional hands make premium chemistry count.
           </h3>
-          <p className="mt-5 text-base leading-7 text-muted-foreground">
+          <p className="mt-5 text-base leading-7 text-muted-foreground text-justify">
             Authorized technicians complete dedicated CR-1 instruction in surface preparation,
             chemical handling, equipment use, and controlled application before providing the
             service.
@@ -391,13 +392,13 @@ function CR1ApplicationAndFinish({ reducedMotion }: { reducedMotion: boolean }) 
                   <h4 className="font-[Rajdhani] text-lg font-black uppercase tracking-[0.04em] text-foreground">
                     {step.title}
                   </h4>
-                  <p className="mt-1 text-sm leading-6 text-muted-foreground">{step.description}</p>
+                  <p className="mt-1 text-sm leading-6 text-muted-foreground text-justify">{step.description}</p>
                 </div>
               </li>
             ))}
           </ol>
 
-          <Link to="/services" className="racing-button mt-8 w-full sm:w-auto">
+          <Link to="/services" className="racing-button mt-8 w-full sm:w-auto rounded-xl">
             Explore the Application Process
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
@@ -428,7 +429,7 @@ function CR1ApplicationAndFinish({ reducedMotion }: { reducedMotion: boolean }) 
           {finishGallery.map((item, index) => (
             <figure
               key={item.caption}
-              className={`racing-media aspect-[16/10] lg:aspect-auto ${item.className ?? ''}`}
+              className={`racing-media aspect-[16/10] lg:aspect-auto rounded-2xl ${item.className ?? ''}`}
             >
               <ImageWithFallback
                 src={item.src}
@@ -469,7 +470,7 @@ function CR1AudienceCTA({ reducedMotion }: { reducedMotion: boolean }) {
         {audiencePaths.map((path) => (
           <article
             key={path.eyebrow}
-            className={`relative overflow-hidden border p-6 sm:p-9 lg:p-10 ${
+            className={`relative overflow-hidden border p-6 sm:p-9 lg:p-10 rounded-2xl ${
               path.featured
                 ? 'border-accent bg-accent text-white'
                 : 'border-border bg-white text-foreground'
@@ -484,7 +485,7 @@ function CR1AudienceCTA({ reducedMotion }: { reducedMotion: boolean }) {
 
             <div className="relative">
               <span
-                className={`flex h-12 w-12 items-center justify-center ${
+                className={`flex h-12 w-12 items-center justify-center rounded-xl ${
                   path.featured ? 'bg-white/15 text-white' : 'bg-secondary text-accent'
                 }`}
               >
@@ -513,7 +514,7 @@ function CR1AudienceCTA({ reducedMotion }: { reducedMotion: boolean }) {
               </p>
               <Link
                 to={path.to}
-                className={`mt-7 inline-flex min-h-12 w-full items-center justify-center gap-2 px-6 py-3 text-center text-xs font-black uppercase tracking-[0.1em] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 sm:w-auto ${
+                className={`mt-7 inline-flex min-h-12 w-full items-center justify-center gap-2 px-6 py-3 text-center text-xs font-black uppercase tracking-[0.1em] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 sm:w-auto rounded-xl ${
                   path.featured
                     ? 'bg-white text-accent hover:bg-[#f5f5f2] focus-visible:ring-white focus-visible:ring-offset-accent'
                     : 'bg-accent text-white hover:bg-accent/90 focus-visible:ring-accent focus-visible:ring-offset-white'

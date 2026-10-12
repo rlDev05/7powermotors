@@ -69,7 +69,7 @@ export function Navbar() {
               </div>
             ))}
             <div
-              className="ml-4 bg-accent px-6 py-3 text-accent-foreground shadow-[0_12px_28px_rgba(214,0,0,0.24)] tracking-wider transition-transform hover:scale-105 hover:bg-[var(--accent-deep)] active:scale-95"
+              className="ml-4 bg-accent px-6 py-3 text-accent-foreground shadow-[0_12px_28px_rgba(214,0,0,0.24)] tracking-wider transition-transform hover:scale-105 hover:bg-[var(--accent-deep)] active:scale-95 rounded-xl cursor-pointer"
               style={{
                 fontFamily: 'Inter, sans-serif',
                 fontSize: '0.875rem',
@@ -111,7 +111,7 @@ export function Navbar() {
               ))}
               <Link
                 to="/contact?intent=partner"
-                className="flex min-h-12 w-full items-center justify-center bg-accent px-6 py-3 text-center text-accent-foreground tracking-wider transition-all hover:bg-[var(--accent-deep)]"
+                className="flex min-h-12 w-full items-center justify-center bg-accent px-6 py-3 text-center text-accent-foreground tracking-wider transition-all hover:bg-[var(--accent-deep)] rounded-xl"
                 style={{
                   fontFamily: 'Inter, sans-serif',
                   fontSize: '0.875rem',

@@ -37,7 +37,7 @@ export default function ProductsPage() {
       <main className="px-4 pb-16 pt-24 sm:px-6 sm:pb-20 sm:pt-28 lg:px-8">
         <div className="mx-auto w-full max-w-[90rem]">
           <motion.section
-            className="racing-card racing-slashed mb-10 border-border bg-[#f4f1ec] text-foreground"
+            className="racing-card racing-slashed mb-10 border-border bg-[#f4f1ec] text-foreground rounded-2xl"
             initial="hidden"
             animate="visible"
             variants={revealContainer}
@@ -45,7 +45,7 @@ export default function ProductsPage() {
             <div className="motion-sheen" />
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_0.72fr]">
               <motion.div className="p-5 sm:p-8 md:p-12" variants={revealUp}>
-                <span className="brand-chip">
+                <span className="brand-chip rounded-xl">
                   <PackageCheck className="h-4 w-4" />
                   CR-1 Product Line
                 </span>
@@ -65,7 +65,7 @@ export default function ProductsPage() {
                 {careProducts.slice(0, 4).map((product, index) => (
                   <motion.div
                     key={product.id}
-                    className="flex items-center justify-center border border-border bg-white p-4 shadow-[0_18px_35px_rgba(25,25,25,0.09)]"
+                    className="flex items-center justify-center border border-border bg-white p-4 shadow-[0_18px_35px_rgba(25,25,25,0.09)] rounded-xl"
                     initial={{ opacity: 0, y: 18, scale: 0.96 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     transition={{ duration: 0.58, delay: 0.38 + index * 0.08, ease: [0.16, 1, 0.3, 1] }}
@@ -84,7 +84,7 @@ export default function ProductsPage() {
           </motion.section>
 
           <motion.div
-            className="racing-card mb-8 bg-card p-4 md:mb-10 md:p-5"
+            className="racing-card mb-8 bg-card p-4 md:mb-10 md:p-5 rounded-2xl"
             initial={{ opacity: 0, y: 24, filter: 'blur(10px)' }}
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             transition={{ duration: 0.7, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
@@ -107,7 +107,7 @@ export default function ProductsPage() {
                   onChange={(event) => setSearchTerm(event.target.value)}
                   placeholder="Search care products"
                   aria-label="Search care products"
-                  className="form-field py-3 pl-12 pr-4 text-sm"
+                  className="form-field py-3 pl-12 pr-4 text-sm rounded-xl"
                 />
               </label>
             </div>
@@ -115,7 +115,7 @@ export default function ProductsPage() {
             <div className="mt-5 flex gap-3 overflow-x-auto pb-2 sm:flex-wrap sm:overflow-visible sm:pb-0">
               <Link
                 to="/products"
-                className={`flex min-h-11 shrink-0 items-center px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] transition ${
+                className={`flex min-h-11 shrink-0 items-center px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] transition rounded-xl ${
                   !selectedCategory
                     ? 'bg-accent text-white shadow-[0_10px_22px_rgba(214,0,0,0.26)]'
                     : 'border border-border bg-white text-muted-foreground hover:border-[#86672f] hover:text-[#86672f]'
@@ -127,7 +127,7 @@ export default function ProductsPage() {
                 <Link
                   key={category}
                   to={`/products?category=${encodeURIComponent(category)}`}
-                  className={`flex min-h-11 shrink-0 items-center px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] transition ${
+                  className={`flex min-h-11 shrink-0 items-center px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] transition rounded-xl ${
                     selectedCategory === category
                       ? 'bg-accent text-white shadow-[0_10px_22px_rgba(214,0,0,0.26)]'
                       : 'border border-border bg-white text-muted-foreground hover:border-[#86672f] hover:text-[#86672f]'
@@ -148,7 +148,7 @@ export default function ProductsPage() {
             {filteredProducts.map((product) => (
               <motion.article
                 key={product.id}
-                className="racing-card group flex flex-col"
+                className="racing-card group flex flex-col rounded-2xl"
                 variants={revealUp}
                 whileHover={{ y: -6 }}
               >
@@ -177,7 +177,7 @@ export default function ProductsPage() {
                     {product.uses.map((use) => (
                       <span
                         key={use}
-                        className="border border-border/70 px-3 py-2 text-xs font-bold uppercase tracking-[0.12em] text-muted-foreground"
+                        className="border border-border/70 px-3 py-2 text-xs font-bold uppercase tracking-[0.12em] text-muted-foreground rounded-xl"
                       >
                         {use}
                       </span>
@@ -185,7 +185,7 @@ export default function ProductsPage() {
                   </div>
                   <Link
                     to="/contact"
-                    className="racing-button-outline mt-6"
+                    className="racing-button-outline mt-6 rounded-xl"
                   >
                     Inquire Product
                     <ArrowRight className="h-4 w-4" />

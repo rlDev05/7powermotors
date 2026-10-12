@@ -60,7 +60,7 @@ export default function MotorcyclesPage() {
         </div>
 
         <motion.section
-          className="racing-card racing-slashed mb-10"
+          className="racing-card racing-slashed mb-10 rounded-2xl"
           initial="hidden"
           animate="visible"
           variants={revealContainer}
@@ -79,13 +79,13 @@ export default function MotorcyclesPage() {
                 naturally with CR-1 surface care.
               </p>
               <div className="mt-7 flex flex-wrap gap-2 text-[0.68rem] font-bold uppercase tracking-[0.13em] text-muted-foreground sm:mt-8 sm:gap-3 sm:text-xs sm:tracking-[0.16em]">
-                <span className="border border-border px-3 py-2 sm:px-4 sm:py-3">{bikes.length} models</span>
-                <span className="border border-border px-3 py-2 sm:px-4 sm:py-3">{categories.length} categories</span>
-                <span className="border border-border px-3 py-2 sm:px-4 sm:py-3">Detail pages ready</span>
+                <span className="border border-border px-3 py-2 sm:px-4 sm:py-3 rounded-xl">{bikes.length} models</span>
+                <span className="border border-border px-3 py-2 sm:px-4 sm:py-3 rounded-xl">{categories.length} categories</span>
+                <span className="border border-border px-3 py-2 sm:px-4 sm:py-3 rounded-xl">Detail pages ready</span>
               </div>
             </motion.div>
             <motion.div className="relative min-h-[240px] bg-secondary/50 sm:min-h-[320px]" variants={mediaReveal}>
-              <div className="motion-sheen z-10" />
+              <div className="motion-sheen z-10 rounded-xl" />
                <ImageWithFallback
                  src={bikes[0]?.image || ''}
                  alt="Featured CR-1 motorcycle model"
@@ -98,7 +98,7 @@ export default function MotorcyclesPage() {
         </motion.section>
 
         <motion.div
-          className="racing-card mb-8 bg-white p-4 md:mb-10 md:p-5"
+          className="racing-card mb-8 bg-white p-4 md:mb-10 md:p-5 rounded-2xl"
           initial={{ opacity: 0, y: 24, filter: 'blur(10px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           transition={{ duration: 0.7, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
@@ -121,7 +121,7 @@ export default function MotorcyclesPage() {
                 onChange={(event) => setSearchTerm(event.target.value)}
                 placeholder="Search models"
                 aria-label="Search motorcycle models"
-                className="w-full border border-border bg-input-background py-3 pl-12 pr-4 text-sm text-foreground outline-none transition focus:border-accent"
+                className="w-full border border-border bg-input-background py-3 pl-12 pr-4 text-sm text-foreground outline-none transition focus:border-accent rounded-xl"
               />
             </label>
           </div>
@@ -129,7 +129,7 @@ export default function MotorcyclesPage() {
           <div className="mt-5 flex gap-3 overflow-x-auto pb-2 sm:flex-wrap sm:overflow-visible sm:pb-0">
             <Link
               to="/models"
-              className={`flex min-h-11 shrink-0 items-center px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] transition ${
+              className={`flex min-h-11 shrink-0 items-center px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] transition rounded-xl ${
                 !selectedCategory
                   ? 'bg-accent text-white'
                   : 'border border-border text-muted-foreground hover:border-accent hover:text-accent'
@@ -141,7 +141,7 @@ export default function MotorcyclesPage() {
               <Link
                 key={category}
                   to={`/models?category=${encodeURIComponent(category)}`}
-                className={`flex min-h-11 shrink-0 items-center px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] transition ${
+                className={`flex min-h-11 shrink-0 items-center px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] transition rounded-xl ${
                   selectedCategory === category
                     ? 'bg-accent text-white'
                     : 'border border-border text-muted-foreground hover:border-accent hover:text-accent'
@@ -164,7 +164,7 @@ export default function MotorcyclesPage() {
             filteredBikes.map((bike) => (
               <motion.div
                 key={bike.id} 
-                className="racing-card group flex flex-col"
+                className="racing-card group flex flex-col rounded-2xl"
                 variants={revealUp}
                 whileHover={{ y: -6 }}
               >
@@ -178,7 +178,7 @@ export default function MotorcyclesPage() {
                      className="h-full w-full object-contain p-5 transition-transform duration-700 group-hover:scale-105 sm:p-6"
                    />
                    {bike.availability && (
-                    <span className="absolute left-4 top-4 bg-amber-500 px-3 py-2 text-xs font-bold uppercase tracking-[0.14em] text-black">
+                    <span className="absolute left-4 top-4 bg-amber-500 px-3 py-2 text-xs font-bold uppercase tracking-[0.14em] text-black rounded-xl">
                       Pre-order
                     </span>
                    )}
@@ -196,7 +196,7 @@ export default function MotorcyclesPage() {
                     {/* THIS IS THE CRITICAL FIX: Link to the specific ID */}
                     <Link 
                         to={`/models/${bike.id}`}
-                        className="racing-button-outline mt-auto w-full py-3"
+                        className="racing-button-outline mt-auto w-full py-3 rounded-xl"
                     >
                         VIEW MODEL
                         <ArrowRight className="h-4 w-4" />

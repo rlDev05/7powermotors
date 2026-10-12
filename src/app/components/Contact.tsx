@@ -209,7 +209,7 @@ export function Contact() {
           className="mx-auto mb-10 max-w-3xl text-center sm:mb-16"
         >
           <motion.span
-            className="brand-chip mx-auto w-fit"
+            className="brand-chip mx-auto w-fit rounded-xl mb-6"
             variants={revealUp}
             style={{
               fontFamily: 'Inter, sans-serif',
@@ -246,7 +246,7 @@ export function Contact() {
         >
           <div className="grid items-end gap-6 border-b border-border pb-7 lg:grid-cols-[1fr_auto] lg:gap-10">
             <motion.div variants={revealUp} className="max-w-3xl">
-              <span className="brand-chip mb-5 w-fit">CR-1 Philippines Network</span>
+              <span className="brand-chip mb-5 w-fit rounded-xl">CR-1 Philippines Network</span>
               <h3 id="network-locator-title" className="racing-title mb-4">
                 Find your nearest CR-1 location.
               </h3>
@@ -258,7 +258,7 @@ export function Contact() {
 
             <motion.dl
               variants={revealUp}
-              className="grid grid-cols-2 gap-px overflow-hidden border border-border bg-border sm:grid-cols-3 lg:min-w-[30rem]"
+              className="grid grid-cols-2 gap-px overflow-hidden border border-border bg-border sm:grid-cols-3 lg:min-w-[30rem] rounded-2xl"
             >
               <div className="bg-card px-4 py-4 sm:px-5">
                 <dt className="text-[10px] font-black uppercase tracking-[0.18em] text-muted-foreground">
@@ -287,7 +287,7 @@ export function Contact() {
             </motion.dl>
           </div>
 
-          <motion.div variants={revealUp} className="racing-card mt-8 overflow-hidden bg-secondary">
+          <motion.div variants={revealUp} className="racing-card mt-8 overflow-hidden bg-secondary rounded-2xl">
             <div className="relative h-[26rem] sm:h-[32rem] lg:h-[36rem]">
               <Suspense
                 fallback={
@@ -370,7 +370,7 @@ export function Contact() {
                   variants={revealUp}
                   aria-labelledby={`network-region-${regionIndex}`}
                 >
-                  <div className="mb-4 flex flex-col justify-between gap-2 border-l-4 border-accent bg-secondary px-4 py-3 sm:flex-row sm:items-center sm:px-5">
+                  <div className="mb-4 flex flex-col justify-between gap-2 border-l-4 border-accent bg-secondary px-4 py-3 sm:flex-row sm:items-center sm:px-5 rounded-2xl">
                     <div>
                       <p className="text-[10px] font-black uppercase tracking-[0.2em] text-accent">
                         Regional Directory
@@ -394,7 +394,7 @@ export function Contact() {
                       return (
                         <article
                           key={location.id}
-                          className={`overflow-hidden border bg-card transition-all duration-300 ${
+                          className={`overflow-hidden border bg-card transition-all duration-300 rounded-2xl ${
                             isActive
                               ? 'border-accent shadow-[0_14px_36px_rgba(214,0,0,0.12)]'
                               : 'border-border hover:border-accent/55 hover:shadow-lg'
@@ -407,7 +407,7 @@ export function Contact() {
                             className="group flex min-h-36 w-full items-start gap-4 p-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent sm:p-6"
                           >
                             <span
-                              className={`flex h-11 w-11 shrink-0 items-center justify-center border transition-colors ${
+                              className={`flex h-11 w-11 shrink-0 items-center justify-center border transition-colors rounded-xl ${
                                 isActive
                                   ? 'border-accent bg-accent text-white'
                                   : 'border-border bg-secondary text-accent group-hover:border-accent'
@@ -478,7 +478,7 @@ export function Contact() {
 
           <motion.aside
             variants={revealUp}
-            className="mt-8 grid gap-5 border border-border bg-secondary p-5 sm:p-6 lg:grid-cols-[1fr_auto] lg:items-center lg:p-8"
+            className="mt-8 grid gap-5 border border-border bg-secondary p-5 sm:p-6 lg:grid-cols-[1fr_auto] lg:items-center lg:p-8 rounded-2xl"
           >
             <div>
               <p className="text-xs font-black uppercase tracking-[0.18em] text-accent">
@@ -493,12 +493,12 @@ export function Contact() {
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <a href="#contact-form" className="racing-button justify-center">
+              <a href="#contact-form" className="racing-button justify-center rounded-xl">
                 Ask About Coverage
               </a>
               <Link
                 to="/contact?intent=partner#contact-form"
-                className="flex min-h-12 items-center justify-center border border-foreground px-5 py-3 text-xs font-black uppercase tracking-[0.14em] text-foreground transition hover:border-accent hover:bg-accent hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                className="flex min-h-12 items-center justify-center border border-foreground px-5 py-3 text-xs font-black uppercase tracking-[0.14em] text-foreground transition hover:border-accent hover:bg-accent hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded-xl"
               >
                 Expand With CR-1
               </Link>
@@ -534,7 +534,7 @@ export function Contact() {
                 <motion.div
                   key={index}
                   variants={revealLeft}
-                  className="racing-card flex min-w-0 gap-4 bg-card p-5 sm:p-6"
+                  className="racing-card flex min-w-0 gap-4 bg-card p-5 sm:p-6 rounded-2xl"
                   whileHover={{ x: 5 }}
                 >
                   <div className="motion-sheen" />
@@ -575,7 +575,7 @@ export function Contact() {
 
             <motion.div
               variants={revealUp}
-              className="racing-card bg-card p-6"
+              className="racing-card bg-card p-6 rounded-2xl"
             >
               <div className="motion-sheen" />
               <p className="mb-4 text-xs font-black uppercase tracking-[0.18em] text-[#86672f]">
@@ -592,7 +592,7 @@ export function Contact() {
                     href={social.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center justify-center gap-2 border border-border bg-white px-4 py-3 text-xs font-black uppercase tracking-[0.14em] text-muted-foreground transition hover:border-accent hover:text-accent"
+                    className="flex items-center justify-center gap-2 border border-border bg-white px-4 py-3 text-xs font-black uppercase tracking-[0.14em] text-muted-foreground transition hover:border-accent hover:text-accent rounded-xl"
                   >
                     {social.icon}
                     {social.label}
@@ -613,10 +613,10 @@ export function Contact() {
               id="contact-form"
               onSubmit={handleSubmit}
               noValidate
-              className="racing-card scroll-mt-28 space-y-5 bg-card p-5 sm:space-y-6 sm:p-6 md:p-8"
+              className="racing-card scroll-mt-28 space-y-5 bg-card p-5 sm:space-y-6 sm:p-6 md:p-8 rounded-2xl"
             >
               <div className="motion-sheen" />
-              <div className="border-l-2 border-[#86672f] bg-[#c8a96e]/10 p-5">
+              <div className="border-l-2 border-[#86672f] bg-[#c8a96e]/10 p-5 rounded-xl">
                 <div className="mb-2 flex items-center gap-2 text-[#86672f]">
                   <MessageCircle className="h-5 w-5" />
                   <p className="text-xs font-black uppercase tracking-[0.18em] text-[#86672f]">
@@ -651,7 +651,7 @@ export function Contact() {
                   autoComplete="name"
                   aria-invalid={Boolean(formErrors.name)}
                   aria-describedby={formErrors.name ? 'name-error' : undefined}
-                  className="form-field"
+                  className="form-field rounded-xl"
                   placeholder="Enter your name"
                 />
                 {formErrors.name && <p id="name-error" className="mt-2 text-sm font-semibold text-destructive">{formErrors.name}</p>}
@@ -682,7 +682,7 @@ export function Contact() {
                     autoComplete="email"
                     aria-invalid={Boolean(formErrors.email)}
                     aria-describedby={formErrors.email ? 'email-error' : undefined}
-                    className="form-field"
+                    className="form-field rounded-xl"
                     placeholder="your@email.com"
                   />
                   {formErrors.email && <p id="email-error" className="mt-2 text-sm font-semibold text-destructive">{formErrors.email}</p>}
@@ -710,7 +710,7 @@ export function Contact() {
                     inputMode="tel"
                     aria-invalid={Boolean(formErrors.phone)}
                     aria-describedby={formErrors.phone ? 'phone-error' : undefined}
-                    className="form-field"
+                    className="form-field rounded-xl"
                     placeholder="+63 900 000 0000"
                   />
                   {formErrors.phone && <p id="phone-error" className="mt-2 text-sm font-semibold text-destructive">{formErrors.phone}</p>}
@@ -738,7 +738,7 @@ export function Contact() {
                   required
                   aria-invalid={Boolean(formErrors.interest)}
                   aria-describedby={formErrors.interest ? 'interest-error' : undefined}
-                  className="form-field"
+                  className="form-field rounded-xl"
                 >
                   <option value="">Select an option</option>
                   {partnershipConfig.interests.map(({ value, label }) => (
@@ -772,7 +772,7 @@ export function Contact() {
                   aria-invalid={Boolean(formErrors.message)}
                   aria-describedby={formErrors.message ? 'message-error' : undefined}
                   rows={5}
-                  className="form-field resize-none"
+                  className="form-field resize-none rounded-xl"
                   placeholder={inquiryContext.placeholder}
                 />
                 <div className="mt-2 flex items-start justify-between gap-4">
@@ -814,7 +814,7 @@ export function Contact() {
                  disabled={submissionState === 'submitting' || submissionState === 'success'}
                  whileHover={{ scale: 1.02 }}
                  whileTap={{ scale: 0.98 }}
-                 className="racing-button w-full disabled:cursor-not-allowed disabled:opacity-60"
+                 className="racing-button w-full disabled:cursor-not-allowed disabled:opacity-60 rounded-xl cursor-pointer"
                 style={{
                   fontFamily: 'Inter, sans-serif',
                   fontSize: '0.875rem',

@@ -51,11 +51,11 @@ export function ApplicationProcess() {
             </motion.h1>
           </div>
           <motion.div className="max-w-2xl lg:justify-self-end" variants={revealUp}>
-            <p className="racing-copy font-semibold text-foreground">
+            <p className="racing-copy font-semibold text-foreground text-justify">
               Every CR-1 application follows a careful, standardized process—from initial surface
               inspection and preparation to final coating and documentation.
             </p>
-            <p className="racing-copy mt-3">
+            <p className="racing-copy mt-3 text-justify">
               Each stage is carried out by trained CR-1 technicians to support consistent coverage,
               a refined appearance, and dependable protection for everyday riding conditions.
             </p>
@@ -74,7 +74,7 @@ export function ApplicationProcess() {
             <motion.li
               key={step.number}
               variants={revealUp}
-              className="group relative overflow-hidden border border-border bg-card transition duration-300 hover:border-accent/55"
+              className="group relative overflow-hidden border border-border bg-card transition duration-300 hover:border-accent/55 rounded-2xl"
             >
               <motion.div className="relative aspect-[511/272] overflow-hidden bg-muted" variants={mediaReveal}>
                 <ImageWithFallback
@@ -85,7 +85,7 @@ export function ApplicationProcess() {
                   className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.025]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" aria-hidden="true" />
-                <span className="absolute left-4 top-4 flex h-14 min-w-14 items-center justify-center bg-accent px-3 font-[Rajdhani] text-2xl font-black text-white shadow-[0_12px_28px_rgba(0,0,0,0.18)]">
+                <span className="absolute left-4 top-4 flex h-14 min-w-14 items-center justify-center bg-accent px-3 font-[Rajdhani] text-2xl font-black text-white shadow-[0_12px_28px_rgba(0,0,0,0.18)] rounded-xl">
                   {step.number}
                 </span>
               </motion.div>
@@ -99,7 +99,7 @@ export function ApplicationProcess() {
                 </h2>
                 <p className="mt-4 text-sm leading-6 text-muted-foreground">{step.description}</p>
                 {step.note && (
-                  <p className="mt-4 border-l-2 border-[#c8a96e] pl-3 text-xs leading-5 text-muted-foreground">
+                  <p className="mt-4 border-l-2 border-[#c8a96e] pl-3 text-xs leading-5 text-muted-foreground rounded-xl">
                     {step.note}
                   </p>
                 )}
@@ -109,7 +109,7 @@ export function ApplicationProcess() {
         </motion.ol>
 
         <motion.section
-          className="mt-16 grid overflow-hidden border border-border bg-card shadow-[0_24px_70px_rgba(16,16,16,0.12)] lg:grid-cols-[0.82fr_1.18fr]"
+          className="mt-16 grid overflow-hidden border border-border bg-card shadow-[0_24px_70px_rgba(16,16,16,0.12)] lg:grid-cols-[0.82fr_1.18fr] rounded-2xl"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.18 }}
@@ -146,24 +146,16 @@ export function ApplicationProcess() {
           <motion.div className="relative flex flex-col justify-center bg-white p-6 sm:p-9 lg:p-12" variants={revealUp}>
             <span className="absolute right-0 top-0 h-1 w-28 bg-accent" aria-hidden="true" />
             <p className="text-base leading-7 text-foreground">
-              After service is completed, the CR-1 Pro Shop issues an official certificate recording
+              After service is completed, the authorized CR-1 Dealer issues an official certificate recording
               the application work performed on the motorcycle. Collect it when receiving the completed
               motorcycle and keep it in a safe place.
             </p>
-            <p className="mt-4 text-sm leading-6 text-muted-foreground">
-              The certificate may be submitted when an insurance provider requires documentation of
-              the coating application. It is a service record and is not insurance coverage.
-            </p>
-            <aside className="mt-6 border-l-2 border-[#c8a96e] bg-background px-4 py-3 text-xs leading-5 text-muted-foreground">
-              Certificate reissuance or name changes may require an additional fee. Charges can differ
-              by service course and market; confirm the current local fee with your CR-1 Pro Shop.
-            </aside>
             <a
               href={cr1OfficialLinks.certificate}
               target="_blank"
               rel="noreferrer"
               aria-label="Open the translated CR-1 certificate system (opens in a new tab)"
-              className="racing-button mt-7 w-fit"
+              className="racing-button mt-7 w-fit rounded-xl"
             >
               Learn More About the Certificate
               <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
@@ -180,7 +172,7 @@ export function ApplicationProcess() {
           aria-labelledby="standards-title"
         >
           <motion.div variants={revealUp}>
-            <span className="brand-chip">
+            <span className="brand-chip rounded-xl">
               <Award className="h-4 w-4" aria-hidden="true" />
               Professional Application Expertise
             </span>
@@ -190,19 +182,19 @@ export function ApplicationProcess() {
             <h3 className="mt-5 font-[Rajdhani] text-xl font-black uppercase tracking-[0.08em] text-accent">
               Trained Technicians. Standardized Process.
             </h3>
-            <p className="mt-5 text-base leading-7 text-muted-foreground">
-              CR-1 Pro Shop technicians must complete dedicated application training before providing
+            <p className="mt-5 text-base leading-7 text-muted-foreground text-justify">
+              CR-1 Dealer technicians must complete dedicated application training before providing
               CR-1 services. Training covers CR-1 products, preparation methods, chemical handling,
               equipment, and application technique.
             </p>
-            <p className="mt-3 text-base leading-7 text-muted-foreground">
+            <p className="mt-3 text-base leading-7 text-muted-foreground text-justify">
               Technicians who complete the required instruction and receive CR-1 technical certification
               are authorized to perform the service. Refresher training supports consistent procedures
               and continued skills development across participating Pro Shops.
             </p>
           </motion.div>
 
-          <motion.ul className="grid gap-px border border-border bg-border sm:grid-cols-2" variants={revealContainer}>
+          <motion.ul className="grid gap-px border border-border bg-border sm:grid-cols-2 rounded-2xl" variants={revealContainer}>
             {applicationStandards.map((standard) => (
               <motion.li
                 key={standard}
@@ -219,7 +211,7 @@ export function ApplicationProcess() {
         </motion.section>
 
         <motion.section
-          className="relative mt-16 overflow-hidden bg-accent p-6 text-white sm:p-9 lg:mt-20 lg:flex lg:items-center lg:justify-between lg:gap-12 lg:p-12"
+          className="relative mt-16 overflow-hidden bg-accent p-6 text-white sm:p-9 lg:mt-20 lg:flex lg:items-center lg:justify-between lg:gap-12 lg:p-12 rounded-2xl"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -232,12 +224,12 @@ export function ApplicationProcess() {
               <MessageCircleQuestion className="h-4 w-4" aria-hidden="true" />
               Process support
             </div>
-            <h2 id="process-inquiry-title" className="mt-3 font-[Rajdhani] text-3xl font-black uppercase leading-none text-white sm:text-4xl">
+            <h2 id="process-inquiry-title" className="max-w-2xl mt-3 font-[Rajdhani] text-3xl font-black uppercase leading-none text-white sm:text-4xl text-justify">
               Have Questions About the CR-1 Process?
             </h2>
-            <p className="mt-4 max-w-2xl text-sm leading-6 text-white/80 sm:text-base">
+            <p className="mt-4 max-w-2xl text-sm leading-6 text-white/80 sm:text-base text-justify">
               Ask about preparation, application coverage, service availability, certificates, or
-              motorcycle eligibility through an authorized CR-1 Pro Shop or our contact page.
+              motorcycle eligibility through an authorized CR-1 Dealer or our contact page.
             </p>
           </motion.div>
 
@@ -246,15 +238,15 @@ export function ApplicationProcess() {
               href={cr1OfficialLinks.shops}
               target="_blank"
               rel="noreferrer"
-              aria-label="Find a CR-1 Pro Shop in the official CR-1 shop directory (opens in a new tab)"
-              className="inline-flex min-h-12 items-center justify-center gap-2 bg-white px-5 py-3 text-center text-xs font-black uppercase tracking-[0.1em] text-accent transition hover:bg-[#f5f5f2] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-accent"
+              aria-label="Find a Authorized CR-1 Dealer in the official CR-1 dealer directory (opens in a new tab)"
+              className="inline-flex min-h-12 items-center justify-center gap-2 bg-white px-5 py-3 text-center text-xs font-black uppercase tracking-[0.1em] text-accent transition hover:bg-[#f5f5f2] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-accent rounded-xl"
             >
               <MapPin className="h-4 w-4" aria-hidden="true" />
-              Official CR-1 Shop Directory
+              Official CR-1 Dealer Directory
             </a>
             <Link
               to="/contact"
-              className="inline-flex min-h-12 items-center justify-center border border-white/65 px-5 py-3 text-center text-xs font-black uppercase tracking-[0.1em] text-white transition hover:border-white hover:bg-white hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-accent"
+              className="inline-flex min-h-12 items-center justify-center border border-white/65 px-5 py-3 text-center text-xs font-black uppercase tracking-[0.1em] text-white transition hover:border-white hover:bg-white hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-accent rounded-xl"
             >
               Contact CR-1
             </Link>

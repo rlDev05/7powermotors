@@ -112,7 +112,7 @@
 .pricing-section, .pricing-results { padding-top: 5rem; }
 .pricing-section-heading { display: flex; justify-content: space-between; gap: 2rem; align-items: end; margin-bottom: 1.5rem; }
 .pricing-section-heading > p { max-width: 28rem; text-align: right; }
-.pricing-course-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0.75rem; }
+.pricing-course-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.75rem; }
 .pricing-course-grid-compact { margin-bottom: 1rem; }
 
 .pricing-course-card {
@@ -236,7 +236,7 @@
 .pricing-table-heading { display: flex; justify-content: space-between; gap: 2rem; align-items: end; margin-bottom: 1rem; }
 .pricing-table-heading > div > span, .pricing-table-heading > span { color: #86672f; font-size: .67rem; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
 .pricing-table-heading h2 { margin-top: .35rem; font-size: clamp(1.7rem,4vw,2.35rem); }
-.pricing-table-scroll { overflow-x: auto; border: 1px solid var(--border); overscroll-behavior-inline: contain; scrollbar-color: #d60000 #ececea; }
+.pricing-table-scroll { overflow-x: auto; border: 1px solid var(--border); overscroll-behavior-inline: contain; scrollbar-color: #d60000 #ececea; border-radius: 1rem;}
 .pricing-table-scroll:focus-visible { outline: 2px solid #c8a96e; outline-offset: 3px; }
 
 .pricing-table { width: 100%; min-width: 72rem; border-collapse: separate; border-spacing: 0; background: #ffffff; }
@@ -257,7 +257,7 @@
 
 .pricing-parts-groups { display: grid; gap: 2rem; }
 .pricing-parts-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: .75rem; }
-.pricing-part-card { padding: 1.25rem; border: 1px solid var(--border); background: #ffffff; }
+.pricing-part-card { padding: 1.25rem; border: 1px solid var(--border); background: #ffffff; border-radius: 1rem;}
 .pricing-part-card h3 { margin: 0 0 1rem; font-family: "Rajdhani",sans-serif; font-size: 1.35rem; font-weight: 800; text-transform: uppercase; }
 .pricing-part-card ul { display: grid; gap: .45rem; padding: 0; margin: 0; color: var(--muted-foreground); font-size: .82rem; line-height: 1.55; list-style: none; }
 .pricing-part-card li:first-child { color: var(--foreground); font-size: 1rem; font-weight: 800; }

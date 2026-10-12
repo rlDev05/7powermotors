@@ -60,8 +60,8 @@ function DetailSearch({
   label: string;
 }) {
   return (
-    <div className="pricing-detail-toolbar">
-      <div className="pricing-search-field">
+    <div className="pricing-detail-toolbar rounded-2xl">
+      <div className="pricing-search-field rounded-xl">
         <Search aria-hidden="true" size={20} />
         <label className="pricing-sr-only" htmlFor="pricing-detail-search">{label}</label>
         <input
@@ -226,7 +226,7 @@ export default function PricingDetailPage() {
         <main className="pricing-main"><div className="pricing-container pricing-not-found">
           <span className="pricing-kicker">404 — Price list</span>
           <h1>This pricing category was not found.</h1>
-          <Link className="pricing-primary-link" to="/pricing"><ArrowLeft aria-hidden="true" /> Back to Price List</Link>
+          <Link className="pricing-primary-link rounded-xl" to="/pricing"><ArrowLeft aria-hidden="true" /> Back to Price List</Link>
         </div></main>
         <Footer />
       </div>
@@ -249,18 +249,16 @@ export default function PricingDetailPage() {
             </ol>
           </nav>
 
-          <header className="pricing-detail-hero">
+          <header className="pricing-detail-hero rounded-2xl">
             <div>
               <span className="pricing-kicker">CR-1 official pricing</span>
               <h1>{name}</h1>
-              <p>
-                Philippine-peso estimates are shown as new vehicle first, followed by the existing
-                or used vehicle amount. Values are converted from CR-1 Japan&apos;s minimum tax-inclusive
-                prices using the {JPY_TO_PHP_RATE_DATE} BSP reference rate of ¥1 = ₱{JPY_TO_PHP_RATE.toFixed(4)}.
+              <p className="text-justify">
+                New vehicles, the listed price applies. Additional cost arises only where optional areas are added to the application. Used vehicles depending on the condition of the motorcycle, additional detailing may be required before application, and the final price may therefore be higher than the listed amount.
               </p>
             </div>
             <div className="pricing-detail-actions">
-              <Link className="pricing-secondary-link" to="/pricing"><ArrowLeft aria-hidden="true" /> Back to Price List</Link>
+              <Link className="pricing-secondary-link rounded-xl" to="/pricing"><ArrowLeft aria-hidden="true" /> Back to Price List</Link>
               <a className="pricing-source-link" href={sourceUrl} target="_blank" rel="noreferrer">
                 Official source <ExternalLink aria-hidden="true" />
               </a>
@@ -282,7 +280,7 @@ export default function PricingDetailPage() {
                 <div><span>Helmet coating</span><h2>Shell and shield pricing</h2></div>
                 <span>{filteredHelmetRows.length} types</span>
               </div>
-              <div className="pricing-table-scroll" tabIndex={0} aria-label="Helmet pricing table; scroll horizontally if needed">
+              <div className="pricing-table-scroll rounded-2xl" tabIndex={0} aria-label="Helmet pricing table; scroll horizontally if needed">
                 <table className="pricing-table pricing-helmet-table">
                   <caption>CR-1 helmet coating prices</caption>
                   <thead><tr>{helmet?.columns.map((column) => <th scope="col" key={column}>{column}</th>)}</tr></thead>
@@ -317,15 +315,15 @@ export default function PricingDetailPage() {
             </div>
           )}
 
-          <section className="pricing-legal" aria-labelledby="pricing-notes-title">
+          <section className="pricing-legal rounded-2xl" aria-labelledby="pricing-notes-title">
             <div className="pricing-legal-heading">
               <ShieldAlert aria-hidden="true" />
               <div><span className="pricing-kicker">Important information</span><h2 id="pricing-notes-title">Pricing conditions and disclaimer</h2></div>
             </div>
             <div className="pricing-legal-summary">
-              <p><strong>New vehicle:</strong> An unused motorcycle treated at the time of new-vehicle purchase. Every other motorcycle uses the existing-vehicle amount.</p>
-              <p><strong>Currency conversion:</strong> Peso amounts are estimates converted at ¥1 = ₱{JPY_TO_PHP_RATE.toFixed(4)} using the {JPY_TO_PHP_RATE_SOURCE} reference rate dated {JPY_TO_PHP_RATE_DATE}. They are not final Philippine retail quotations.</p>
-              <p><strong>Certificate fees:</strong> Reissuance or name changes may require an additional fee. Charges vary by service course and market; confirm the current local fee with your CR-1 Pro Shop.</p>
+              <p className="rounded-xl"><strong>New vehicle:</strong> An unused motorcycle treated at the time of new-vehicle purchase. Every other motorcycle uses the existing-vehicle amount.</p>
+              {/* <p><strong>Currency conversion:</strong> Peso amounts are estimates converted at ¥1 = ₱{JPY_TO_PHP_RATE.toFixed(4)} using the {JPY_TO_PHP_RATE_SOURCE} reference rate dated {JPY_TO_PHP_RATE_DATE}. They are not final Philippine retail quotations.</p> */}
+              <p className="rounded-xl"><strong>Certificate fees:</strong> Reissuance or name changes may require an additional fee. Charges vary by service course and market; confirm this with your authorized CR-1 dealer.</p>
             </div>
             {notes.length > 0 && (
               <details open>
@@ -341,8 +339,8 @@ export default function PricingDetailPage() {
           </section>
 
           <div className="pricing-bottom-actions">
-            <Link className="pricing-primary-link" to="/pricing"><ArrowLeft aria-hidden="true" /> Back to Price List</Link>
-            <a className="pricing-secondary-link" href="#top"><ArrowUp aria-hidden="true" /> Back to Top</a>
+            <Link className="pricing-primary-link rounded-xl" to="/pricing"><ArrowLeft aria-hidden="true" /> Back to Price List</Link>
+            <a className="pricing-secondary-link rounded-xl" href="#top"><ArrowUp aria-hidden="true" /> Back to Top</a>
           </div>
         </div>
       </main>
