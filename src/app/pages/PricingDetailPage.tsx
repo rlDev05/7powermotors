@@ -1,5 +1,5 @@
 import React, { memo, useDeferredValue, useEffect, useMemo, useState } from 'react';
-import { ArrowLeft, ArrowUp, ExternalLink, Search, ShieldAlert, X } from 'lucide-react';
+import { ArrowLeft, ArrowUp, Search, ShieldAlert, X } from 'lucide-react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { Footer } from '@/app/components/Footer';
 import { Navbar } from '@/app/components/Navbar';
@@ -231,7 +231,6 @@ export default function PricingDetailPage() {
     );
   }
 
-  const sourceUrl = vehiclePage?.sourceUrl ?? helmet?.sourceUrl ?? parts?.sourceUrl ?? '';
   const notes = vehiclePage?.notes ?? helmet?.notes ?? parts?.notes ?? [];
 
   return (
@@ -259,9 +258,6 @@ export default function PricingDetailPage() {
             </div>
             <div className="pricing-detail-actions">
               <Link className="pricing-secondary-link rounded-xl" to="/pricing"><ArrowLeft aria-hidden="true" /> Back to Price List</Link>
-              <a className="pricing-source-link" href={sourceUrl} target="_blank" rel="noreferrer">
-                Master price list <ExternalLink aria-hidden="true" />
-              </a>
             </div>
           </header>
 
