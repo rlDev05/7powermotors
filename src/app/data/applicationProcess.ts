@@ -53,7 +53,7 @@ export const cr1ProcessSteps = [
     number: '06',
     title: 'Final Inspection and Completion',
     description:
-      'The motorcycle receives a final inspection to confirm completion according to CR-1 application standards. The applicable service certificate is then issued by the CR-1 Pro Shop.',
+      'The motorcycle receives a final inspection to confirm completion according to CR-1 application standards. The applicable service certificate is then issued by the authorized CR-1 Dealer.',
     image: finalInspection,
     alt: 'Completed motorcycle after professional CR-1 application',
   },

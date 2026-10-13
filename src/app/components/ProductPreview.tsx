@@ -36,7 +36,7 @@ export function ProductPreview() {
           <motion.div variants={revealUp}>
           <Link
             to="/products"
-            className="racing-button w-full sm:w-auto"
+            className="racing-button w-full sm:w-auto rounded-xl"
           >
             Explore CR-1 Products
             <ArrowRight className="h-4 w-4" />
@@ -56,7 +56,7 @@ export function ProductPreview() {
               key={product.id}
               variants={revealUp}
               transition={{ delay: index * 0.06 }}
-              className="racing-card group bg-card"
+              className="racing-card group bg-card rounded-2xl"
               whileHover={{ y: -6 }}
             >
               <div className="motion-sheen" />
@@ -72,7 +72,7 @@ export function ProductPreview() {
                     alt={product.name}
                     className="h-full w-full object-contain transition duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute left-0 top-0 bg-accent px-3 py-2 text-[0.65rem] font-black uppercase tracking-[0.14em] text-white sm:px-4 sm:text-xs sm:tracking-[0.18em]">
+                  <div className="absolute left-0 top-0 bg-accent px-3 py-2 text-[0.65rem] font-black uppercase tracking-[0.14em] text-white sm:px-4 sm:text-xs sm:tracking-[0.18em] rounded-br-xl">
                     {product.category}
                   </div>
                 </div>

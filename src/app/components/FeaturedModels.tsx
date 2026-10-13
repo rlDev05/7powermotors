@@ -42,10 +42,11 @@ export function FeaturedModels() {
           <motion.h2 className="racing-title" variants={revealUp}>
             Why CR-1 is different.
           </motion.h2>
-          <motion.p className="racing-copy mt-6 max-w-2xl" variants={revealUp}>
+          <motion.p className="racing-copy mt-6 max-w-2xl text-justify" variants={revealUp}>
             Most coatings are resin or polymer-based and need frequent
-            reapplication. CR-1 is inorganic glass, professionally applied for
-            durable gloss, easier washing, and stronger surface confidence.
+            reapplication. CR-1 is a 100% pure inorganic glass coating engineered by Yamashiro Japan professionally applied for
+            durable gloss, easier washing, and stronger surface confidence, applied by an Import Hauz
+            technician certified by CR-1 PH. 
           </motion.p>
 
           <div className="mt-8 space-y-4 sm:mt-12 sm:space-y-6">
@@ -57,7 +58,7 @@ export function FeaturedModels() {
                 viewport={{ once: true }}
                 variants={revealLeft}
                 transition={{ delay: index * 0.08 }}
-                className="racing-card flex gap-4 bg-card p-4 sm:gap-5 sm:p-5"
+                className="racing-card flex gap-4 bg-card p-4 sm:gap-5 sm:p-5 rounded-2xl"
                 whileHover={{ x: 6 }}
               >
                 <div className="motion-sheen" />
@@ -66,7 +67,7 @@ export function FeaturedModels() {
                   <h3 className="font-[Rajdhani] text-xl font-black uppercase text-foreground sm:text-2xl">
                     {point.title}
                   </h3>
-                  <p className="mt-1 text-base leading-7 text-muted-foreground">
+                  <p className="mt-1 text-base leading-7 text-muted-foreground text-justify">
                     {point.text}
                   </p>
                 </div>
@@ -76,7 +77,7 @@ export function FeaturedModels() {
 
           <a
             href="/contact"
-            className="racing-button mt-8 w-full sm:mt-12 sm:w-auto"
+            className="racing-button mt-8 w-full sm:mt-12 sm:w-auto rounded-xl"
           >
             Ask About CR-1 Coating
             <ArrowRight className="h-4 w-4" />
@@ -88,7 +89,7 @@ export function FeaturedModels() {
           whileInView="visible"
           viewport={{ once: true }}
           variants={revealRight}
-          className="racing-media min-h-[420px] sm:min-h-[560px]"
+          className="racing-media min-h-[420px] sm:min-h-[560px] rounded-2xl"
         >
           <div className="motion-sheen z-10" />
           <ImageWithFallback

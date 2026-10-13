@@ -1,0 +1,1 @@
+var e={slug:`helmet`,name:`Helmets`,sourceUrl:`https://docs.google.com/spreadsheets/u/1/d/1AFvyYyX8bCpL78iiivYXsRS0Y4IFl7lXketVnciG8yk/htmlview#gid=162625717`,legacyPath:``,columns:[`Helmet type`,`Whole helmet`],rows:[[`Full-face`,`₱3,080 / 【₱3,520】`],[`Small Jet`,`₱2,640 / 【₱3,080】`],[`Half-helmet / Semi-jet helmet`,`₱2,420 / 【₱2,860】`]],notes:[]};export{e as default};

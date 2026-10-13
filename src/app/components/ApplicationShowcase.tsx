@@ -80,7 +80,7 @@ export function ApplicationShowcase() {
           variants={revealContainer}
         >
           <div>
-            <motion.p className="brand-chip w-fit" variants={revealUp}>
+            <motion.p className="brand-chip w-fit mb-5 rounded-xl" variants={revealUp}>
               From Preparation to Presence
             </motion.p>
             <motion.h2 className="racing-title max-w-3xl" variants={revealUp}>
@@ -90,7 +90,8 @@ export function ApplicationShowcase() {
             </motion.h2>
           </div>
 
-          <motion.div className="max-w-2xl lg:justify-self-end" variants={revealUp}>
+          <motion.div className="max-w-2xl lg:justify-self-end text-justify
+          " variants={revealUp}>
             <p className="racing-copy font-semibold text-foreground">
               Premium results begin long before the final reveal.
             </p>
@@ -117,7 +118,7 @@ export function ApplicationShowcase() {
           {storySteps.map((step, index) => (
             <motion.li
               key={step.number}
-              className={`relative flex min-h-24 gap-4 py-5 sm:px-5 lg:min-h-28 lg:px-6 ${stepBorders[index]}`}
+              className={`relative flex min-h-24 gap-4 py-5 sm:px-5 lg:min-h-28 lg:px-6 rounded-xl ${stepBorders[index]}`}
               variants={revealUp}
             >
               <span className="font-[Rajdhani] text-sm font-black text-accent">{step.number}</span>
@@ -134,7 +135,7 @@ export function ApplicationShowcase() {
 
         <div className="mt-10 grid gap-4 lg:grid-cols-[1.08fr_0.92fr]">
           <motion.div
-            className="racing-media h-[34rem] sm:h-[42rem] lg:h-[47rem]"
+            className="racing-media h-[34rem] sm:h-[42rem] lg:h-[47rem] rounded-2xl"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -153,9 +154,9 @@ export function ApplicationShowcase() {
                 transition={{ duration: 0.55, ease: 'easeOut' }}
               />
             </AnimatePresence>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/5 to-black/15" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/5 to-black/15 " />
 
-            <div className="absolute left-5 top-5 border-l-2 border-accent bg-black/55 px-4 py-3 text-white backdrop-blur-sm sm:left-7 sm:top-7">
+            <div className="absolute left-5 top-5 border-l-2 border-accent bg-black/55 px-4 py-3 text-white backdrop-blur-sm sm:left-7 sm:top-7 rounded-2xl">
               <span className="block text-[0.65rem] font-black uppercase tracking-[0.22em] text-white/70">
                 02 / Controlled application
               </span>
@@ -179,7 +180,7 @@ export function ApplicationShowcase() {
                     type="button"
                     onClick={previous}
                     aria-label="Previous application photo"
-                    className="flex h-11 w-11 items-center justify-center border border-white/30 bg-black/45 text-white backdrop-blur transition hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+                    className="flex h-11 w-11 items-center justify-center border border-white/30 bg-black/45 text-white backdrop-blur transition hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded-xl"
                   >
                     <ArrowLeft className="h-5 w-5" />
                   </button>
@@ -187,8 +188,7 @@ export function ApplicationShowcase() {
                     type="button"
                     onClick={next}
                     aria-label="Next application photo"
-                    className="flex h-11 w-11 items-center justify-center bg-accent text-white transition hover:bg-[var(--accent-deep)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-accent"
-                  >
+                    className="flex h-11 w-11 items-center justify-center bg-accent text-white transition hover:bg-[var(--accent-deep)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-accent rounded-xl">
                     <ArrowRight className="h-5 w-5" />
                   </button>
                 </div>
@@ -222,7 +222,7 @@ export function ApplicationShowcase() {
             viewport={{ once: true, amount: 0.15 }}
             variants={revealContainer}
           >
-            <motion.figure className="racing-media aspect-[16/10]" variants={mediaReveal}>
+            <motion.figure className="racing-media aspect-[16/10] rounded-2xl" variants={mediaReveal}>
               <img loading="lazy" decoding="async"
                 src={completedBike.src}
                 alt="Completed CR-1-treated Kawasaki Z900RS presented in the studio"
@@ -243,7 +243,7 @@ export function ApplicationShowcase() {
               {finishDetails.map((image, index) => (
                 <motion.figure
                   key={image.src}
-                  className={`racing-media aspect-[4/5] ${index === 2 ? 'col-span-2 sm:col-span-1' : ''}`}
+                  className={`racing-media aspect-[4/5] rounded-2xl ${index === 2 ? 'col-span-2 sm:col-span-1' : ''}`}
                   variants={mediaReveal}
                 >
                   <img src={image.src} alt={image.alt} loading="lazy" decoding="async" className="h-full w-full object-cover" />
@@ -258,7 +258,7 @@ export function ApplicationShowcase() {
             </div>
 
             <motion.div
-              className="border-l-2 border-accent bg-background px-5 py-5 sm:px-6"
+              className="border-l-2 border-accent bg-background px-5 py-5 sm:px-6 rounded-2xl"
               variants={revealUp}
             >
               <p className="font-[Rajdhani] text-xl font-black uppercase tracking-[0.06em] text-foreground">

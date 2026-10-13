@@ -132,7 +132,7 @@ export default function BikeDetailsPage() {
           {/* LEFT: IMAGE OR 360 VIEW */}
           <motion.div className="relative lg:col-span-7" variants={mediaReveal}>
             <div className="sticky top-32">
-              <div className="racing-card relative flex min-h-[330px] items-center justify-center bg-white sm:min-h-[460px] lg:min-h-[500px]">
+              <div className="racing-card relative flex min-h-[330px] items-center justify-center bg-white sm:min-h-[460px] lg:min-h-[500px] rounded-2xl">
                 <div className="motion-sheen z-20" />
                 
                 <div className="pointer-events-none absolute inset-x-0 top-0 z-0 h-2 bg-gradient-to-r from-accent via-black to-white" />
@@ -142,7 +142,7 @@ export default function BikeDetailsPage() {
                     onClick={() => setIs360Mode(true)}
                     className="absolute top-6 right-6 z-30 group"
                   >
-                    <div className="flex cursor-pointer items-center gap-2 border border-border bg-white px-4 py-2 font-bold font-rajdhani text-foreground shadow-lg transition-all group-hover:border-accent group-hover:shadow-accent/20">
+                    <div className="flex cursor-pointer items-center gap-2 border border-border bg-white px-4 py-2 font-bold font-rajdhani text-foreground shadow-lg transition-all group-hover:border-accent group-hover:shadow-accent/20 rounded-xl">
                       <Rotate3d className="w-5 h-5 text-accent group-hover:rotate-180 transition-transform duration-700" />
                       <span className="text-sm tracking-wide">360 deg VIEW</span>
                     </div>
@@ -162,7 +162,7 @@ export default function BikeDetailsPage() {
                         <ImageWithFallback
                         src={currentImage}
                         alt={bike.name}
-                        className="h-auto max-h-[320px] w-full object-contain drop-shadow-2xl transition-transform duration-500 ease-out hover:scale-105 sm:max-h-[520px] lg:max-h-[600px]"
+                        className="h-auto max-h-[320px] w-full object-contain drop-shadow-2xl transition-transform duration-500 ease-out hover:scale-105 sm:max-h-[520px] lg:max-h-[600px] rounded-2xl"
                         key={currentImage}
                         />
                     </div>
@@ -209,7 +209,7 @@ export default function BikeDetailsPage() {
                         <motion.button
                           key={index}
                           onClick={() => handleColorChange(color.image)}
-                          className={`group relative h-16 w-16 overflow-hidden border border-border transition-all duration-300 sm:h-20 sm:w-20
+                          className={`group relative h-16 w-16 overflow-hidden border border-border transition-all duration-300 sm:h-20 sm:w-20 rounded-xl
                             ${isActive 
                               ? 'scale-110 ring-2 ring-accent ring-offset-2 ring-offset-background shadow-lg shadow-accent/20' 
                               : 'opacity-70 hover:opacity-100 hover:scale-105'
@@ -236,7 +236,7 @@ export default function BikeDetailsPage() {
 
               <div className="pt-6">
                 <motion.button
-                  className="racing-button group relative w-full overflow-hidden font-[Rajdhani] text-base sm:w-auto sm:min-w-[240px] sm:px-8 sm:py-5 sm:text-xl"
+                  className="racing-button group relative w-full overflow-hidden font-[Rajdhani] text-base sm:w-auto sm:min-w-[240px] sm:px-8 sm:py-5 sm:text-xl rounded-xl"
                   whileHover={{ y: -3, scale: 1.015 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -285,12 +285,12 @@ export default function BikeDetailsPage() {
                 return (
                   <motion.div
                     key={group.title}
-                    className="racing-card overflow-hidden"
+                    className="racing-card overflow-hidden rounded-2xl"
                     variants={revealUp}
                 >
                     <div className="motion-sheen" />
                     <div className="flex items-center gap-3 border-b border-border bg-secondary/50 px-6 py-4">
-                      <div className="bg-accent p-2 text-white">
+                      <div className="bg-accent p-2 text-white rounded-xl">
                         <GroupIcon className="w-5 h-5" />
                       </div>
                       <h4 className="font-rajdhani font-bold text-lg tracking-wide text-foreground">

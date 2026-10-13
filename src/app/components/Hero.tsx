@@ -9,19 +9,19 @@ const heroLines = ['100% Pure Glass', 'Motorcycle Exclusive'];
 const heroProofPoints = [
   {
     icon: <ShieldCheck className="h-5 w-5" aria-hidden="true" />,
-    label: 'Surface Hardness',
+    label: 'SURFACE HARDNESS',
     value: '9H',
     detail: 'Helps resist fine care marks',
   },
   {
     icon: <Thermometer className="h-5 w-5" aria-hidden="true" />,
-    label: 'Heat Resistance',
+    label: 'HEAT RESISTANCE',
     value: '1,300°C',
     detail: 'For approved heat-exposed areas',
   },
   {
     icon: <Layers3 className="h-5 w-5" aria-hidden="true" />,
-    label: 'Ultra-Thin Glass',
+    label: 'ULTRA-THIN GLASS',
     value: '0.1 μm',
     detail: 'Preserves texture and character',
   },
@@ -93,7 +93,7 @@ export function Hero() {
               <motion.div
                 variants={fadeUp}
                 transition={{ duration: 0.65, ease: 'easeOut' }}
-                className="mb-5 inline-flex max-w-full items-center gap-2 overflow-hidden border border-black/10 bg-white/78 px-3 py-2 text-[0.64rem] font-bold uppercase tracking-[0.14em] text-foreground/85 shadow-[0_18px_45px_rgba(25,25,25,0.1)] backdrop-blur sm:mb-6 sm:gap-3 sm:px-4 sm:text-xs sm:tracking-[0.22em]"
+                className="mb-5 inline-flex max-w-full items-center gap-2 overflow-hidden border border-black/10 bg-white/78 px-3 py-2 text-[0.64rem] font-bold uppercase tracking-[0.14em] text-foreground/85 shadow-[0_18px_45px_rgba(25,25,25,0.1)] backdrop-blur sm:mb-6 sm:gap-3 sm:px-4 sm:text-xs sm:tracking-[0.22em] rounded-xl"
               >
                 <motion.span
                   className="flex h-7 w-7 items-center justify-center bg-accent"
@@ -153,11 +153,10 @@ export function Hero() {
               <motion.p
                 variants={fadeUp}
                 transition={{ duration: 0.72, ease: 'easeOut' }}
-                className="mt-5 max-w-2xl text-sm leading-7 text-white/82 [text-shadow:0_2px_14px_rgba(0,0,0,0.45)] sm:mt-6 sm:text-lg sm:leading-8"
-              >
+                className="mt-5 max-w-2xl text-sm leading-7 text-white/82 [text-shadow:0_2px_14px_rgba(0,0,0,0.45)] sm:mt-6 sm:text-lg sm:leading-8 text-justify">
                 CR-1 is a glass coating brand made exclusively for motorcycles. Sprayed on by
                 certified technicians and chemically cured into a 100% pure glass layer, it offers
-                9H scratch resistance, 1,300°C heat resistance, and about 10 years of durability.
+                9H surface hardness, 1,300°C heat resistance, and about 10 years of durability.
               </motion.p>
 
               <motion.div
@@ -175,7 +174,7 @@ export function Hero() {
                   </p>
                   <Link
                     to="/contact?intent=service"
-                    className="racing-button w-full flex-1 sm:px-8 sm:py-4"
+                    className="racing-button w-full flex-1 sm:px-8 sm:py-4 rounded-xl"
                   >
                     Get CR-1 Protection
                     <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -192,7 +191,7 @@ export function Hero() {
                   </p>
                   <Link
                     to="/contact?intent=partner"
-                    className="inline-flex min-h-12 w-full flex-1 items-center justify-center gap-2 border border-white/35 bg-white/92 px-5 py-3 text-center text-xs font-black uppercase tracking-[0.1em] text-foreground shadow-lg backdrop-blur transition hover:border-accent hover:bg-accent hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black sm:px-8 sm:py-4 sm:text-sm sm:tracking-[0.12em]"
+                    className="inline-flex min-h-12 w-full flex-1 items-center justify-center gap-2 border border-white/35 bg-white/92 px-5 py-3 text-center text-xs font-black uppercase tracking-[0.1em] text-foreground shadow-lg backdrop-blur transition hover:border-accent hover:bg-accent hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black sm:px-8 sm:py-4 sm:text-sm sm:tracking-[0.12em] rounded-xl"
                   >
                     Partner With CR-1
                     <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -203,7 +202,7 @@ export function Hero() {
               <motion.ul
                 variants={fadeUp}
                 transition={{ duration: 0.72, ease: 'easeOut' }}
-                className="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-[0.68rem] font-black uppercase tracking-[0.12em] text-white/80 lg:hidden"
+                className="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-[0.68rem] font-black tracking-[0.12em] text-white/80 lg:hidden"
                 aria-label="CR-1 technical proof"
               >
                 {heroProofPoints.map((item) => (
@@ -218,7 +217,7 @@ export function Hero() {
               initial={reducedMotion ? false : { opacity: 0, x: 34, filter: 'blur(12px)' }}
               animate={reducedMotion ? undefined : { opacity: 1, x: 0, filter: 'blur(0px)' }}
               transition={{ duration: 0.85, delay: 0.58, ease: [0.16, 1, 0.3, 1] }}
-              className="relative hidden overflow-hidden border border-black/10 bg-white/80 p-5 shadow-[0_24px_70px_rgba(25,25,25,0.13)] backdrop-blur-md lg:block"
+              className="relative hidden overflow-hidden border border-black/10 bg-white/80 p-5 shadow-[0_24px_70px_rgba(25,25,25,0.13)] backdrop-blur-md lg:block rounded-xl"
               aria-label="CR-1 technical proof"
             >
               <motion.div
@@ -242,7 +241,7 @@ export function Hero() {
                       {item.label}
                     </span>
                   </div>
-                  <p className="pl-4 font-[Rajdhani] text-[1.85rem] font-black uppercase leading-none text-foreground">
+                  <p className="pl-4 font-[Rajdhani] text-[1.85rem] font-black leading-none text-foreground">
                     {item.value}
                   </p>
                   <p className="mt-2 pl-4 text-xs leading-5 text-muted-foreground">{item.detail}</p>

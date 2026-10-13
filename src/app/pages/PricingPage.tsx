@@ -132,7 +132,7 @@ export default function PricingPage() {
             </ol>
           </nav>
 
-          <header className="pricing-hero">
+          <header className="pricing-hero rounded-2xl">
             <div className="pricing-hero-copy">
               <span className="pricing-kicker">CR-1 service pricing</span>
               <h1>Find the right protection for your ride.</h1>
@@ -153,13 +153,13 @@ export default function PricingPage() {
             </dl>
           </header>
 
-          <section className="pricing-search-panel" aria-labelledby="pricing-search-title">
+          <section className="pricing-search-panel rounded-2xl" aria-labelledby="pricing-search-title">
             <div>
               <span className="pricing-section-index">01</span>
               <h2 id="pricing-search-title">Search every price list</h2>
-              <p>Try “Ducati,” “1000cc,” “Panigale,” “helmet,” or “Premium Course.”</p>
+              <p>Try “Ducati,” “1000cc,” “Panigale,” or “helmet”.</p>
             </div>
-            <div className="pricing-search-field">
+            <div className="pricing-search-field rounded-xl">
               <Search aria-hidden="true" size={20} />
               <label className="pricing-sr-only" htmlFor="pricing-search">{pricingText.search.overviewLabel}</label>
               <input
@@ -236,7 +236,7 @@ export default function PricingPage() {
                 </div>
                 <div className="pricing-course-grid">
                   {courseDetails.map((course) => (
-                    <article className={`pricing-course-card course-${course.key}`} key={course.key}>
+                    <article className={`pricing-course-card rounded-2xl cursor-pointer course-${course.key}`} key={course.key}>
                       <span>{course.eyebrow}</span>
                       <h3>{course.name}</h3>
                       <p>{course.description}</p>
@@ -254,22 +254,22 @@ export default function PricingPage() {
                   <p>Start with the vehicle or item you want CR-1 to protect.</p>
                 </div>
                 <div className="pricing-category-grid">
-                  <Link className="pricing-category-card pricing-category-card-large" to="/pricing/domestic">
-                    <span className="pricing-card-icon"><Bike aria-hidden="true" /></span>
+                  <Link className="pricing-category-card pricing-category-card-large rounded-2xl" to="/pricing/domestic">
+                    <span className="pricing-card-icon rounded-xl"><Bike aria-hidden="true" /></span>
                     <span className="pricing-card-copy">
                       <small>By engine displacement</small>
-                      <strong>Domestic motorcycles</strong>
+                      <strong>Japanese Brands</strong>
                       <span>Displacement and vehicle-type price groups</span>
                     </span>
                     <ArrowRight aria-hidden="true" />
                   </Link>
-                  <Link className="pricing-category-card" to="/pricing/helmet">
-                    <span className="pricing-card-icon"><HardHat aria-hidden="true" /></span>
+                  <Link className="pricing-category-card rounded-2xl" to="/pricing/helmet">
+                    <span className="pricing-card-icon rounded-xl"><HardHat aria-hidden="true" /></span>
                     <span className="pricing-card-copy"><small>Shell and shield options</small><strong>Helmets</strong></span>
                     <ArrowRight aria-hidden="true" />
                   </Link>
-                  <Link className="pricing-category-card" to="/pricing/parts">
-                    <span className="pricing-card-icon"><Wrench aria-hidden="true" /></span>
+                  <Link className="pricing-category-card rounded-2xl" to="/pricing/parts">
+                    <span className="pricing-card-icon rounded-xl"><Wrench aria-hidden="true" /></span>
                     <span className="pricing-card-copy"><small>Additional coating sizes</small><strong>Other items</strong></span>
                     <ArrowRight aria-hidden="true" />
                   </Link>
@@ -282,7 +282,7 @@ export default function PricingPage() {
             <div className="pricing-section-heading">
               <div>
                 <span className="pricing-section-index">{normalizedQuery ? 'Brands' : '04'}</span>
-                <h2 id="brands-title">Imported motorcycle brands</h2>
+                <h2 id="brands-title">Other Brands</h2>
               </div>
               <p>{filteredBrands.length} brand{filteredBrands.length === 1 ? '' : 's'} available</p>
             </div>
@@ -296,8 +296,8 @@ export default function PricingPage() {
             </div>
           </section>
 
-          <section className="pricing-notice-summary" aria-labelledby="price-reading-title">
-            <div className="pricing-notice-icon"><ShieldCheck aria-hidden="true" /></div>
+          <section className="pricing-notice-summary rounded-2xl" aria-labelledby="price-reading-title">
+            <div className="pricing-notice-icon rounded-xl"><ShieldCheck aria-hidden="true" /></div>
             <div>
               <span className="pricing-kicker">Before you compare</span>
               <h2 id="price-reading-title">How to read CR-1 pricing</h2>
@@ -309,7 +309,7 @@ export default function PricingPage() {
                 Prices are shown in Philippine pesos for new and existing vehicles.
                 Removal, polishing, repairs, or additional preparation may add cost. Certificate
                 reissuance or name changes may require an additional fee. Charges vary by
-                service course and market, so confirm the current local fee with your CR-1 Pro Shop.
+                service course and market, so confirm this with your authorized CR-1 dealer.
               </p>
             </div>
           </section>

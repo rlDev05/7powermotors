@@ -24,6 +24,7 @@ export function Footer() {
     company: [
       { label: 'Why CR-1', href: '/services' },
       { label: 'Model Gallery', href: '/models' },
+      { label: 'Installation Gallery', href: '/installation' },
       { label: 'Become a Dealer', href: '/contact?intent=partner' },
       { label: 'Dealer Locator', href: '/contact' },
     ],
@@ -51,8 +52,8 @@ export function Footer() {
                 lineHeight: 1.7,
               }}
             >
-              Glass coating made exclusively for motorcycles, professionally applied across approved
-              motorcycle, helmet, wheel, exhaust, part, and accessory surfaces.
+              Import Hauz — the Philippines' first CR-1 dealer · CR-1 Philippines, distributed exclusively by
+              7Power Motors.
             </p>
             
             {/* Contact Info */}
@@ -217,7 +218,7 @@ export function Footer() {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="min-h-12 flex-1 border border-border bg-white px-4 py-3 text-foreground placeholder:text-muted-foreground transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/15"
+                className="min-h-12 flex-1 border border-border bg-white px-4 py-3 text-foreground placeholder:text-muted-foreground transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/15 rounded-xl"
                 style={{
                   fontFamily: 'Inter, sans-serif',
                   fontSize: '0.875rem',
@@ -225,7 +226,7 @@ export function Footer() {
               />
               <button
                 type="submit"
-                className="min-h-12 bg-accent px-6 py-3 text-accent-foreground shadow-[0_12px_28px_rgba(214,0,0,0.22)] transition-transform hover:scale-[1.03] hover:bg-[var(--accent-deep)] active:scale-[.97]"
+                className="min-h-12 bg-accent px-6 py-3 text-accent-foreground shadow-[0_12px_28px_rgba(214,0,0,0.22)] transition-transform hover:scale-[1.03] hover:bg-[var(--accent-deep)] active:scale-[.97] rounded-xl"
                 style={{
                   fontFamily: 'Inter, sans-serif',
                   fontSize: '0.875rem',
@@ -259,7 +260,7 @@ export function Footer() {
                 href={social.href}
                 target="_blank"
                 rel="noreferrer"
-                className="flex h-11 w-11 items-center justify-center border border-border text-muted-foreground transition-transform hover:-translate-y-0.5 hover:scale-105 hover:border-accent hover:text-accent"
+                className="flex h-11 w-11 items-center justify-center border border-border text-muted-foreground transition-transform hover:-translate-y-0.5 hover:scale-105 hover:border-accent hover:text-accent rounded-xl"
                 aria-label={social.label}
               >
                 {social.icon}
