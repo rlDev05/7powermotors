@@ -4,7 +4,6 @@ export type LocalizedPricingData = VehiclePricingPage | HelmetPricing | PartsPri
 
 const loaderBySlug: Record<string, () => Promise<LocalizedPricingData>> = {
   domestic: () => import('../data/pricing-localized/domestic.json').then((module) => module.default),
-  special: () => import('../data/pricing-localized/special.json').then((module) => module.default),
   ducati: () => import('../data/pricing-localized/ducati.json').then((module) => module.default),
   'can-am': () => import('../data/pricing-localized/can-am.json').then((module) => module.default),
   'harley-davidson': () => import('../data/pricing-localized/harley-davidson.json').then((module) => module.default),
@@ -18,7 +17,6 @@ const loaderBySlug: Record<string, () => Promise<LocalizedPricingData>> = {
   husqvarna: () => import('../data/pricing-localized/husqvarna.json').then((module) => module.default),
   indian: () => import('../data/pricing-localized/indian.json').then((module) => module.default),
   'royal-enfield': () => import('../data/pricing-localized/royal-enfield.json').then((module) => module.default),
-  mutt: () => import('../data/pricing-localized/mutt.json').then((module) => module.default),
   helmet: () => import('../data/pricing-localized/helmet.json').then((module) => module.default),
   parts: () => import('../data/pricing-localized/parts.json').then((module) => module.default),
 };

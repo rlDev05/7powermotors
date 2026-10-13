@@ -291,51 +291,30 @@ The pricing feature is split into three responsibilities:
 
 | File | Responsibility |
 | --- | --- |
-| `data/pricing.ts` | Raw structured pricing catalog and legal/service notes. |
-| `lib/pricingConfig.ts` | Single JPY-to-PHP rate, conversion, and JPY/PHP formatting. |
-| `lib/pricingLocalization.ts` | English translations that use the centralized currency helpers. |
-| `data/pricing-localized/*.json` | Generated, lazy-loaded display chunks derived from the raw JPY catalog. |
+| `data/pricing-master.json` | Committed snapshot of every row and JPY/PHP value in the CR-1 Philippines master Google Sheet. |
+| `lib/pricingConfig.ts` | Pricing source metadata, available category routes, and row counts. |
+| `scripts/import-pricing-sheet.mjs` | Explicitly downloads and validates the master sheet, then refreshes local data. |
+| `scripts/generate-pricing-data.mjs` | Rebuilds display chunks from the committed snapshot without network access. |
+| `data/pricing-localized/*.json` | Generated, lazy-loaded Philippine-peso display chunks. |
 | `pages/PricingPage.tsx` and `PricingDetailPage.tsx` | Search, navigation, tables, mobile cards, breadcrumbs, and notices. |
 | `styles/pricing.css` | Pricing layout and responsive presentation. |
 
-### Exchange-rate maintenance
+### Master price-list maintenance
 
-The conversion rate is intentionally explicit:
+The live website never calls Google Sheets or a currency API. Google Sheets is an editorial source that is imported deliberately; the committed snapshot is the production source at runtime.
 
-```ts
-export const JPY_TO_PHP_RATE = 0.3803;
-export const JPY_TO_PHP_RATE_DATE = '16 July 2026';
-export const JPY_TO_PHP_RATE_SOURCE = 'Bangko Sentral ng Pilipinas';
-```
+To publish sheet changes:
 
-`convertJPYToPHP`, `formatJPY`, and `formatPHP` live beside this configuration. Conversion rounds
-to the nearest whole peso. The pricing feature does not request an exchange rate at runtime.
+1. Confirm the sheet still has the expected 28-column master-list layout.
+2. Run `npm run import:pricing` with internet access.
+3. Review the changed `pricing-master.json` and generated chunks.
+4. Update `PRICING_SNAPSHOT_DATE` in `lib/pricingConfig.ts` to match the import.
+5. Run `npm run test:pricing` and `npm run build`.
+6. Commit the snapshot and generated files together.
 
-Before changing the rate:
+`npm run generate:pricing` is intentionally offline and only rebuilds derived chunks from the committed snapshot. PHP columns in the sheet are used directly; the application does not recalculate them from JPY.
 
-1. Verify a current authoritative source.
-2. Update the numeric rate.
-3. Update the displayed date.
-4. Update the source label only if the source changed.
-5. Run `npm run generate:pricing` to refresh the derived lazy-loaded pricing chunks.
-6. Run `npm run test:pricing` and `npm run build`.
-7. Confirm that pricing disclaimers still describe estimates accurately.
-
-Never silently replace source prices. The PHP amount is an estimate derived from the underlying JPY value.
-
-### Translation maintenance
-
-`exactTranslations` maps known Japanese source strings to approved English text. `localizePricingText` also converts recognized yen amounts.
-
-When untranslated text appears:
-
-1. Copy the exact source string from `pricing.ts`.
-2. Add a precise English entry to `exactTranslations`.
-3. Preserve legal meaning, conditions, thresholds, and additional-charge language.
-4. Search the rendered pricing page for Japanese characters and mojibake.
-5. Test desktop tables and mobile cards.
-
-Do not shorten legal notes merely to improve layout.
+Do not edit generated pricing chunks by hand. Correct the master sheet or importer and regenerate them.
 
 ### Pricing performance
 

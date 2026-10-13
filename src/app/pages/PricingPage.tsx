@@ -2,7 +2,6 @@ import React, { useDeferredValue, useEffect, useState } from 'react';
 import {
   ArrowRight,
   Bike,
-  Gauge,
   HardHat,
   Search,
   ShieldCheck,
@@ -16,9 +15,8 @@ import { ScrollToTop } from '@/app/components/ScrollToTop';
 import { type CourseKey } from '@/app/data/pricing';
 import { getPricingTranslations } from '@/app/i18n/pricing';
 import {
-  JPY_TO_PHP_RATE,
-  JPY_TO_PHP_RATE_DATE,
   PRICING_TOTAL_ROWS,
+  PRICING_SNAPSHOT_DATE,
   pricingVehiclePages,
 } from '@/app/lib/pricingConfig';
 
@@ -107,8 +105,8 @@ export default function PricingPage() {
       if ('helmet helmets'.includes(normalizedQuery)) {
         results.unshift({ key: 'helmet-category', eyebrow: pricingText.labels.category, title: 'Helmets', context: 'Shell and shield coating prices', href: '/pricing/helmet' });
       }
-      if ('parts individual parts components'.includes(normalizedQuery)) {
-        results.unshift({ key: 'parts-category', eyebrow: pricingText.labels.category, title: 'Individual parts', context: 'Component-by-component prices', href: '/pricing/parts' });
+      if ('parts individual parts components other items'.includes(normalizedQuery)) {
+        results.unshift({ key: 'parts-category', eyebrow: pricingText.labels.category, title: 'Other items', context: 'Small, medium, and large item prices', href: '/pricing/parts' });
       }
 
       setSearchResults(results.slice(0, 60));
@@ -139,13 +137,13 @@ export default function PricingPage() {
               <span className="pricing-kicker">CR-1 service pricing</span>
               <h1>Find the right protection for your ride.</h1>
               <p>
-                Explore CR-1 Japan pricing in English with Philippine-peso estimates for domestic
-                and imported motorcycles, special vehicles, helmets, and individual parts. Search
+                Explore CR-1 Philippines pricing for domestic and imported motorcycles, helmets,
+                and other items. Search
                 by brand, model, displacement, price, or service course.
               </p>
               <p>
-                Estimates use the {JPY_TO_PHP_RATE_DATE} BSP reference rate of ¥1 = ₱{JPY_TO_PHP_RATE.toFixed(4)}.
-                Final Philippine shop quotations may differ.
+                Philippine-peso prices are loaded locally from the CR-1 master price list snapshot dated {PRICING_SNAPSHOT_DATE}.
+                Final shop quotations may differ when extra preparation or service is required.
               </p>
             </div>
             <dl className="pricing-stats" aria-label="Price list coverage">
@@ -265,15 +263,6 @@ export default function PricingPage() {
                     </span>
                     <ArrowRight aria-hidden="true" />
                   </Link>
-                  <Link className="pricing-category-card pricing-category-card-large" to="/pricing/special">
-                    <span className="pricing-card-icon"><Gauge aria-hidden="true" /></span>
-                    <span className="pricing-card-copy">
-                      <small>Model-specific rates</small>
-                      <strong>Special vehicles</strong>
-                      <span>Model-specific special vehicle pricing</span>
-                    </span>
-                    <ArrowRight aria-hidden="true" />
-                  </Link>
                   <Link className="pricing-category-card" to="/pricing/helmet">
                     <span className="pricing-card-icon"><HardHat aria-hidden="true" /></span>
                     <span className="pricing-card-copy"><small>Shell and shield options</small><strong>Helmets</strong></span>
@@ -281,7 +270,7 @@ export default function PricingPage() {
                   </Link>
                   <Link className="pricing-category-card" to="/pricing/parts">
                     <span className="pricing-card-icon"><Wrench aria-hidden="true" /></span>
-                    <span className="pricing-card-copy"><small>Component-by-component</small><strong>Individual parts</strong></span>
+                    <span className="pricing-card-copy"><small>Additional coating sizes</small><strong>Other items</strong></span>
                     <ArrowRight aria-hidden="true" />
                   </Link>
                 </div>
@@ -317,7 +306,7 @@ export default function PricingPage() {
                 <span><i className="pricing-dot pricing-dot-used" /> <strong>Existing / used vehicle</strong> — shown in brackets in the official list</span>
               </div>
               <p>
-                All displayed prices include Japanese consumption tax and are minimum prices.
+                Prices are shown in Philippine pesos for new and existing vehicles.
                 Removal, polishing, repairs, or additional preparation may add cost. Certificate
                 reissuance or name changes may require an additional fee. Charges vary by
                 service course and market, so confirm the current local fee with your CR-1 Pro Shop.

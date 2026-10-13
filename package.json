@@ -13,7 +13,8 @@
     "test:partnership": "node --test server/partnership.test.mjs",
     "test:pricing": "node --experimental-strip-types scripts/test-pricing.mjs",
     "test:production": "npm run build && npm start",
-    "generate:pricing": "node scripts/generate-pricing-data.mjs"
+    "generate:pricing": "node scripts/generate-pricing-data.mjs",
+    "import:pricing": "node scripts/import-pricing-sheet.mjs"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",

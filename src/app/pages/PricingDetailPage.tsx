@@ -12,9 +12,7 @@ import {
 import { loadLocalizedPricingData, type LocalizedPricingData } from '@/app/lib/pricingData';
 import { getPricingTranslations } from '@/app/i18n/pricing';
 import {
-  JPY_TO_PHP_RATE,
-  JPY_TO_PHP_RATE_DATE,
-  JPY_TO_PHP_RATE_SOURCE,
+  PRICING_SNAPSHOT_DATE,
 } from '@/app/lib/pricingConfig';
 
 const pricingText = getPricingTranslations('en');
@@ -254,15 +252,15 @@ export default function PricingDetailPage() {
               <span className="pricing-kicker">CR-1 official pricing</span>
               <h1>{name}</h1>
               <p>
-                Philippine-peso estimates are shown as new vehicle first, followed by the existing
-                or used vehicle amount. Values are converted from CR-1 Japan&apos;s minimum tax-inclusive
-                prices using the {JPY_TO_PHP_RATE_DATE} BSP reference rate of ¥1 = ₱{JPY_TO_PHP_RATE.toFixed(4)}.
+                Philippine-peso prices are shown as new vehicle first, followed by the existing
+                or used vehicle amount. Values come from the CR-1 Philippines master price list
+                snapshot dated {PRICING_SNAPSHOT_DATE} and are available without an external pricing request.
               </p>
             </div>
             <div className="pricing-detail-actions">
               <Link className="pricing-secondary-link" to="/pricing"><ArrowLeft aria-hidden="true" /> Back to Price List</Link>
               <a className="pricing-source-link" href={sourceUrl} target="_blank" rel="noreferrer">
-                Official source <ExternalLink aria-hidden="true" />
+                Master price list <ExternalLink aria-hidden="true" />
               </a>
             </div>
           </header>
@@ -303,7 +301,7 @@ export default function PricingDetailPage() {
             <div className="pricing-parts-groups">
               {Object.entries(groupedParts).map(([category, items]) => (
                 <section className="pricing-parts-section" key={category}>
-                  <div className="pricing-table-heading"><div><span>Individual parts</span><h2>{category}</h2></div><span>{items.length} items</span></div>
+                  <div className="pricing-table-heading"><div><span>Other items</span><h2>{category}</h2></div><span>{items.length} items</span></div>
                   <div className="pricing-parts-grid">
                     {items.map((item) => (
                       <article className="pricing-part-card" key={item.name}>
@@ -324,7 +322,7 @@ export default function PricingDetailPage() {
             </div>
             <div className="pricing-legal-summary">
               <p><strong>New vehicle:</strong> An unused motorcycle treated at the time of new-vehicle purchase. Every other motorcycle uses the existing-vehicle amount.</p>
-              <p><strong>Currency conversion:</strong> Peso amounts are estimates converted at ¥1 = ₱{JPY_TO_PHP_RATE.toFixed(4)} using the {JPY_TO_PHP_RATE_SOURCE} reference rate dated {JPY_TO_PHP_RATE_DATE}. They are not final Philippine retail quotations.</p>
+              <p><strong>Price source:</strong> Peso amounts are copied from the CR-1 Philippines master price list snapshot dated {PRICING_SNAPSHOT_DATE}. They are not a promise of the final retail quotation when extra work is required.</p>
               <p><strong>Certificate fees:</strong> Reissuance or name changes may require an additional fee. Charges vary by service course and market; confirm the current local fee with your CR-1 Pro Shop.</p>
             </div>
             {notes.length > 0 && (

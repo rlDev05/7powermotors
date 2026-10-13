@@ -23,7 +23,6 @@ const PricingDetailPage = lazy(() => import('@/app/pages/PricingDetailPage'));
 
 const legacyPricingSlugs: Record<string, string> = {
   'domestic.html': 'domestic',
-  'special.html': 'special',
   'ducati.html': 'ducati',
   'can-am_spyder.html': 'can-am',
   'harley-davidson.html': 'harley-davidson',
@@ -37,7 +36,6 @@ const legacyPricingSlugs: Record<string, string> = {
   'husqvarna.html': 'husqvarna',
   'indian.html': 'indian',
   'royal-enfield.html': 'royal-enfield',
-  'mutt.html': 'mutt',
   'helmet.html': 'helmet',
   'parts.html': 'parts',
 };
